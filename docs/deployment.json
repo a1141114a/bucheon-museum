@@ -1,0 +1,49 @@
+{
+  "repository": "a1141114a/bucheon-museum",
+  "repositoryId": 1445702950,
+  "branch": "main",
+  "sourceCommit": "d098b8df7116d3adfc8d00d79d09e7607628b7ea",
+  "workflowRunId": 41840261050,
+  "workflowRunUrl": "https://github.com/a1141114a/bucheon-museum/actions/runs/41840261050",
+  "pagesUrl": "https://a1141114a.github.io/bucheon-museum/",
+  "status": "deployed",
+  "verifiedDate": "2026-11-04",
+  "checks": [
+    {
+      "path": "index.html",
+      "status": 200
+    },
+    {
+      "path": "/bucheon-museum/assets/index-Cw7ax9yx.js",
+      "status": 200
+    },
+    {
+      "path": "/bucheon-museum/assets/three-C7P08Ok4.js",
+      "status": 200
+    },
+    {
+      "path": "/bucheon-museum/assets/renderer-CJto5Uq7.js",
+      "status": 200
+    },
+    {
+      "path": "/bucheon-museum/assets/index-Cn_Wb3VW.css",
+      "status": 200
+    },
+    {
+      "path": "ui/adventure-panel.png",
+      "status": 200
+    },
+    {
+      "path": "ui/adventure-slot.png",
+      "status": 200
+    },
+    {
+      "path": "models/restoration_vessel.glb",
+      "status": 200,
+      "bytes": 1724552,
+      "hashMatchesLocal": true
+    }
+  ],
+  "browserRestorationVerified": true,
+  "ciTestsPassed": 30
+}
