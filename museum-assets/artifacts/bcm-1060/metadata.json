@@ -1,0 +1,77 @@
+{
+  "id": "bcm-1060",
+  "category": "history",
+  "name": {
+    "zh": "学校钟",
+    "ko": "학교종",
+    "en": "School bell"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1060,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/광복이후",
+  "dateClarificationZh": null,
+  "materialSourceKo": null,
+  "dimensionsSource": "24X24X24cm",
+  "purpose": {
+    "zh": "旧时学校使用，具体敲钟安排未核实",
+    "ko": "옛 학교에서 사용, 구체적인 타종 방식은 미확인",
+    "en": "Used at a school; exact ringing practices are unverified"
+  },
+  "historyAndSignificance": {
+    "zh": "这件旧学校钟由富川市立博物馆列入教育类藏品，定为光复后，馆方所列尺寸为24×24×24厘米。它保留了校园中曾使用的实体钟形。馆方条目仅确认其旧时学校用途，原属学校、具体材质、铸造年代和敲钟安排均未核实。",
+    "ko": "부천시립박물관 교육 자료인 이 학교종은 광복 이후의 것으로, 크기는 24×24×24cm이다. 옛 학교에서 쓰인 실물 종을 보여준다. 어느 학교에서 사용했는지, 어떤 재료로 언제 만들었는지, 언제 울렸는지는 확인되지 않았다.",
+    "en": "Bucheon City Museum catalogues this 24 cm school bell among its education objects and dates it after liberation. It preserves the physical form of a bell used at a school. The original school, material, manufacture date and ringing practices are not identified by the entry."
+  },
+  "sources": [
+    {
+      "title": "학교종",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1060/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1390",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1390",
+      "captionKo": "학교종",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1390",
+      "format": "JPEG",
+      "pixels": [
+        600,
+        600
+      ],
+      "errors": [
+        "HTTP Error 404: "
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "钟身旋转体，挂件分件。原图404，仅600×600缩略图。钟舌是否可见和内部构造待补。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

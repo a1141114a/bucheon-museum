@@ -1,4 +1,4 @@
-import { artifacts } from '../data/artifacts'
+import { artifacts, storageJarArtifact } from '../data/artifacts'
 import type { ArtifactStatus, Language, LevelId } from '../types'
 import {freshRestoration,fragmentIds,placementResult,rotationOf,restorationScore,parseRestoration,type RestorationState} from './restoration'
 export const STORAGE_KEY = 'bucheon-museum:prototype:v1'
@@ -44,7 +44,8 @@ export function parseSave(raw:string|null):GameState {
     const records:Record<string,ArtifactStatus>={}
     const values=candidate.artifacts
     if(values && typeof values==='object') for(const a of artifacts) {
-      const v=(values as Record<string,unknown>)[a.id]
+      const saved=values as Record<string,unknown>
+      const v=saved[a.id] ?? (a.id===storageJarArtifact.id ? saved['test-vessel'] : undefined)
       if(v==='discovered'||v==='unlocked') records[a.id]=v
     }
     const restoration=candidate.version===2?parseRestoration(candidate.restoration):freshRestoration()

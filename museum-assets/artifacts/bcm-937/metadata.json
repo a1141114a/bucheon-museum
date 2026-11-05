@@ -1,0 +1,81 @@
+{
+  "id": "bcm-937",
+  "category": "archery",
+  "name": {
+    "zh": "独立青铜箭镞（组照选件）",
+    "ko": "청동촉 (단일 재현)",
+    "en": "Bronze arrowhead (one photographed specimen)"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川弓博物馆",
+    "ko": "부천활박물관",
+    "en": "Bucheon Bow Museum"
+  },
+  "identity": "official-group-record",
+  "catalogPageId": 937,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/청동기",
+  "dateClarificationZh": null,
+  "materialSourceKo": "청동",
+  "dimensionsSource": "3.3~5.8cm（全组）",
+  "purpose": {
+    "zh": "安装在箭杆前端",
+    "ko": "화살대 끝에 장착",
+    "en": "Mounted at the tip of an arrow shaft"
+  },
+  "historyAndSignificance": {
+    "zh": "馆方把这组箭镞定为青铜器时代，并指出不同年代和地区出土的青铜镞形态各异。项目选组照上排左起第三枚作为外观参考，复原中央脊、两侧尖翼和窄铤，单件尺寸和登记编号尚未核实。",
+    "ko": "박물관은 청동기 시대의 청동촉으로 소개한다. 단체 사진 윗줄 왼쪽 세 번째 유물의 중앙 능선, 양 날개와 슴베를 재현했다. 개별 치수와 등록번호는 확인되지 않았다.",
+    "en": "The museum dates the bronze points to the Bronze Age. The model follows the third specimen from the left in the top row, with its raised rib, wings and narrow tang. The exact dimensions and individual accession number remain unverified."
+  },
+  "sources": [
+    {
+      "title": "청동촉 (단일 재현)",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/937/view",
+      "checkedOn": "2026-11-05"
+    },
+    {
+      "title": "《富川与博物馆》第2期：富川弓博物馆藏品现状与展望",
+      "url": "https://www.bcmuseum.or.kr/comm/file/down?id=3121",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1267",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1267",
+      "captionKo": "청동촉 전면 사진",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1267",
+      "format": "JPEG",
+      "pixels": [
+        1000,
+        1000
+      ],
+      "angle": "front",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "reference-silhouette-confirmed"
+    }
+  ],
+  "review": {
+    "status": "approved-for-modeling",
+    "approvedAt": "2026-11-05",
+    "evidence": "用户在本次对话选定替换项并要求开始独立建模。",
+    "notes": "仅批准独立建模。"
+  },
+  "model": {
+    "status": "completed",
+    "confidence": "approximate-photo-reference",
+    "proposedMethodAndUnknownsZh": "仅建组照上排左起第三枚。总长暂设5.0 cm，在馆方所列全组范围内。厚度、背部与氧化斑为近似。",
+    "blend": "model.blend",
+    "glb": "model.glb",
+    "script": "../../generate_model.py",
+    "preview": "preview.png",
+    "stats": "model-stats.json"
+  },
+  "placement": null
+}

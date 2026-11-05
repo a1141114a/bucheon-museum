@@ -1,5 +1,6 @@
 export const fragmentIds=Array.from({length:9},(_,i)=>`shard_${Math.floor(i/3)}_${i%3}`)
 export const trayOrder=[5,0,7,2,8,1,6,4,3].map(i=>fragmentIds[i])
+export const completionDurationMs = 2600
 export const initialRotation=(id:string)=>[1,3,2,1,2,3,1,3,2][fragmentIds.indexOf(id)]??0
 export interface RestorationState {started:boolean;placed:string[];rotations:Record<string,number>;hints:number}
 export const freshRestoration=():RestorationState=>({started:false,placed:[],rotations:{},hints:0})

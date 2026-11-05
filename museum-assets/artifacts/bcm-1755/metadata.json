@@ -1,0 +1,74 @@
+{
+  "id": "bcm-1755",
+  "category": "archery",
+  "name": {
+    "zh": "牛筋上胶梳",
+    "ko": "심풀빗",
+    "en": "Sinew glue comb"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川弓博物馆",
+    "ko": "부천활박물관",
+    "en": "Bucheon Bow Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1755,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/근현대",
+  "dateClarificationZh": null,
+  "materialSourceKo": "나무, 금속",
+  "dimensionsSource": "95X75X2cm",
+  "purpose": {
+    "zh": "给制弓用牛筋上胶并梳理",
+    "ko": "쇠심줄에 풀을 먹이고 결을 정리하는 도구",
+    "en": "Working adhesive into bow sinew and aligning the fibers"
+  },
+  "historyAndSignificance": {
+    "zh": "这件木、金属工具用于制作传统角弓。工匠先把干牛筋分成细束，再以梳具把胶分布在筋束之间，为下一步贴合弓背做准备。金长焕之子金基兴于2004年把它连同制弓工具、材料和文献捐给富川市，具体制作年份未核实。",
+    "ko": "나무와 금속으로 만든 각궁 제작 도구이다. 마른 쇠심줄을 나눈 뒤, 심풀빗으로 힘줄에 풀을 먹이고 결을 정리했다. 김장환 궁시장의 아들 김기흥이 2004년 활 제작 자료와 함께 부천시에 기증했으며 정확한 제작연도는 확인되지 않았다.",
+    "en": "This wood-and-metal tool was used to make traditional horn bows. After dry cattle sinew was separated, the comb worked adhesive between the fibers and aligned them before application to the bow. Kim Gi-heung, son of bowyer Kim Jang-hwan, donated it to Bucheon in 2004. Its manufacture date is unknown."
+  },
+  "sources": [
+    {
+      "title": "심풀빗",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1755/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4486",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=4486",
+      "captionKo": "",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4486",
+      "format": "JPEG",
+      "pixels": [
+        3288,
+        2193
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "板件挤出加低面数金属齿。官网尺寸原样记录，95×75×2厘米的单位与尺度需向馆方复核。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

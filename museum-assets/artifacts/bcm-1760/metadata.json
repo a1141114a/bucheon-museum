@@ -1,0 +1,74 @@
+{
+  "id": "bcm-1760",
+  "category": "ceramics",
+  "name": {
+    "zh": "1991年富川市议会创立纪念白瓷罐",
+    "ko": "지방의회 원년 기념 부천시의회 전체 의원 명기 백자",
+    "en": "1991 Bucheon City Council commemorative white porcelain jar"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1760,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/광복이후(1991년)",
+  "dateClarificationZh": null,
+  "materialSourceKo": "도자기 / 백자",
+  "dimensionsSource": "구연부 지름 19.5cm, 최대지름 39.6cm, 저부 지름 16.2cm, 높이 34cm",
+  "purpose": {
+    "zh": "纪念地方议会恢复及富川市议会成立",
+    "ko": "지방의회 부활과 부천시의회 출범 기념",
+    "en": "Commemorating the return of local councils and the inauguration of the city council"
+  },
+  "historyAndSignificance": {
+    "zh": "富川首任市议会议长宋哲钦在1991年制作这件白瓷，用来纪念地方议会恢复及富川升格为市后首届市议会的成立，并赠予议员。罐体低圆，无明显长颈，表面有凸起的梅花和列出议员姓名的文字。宋哲钦于2025年将它与当选证书等资料一同捐赠。",
+    "ko": "부천시의회 초대 의장 송철흠이 1991년 지방의회 부활과 시의회 출범을 기념해 제작한 백자이다. 목이 없는 낮고 둥근 몸체에 매화 양각과 의원 명단이 장식되어 있다. 송철흠은 2025년에 당선증 등과 함께 이 백자를 기증했다.",
+    "en": "In 1991, inaugural council chair Song Cheol-heum commissioned this jar to commemorate the return of local councils and Bucheon’s first city council. Its low, rounded body bears raised plum blossoms and council members’ names. Song donated it in 2025 with records including his certificate of election."
+  },
+  "sources": [
+    {
+      "title": "지방의회 원년 기념 부천시의회 전체 의원 명기 백자",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1760/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4491",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=4491",
+      "captionKo": "",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4491",
+      "format": "JPEG",
+      "pixels": [
+        4000,
+        3000
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "旋转体。梅花可用浅浮雕，铭文需对应照片或可靠转录；铭文方位及背面待核。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

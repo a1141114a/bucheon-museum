@@ -1,0 +1,74 @@
+{
+  "id": "bcm-602",
+  "category": "viewing-stone",
+  "name": {
+    "zh": "花纹观赏石",
+    "ko": "화문문양석",
+    "en": "Floral-pattern viewing stone"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 602,
+  "accessionNumber": null,
+  "periodSourceKo": "한국",
+  "dateClarificationZh": null,
+  "materialSourceKo": "석재; 정확한 암종 미확인",
+  "dimensionsSource": "16X34X9cm",
+  "purpose": {
+    "zh": "收藏与观赏",
+    "ko": "수집 및 감상",
+    "en": "Collecting and display"
+  },
+  "historyAndSignificance": {
+    "zh": "馆方将这件来自丽水的观赏石归为纹样石，指出石上呈现明显的花形纹理。纹样石常因天然图案像花木、动物或山水而受到观赏，色彩也是辨识特征。该件的馆方尺寸为16×34×9厘米，岩种、发现年代和捐赠者未核实。",
+    "ko": "박물관은 여수에서 난 이 수석을 문양석으로 분류하며 뚜렷한 꽃 모양을 특징으로 든다. 문양석에서는 꽃이나 나무, 동물, 풍경을 떠올리게 하는 무늬와 색을 감상한다. 크기는 16×34×9cm이며 암종과 발견 시기는 확인되지 않았다.",
+    "en": "The museum classifies this specimen from Yeosu as a pattern stone and highlights its distinctive floral markings. Such stones are appreciated for colors and patterns that evoke plants, animals or landscapes. It measures 16 by 34 by 9 cm. Its rock type, date of discovery and donor remain unverified."
+  },
+  "sources": [
+    {
+      "title": "화문문양석",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/602/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=958",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=958",
+      "captionKo": "화문문양석 전경",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=958",
+      "format": "JPEG",
+      "pixels": [
+        1000,
+        1000
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "低面数外形与原创近似纹样。侧面、底面和准确配色待补。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

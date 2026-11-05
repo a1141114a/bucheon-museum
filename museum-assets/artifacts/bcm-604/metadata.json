@@ -1,0 +1,74 @@
+{
+  "id": "bcm-604",
+  "category": "viewing-stone",
+  "name": {
+    "zh": "层岩山水景观石",
+    "ko": "층암산수경석",
+    "en": "Layered-cliff viewing stone"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 604,
+  "accessionNumber": null,
+  "periodSourceKo": "한국",
+  "dateClarificationZh": null,
+  "materialSourceKo": "석재; 정확한 암종 미확인",
+  "dimensionsSource": "30X17X20cm",
+  "purpose": {
+    "zh": "收藏与观赏",
+    "ko": "수집 및 감상",
+    "en": "Collecting and display"
+  },
+  "historyAndSignificance": {
+    "zh": "富川市立博物馆把这件石头列为山水景观石，记录尺寸为30×17×20厘米。它的褶皱让人联想到大型岩壁层层叠起的地貌。馆方用这一视觉特征说明观赏石如何以小见大。馆方记录未确认褶皱的具体成因、岩种或该件的采集地。",
+    "ko": "부천시립박물관은 이 돌을 산수경석으로 분류하며 크기를 30×17×20cm로 기록한다. 주름이 큰 암벽에 켜가 생긴 모습처럼 보여 작은 돌에서 큰 풍경을 떠올리게 한다. 주름의 실제 형성 원인과 암종, 산지는 확인되지 않았다.",
+    "en": "Bucheon City Museum records this landscape stone at 30 by 17 by 20 cm. Folds on the specimen evoke layered faces of a large cliff, showing how a small stone can suggest a larger landscape. The exact geological cause of the folds, rock type and collection site are unverified."
+  },
+  "sources": [
+    {
+      "title": "층암산수경석",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/604/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=960",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=960",
+      "captionKo": "층암산수경석 전경",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=960",
+      "format": "JPEG",
+      "pixels": [
+        1000,
+        1000
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "低面数分层网格。主褶皱依馆照，背面分层和地质成因待核。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

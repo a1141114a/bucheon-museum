@@ -7,6 +7,8 @@ export interface Artifact {
   kind: 'test' | 'collection'
   level: LevelId
   name: Localized
+  museum?: Localized
+  dimensions?: Localized
   period: Localized
   material: Localized
   purpose: Localized
@@ -15,5 +17,5 @@ export interface Artifact {
   review: { status: 'not-required-test' | 'pending' | 'approved' | 'rejected'; approvedAt: string | null; evidence: string | null }
   sources: { title: string; url: string; accessedAt?: string }[]
   photo: { url: string | null; sourceUrl: string | null; rights: 'pending' | 'authorized'; credit: string; licenseEvidence: string | null }
-  model: { url: string | null; provenance: 'procedural-test' | 'blender'; accuracy: 'not-a-replica' | 'pending' | 'reviewed' }
+  model: { url: string | null; provenance: 'procedural-test' | 'blender'; accuracy: 'not-a-replica' | 'pending' | 'reviewed' | 'approximate' }
 }

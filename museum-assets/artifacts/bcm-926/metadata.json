@@ -1,0 +1,74 @@
+{
+  "id": "bcm-926",
+  "category": "archery",
+  "name": {
+    "zh": "母式射箭扳指",
+    "ko": "암깍지",
+    "en": "Female-type archery thumb ring"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川弓博物馆",
+    "ko": "부천활박물관",
+    "en": "Bucheon Bow Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 926,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/광복이후",
+  "dateClarificationZh": null,
+  "materialSourceKo": "소뿔",
+  "dimensionsSource": "3.0X5.0cm",
+  "purpose": {
+    "zh": "护住拇指，馆方记为通常用于较软的弓",
+    "ko": "엄지를 보호하며 보통 연궁에 쓰는 도구",
+    "en": "Protecting the thumb, generally when drawing a lighter bow"
+  },
+  "historyAndSignificance": {
+    "zh": "馆方将这枚光复后的射箭扳指登记为母式扳指，记载它以牛角制成，尺寸为3×5厘米。弓手把扳指套在拇指上，以减少放箭时弓弦对手指的伤害。馆方把这种形制与较软的弓相联系，并与用于较强弓的另一种扳指区分。",
+    "ko": "박물관이 기록한 광복 이후의 암깍지로, 소뿔로 만들었고 크기는 3×5cm이다. 궁사는 엄지에 끼워 시위를 놓을 때 손가락을 보호했다. 박물관은 암깍지를 보통 연궁에 쓰는 형태로 설명하며, 강궁에 쓰는 숫깍지와 구분한다.",
+    "en": "This post-liberation female-type thumb ring is made of cattle horn and measures 3 by 5 cm. Archers wore it to protect the thumb when releasing the bowstring. The museum associates this form with lighter bows and distinguishes it from the type generally used with heavier bows."
+  },
+  "sources": [
+    {
+      "title": "암깍지",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/926/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1256",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1256",
+      "captionKo": "암깍지 전면 사진",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1256",
+      "format": "JPEG",
+      "pixels": [
+        1000,
+        1000
+      ],
+      "angle": "front",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "环形截面加轮廓变化。内孔截面和背部须标为推测。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

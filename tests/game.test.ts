@@ -1,3 +1,4 @@
+import { storageJarArtifact } from '../src/data/artifacts'
 import { describe, expect, it } from 'vitest'
 import { gameReducer, initialState, isLevelUnlocked, parseSave, statusOf } from '../src/state/game'
 import { artifacts, canModelCollection, canPublishPhoto } from '../src/data/artifacts'
@@ -5,19 +6,19 @@ import { copy, translate } from '../src/i18n'
 import type { Artifact } from '../src/types'
 describe('prototype progression',()=>{
   it('starts locked and discovers a known item',()=>{
-    expect(statusOf(initialState,'test-vessel')).toBe('locked')
-    const s=gameReducer(initialState,{type:'discover',id:'test-vessel'})
-    expect(statusOf(s,'test-vessel')).toBe('discovered');expect(s.score).toBe(0)
+    expect(statusOf(initialState,storageJarArtifact.id)).toBe('locked')
+    const s=gameReducer(initialState,{type:'discover',id:storageJarArtifact.id})
+    expect(statusOf(s,storageJarArtifact.id)).toBe('discovered');expect(s.score).toBe(0)
   })
   it('requires discovery before journal unlock',()=>{
-    expect(gameReducer(initialState,{type:'unlock',id:'test-vessel'})).toBe(initialState)
+    expect(gameReducer(initialState,{type:'unlock',id:storageJarArtifact.id})).toBe(initialState)
   })
   it('awards once and never regresses a record',()=>{
-    let s=gameReducer(initialState,{type:'discover',id:'test-vessel'})
-    s=gameReducer(s,{type:'unlock',id:'test-vessel'})
-    s=gameReducer(s,{type:'unlock',id:'test-vessel'})
-    s=gameReducer(s,{type:'discover',id:'test-vessel'})
-    expect(s.score).toBe(10);expect(statusOf(s,'test-vessel')).toBe('unlocked')
+    let s=gameReducer(initialState,{type:'discover',id:storageJarArtifact.id})
+    s=gameReducer(s,{type:'unlock',id:storageJarArtifact.id})
+    s=gameReducer(s,{type:'unlock',id:storageJarArtifact.id})
+    s=gameReducer(s,{type:'discover',id:storageJarArtifact.id})
+    expect(s.score).toBe(10);expect(statusOf(s,storageJarArtifact.id)).toBe('unlocked')
   })
   it('ignores unknown artifacts',()=>{
     expect(gameReducer(initialState,{type:'discover',id:'fake'})).toBe(initialState)
@@ -31,7 +32,7 @@ describe('prototype progression',()=>{
     expect(isLevelUnlocked({...initialState,completedLevels:[1]},3)).toBe(false)
   })
   it('round trips language and discovery',()=>{
-    const s=gameReducer({...initialState,language:'en'},{type:'discover',id:'test-vessel'})
+    const s=gameReducer({...initialState,language:'en'},{type:'discover',id:storageJarArtifact.id})
     expect(parseSave(JSON.stringify(s))).toEqual(s)
   })
   it('recovers corrupt or incompatible saves',()=>{
@@ -40,7 +41,7 @@ describe('prototype progression',()=>{
   it('sanitizes score, identifiers, hints and completion on load',()=>{
     const s=parseSave(JSON.stringify({version:1,language:'bad',score:999,artifacts:{fake:'unlocked','test-vessel':'unlocked'},completedLevels:[1,2,3],hintsUsed:-4}))
     expect(s.score).toBe(10);expect(s.language).toBe('zh');expect(s.completedLevels).toEqual([])
-    expect(s.artifacts).toEqual({'test-vessel':'unlocked'});expect(s.hintsUsed).toBe(0)
+    expect(s.artifacts).toEqual({[storageJarArtifact.id]:'unlocked'});expect(s.hintsUsed).toBe(0)
   })
   it('reset clears progress and preserves language',()=>{
     expect(gameReducer({...initialState,language:'ko',score:10,hintsUsed:2},{type:'reset'})).toEqual({...initialState,language:'ko'})

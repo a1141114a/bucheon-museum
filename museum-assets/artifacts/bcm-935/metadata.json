@@ -1,0 +1,77 @@
+{
+  "id": "bcm-935",
+  "category": "archery",
+  "name": {
+    "zh": "弹壳形镞箭",
+    "ko": "화살",
+    "en": "Arrow with a cartridge-case-style point"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川弓博物馆",
+    "ko": "부천활박물관",
+    "en": "Bucheon Bow Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 935,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/광복이후",
+  "dateClarificationZh": null,
+  "materialSourceKo": null,
+  "dimensionsSource": "81.5cm",
+  "purpose": {
+    "zh": "射箭",
+    "ko": "활쏘기",
+    "en": "Archery"
+  },
+  "historyAndSignificance": {
+    "zh": "这件光复后制作的箭，馆方记录长度为81.5厘米，箭头呈弹壳形。馆方介绍提到，韩国战争之后，有人把遗留的卡宾枪弹壳改作箭头，这种形式据说逐渐取代原有的柳叶箭头。该说法解释了箭头形式的演变，此箭的箭镞实际用料和制作年份仍未核实。",
+    "ko": "광복 이후의 화살로 길이는 81.5cm이며 촉은 탄피 모양이다. 박물관은 한국전쟁 뒤 카빈총 탄피를 변형한 촉이 기존 유엽전의 촉을 대신하기 시작했다는 설명을 소개한다. 이 화살의 촉 재료와 정확한 제작연도는 확인되지 않았다.",
+    "en": "This post-liberation arrow is recorded at 81.5 cm and has a cartridge-case-shaped point. The museum describes an account in which surplus carbine cases were adapted into arrow points after the Korean War and began replacing earlier forms. The material and precise date of this example are unverified."
+  },
+  "sources": [
+    {
+      "title": "화살",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/935/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1265",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1265",
+      "captionKo": "화살 전면 사진",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1265",
+      "format": "JPEG",
+      "pixels": [
+        600,
+        600
+      ],
+      "errors": [
+        "HTTP Error 404: "
+      ],
+      "angle": "front",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "长杆、镞与箭羽分件。馆方原图404，现可用600×600缩略图，箭羽细节待补。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

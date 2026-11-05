@@ -1,0 +1,74 @@
+{
+  "id": "bcm-606",
+  "category": "viewing-stone",
+  "name": {
+    "zh": "洞穴形山水景观石",
+    "ko": "동굴형산수경석",
+    "en": "Cave-shaped viewing stone"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 606,
+  "accessionNumber": null,
+  "periodSourceKo": "한국",
+  "dateClarificationZh": null,
+  "materialSourceKo": "석재; 정확한 암종 미확인",
+  "dimensionsSource": "20X12X17cm",
+  "purpose": {
+    "zh": "收藏与观赏",
+    "ko": "수집 및 감상",
+    "en": "Collecting and display"
+  },
+  "historyAndSignificance": {
+    "zh": "这件山水景观石的馆方尺寸为20×12×17厘米。馆方特别指出，石体的贯通部位形似洞穴，使一块小石呈现类似自然地貌的轮廓。作为观赏石，它依靠孔洞和整体形状被辨认。现有条目没有明确其采集地点、年代和具体岩种。",
+    "ko": "박물관은 이 산수경석의 크기를 20×12×17cm로 기록한다. 돌을 관통하는 공간이 동굴처럼 보여 작은 돌에 자연의 지형을 떠올리게 한다. 관통부와 전체 윤곽이 감상의 중심이다. 산지와 시기, 암종은 확인되지 않았다.",
+    "en": "The museum records this landscape stone at 20 by 12 by 17 cm. A passage through the specimen resembles a cave, allowing a small stone to evoke a larger landform. The opening and silhouette distinguish it as a viewing stone. The locality, date and rock type are unverified."
+  },
+  "sources": [
+    {
+      "title": "동굴형산수경석",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/606/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=962",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=962",
+      "captionKo": "동굴형산수경석 전경",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=962",
+      "format": "JPEG",
+      "pixels": [
+        1000,
+        1000
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "低面数石体保留真正贯通孔。孔洞背侧轮廓和底面待补。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

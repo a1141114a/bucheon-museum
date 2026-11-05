@@ -1,0 +1,74 @@
+{
+  "id": "bcm-1756",
+  "category": "archery",
+  "name": {
+    "zh": "牛筋贴合梳",
+    "ko": "심놓이빗",
+    "en": "Sinew-laying comb"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川弓博物馆",
+    "ko": "부천활박물관",
+    "en": "Bucheon Bow Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1756,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/근현대",
+  "dateClarificationZh": null,
+  "materialSourceKo": "뿔",
+  "dimensionsSource": "17X2cm",
+  "purpose": {
+    "zh": "将上胶的牛筋贴到弓背并铺匀",
+    "ko": "풀을 먹인 쇠심줄을 활등에 붙여 고르게 펴는 도구",
+    "en": "Laying and evening glued cattle sinew on the back of a bow"
+  },
+  "historyAndSignificance": {
+    "zh": "在传统角弓的制作中，工匠把已上胶的牛筋铺在弓背，再用这种角质梳理顺纤维、压实接触面并控制厚度。它与负责上胶的梳具对应不同的工序。馆方将它列在金基兴于2004年捐赠的制弓资料中，确切制作年代仍未核实。",
+    "ko": "각궁을 만들 때 풀을 먹인 쇠심줄을 활등에 올린 뒤, 이 뿔 빗으로 결을 펴고 밀착시키며 두께를 맞추었다. 심풀빗과 쓰이는 단계가 다르다. 박물관은 2004년 김기흥이 기증한 활 제작 자료로 소개하며 정확한 제작연도는 확인되지 않았다.",
+    "en": "After glued cattle sinew was laid on a horn bow, the craftsperson used this horn comb to align the fibers, press them to the bow and even out their thickness. It served a different step from the glue comb. The museum traces it to Kim Gi-heung’s 2004 donation, but the manufacture date is unknown."
+  },
+  "sources": [
+    {
+      "title": "심놓이빗",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1756/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4487",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=4487",
+      "captionKo": "",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4487",
+      "format": "JPEG",
+      "pixels": [
+        5920,
+        4228
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "曲线轮廓挤出，按可见梳齿建模。侧厚和背面待补。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

@@ -1,0 +1,132 @@
+@font-face {
+  font-family: 'Museum Brush';
+  src: url('/fonts/mashanzheng.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museum Hangul';
+  src: url('/fonts/nanumbrushscript.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Museum English';
+  src: url('/fonts/imfellenglish.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  src: url('/fonts/notoserifsc.woff2') format('woff2');
+  font-weight: 500 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Serif KR';
+  src: url('/fonts/notoserifkr.woff2') format('woff2');
+  font-weight: 500 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('/fonts/notoserif.woff2') format('woff2');
+  font-weight: 500 700;
+  font-display: swap;
+}
+
+:root {
+  --museum-display: 'Museum Brush', 'Museum English', 'Museum Hangul', KaiTi, STKaiti, serif;
+  --museum-interface: 'Noto Serif SC', 'Noto Serif', 'Noto Serif KR', SimSun, serif;
+}
+
+:root:lang(ko) {
+  --museum-display: 'Museum Hangul', 'Museum English', 'Museum Brush', Batang, serif;
+  --museum-interface: 'Noto Serif KR', 'Noto Serif', 'Noto Serif SC', Batang, serif;
+}
+
+:root:lang(en) {
+  --museum-display: 'Museum English', 'Museum Brush', 'Museum Hangul', Georgia, serif;
+  --museum-interface: 'Noto Serif', 'Noto Serif SC', 'Noto Serif KR', Georgia, serif;
+}
+
+.app-shell .header-title,
+.app-shell .game-toolbar .carved-button,
+.app-shell .chapter-panel,
+.app-shell .chapter-panel .sidebar-bottom p,
+.app-shell .chapter-panel .chapter-num,
+.app-shell .page-heading h1,
+.app-shell .future h1,
+.app-shell .future h2,
+.app-shell .journal-entry h2,
+.app-shell .restoration-root,
+.app-shell .stone-button,
+.app-shell .fragment-button > span,
+.app-shell .tool-square,
+.app-shell .tray-marker,
+.app-shell .slot-marker,
+.app-shell .quest-dialog,
+.app-shell .quest-dialog h1,
+.app-shell .completion-score small,
+.app-shell .exhibit-card .card-top .eyebrow,
+.app-shell .exhibit-card h2,
+.app-shell .exhibit-card .primary {
+  font-family: var(--museum-interface);
+}
+
+.app-shell .header-title,
+.app-shell .game-toolbar .carved-button,
+.app-shell .stone-button {
+  font-size: 14px;
+}
+
+.app-shell .chapter-panel .chapters a,
+.app-shell .chapter-panel .chapter-home,
+.app-shell .chapter-panel .journal-link {
+  font-size: 16px;
+}
+
+.app-shell .chapter-panel .chapters small,
+.app-shell .exhibit-card .card-top .eyebrow {
+  font-size: 12px;
+}
+
+.app-shell .quest-dialog > p {
+  font-size: 15px;
+}
+
+.app-shell .quest-dialog .tutorial-detail {
+  font-size: 13px;
+}
+
+.restoration-root .console-title small {
+  color: #633f24;
+  font-weight: 600;
+}
+
+.restoration-root .quest-progress p,
+.restoration-root .atelier-label,
+.restoration-root .restore-storage {
+  color: #ffe8bf;
+  font-weight: 600;
+}
+
+@media (min-width: 761px) {
+  .restoration-root .console-title small,
+  .restoration-root .quest-progress p,
+  .restoration-root .atelier-label,
+  .restoration-root .restore-storage,
+  .restoration-root .stone-counter small {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell .header-title,
+  .app-shell .game-toolbar .carved-button,
+  .app-shell .stone-button {
+    font-size: 12px;
+  }
+}

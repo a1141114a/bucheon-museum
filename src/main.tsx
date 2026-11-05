@@ -5,4 +5,6 @@ import App from './App'
 import { GameProvider } from './state/GameProvider'
 import './styles.css'
 import './adventure.css'
+import './interface-skin.css'
+import './typography.css'
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><HashRouter><GameProvider><App/></GameProvider></HashRouter></React.StrictMode>)

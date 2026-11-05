@@ -29,3 +29,13 @@ html[lang='en'] .chapter-plaque strong{font-size:16px;letter-spacing:0;line-heig
 .restoration-console .tool-square:hover:not(:disabled){filter:none;text-shadow:none}
 .slot-marker{background:#5b4228;color:#fff0c5;border:2px solid #dfbd75;font-weight:800;box-shadow:0 1px 3px #24190b88;text-shadow:none}
 .slot-marker.lit{background:#f2c75e;color:#4a2d12;border-color:#fff0b0;box-shadow:0 1px 3px #24190b88}
+
+.restoration-tools,
+.restoration-console {
+  transition: opacity .3s ease;
+}
+
+.revealing .restoration-tools,
+.revealing .restoration-console {
+  opacity: .34;
+}

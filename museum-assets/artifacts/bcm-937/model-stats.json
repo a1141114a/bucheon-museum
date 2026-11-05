@@ -1,0 +1,13 @@
+{
+  "bounds_m_blender_xyz": [
+    0.0153,
+    0.003534,
+    0.05
+  ],
+  "mesh_objects": 1,
+  "source_triangles": 204,
+  "glb_triangles": 204,
+  "glb_bytes": 263136,
+  "embedded_textures": 1,
+  "blender_roundtrip": "passed"
+}

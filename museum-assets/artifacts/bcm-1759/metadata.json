@@ -1,0 +1,74 @@
+{
+  "id": "bcm-1759",
+  "category": "ceramics",
+  "name": {
+    "zh": "1996年第二届富川市议会一周年纪念白瓷罐",
+    "ko": "제2대 부천시의회 1주년 기념 전체 의원 명기 백자",
+    "en": "1996 white porcelain jar marking the second Bucheon City Council’s first anniversary"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1759,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/광복이후(1996년)",
+  "dateClarificationZh": null,
+  "materialSourceKo": "도자기 / 백자",
+  "dimensionsSource": "구연부 지름 18cm, 목 4cm, 최대지름 34cm, 저부 지름 17cm, 높이 54cm",
+  "purpose": {
+    "zh": "纪念第二届市议会发足一周年，作为纪念礼赠予议员",
+    "ko": "제2대 부천시의회 출범 1주년 기념 및 의원 증정",
+    "en": "Commemorative gift to council members for the second council’s first anniversary"
+  },
+  "historyAndSignificance": {
+    "zh": "1995年，李海善当选富川市首任民选市长，第二届市议会也在同一时期组成。次年，他制作这件白瓷作为议会成立一周年的纪念礼。馆方记录显示，长罐身绘有山、松、瀑布和草屋，另一处题写全体议员姓名。李海善于2025年将它与纪念牌、照片等材料一起捐赠。",
+    "ko": "1995년 이해선이 민선 부천시장으로 당선되고 제2대 부천시의회가 구성되었다. 이듬해 그는 시의회 출범 1주년을 기념해 이 백자를 의원들에게 증정했다. 긴 몸체에는 산, 소나무, 폭포, 초가집과 의원 명단이 담겨 있다. 이해선은 2025년에 관련 자료와 함께 백자를 기증했다.",
+    "en": "Lee Hae-seon was elected mayor in 1995, when Bucheon’s second city council was formed. The following year he gave this porcelain jar to council members to mark its first anniversary. The tall vessel carries a landscape and the names of council members. Lee donated it with related records in 2025."
+  },
+  "sources": [
+    {
+      "title": "제2대 부천시의회 1주년 기념 전체 의원 명기 백자",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1759/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4490",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=4490",
+      "captionKo": "",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4490",
+      "format": "JPEG",
+      "pixels": [
+        4000,
+        3000
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "旋转体。画面与铭文覆盖范围以馆方资料为准；照片不可直接作纹理，背面待核。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

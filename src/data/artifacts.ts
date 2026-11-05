@@ -1,18 +1,23 @@
 import type { Artifact } from '../types'
+import storageJar from '../../museum-assets/artifacts/bcm-1072/metadata.json'
 
-// Deliberately no real collection entries until item-level verification.
-export const artifacts: Artifact[] = [{
-  id: 'test-vessel', kind: 'test', level: 1,
-  name: { zh: '褐釉练习瓮 · 原创游戏器物', ko: '갈색 유약 연습용 항아리 · 독자 제작', en: 'Amber-glazed practice vessel · original game prop' },
-  period: { zh: '不适用（测试模型）', ko: '해당 없음 (테스트 모델)', en: 'Not applicable (test model)' },
-  material: { zh: '数字陶土、原创釉面材质（三维练习模型）', ko: '디지털 점토 및 독자 제작 유약 재질 (3D 연습 모델)', en: 'Digital clay and original glaze material (3D practice model)' },
-  purpose: { zh: '验证三维渲染与点击交互', ko: '3D 렌더링 및 클릭 상호작용 검증', en: 'Validate 3D rendering and picking' },
-  history: { zh: '原创技术测试形体，不是富川博物馆藏品复原。尚未接入经过核实及授权的真实藏品资料。', ko: '독자적인 기술 테스트 형태이며 부천시박물관 소장품의 복원품이 아닙니다. 검증 및 사용 허가를 받은 소장품 자료는 아직 연결되지 않았습니다.', en: 'An original technical test form, not a replica of a Bucheon Museum object. Verified collection records and licensed photographs have not been connected yet.' },
-  verification: 'test-only', sources: [],
-  review: { status: 'not-required-test', approvedAt: null, evidence: null },
-  photo: { url: null, sourceUrl: null, rights: 'pending', credit: '', licenseEvidence: null },
-  model: { url: 'models/restoration_vessel.glb?layout=irregular-v2', provenance: 'blender', accuracy: 'not-a-replica' },
-}]
+export const storageJarArtifact = {
+  id: storageJar.id, kind: 'collection', level: 1,
+  name: storageJar.name,
+  museum: storageJar.museum,
+  dimensions: { zh: '17 × 42.5 厘米', ko: '17 × 42.5 cm', en: '17 × 42.5 cm' },
+  period: { zh: '年代未详', ko: '시대 미상', en: 'Date unknown' },
+  material: { zh: '陶器（瓮器）', ko: '질그릇(옹기)', en: 'Earthenware (onggi)' },
+  purpose: storageJar.purpose,
+  history: storageJar.historyAndSignificance,
+  verification: 'verified',
+  sources: storageJar.sources.map(({title, url, checkedOn}) => ({title, url, accessedAt: checkedOn})),
+  review: { status: 'approved', approvedAt: storageJar.review.approvedAt, evidence: 'User selected the jar and requested its use in chapter one.' },
+  photo: { url: null, sourceUrl: storageJar.photos[0].originalUrl, rights: 'pending', credit: storageJar.photos[0].publisher, licenseEvidence: null },
+  model: { url: 'models/bcm-1072-storage-jar.glb', provenance: 'blender', accuracy: 'approximate' },
+} satisfies Artifact
+
+export const artifacts: Artifact[] = [storageJarArtifact]
 
 export function canPublishPhoto(artifact: Artifact): boolean {
   return artifact.kind === 'collection' && artifact.verification === 'verified'

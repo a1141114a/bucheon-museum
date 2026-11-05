@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-05",
+  "records": [
+    {
+      "id": "bcm-1754",
+      "category": "ceramics",
+      "metadata": "artifacts/bcm-1754/metadata.json"
+    },
+    {
+      "id": "bcm-1760",
+      "category": "ceramics",
+      "metadata": "artifacts/bcm-1760/metadata.json"
+    },
+    {
+      "id": "bcm-1759",
+      "category": "ceramics",
+      "metadata": "artifacts/bcm-1759/metadata.json"
+    },
+    {
+      "id": "bcm-1099",
+      "category": "ceramics",
+      "metadata": "artifacts/bcm-1099/metadata.json"
+    },
+    {
+      "id": "bcm-1072",
+      "category": "ceramics",
+      "metadata": "artifacts/bcm-1072/metadata.json"
+    },
+    {
+      "id": "bcm-exh-1659-tae",
+      "category": "ceramics",
+      "metadata": "artifacts/bcm-exh-1659-tae/metadata.json"
+    },
+    {
+      "id": "bcm-1755",
+      "category": "archery",
+      "metadata": "artifacts/bcm-1755/metadata.json"
+    },
+    {
+      "id": "bcm-1756",
+      "category": "archery",
+      "metadata": "artifacts/bcm-1756/metadata.json"
+    },
+    {
+      "id": "bcm-935",
+      "category": "archery",
+      "metadata": "artifacts/bcm-935/metadata.json"
+    },
+    {
+      "id": "bcm-929",
+      "category": "archery",
+      "metadata": "artifacts/bcm-929/metadata.json"
+    },
+    {
+      "id": "bcm-926",
+      "category": "archery",
+      "metadata": "artifacts/bcm-926/metadata.json"
+    },
+    {
+      "id": "bcm-937",
+      "category": "archery",
+      "metadata": "artifacts/bcm-937/metadata.json"
+    },
+    {
+      "id": "bcm-569",
+      "category": "viewing-stone",
+      "metadata": "artifacts/bcm-569/metadata.json"
+    },
+    {
+      "id": "bcm-1060",
+      "category": "history",
+      "metadata": "artifacts/bcm-1060/metadata.json"
+    },
+    {
+      "id": "bcm-1252",
+      "category": "history",
+      "metadata": "artifacts/bcm-1252/metadata.json"
+    },
+    {
+      "id": "bcm-1753",
+      "category": "history",
+      "metadata": "artifacts/bcm-1753/metadata.json"
+    },
+    {
+      "id": "bcm-1751",
+      "category": "history",
+      "metadata": "artifacts/bcm-1751/metadata.json"
+    },
+    {
+      "id": "bcm-997",
+      "category": "decorative-arts",
+      "metadata": "artifacts/bcm-997/metadata.json"
+    }
+  ]
+}

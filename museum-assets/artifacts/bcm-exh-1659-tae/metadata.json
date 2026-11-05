@@ -1,0 +1,82 @@
+{
+  "id": "bcm-exh-1659-tae",
+  "category": "ceramics",
+  "name": {
+    "zh": "新生翁主胎罐",
+    "ko": "신생옹주 백자 태항아리",
+    "en": "White porcelain placenta jars attributed to Princess Sinsaeng"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-exhibition-record",
+  "catalogPageId": null,
+  "accessionNumber": null,
+  "periodSourceKo": "조선 중기 추정",
+  "dateClarificationZh": "2025年出土，2026年展出。器主归属为推定。",
+  "materialSourceKo": "백자",
+  "dimensionsSource": null,
+  "purpose": {
+    "zh": "朝鲜王室安胎器",
+    "ko": "조선 왕실의 안태에 쓰인 용기",
+    "en": "Vessels for the Joseon royal placenta enshrinement rite"
+  },
+  "historyAndSignificance": {
+    "zh": "馆方公布这套白瓷胎罐于2025年在富川鹊洞出土，并于2026年在富川市立博物馆展出。市方报道根据文献和器形推定它与新生翁主有关。模型依据展照重建内外罐与各自的盖。确切尺寸与馆藏登记编号未核实。",
+    "ko": "2025년 부천 작동에서 출토되어 2026년 부천시립박물관에서 공개된 백자 태항아리이다. 문헌과 형태를 근거로 신생옹주의 것으로 추정된다. 전시 사진을 참고해 내·외항아리와 뚜껑을 재현했다.",
+    "en": "The white porcelain vessels were found at Jak-dong in 2025 and exhibited at Bucheon City Museum in 2026. The city report attributes them to Princess Sinsaeng based on documentary and formal evidence. This reconstruction uses the exhibition photograph to model both vessels and lids."
+  },
+  "sources": [
+    {
+      "title": "신생옹주 백자 태항아리",
+      "url": "https://www.bcmuseum.or.kr/ko/exhibition/1659/view",
+      "checkedOn": "2026-11-05"
+    },
+    {
+      "title": "富川市开幕报道",
+      "url": "https://news.bucheon.go.kr/home/kor/M814028754/reporter/citizen/edit.do?idx=cb00d1a0008a85e71a41b8741facbffe1c3acb56ddfc663f276d196ebb6ae1f6",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://news.bucheon.go.kr/images/editor/20260713/202607131021184899/jpg/loader.do",
+      "previewUrl": "https://news.bucheon.go.kr/images/editor/20260713/202607131021184899/jpg/loader.do",
+      "captionKo": "신생옹주 백자 태항아리와 동전",
+      "accessibleUrl": "https://news.bucheon.go.kr/images/editor/20260713/202607131021184899/jpg/loader.do",
+      "format": "JPEG",
+      "pixels": [
+        800,
+        698
+      ],
+      "angle": "front-oblique",
+      "photographer": null,
+      "publisher": "생생부천",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "reference-silhouette-confirmed",
+      "licenseNote": "市政报道页标示公有许可第2类（署名、禁止商业使用）。单张照片及项目用途的许可范围待核。"
+    }
+  ],
+  "review": {
+    "status": "approved-for-modeling",
+    "approvedAt": "2026-11-05",
+    "evidence": "用户在本次对话选定替换项并要求开始独立建模。",
+    "notes": "仅批准独立建模。"
+  },
+  "model": {
+    "status": "completed",
+    "confidence": "approximate-photo-reference",
+    "proposedMethodAndUnknownsZh": "内外罐及两只盖分别建模。外罐暂高约30 cm，内外高度与宽度按照片比例估算。背侧耳孔、壁厚、盖底与污痕为近似；展照里的同出铜钱未纳入。",
+    "blend": "model.blend",
+    "glb": "model.glb",
+    "script": "../../generate_model.py",
+    "preview": "preview.png",
+    "stats": "model-stats.json"
+  },
+  "placement": null
+}

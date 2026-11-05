@@ -1,0 +1,44 @@
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.artifact-dialog .card-actions .languages button {
+  min-height: 44px;
+  padding: 0 6px;
+  font-size: 11px;
+}
+
+.artifact-model-section {
+  margin: 16px 0;
+}
+
+.artifact-model-section .muted {
+  margin: 10px 0;
+}
+
+.artifact-model-viewer {
+  height: clamp(220px, 38vh, 340px);
+  overflow: hidden;
+  border: 1px solid #795337;
+  border-radius: 8px;
+  background: #362c20;
+  color: #fff0ce;
+}
+
+.artifact-model-viewer canvas {
+  touch-action: none;
+}
+
+.artifact-model-viewer p {
+  padding: 12px;
+}
+
+.artifact-model-loading {
+  white-space: nowrap;
+}
+.artifact-source-link {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}

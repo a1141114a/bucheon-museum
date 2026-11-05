@@ -1,0 +1,74 @@
+{
+  "id": "bcm-1753",
+  "category": "history",
+  "name": {
+    "zh": "《中等社会生活与我国》地理部分",
+    "ko": "중등 사회 생활과 우리나라(지리 부분)",
+    "en": "Secondary Social Life and Our Country (Geography)"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1753,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/해방 이후",
+  "dateClarificationZh": "馆方正文记载1949年出版。",
+  "materialSourceKo": "지류",
+  "dimensionsSource": "14.9X20.8㎝",
+  "purpose": {
+    "zh": "中等教育地理教材",
+    "ko": "중등 과정 지리 교육",
+    "en": "Secondary geography instruction"
+  },
+  "historyAndSignificance": {
+    "zh": "这部地理教材由卢道阳撰写，1949年在首尔出版，封面和内页有教育主管部门审定标记。它出现在韩国光复后、第一套正式课程颁布前的教学大纲时期。馆方记录它是民庚南于2003年捐给富川市的一批教育资料之一，可用来理解当时中等地理教材的编写与审定。",
+    "ko": "노도양이 저술한 이 중등 지리 교과서는 1949년 서울에서 출판되었다. 표지와 내지에는 문교부 검정 표시가 있다. 광복 이후 첫 교육과정 이전의 교수요목기에 쓰인 자료로, 2003년 민경남이 부천시에 기증한 교육 자료에 포함되었다.",
+    "en": "Written by Noh Do-yang and published in Seoul in 1949, this secondary geography textbook carries an education ministry approval mark. It dates to the syllabus period after liberation and before the first formal national curriculum. It was part of the educational collection donated to Bucheon by Min Gyeong-nam in 2003."
+  },
+  "sources": [
+    {
+      "title": "중등 사회 생활과 우리나라(지리 부분)",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1753/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4482",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=4482",
+      "captionKo": "",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4482",
+      "format": "JPEG",
+      "pixels": [
+        3024,
+        4032
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "书册实体几何。封面文字须从证实可用的资料独立排版，书脊厚度和封底待补。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

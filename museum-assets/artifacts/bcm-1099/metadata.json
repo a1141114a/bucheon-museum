@@ -1,0 +1,74 @@
+{
+  "id": "bcm-1099",
+  "category": "ceramics",
+  "name": {
+    "zh": "瓮器饭碗",
+    "ko": "사발",
+    "en": "Onggi bowl"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1099,
+  "accessionNumber": null,
+  "periodSourceKo": "대한민국/근대",
+  "dateClarificationZh": null,
+  "materialSourceKo": "옹기",
+  "dimensionsSource": "13X8cm",
+  "purpose": {
+    "zh": "盛饭或汤",
+    "ko": "밥이나 국을 담는 용기",
+    "en": "Serving rice or soup"
+  },
+  "historyAndSignificance": {
+    "zh": "馆方把这件近代瓮器列为饭碗或汤碗，记录尺寸为13×8厘米。与大瓮不同，这类小碗服务于一餐之内的盛装和食用。馆方也指出瓮器碗有利于保温，适合韩餐中的热食。具体制作地、使用者和入藏经过未见于该条目。",
+    "ko": "박물관은 이 근대 옹기를 밥이나 국을 담는 사발로 설명하며 크기를 13×8cm로 기록했다. 큰 저장독과 달리 한 끼 식사에 쓰이는 생활 그릇이다. 옹기 사발의 보온성은 따뜻한 음식을 먹는 데 알맞았다. 제작지와 입수 경위는 확인되지 않았다.",
+    "en": "The museum identifies this modern-period onggi bowl as a vessel for rice or soup and records it at 13 by 8 cm. Unlike a large storage jar, it served food at the table. The catalogue notes the suitability of heat-retaining onggi bowls for warm dishes. Its maker and acquisition history remain unverified."
+  },
+  "sources": [
+    {
+      "title": "사발",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1099/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1429",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1429",
+      "captionKo": "사발",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1429",
+      "format": "JPEG",
+      "pixels": [
+        1000,
+        1000
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "薄壁旋转体。以原照确定口沿，足圈及底面待补。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

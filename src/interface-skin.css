@@ -1,0 +1,340 @@
+.app-shell {
+  --frame-wood: #4c2d1c;
+  --frame-gold: #cf9a50;
+  --ink-brown: #4d2d19;
+  --paper: #f4dbae;
+}
+
+.restoration-view .game-toolbar .carved-button,
+.exhibit-card .carved-button,
+.exhibit-card .primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 43px;
+  padding: 7px 12px;
+  border: 2px solid var(--frame-wood);
+  border-radius: 10px 7px 11px 8px;
+  background:
+    linear-gradient(145deg, #fff1cf 0 5%, transparent 6% 89%, #a97338 91%),
+    linear-gradient(#f7e0b3, #d3a366);
+  box-shadow: inset 0 0 0 2px #a77740, inset 0 3px #fff2d0, 0 3px #28180f;
+  color: var(--ink-brown);
+  font-weight: 800;
+  text-shadow: 0 1px #fff0c8;
+  white-space: nowrap;
+  transition: filter .15s, transform .15s;
+}
+
+.restoration-view .game-toolbar .carved-button:hover,
+.exhibit-card .carved-button:hover,
+.exhibit-card .primary:hover {
+  filter: brightness(1.1);
+}
+
+.restoration-view .game-toolbar .carved-button:active,
+.exhibit-card .carved-button:active,
+.exhibit-card .primary:active {
+  transform: translateY(2px);
+}
+
+.carved-button svg {
+  flex-shrink: 0;
+}
+
+.restoration-view .game-toolbar .menu-button[aria-expanded=true],
+.exhibit-card .primary.wide {
+  background: linear-gradient(#f3c17c, #c48a43);
+}
+
+.restoration-view header .carved-switch,
+.exhibit-card .carved-switch {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 2px solid #4e2e1d;
+  border-radius: 8px;
+  background: linear-gradient(#543322, #2d1c13);
+  box-shadow: inset 0 0 0 1px #a37442, 0 2px #27170f;
+}
+
+.restoration-view header .carved-switch button,
+.exhibit-card .carved-switch button {
+  min-height: 32px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: none;
+  color: #ffe2ac;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.restoration-view header .carved-switch button[aria-pressed=true],
+.exhibit-card .carved-switch button[aria-pressed=true] {
+  border-color: #86542c;
+  background: linear-gradient(#f4d9a2, #d1a76c);
+  box-shadow: inset 0 1px #fff0c9;
+  color: #4b2b18;
+}
+
+.restoration-view.menu-open .chapter-panel {
+  left: 16px;
+  top: 80px;
+  bottom: auto;
+  width: min(320px, calc(100vw - 32px));
+  height: auto;
+  max-height: calc(100dvh - 94px);
+  overflow-y: auto;
+  padding: 21px 19px 18px;
+  border: 3px solid #3e2619;
+  border-radius: 17px 12px 19px 13px;
+  background:
+    repeating-linear-gradient(174deg, transparent 0 24px, #4a2a191c 25px 26px, transparent 27px 38px),
+    linear-gradient(115deg, #82512e, #4d2e20 75%);
+  box-shadow: inset 0 0 0 2px #b37f43, inset 0 0 0 5px #60381f, 0 12px 36px #22130dbd;
+  color: #f8dfb0;
+}
+
+.restoration-view.menu-open .chapter-panel .brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.restoration-view .chapter-panel .brand-mark {
+  border: 2px solid #a7763e;
+  border-radius: 10px 7px 10px 7px;
+  background: linear-gradient(#6f4428, #382217);
+  color: #ffe4a9;
+  box-shadow: inset 0 0 0 1px #392316, 0 2px #392316;
+}
+
+.restoration-view .chapter-panel .sidebar-rule {
+  margin: 16px 0 13px;
+  background: linear-gradient(90deg, transparent, #cc9c5f, transparent);
+}
+
+.restoration-view .chapter-panel .sidebar-caption {
+  display: block;
+  margin-bottom: 11px;
+  color: #efc689;
+}
+
+.restoration-view .chapter-panel .chapters {
+  display: grid;
+  margin: 0;
+  gap: 8px;
+}
+
+.restoration-view .chapter-panel .chapters a {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 9px;
+  border: 2px solid #3b2115;
+  border-radius: 10px 7px 11px 7px;
+  background: linear-gradient(110deg, #f2ddb4, #cfaa77);
+  box-shadow: inset 0 0 0 1px #af804c, inset 0 2px #fff1c9, 0 2px #342016;
+  color: #543018;
+}
+
+.restoration-view .chapter-panel .chapters a.active {
+  background: linear-gradient(110deg, #f9db9d, #db9e51);
+  box-shadow: inset 0 0 0 2px #ad6e31, inset 0 3px #fff0c4, 0 2px #342016;
+}
+
+.restoration-view .chapter-panel .chapter-num {
+  display: grid;
+  place-items: center;
+  height: 35px;
+  border: 1px solid #4b2918;
+  border-radius: 7px 5px 7px 5px;
+  background: linear-gradient(#8a582e, #59331e);
+  color: #ffe3ae;
+}
+
+.restoration-view .chapter-panel .chapters small {
+  margin-top: 4px;
+  color: #694322;
+}
+
+.restoration-view .chapter-panel .chapter-state {
+  display: inline;
+  color: #8a5528;
+}
+
+.chapter-panel .chapter-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 9px 11px;
+  border: 1px solid #b4824c;
+  border-radius: 7px;
+  background: #3823178c;
+  color: #f9dfae;
+}
+
+.restoration-view .chapter-panel .journal-link {
+  position: static;
+  min-height: 44px;
+  margin: 12px 0 0;
+  padding: 9px 11px;
+  border: 1px solid #b4824c;
+  border-radius: 7px;
+  background: #3823178c;
+  color: #f9dfae;
+  align-items: center;
+}
+
+.restoration-view .chapter-panel .sidebar-bottom {
+  padding-top: 10px;
+}
+
+.restoration-view .chapter-panel .sidebar-bottom p {
+  margin: 6px 0 9px;
+  color: #ecd1a8;
+}
+
+.restoration-view .chapter-panel .version {
+  color: #d6af78;
+}
+
+.artifact-dialog.exhibit-card {
+  width: min(660px, 94vw);
+  max-height: 90dvh;
+  padding: 0;
+  border: 6px solid #57341e;
+  border-radius: 19px 14px 20px 15px;
+  background: radial-gradient(ellipse at 50% 20%, #fff0cf, #edcda0 80%);
+  box-shadow: inset 0 0 0 2px var(--frame-gold), 0 0 0 1px #321e13, 0 22px 75px #160d09a8;
+  color: var(--ink-brown);
+}
+
+.exhibit-card .card-top {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  gap: 8px;
+  padding: 7px 16px;
+  border: 0;
+  border-bottom: 2px solid #b77d40;
+  background:
+    repeating-linear-gradient(173deg, transparent 0 12px, #d2975b24 13px 14px, transparent 15px 23px),
+    linear-gradient(#7b4c2d, #50311f);
+}
+
+.exhibit-card .card-top .eyebrow {
+  color: #ffe5b4;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.exhibit-card .card-close {
+  width: 40px;
+  min-height: 40px;
+  padding: 0;
+  font-size: 23px;
+}
+
+.exhibit-card .card-content {
+  padding: 22px 27px 24px;
+}
+
+.exhibit-card .card-content h2 {
+  margin: 10px 0 4px;
+  font-size: clamp(19px, 4vw, 26px);
+  font-weight: 800;
+}
+
+.exhibit-card .status {
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid #b58148;
+  border-radius: 6px;
+  background: #e9bf84;
+  color: #5a321c;
+}
+
+.exhibit-card .multilingual,
+.exhibit-card .card-content dt,
+.exhibit-card .muted {
+  color: #735035;
+}
+
+.exhibit-card .card-content dl > div {
+  column-gap: 12px;
+}
+
+.exhibit-photo {
+  overflow: hidden;
+  margin: 17px 0;
+  border: 3px solid #754729;
+  border-radius: 11px 7px 12px 8px;
+  background: #493324;
+  box-shadow: 0 0 0 1px #d2a463, 0 4px 8px #59391f25;
+}
+
+.exhibit-photo img {
+  display: block;
+  width: 100%;
+  height: clamp(200px, 36dvh, 340px);
+  object-fit: contain;
+  background: #3b2b20;
+}
+
+.exhibit-photo p {
+  margin: 0;
+  padding: 16px;
+  color: #f8e3b9;
+}
+
+.exhibit-photo figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 8px 12px;
+  background: linear-gradient(#e6c38f, #d7ab71);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.exhibit-card .primary span {
+  color: #60371c;
+}
+
+@media (max-width: 760px) {
+  .restoration-view .game-toolbar .carved-button {
+    min-height: 33px;
+    gap: 3px;
+    padding: 4px 6px;
+  }
+
+  .game-toolbar .carved-button svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .restoration-view header .carved-switch button {
+    min-height: 27px;
+    padding: 0 4px;
+    font-size: 9px;
+  }
+
+  .restoration-view.menu-open .chapter-panel {
+    top: 88px;
+    max-height: calc(100dvh - 102px);
+  }
+
+  .exhibit-card .card-top,
+  .exhibit-card .card-content {
+    padding-inline: 13px;
+  }
+}

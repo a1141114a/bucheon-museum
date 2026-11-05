@@ -1,0 +1,79 @@
+{
+  "id": "bcm-1072",
+  "category": "ceramics",
+  "name": {
+    "zh": "传统储藏瓮（馆方题名：盐罐）",
+    "ko": "소금항아리",
+    "en": "Traditional storage jar (catalogued as salt jar)"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1072,
+  "accessionNumber": null,
+  "periodSourceKo": "대한민국/시대미상",
+  "dateClarificationZh": null,
+  "materialSourceKo": "질그릇",
+  "dimensionsSource": "17X42.5cm",
+  "purpose": {
+    "zh": "同类瓮常用于储存米或谷物",
+    "ko": "쌀이나 곡식 저장용으로 쓰인 독",
+    "en": "Jars of this type were commonly used to store rice or grain"
+  },
+  "historyAndSignificance": {
+    "zh": "馆方以盐罐为这件器物的目录题名，并将其放在传统储藏瓮的工艺背景下介绍。实物照片显示暖色口肩、深色腹部、双耳与绕身纹带。馆方说明同类器物常用于储米或谷物，这件瓮的具体使用史未核实。",
+    "ko": "박물관은 이 유물을 소금항아리로 등록하며 푸레독과 곡식 저장 용도를 설명한다. 사진에는 따뜻한 색의 어깨, 어두운 몸체, 두 손잡이와 띠무늬가 보인다. 이 유물 자체의 사용 이력은 확인되지 않았다.",
+    "en": "The museum catalogues this vessel as a salt jar and describes the ware in the context of grain storage. The photograph shows a warm shoulder, dark body, two side handles and horizontal bands. The use history of this particular vessel remains unverified."
+  },
+  "sources": [
+    {
+      "title": "소금항아리",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1072/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1402",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1402",
+      "captionKo": "소금항아리",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1402",
+      "format": "JPEG",
+      "pixels": [
+        1000,
+        1000
+      ],
+      "angle": "front-oblique",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "reference-silhouette-confirmed"
+    }
+  ],
+  "review": {
+    "status": "approved-for-modeling",
+    "approvedAt": "2026-11-05",
+    "evidence": "用户在本次对话选定替换项并要求开始独立建模。",
+    "notes": "用户指定用于第一关修复与展品卡。"
+  },
+  "model": {
+    "status": "completed",
+    "confidence": "approximate-photo-reference",
+    "proposedMethodAndUnknownsZh": "复原敞口、双耳和腹部纹带。暂将馆方尺寸的42.5 cm作为高度、17 cm作为口径参考。腹径、器壁和背面纹饰由单面照片估算。",
+    "blend": "model.blend",
+    "glb": "model.glb",
+    "script": "../../generate_model.py",
+    "preview": "preview.png",
+    "stats": "model-stats.json"
+  },
+  "placement": {
+    "level": 1,
+    "role": "restoration-puzzle"
+  }
+}

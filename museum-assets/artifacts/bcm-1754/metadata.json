@@ -1,0 +1,74 @@
+{
+  "id": "bcm-1754",
+  "category": "ceramics",
+  "name": {
+    "zh": "药尿瓶",
+    "ko": "약뇨병",
+    "en": "Medicinal urine vessel"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "富川市立博物馆",
+    "ko": "부천시립박물관",
+    "en": "Bucheon City Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1754,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/근대",
+  "dateClarificationZh": null,
+  "materialSourceKo": "옹기",
+  "dimensionsSource": "29.0cm",
+  "purpose": {
+    "zh": "发酵和存放旧时民间疗法使用的药尿",
+    "ko": "민간요법에 쓰인 약뇨의 발효와 보관",
+    "en": "Fermenting and storing urine used in historical folk remedies"
+  },
+  "historyAndSignificance": {
+    "zh": "富川瓮器博物馆于2011年购入这件近代瓮器。它的窄口、圆肩和肩部侧流嘴与旧时发酵、储存和倾倒的需要有关，现存器物无盖。馆方介绍将它与近代民间疗法相联系。器形记录了陶工如何把常见的储藏瓮改造成具有特定用途的容器。",
+    "ko": "부천옹기박물관이 2011년에 구입한 근대 옹기이다. 좁은 입, 둥근 어깨와 옆 주구는 발효한 액체를 보관하고 따르는 데 알맞다. 뚜껑은 남아 있지 않다. 생활용 옹기의 형태가 특정 민간요법의 필요에 맞추어 바뀐 사례이다.",
+    "en": "The Bucheon Onggi Museum purchased this modern-period vessel in 2011. Its narrow mouth, rounded shoulder and side spout suited the storage and pouring of a fermented liquid. The lid is missing. The form shows how everyday earthenware was adapted to a specific historical folk practice."
+  },
+  "sources": [
+    {
+      "title": "약뇨병",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1754/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4484",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=4484",
+      "captionKo": "",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=4484",
+      "format": "PNG",
+      "pixels": [
+        348,
+        262
+      ],
+      "angle": "front-oblique",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "full-silhouette-confirmed"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "旋转体与独立侧流嘴。原图仅348×262，底部、背面和流嘴内腔待补。馆方所述松针盖为推测，现状模型不补盖。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}

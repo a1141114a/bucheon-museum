@@ -1,0 +1,92 @@
+{
+  "id": "bcm-1252",
+  "category": "history",
+  "name": {
+    "zh": "树州卞荣鲁用砚",
+    "ko": "벼루",
+    "en": "Inkstone used by Byeon Yeong-ro"
+  },
+  "translatedNamesStatus": "editorial-draft",
+  "museum": {
+    "zh": "树州文学馆",
+    "ko": "수주문학관",
+    "en": "Suju Literature Museum"
+  },
+  "identity": "official-collection-record",
+  "catalogPageId": 1252,
+  "accessionNumber": null,
+  "periodSourceKo": "한국/광복이후",
+  "dateClarificationZh": null,
+  "materialSourceKo": null,
+  "dimensionsSource": "20.0X13.5cm",
+  "purpose": {
+    "zh": "研墨书写",
+    "ko": "먹을 갈아 글씨를 쓰는 용도",
+    "en": "Grinding ink for writing"
+  },
+  "historyAndSignificance": {
+    "zh": "树州文学馆登记这件砚为卞荣鲁曾使用的器物，尺寸为20×13.5厘米。馆方描述右上角有两只蟹纹，并将长寿列为一种可能的寓意。它把书写实践与日常文具联系起来。具体石材、制作年份和雕纹含义的其他解释仍待核实。",
+    "ko": "수주문학관은 이 벼루를 변영로가 사용한 물건으로 기록하며 크기를 20×13.5cm로 제시한다. 오른쪽 위에 게 두 마리가 새겨져 있으며, 박물관은 장수의 뜻으로 해석될 가능성을 소개한다. 구체적인 재료와 제작연도는 확인되지 않았다.",
+    "en": "The Suju Literature Museum records this 20 by 13.5 cm inkstone as used by Byeon Yeong-ro. Two crabs are carved at the upper right, and the museum offers longevity as a possible reading. The object connects the writer’s practice with everyday writing tools. Its stone type and manufacture date are unverified."
+  },
+  "sources": [
+    {
+      "title": "벼루",
+      "url": "https://www.bcmuseum.or.kr/ko/collection/1252/view",
+      "checkedOn": "2026-11-05"
+    }
+  ],
+  "photos": [
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1582",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1582",
+      "captionKo": "수주 변영로가 사용했던 벼루",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=1582",
+      "format": "JPEG",
+      "pixels": [
+        1000,
+        1000
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    },
+    {
+      "originalUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=2143",
+      "previewUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=2143",
+      "captionKo": "벼루",
+      "accessibleUrl": "https://www.bcmuseum.or.kr/comm/file/image?id=2143",
+      "format": "JPEG",
+      "pixels": [
+        1000,
+        1000
+      ],
+      "angle": "unspecified",
+      "photographer": null,
+      "publisher": "부천시박물관",
+      "rights": "pending",
+      "licenseEvidence": null,
+      "localPath": null,
+      "visualInspection": "pending"
+    }
+  ],
+  "review": {
+    "status": "pending",
+    "approvedAt": null,
+    "evidence": null
+  },
+  "model": {
+    "status": "awaiting-user-review",
+    "confidence": "unrated",
+    "proposedMethodAndUnknownsZh": "浅盘挤出，蟹纹只做浅浮雕。两张图先核对角度，底面待补。",
+    "blend": null,
+    "glb": null,
+    "script": null,
+    "preview": null
+  },
+  "placement": null
+}
