@@ -52,6 +52,19 @@
   --museum-interface: 'Noto Serif', 'Noto Serif SC', 'Noto Serif KR', Georgia, serif;
 }
 
+:root:lang(zh),
+:root:lang(ko) {
+  font-family: var(--museum-reading);
+}
+
+:lang(zh) {
+  --museum-reading: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', system-ui, sans-serif;
+}
+
+:lang(ko) {
+  --museum-reading: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans CJK KR', 'Noto Sans KR', system-ui, sans-serif;
+}
+
 .app-shell .header-title,
 .app-shell .game-toolbar .carved-button,
 .app-shell .chapter-panel,
@@ -74,6 +87,57 @@
 .app-shell .exhibit-card h2,
 .app-shell .exhibit-card .primary {
   font-family: var(--museum-interface);
+}
+
+/* Keep the brush lettering at display size. Controls and instructions use the reading face. */
+:is(:lang(zh), :lang(ko)):is(
+  .home-menu-item,
+  .home-tagline,
+  .home-settings-content,
+  .home-languages button,
+  .carved-switch button,
+  .game-toolbar .carved-button,
+  .chapter-panel,
+  .chapter-panel .sidebar-bottom p,
+  .restoration-view,
+  .restoration-root,
+  .restoration-root .stone-button,
+  .quest-dialog,
+  .exhibit-card .primary,
+  .exhibit-card .card-top .eyebrow,
+  .multilingual span[lang]
+) {
+  font-family: var(--museum-reading);
+}
+
+:is(:lang(zh), :lang(ko)):is(.home-museum, .chapter-plaque strong, .quest-dialog h1) {
+  font-family: var(--museum-interface);
+  font-weight: 600;
+}
+
+:is(:lang(zh), :lang(ko)).home-menu-item {
+  color: #442711;
+  font-size: clamp(21px, 2.2vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: none;
+}
+
+:is(:lang(zh), :lang(ko)).home-tagline {
+  color: #ffe6bf;
+  font-size: clamp(14px, 1.6vw, 23px);
+  font-weight: 500;
+  letter-spacing: .06em;
+  line-height: 1.4;
+}
+
+:is(:lang(zh), :lang(ko)).home-settings-content {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+:is(:lang(zh), :lang(ko)):is(.home-settings h2, .home-settings-button) {
+  font-weight: 600;
 }
 
 .app-shell .header-title,
@@ -128,5 +192,15 @@
   .app-shell .game-toolbar .carved-button,
   .app-shell .stone-button {
     font-size: 12px;
+  }
+
+  .restoration-root:lang(zh),
+  .restoration-root:lang(ko) {
+    & .console-title small,
+    & .quest-progress p,
+    & .atelier-label,
+    & .stone-counter small {
+      font-size: 10px;
+    }
   }
 }

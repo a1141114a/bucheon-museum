@@ -33,7 +33,11 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
       </div>
     </div>
     <div className="card-content"><span className="status">{t(status)}</span><h2 id="artifact-title">{artifact.name[state.language]}</h2>
-      <p className="multilingual">{Object.entries(artifact.name).filter(([lang])=>lang!==state.language).map(([,name])=>name).join(' / ')}</p>
+      <p className="multilingual">
+        {(['zh', 'ko', 'en'] as const).filter(language => language !== state.language).map((language, index) => (
+          <span key={language} lang={language}>{index > 0 && ' / '}{artifact.name[language]}</span>
+        ))}
+      </p>
       <figure className="exhibit-photo">
         {photoUrl&&!photoFailed
           ? <img src={photoUrl} alt={artifact.name[state.language]} referrerPolicy="no-referrer" onError={()=>setPhotoFailed(true)}/>
