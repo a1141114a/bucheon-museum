@@ -137,6 +137,11 @@
 
 @media (orientation: landscape) and (max-height: 550px) and (max-width: 760px) {
   .restoration-root .restoration-console { right: 156px; }
+  .restoration-console .fragment-buttons {
+    display: grid;
+    overflow: visible;
+    padding: 0;
+  }
 }
 
 @media (orientation: portrait) and (max-height: 680px) and (max-width: 600px) {
@@ -166,7 +171,7 @@
 }
 
 /* Let the tray span the bottom on tablets. The tools occupy the row above it. */
-@media (min-width: 761px) and (min-height: 500px) and (max-height: 760px) {
+@media (min-width: 761px) and (min-height: 520px) and (max-height: 760px) {
   .restoration-view .restoration-root {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -234,7 +239,7 @@
   .restoration-root .restoration-console .slot-button { font-size: 14px; }
 }
 
-@media (min-width: 761px) and (max-width: 999px) and (min-height: 500px) and (max-height: 760px) {
+@media (min-width: 761px) and (max-width: 999px) and (min-height: 520px) and (max-height: 760px) {
   .restoration-root .restoration-console .fragment-buttons,
   .restoration-root .restoration-console .target-buttons {
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -246,4 +251,17 @@
   .restoration-root .stone-counter { min-height: 46px; padding: 7px 12px; }
   .restoration-root .quest-progress { top: 228px; }
   .restoration-root .atelier-label { top: 264px; }
+}
+
+@media (min-width: 761px) and (min-height: 520px) and (max-height: 550px) {
+  .restoration-root .chapter-plaque { width: 225px; }
+}
+
+@media (orientation: landscape) and (max-height: 550px) and (max-width: 610px) {
+  .restoration-console .fragment-buttons,
+  .restoration-console .target-buttons {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .restoration-root .restoration-feedback { bottom: 160px; }
 }
