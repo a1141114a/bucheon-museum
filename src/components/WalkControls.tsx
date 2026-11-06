@@ -1,10 +1,15 @@
 import { useEffect, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
+import { Euler } from 'three'
 import { movement, isWalkable } from '../state/exploration'
 export default function WalkControls({active}:{active:boolean}) {
   const {camera,gl}=useThree()
   const keys=useRef(new Set<string>());const angle=useRef({yaw:0,pitch:0})
   useEffect(()=>{
+    if(active) {
+      const rotation=new Euler().setFromQuaternion(camera.quaternion,'YXZ')
+      angle.current={yaw:rotation.y,pitch:rotation.x}
+    }
     const canvas=gl.domElement;let pointer:number|null=null;let lastX=0;let lastY=0
     const down=(e:KeyboardEvent)=>{if(!active||document.querySelector('dialog[open]')||e.target instanceof HTMLInputElement)return; if(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();keys.current.add(e.code)}}
     const up=(e:KeyboardEvent)=>keys.current.delete(e.code)
@@ -15,7 +20,7 @@ export default function WalkControls({active}:{active:boolean}) {
     window.addEventListener('keydown',down);window.addEventListener('keyup',up);window.addEventListener('blur',clear);window.addEventListener('pointerup',end);window.addEventListener('pointercancel',end)
     canvas.addEventListener('pointerdown',start);canvas.addEventListener('pointermove',move);canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end)
     return()=>{clear();window.removeEventListener('keydown',down);window.removeEventListener('keyup',up);window.removeEventListener('blur',clear);window.removeEventListener('pointerup',end);window.removeEventListener('pointercancel',end);canvas.removeEventListener('pointerdown',start);canvas.removeEventListener('pointermove',move);canvas.removeEventListener('pointerup',end);canvas.removeEventListener('pointercancel',end)}
-  },[gl,active])
+  },[gl,active,camera])
   useFrame((_,delta)=>{
     if(!active||document.querySelector('dialog[open]')){keys.current.clear();return}
     const k=keys.current

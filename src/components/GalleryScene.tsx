@@ -1,7 +1,7 @@
 import { Component, Suspense, useEffect, useMemo, useRef, type ReactNode } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
-import { Box3, CanvasTexture, MathUtils, SRGBColorSpace, Vector3 } from 'three'
+import { Box3, CanvasTexture, InstancedMesh, MathUtils, Matrix4, Object3D, Quaternion, SRGBColorSpace, Vector3 } from 'three'
 import { artifacts } from '../data/artifacts'
 import type { Language } from '../types'
 import { clueIds, displays, galleryBounds, gallerySpawn, nearbyExhibit, nearbyStation, stations, type ClueId, type Station } from '../state/exploration'
@@ -41,12 +41,30 @@ function ExhibitPlaque({name,language}:{name:string;language:Language}) {
     canvas.height=144
     const context=canvas.getContext('2d')
     if (!context) return null
-    context.fillStyle='#ead4a7'
+    const brass=context.createLinearGradient(0,0,640,144)
+    brass.addColorStop(0,'#4f2f20')
+    brass.addColorStop(.35,'#825327')
+    brass.addColorStop(.58,'#9a6933')
+    brass.addColorStop(1,'#533220')
+    context.fillStyle=brass
     context.fillRect(0,0,640,144)
-    context.strokeStyle='#9c743b'
-    context.lineWidth=5
-    context.strokeRect(10,10,620,124)
-    context.fillStyle='#452c1c'
+    const rim=[[27,8],[613,8],[632,27],[632,117],[613,136],[27,136],[8,117],[8,27]]
+    context.strokeStyle='#efbc63'
+    context.lineWidth=6
+    context.beginPath()
+    rim.forEach(([x,y],i)=>i===0?context.moveTo(x,y):context.lineTo(x,y))
+    context.closePath()
+    context.stroke()
+    context.lineWidth=1.5
+    context.strokeStyle='#e6a953'
+    context.strokeRect(26,20,588,104)
+    context.fillStyle='#efba6e'
+    for (const [x,y] of [[27,22],[613,22],[27,122],[613,122]]) {
+      context.beginPath()
+      context.moveTo(x,y-7);context.lineTo(x+6,y);context.lineTo(x,y+7);context.lineTo(x-6,y)
+      context.fill()
+    }
+    context.fillStyle='#fff0cc'
     context.textAlign='center'
     context.textBaseline='middle'
     const family=language==='ko'?'Malgun Gothic, sans-serif':language==='zh'?'Microsoft YaHei, sans-serif':'Arial, sans-serif'
@@ -60,15 +78,15 @@ function ExhibitPlaque({name,language}:{name:string;language:Language}) {
       let row=''
       for (const word of words) {
         const proposed=row?row+separator+word:word
-        if (row && context.measureText(proposed).width>574) {lines.push(row);row=word}
+        if (row && context.measureText(proposed).width>548) {lines.push(row);row=word}
         else row=proposed
       }
       if(row)lines.push(row)
-      if(lines.length<=2 && lines.every(text=>context.measureText(text).width<=574)) break
+      if(lines.length<=2 && lines.every(text=>context.measureText(text).width<=548)) break
       fontSize-=2
     }
     const lineHeight=Math.min(fontSize+8,108/Math.max(1,lines.length))
-    lines.forEach((text,i)=>context.fillText(text,320,72+(i-(lines.length-1)/2)*lineHeight,574))
+    lines.forEach((text,i)=>context.fillText(text,320,72+(i-(lines.length-1)/2)*lineHeight,548))
     const result=new CanvasTexture(canvas)
     result.colorSpace=SRGBColorSpace
     return result
@@ -89,7 +107,16 @@ function DisplayCase({id,x,z,language,onExhibit}:{id:string;x:number;z:number;la
     <Box position={[0,.59,0]} scale={[2.2,1.02,1.52]} color="#4c3828"/>
     <Box position={[0,1.11,0]} scale={[2.32,.12,1.62]} color="#a38657"/>
     <Box position={[0,1.18,0]} scale={[1.82,.06,1.28]} color="#413e36"/>
-    <Box position={[0,.97,.781]} scale={[1.78,.42,.032]} color="#967143"/>
+    <Box position={[0,.97,.781]} scale={[1.78,.42,.032]} color="#ad7940"/>
+    {[-1,1].map(side=><group key={side}>
+      <Box position={[side*.98,.57,.765]} scale={[.025,.77,.027]} color="#b18652"/>
+      <Box position={[side*.88,.22,.768]} scale={[.21,.024,.027]} color="#b18652"/>
+      <Box position={[side*.81,.27,.769]} scale={[.025,.10,.027]} color="#b18652"/>
+      <mesh position={[side*.955,.76,.785]} rotation={[0,0,Math.PI/4]}>
+        <boxGeometry args={[.072,.072,.024]}/><meshStandardMaterial color="#c19354" metalness={.42} roughness={.38}/>
+      </mesh>
+    </group>)}
+    <Box position={[0,.17,.821]} scale={[2.16,.024,.02]} color="#a97f46"/>
     {artifact && <ExhibitPlaque name={artifact.name[language]} language={language}/>}
     <Box position={[0,2.65,0]} scale={[2.27,.09,1.59]} color="#76583a"/>
     {[-1,1].map(side=><group key={side}>
@@ -106,13 +133,27 @@ function DisplayCase({id,x,z,language,onExhibit}:{id:string;x:number;z:number;la
   </group>
 }
 
+function TileSeams() {
+  const positions=useMemo(()=>{
+    const {width,depth}=galleryBounds
+    const vertices:number[]=[]
+    for(let x=-width/2;x<=width/2;x+=2) vertices.push(x,.004,-depth/2,x,.004,depth/2)
+    for(let z=-depth/2;z<=depth/2;z+=2) vertices.push(-width/2,.004,z,width/2,.004,z)
+    return new Float32Array(vertices)
+  },[])
+  return <lineSegments>
+    <bufferGeometry><bufferAttribute attach="attributes-position" args={[positions,3]}/></bufferGeometry>
+    <lineBasicMaterial color="#52483d"/>
+  </lineSegments>
+}
+
 function Architecture() {
   const {width,depth}=galleryBounds
   return <>
     <mesh rotation={[-Math.PI/2,0,0]} receiveShadow><planeGeometry args={[width,depth]}/>
       <meshStandardMaterial color="#423d32" roughness={.8}/>
     </mesh>
-    <gridHelper args={[28,28,'#66574b','#52483d']} position={[0,.003,0]}/>
+    <TileSeams/>
     <Box position={[0,3,-depth/2]} scale={[width,6,.25]} color="#3b3027"/>
     <Box position={[0,3,depth/2]} scale={[width,6,.25]} color="#3b3027"/>
     {[-1,1].map(side=><group key={side}>
@@ -168,18 +209,64 @@ function HiddenCoin({id,onCollect}:{id:ClueId;onCollect:()=>void}) {
   </group>
 }
 
+const burstCoins=36
+
+function CoinFountain() {
+  const mesh=useRef<InstancedMesh>(null)
+  const start=useRef<number|null>(null)
+  const dummy=useMemo(()=>new Object3D(),[])
+  useFrame(({clock})=>{
+    if(!mesh.current)return
+    if(start.current===null)start.current=clock.elapsedTime
+    const elapsed=clock.elapsedTime-start.current-.48
+    for(let i=0;i<burstCoins;i++){
+      const delay=i*.061
+      const angle=i*2.399963
+      const time=elapsed<delay?-1:(elapsed-delay)%2.24
+      const radius=time*(.54+i%6*.13)
+      const y=1.72+time*(3.25+i%5*.32)-1.78*time*time
+      const scale=time<0||y<.16?0:Math.min(1,(time+.04)*14)
+      dummy.position.set(Math.cos(angle)*radius,y,Math.sin(angle)*radius+.15)
+      dummy.rotation.set(time*7+angle,time*5-angle,angle+time*3)
+      dummy.scale.setScalar(scale)
+      dummy.updateMatrix()
+      mesh.current.setMatrixAt(i,dummy.matrix)
+    }
+    mesh.current.instanceMatrix.needsUpdate=true
+  })
+  return <instancedMesh ref={mesh} args={[undefined,undefined,burstCoins]} frustumCulled={false} name="CoinFountain">
+    <cylinderGeometry args={[.095,.095,.029,14]}/>
+    <meshStandardMaterial color="#f5b74d" emissive="#b66a1c" emissiveIntensity={.32} metalness={.48} roughness={.32}/>
+  </instancedMesh>
+}
+
+function TreasureCamera() {
+  const start=useRef<{at:number;position:Vector3;rotation:Quaternion}|null>(null)
+  const destination=useMemo(()=>new Vector3(0,2.04,5.18),[])
+  const rotation=useMemo(()=>new Quaternion().setFromRotationMatrix(new Matrix4().lookAt(destination,new Vector3(0,2.08,0),new Vector3(0,1,0))),[destination])
+  useFrame(({camera,clock})=>{
+    if(!start.current)start.current={at:clock.elapsedTime,position:camera.position.clone(),rotation:camera.quaternion.clone()}
+    const linear=Math.min(1,(clock.elapsedTime-start.current.at)/.82)
+    const amount=linear*linear*(3-2*linear)
+    camera.position.lerpVectors(start.current.position,destination,amount)
+    camera.quaternion.slerpQuaternions(start.current.rotation,rotation,amount)
+  })
+  return null
+}
+
 interface GalleryProps {
   active:boolean
   language:Language
   clues:ClueId[]
   opened:boolean
+  celebrating:boolean
   onNear:(station:Station|null)=>void
   onInspect:(station:Station)=>void
   onNearExhibit:(id:string|null)=>void
   onExhibit:(id:string)=>void
 }
 
-function Hall({active,language,clues,opened,onNear,onInspect,onNearExhibit,onExhibit}:GalleryProps) {
+function Hall({active,language,clues,opened,celebrating,onNear,onInspect,onNearExhibit,onExhibit}:GalleryProps) {
   const previous=useRef<Station|null>(null)
   const previousExhibit=useRef<string|null>(null)
   useFrame(({camera})=>{
@@ -203,6 +290,7 @@ function Hall({active,language,clues,opened,onNear,onInspect,onNearExhibit,onExh
         <HiddenCoin key={id} id={id} onCollect={()=>onInspect(id)}/>)}
     </Suspense>
     <WalkControls active={active}/>
+    {celebrating&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&<><TreasureCamera/><CoinFountain/></>}
   </>
 }
 

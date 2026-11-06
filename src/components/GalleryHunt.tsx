@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { artifacts } from '../data/artifacts'
 import type { Artifact } from '../types'
@@ -6,6 +6,8 @@ import type { CopyKey } from '../i18n'
 import { useGame } from '../state/GameProvider'
 import { isLevelUnlocked } from '../state/game'
 import { clueIds, movement, type Station } from '../state/exploration'
+import { coinPuzzleSolved, createCoinPuzzle, moveCoinTile } from '../state/coinPuzzle'
+import { CoinPuzzle, CoinReward } from './CoinPuzzle'
 import './gallery-hunt.css'
 
 const Scene = lazy(() => import('./GalleryScene'))
@@ -22,7 +24,36 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   const exhibit = artifacts.find(item=>item.id===exhibitId)
   const [showHint,setShowHint] = useState(false)
   const [sceneKey,setSceneKey] = useState(0)
+  const [phase,setPhase] = useState<'idle'|'puzzle'|'celebration'|'reward'>('idle')
+  const [board,setBoard] = useState(createCoinPuzzle)
+  const [moves,setMoves] = useState(0)
   const {clues,opened} = state.gallery
+  const sceneActive=active&&phase==='idle'
+  const celebrating=phase==='celebration'||phase==='reward'
+
+  useEffect(()=>{
+    if(phase!=='celebration')return
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const timer=window.setTimeout(()=>setPhase('reward'),reduced?0:2900)
+    return ()=>window.clearTimeout(timer)
+  },[phase])
+
+  function shufflePuzzle() {
+    setBoard(createCoinPuzzle())
+    setMoves(0)
+  }
+
+  function movePuzzle(index:number) {
+    if(phase!=='puzzle')return
+    const next=moveCoinTile(board,index)
+    if(!next)return
+    setBoard(next)
+    setMoves(value=>value+1)
+    if(coinPuzzleSolved(next)){
+      dispatch({type:'gallery-open'})
+      setPhase('celebration')
+    }
+  }
 
   if (!isLevelUnlocked(state,2)) return <section className="hunt-lock">
     <h1>{t('l2')}</h1>
@@ -31,24 +62,29 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   </section>
 
   function restart() {
-    if (!active || !window.confirm(t('huntRestartConfirm'))) return
+    if (!sceneActive || !window.confirm(t('huntRestartConfirm'))) return
     movement.forward=0
     movement.side=0
     setNear(null)
     setExhibitId(null)
     setShowHint(false)
+    shufflePuzzle()
     dispatch({type:'gallery-restart'})
     setSceneKey(key=>key+1)
   }
 
   function inspect(station: Station) {
-    if (!active || station !== near || opened) return
-    if (station === 'chest') dispatch({type:'gallery-open'})
-    else dispatch({type:'gallery-clue',id:station})
+    if (!sceneActive || station !== near || opened) return
+    if (station === 'chest') {
+      if(clues.length!==clueIds.length)return
+      movement.forward=0
+      movement.side=0
+      setPhase('puzzle')
+    } else dispatch({type:'gallery-clue',id:station})
   }
 
   function inspectExhibit(id:string) {
-    if (active && exhibit?.id===id) onArtifact(exhibit)
+    if (sceneActive && exhibit?.id===id) onArtifact(exhibit)
   }
 
   const collected = near !== null && near !== 'chest' && clues.includes(near)
@@ -57,10 +93,10 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   return <section className="hunt-root" aria-labelledby="hunt-title">
     <div className="hunt-scene">
       <Suspense fallback={<div className="scene-error">3D…</div>}>
-        <Scene key={sceneKey} language={state.language} active={active} clues={clues} opened={opened} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
+        <Scene key={sceneKey} language={state.language} active={sceneActive} clues={clues} opened={opened} celebrating={celebrating} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
       </Suspense>
     </div>
-    <div className="hunt-brief">
+    <div className="hunt-brief" inert={!sceneActive} hidden={celebrating}>
       <h1 id="hunt-title">{t('l2')}</h1>
       <p>{t('huntIntro')}</p>
       <p>{t('huntControls')}</p>
@@ -70,7 +106,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
       </div>
       {showHint && <ul>{clueIds.map(id => <li key={id}>{clues.includes(id) ? '✓' : '◇'} {t(stationLabels[id])}</li>)}</ul>}
     </div>
-    <div className="hunt-controls">
+    <div className="hunt-controls" inert={!sceneActive} hidden={celebrating}>
       <div className="hunt-pad" role="group" aria-label={t('huntControls')} inert={!active}>
         {directions.map(([label,symbol,axis,value]) => <button type="button" key={label} className="stone-button" aria-label={t(label)}
           onPointerDown={event => { event.currentTarget.setPointerCapture(event.pointerId); movement[axis]=value }}
@@ -88,5 +124,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
         {exhibit && !near && <button type="button" className="stone-button" onClick={() => inspectExhibit(exhibit.id)}>{t('huntExhibit')}</button>}
       </div>
     </div>
+    {phase==='puzzle' && <CoinPuzzle board={board} moves={moves} onMove={movePuzzle} onShuffle={shufflePuzzle} onClose={()=>setPhase('idle')}/>}
+    {phase==='reward' && <CoinReward onClose={()=>setPhase('idle')}/>}
   </section>
 }

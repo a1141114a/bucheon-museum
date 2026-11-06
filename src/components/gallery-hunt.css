@@ -50,3 +50,5 @@
   font-size: 11px;
   line-height: 1.25;
 }
+
+.hunt-brief[hidden],.hunt-controls[hidden] { display:none; }
