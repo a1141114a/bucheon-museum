@@ -171,7 +171,8 @@
 }
 
 /* Let the tray span the bottom on tablets. The tools occupy the row above it. */
-@media (min-width: 761px) and (min-height: 520px) and (max-height: 760px) {
+@media (min-width: 1000px) and (min-height: 520px) and (max-height: 760px),
+       (min-width: 761px) and (min-height: 550px) and (max-height: 760px) {
   .restoration-view .restoration-root {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -239,7 +240,7 @@
   .restoration-root .restoration-console .slot-button { font-size: 14px; }
 }
 
-@media (min-width: 761px) and (max-width: 999px) and (min-height: 520px) and (max-height: 760px) {
+@media (min-width: 761px) and (max-width: 999px) and (min-height: 550px) and (max-height: 760px) {
   .restoration-root .restoration-console .fragment-buttons,
   .restoration-root .restoration-console .target-buttons {
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -264,4 +265,15 @@
   }
 
   .restoration-root .restoration-feedback { bottom: 160px; }
+}
+
+/* Leave vertical room for both lines inside the decorative chapter plaque. */
+.restoration-root .chapter-plaque small { line-height: 1.25; }
+.restoration-root .chapter-plaque strong { line-height: 1.2; }
+
+@media (min-width: 761px) and (min-height: 551px) and (max-height: 600px) {
+  .restoration-root .chapter-plaque {
+    width: 250px;
+    padding-block: 8px;
+  }
 }
