@@ -14,7 +14,7 @@ export interface GameState {
   gallery: GalleryProgress
 }
 export const initialState: GameState = {version:2, language:'zh', artifacts:{}, score:0, completedLevels:[], hintsUsed:0,restoration:freshRestoration(),gallery:{clues:[],opened:false}}
-export type Action = {type:'language'; language:Language} | {type:'discover'|'unlock'; id:string} | {type:'hint'} | {type:'reset'} | {type:'restore-start'|'restore-restart'|'restore-hint'} | {type:'restore-rotate';id:string;direction:1|-1} | {type:'restore-place';id:string;target:string} | {type:'gallery-clue';id:ClueId} | {type:'gallery-open'}
+export type Action = {type:'language'; language:Language} | {type:'discover'|'unlock'; id:string} | {type:'hint'} | {type:'reset'} | {type:'restore-start'|'restore-restart'|'restore-hint'} | {type:'restore-rotate';id:string;direction:1|-1} | {type:'restore-place';id:string;target:string} | {type:'gallery-clue';id:ClueId} | {type:'gallery-open'|'gallery-restart'}
 function withProgress(state:GameState,restoration=state.restoration,gallery=state.gallery):GameState {
   const score = Object.values(state.artifacts).filter(status => status === 'unlocked').length * 10
     + restorationScore(restoration) + gallery.clues.length * 15 + (gallery.opened ? 60 : 0)
@@ -38,6 +38,9 @@ export function gameReducer(state:GameState, action:Action):GameState {
     case 'gallery-clue':
       if (!isLevelUnlocked(state,2) || !clueIds.includes(action.id) || state.gallery.clues.includes(action.id)) return state
       return withProgress(state,state.restoration,{...state.gallery,clues:[...state.gallery.clues,action.id]})
+    case 'gallery-restart':
+      if (!isLevelUnlocked(state,2)) return state
+      return withProgress(state,state.restoration,{clues:[],opened:false})
     case 'gallery-open':
       if (!isLevelUnlocked(state,2) || state.gallery.opened || state.gallery.clues.length !== clueIds.length) return state
       return withProgress(state,state.restoration,{...state.gallery,opened:true})

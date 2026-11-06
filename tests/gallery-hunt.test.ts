@@ -16,6 +16,14 @@ describe('chapter two hunt', () => {
     expect(game.score).toBe(before+105)
     expect(gameReducer(game,{type:'gallery-open'})).toBe(game)
     expect(parseSave(JSON.stringify(game))).toEqual(game)
+    const discovered = gameReducer(game,{type:'discover',id:'bcm-937'})
+    const restarted = gameReducer(discovered,{type:'gallery-restart'})
+    expect(restarted.gallery).toEqual({clues:[],opened:false})
+    expect(restarted.score).toBe(before)
+    expect(restarted.completedLevels).toEqual([1])
+    expect(restarted.restoration).toBe(discovered.restoration)
+    expect(restarted.artifacts).toEqual({'bcm-937':'discovered'})
+    expect(parseSave(JSON.stringify(restarted))).toEqual(restarted)
   })
 
   it('recognizes the closest station within reach', () => {

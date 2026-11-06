@@ -21,6 +21,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   const [exhibitId,setExhibitId] = useState<string|null>(null)
   const exhibit = artifacts.find(item=>item.id===exhibitId)
   const [showHint,setShowHint] = useState(false)
+  const [sceneKey,setSceneKey] = useState(0)
   const {clues,opened} = state.gallery
 
   if (!isLevelUnlocked(state,2)) return <section className="hunt-lock">
@@ -28,6 +29,17 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
     <p>{t('huntLocked')}</p>
     <Link className="primary" to="/levels/1">{t('return')}</Link>
   </section>
+
+  function restart() {
+    if (!active || !window.confirm(t('huntRestartConfirm'))) return
+    movement.forward=0
+    movement.side=0
+    setNear(null)
+    setExhibitId(null)
+    setShowHint(false)
+    dispatch({type:'gallery-restart'})
+    setSceneKey(key=>key+1)
+  }
 
   function inspect(station: Station) {
     if (!active || station !== near || opened) return
@@ -45,14 +57,17 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   return <section className="hunt-root" aria-labelledby="hunt-title">
     <div className="hunt-scene">
       <Suspense fallback={<div className="scene-error">3D…</div>}>
-        <Scene active={active} clues={clues} opened={opened} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
+        <Scene key={sceneKey} active={active} clues={clues} opened={opened} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
       </Suspense>
     </div>
     <div className="hunt-brief">
       <h1 id="hunt-title">{t('l2')}</h1>
       <p>{t('huntIntro')}</p>
       <p>{t('huntControls')}</p>
-      <button type="button" className="stone-button" aria-expanded={showHint} onClick={() => setShowHint(!showHint)}>{t('hint')}</button>
+      <div className="hunt-brief-actions">
+        <button type="button" className="stone-button" aria-expanded={showHint} onClick={() => setShowHint(!showHint)}>{t('hint')}</button>
+        <button type="button" className="stone-button" disabled={!active} onClick={restart}>{t('huntRestart')}</button>
+      </div>
       {showHint && <ul>{clueIds.map(id => <li key={id}>{clues.includes(id) ? '✓' : '◇'} {t(stationLabels[id])}</li>)}</ul>}
     </div>
     <div className="hunt-controls">

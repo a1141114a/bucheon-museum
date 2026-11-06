@@ -37,3 +37,16 @@
   .hunt-brief { top: 78px; max-width: 240px; }
   .hunt-brief p { font-size: 11px; }
 }
+
+.hunt-brief-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 5px;
+}
+.hunt-brief-actions .stone-button {
+  min-height: 44px;
+  padding: 5px 10px;
+  font-size: 11px;
+  line-height: 1.25;
+}

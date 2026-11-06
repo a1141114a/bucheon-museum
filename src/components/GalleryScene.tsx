@@ -1,7 +1,7 @@
 import { Component, Suspense, useMemo, useRef, type ReactNode } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
-import { Box3, Vector3 } from 'three'
+import { Box3, MathUtils, Vector3 } from 'three'
 import { artifacts } from '../data/artifacts'
 import { clueCover, clueIds, displays, galleryBounds, gallerySpawn, nearbyExhibit, nearbyStation, stations, type ClueId, type Station } from '../state/exploration'
 import WalkControls from './WalkControls'
@@ -89,6 +89,38 @@ function Architecture() {
   </>
 }
 
+const treasureModel = (part: 'cabinet'|'chest'|'coin') =>
+  import.meta.env.BASE_URL + `models/gallery-treasure-${part}.glb`
+
+function TreasureCabinet({opened,onOpen}:{opened:boolean;onOpen:()=>void}) {
+  const cabinet=useGLTF(treasureModel('cabinet'))
+  const chest=useGLTF(treasureModel('chest'))
+  const chestModel=useMemo(()=>chest.scene.clone(true),[chest.scene])
+  const lid=useMemo(()=>chestModel.getObjectByName('ChestLid'),[chestModel])
+
+  useFrame((_,delta)=>{
+    if (lid) lid.rotation.x=MathUtils.damp(lid.rotation.x,opened?-1.32:0,5,delta)
+  })
+
+  return <group onClick={event=>{event.stopPropagation();onOpen()}}>
+    <primitive object={cabinet.scene}/>
+    <group position={[0,1.32,0]}><primitive object={chestModel}/></group>
+    <pointLight position={[0,2.88,.38]} color="#ffd595" intensity={17} distance={5.2}/>
+    {opened && <pointLight position={[0,1.67,.05]} color="#ffca6f" intensity={3} distance={2.8}/>}
+  </group>
+}
+
+function HiddenCoin({id,onCollect}:{id:ClueId;onCollect:()=>void}) {
+  const {scene}=useGLTF(treasureModel('coin'))
+  const coin=useMemo(()=>scene.clone(true),[scene])
+  const [x,z]=stations[id]
+  const height={west:.25,east:.36,rear:.23}[id]
+  const turn={west:Math.PI,east:.15,rear:Math.PI-.2}[id]
+  return <group position={[x,height,z]} rotation={[-.1,turn,0]} onClick={event=>{event.stopPropagation();onCollect()}}>
+    <primitive object={coin}/>
+  </group>
+}
+
 interface GalleryProps {
   active:boolean
   clues:ClueId[]
@@ -115,29 +147,13 @@ function Hall({active,clues,opened,onNear,onInspect,onNearExhibit,onExhibit}:Gal
     <directionalLight position={[6,10,8]} intensity={2.2} color="#ffe3b1"/>
     <Architecture/>
     {displays.map(display=><DisplayCase key={display.id} {...display} onExhibit={onExhibit}/>)}
-    <Box position={[0,.12,0]} scale={[3.4,.24,3]} color="#33291e"/>
-    <Box position={[0,.61,0]} scale={[1.7,.99,1.5]} color="#8a704d"/>
-    <Box position={[0,1.12,0]} scale={[1.84,.11,1.65]} color="#bd9e68"/>
-    <group position={[0,1.18,0]} onClick={event=>{event.stopPropagation();onInspect('chest')}}>
-      <Box position={[0,.23,0]} scale={[.9,.45,.64]} color="#704125"/>
-      <group position={[0,.45,-.28]} rotation={[opened?-1.05:0,0,0]}>
-        <Box position={[0,.08,.28]} scale={[.94,.16,.65]} color="#9b5e32"/>
-      </group>
-      <Box position={[0,.35,.33]} scale={[.17,.18,.035]} color="#eac071"/>
-      {opened&&<pointLight position={[0,.65,0]} color="#ffcd78" intensity={9}/>}
-    </group>
-    {clueIds.filter(id=>!clues.includes(id)).map((id)=>{
-      const [x,z]=stations[id]
-      const y={west:.25,east:.36,rear:.23}[id]
-      return <group key={id} position={[x,y,z]} rotation={[0,id==='west'?Math.PI:0,0]}
-        onClick={event=>{event.stopPropagation();onInspect(id)}}>
-        <mesh rotation={[Math.PI/2,0,0]}>
-          <cylinderGeometry args={[.094,.094,.035,8]}/>
-          <meshStandardMaterial color="#bf9858" metalness={.45} roughness={.52} emissive="#55381a" emissiveIntensity={.28}/>
-        </mesh>
-        <mesh position={[0,0,.024]}><ringGeometry args={[.054,.063,8]}/><meshBasicMaterial color="#e2bf7e"/></mesh>
-      </group>
-    })}
+    <Suspense fallback={null}>
+      <TreasureCabinet opened={opened} onOpen={()=>onInspect('chest')}/>
+    </Suspense>
+    <Suspense fallback={null}>
+      {clueIds.filter(id=>!clues.includes(id)).map(id=>
+        <HiddenCoin key={id} id={id} onCollect={()=>onInspect(id)}/>)}
+    </Suspense>
     <WalkControls active={active}/>
   </>
 }
