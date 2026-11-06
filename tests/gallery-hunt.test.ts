@@ -20,7 +20,8 @@ describe('chapter two hunt', () => {
 
   it('recognizes the closest station within reach', () => {
     expect(nearbyStation(0,5.8)).toBeNull()
-    expect(nearbyStation(-4,-.5)).toBe('west')
+    expect(nearbyStation(-11.8,-8.5)).toBe('west')
+    expect(nearbyStation(-11.8,-6.58)).toBeNull()
     expect(nearbyStation(0,1.8)).toBe('chest')
   })
 })

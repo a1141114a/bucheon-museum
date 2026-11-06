@@ -15,8 +15,8 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
   const modelUrl = artifact.kind === 'test' || canModelCollection(artifact) ? artifact.model.url : null
   const photoUrl = canPublishPhoto(artifact) ? artifact.photo.url : null
   const showPhoto = Boolean(photoUrl && !photoFailed)
-  const previewUrl = modelUrl && artifact.id === storageJarArtifact.id
-    ? import.meta.env.BASE_URL + 'models/bcm-1072-preview.png'
+  const previewUrl = modelUrl && (artifact.id === storageJarArtifact.id || artifact.level === 2)
+    ? import.meta.env.BASE_URL + `models/${artifact.id}-preview.png`
     : null
   useEffect(()=>{
     const previous=document.activeElement as HTMLElement|null

@@ -1,5 +1,7 @@
 import { lazy, Suspense, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { artifacts } from '../data/artifacts'
+import type { Artifact } from '../types'
 import type { CopyKey } from '../i18n'
 import { useGame } from '../state/GameProvider'
 import { isLevelUnlocked } from '../state/game'
@@ -13,9 +15,11 @@ const directions = [
   ['huntBack','▼','forward',-1], ['huntRight','▶','side',1],
 ] as const
 
-export default function GalleryHunt({active}:{active:boolean}) {
+export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifact:(artifact:Artifact)=>void}) {
   const {state,dispatch,t} = useGame()
   const [near,setNear] = useState<Station | null>(null)
+  const [exhibitId,setExhibitId] = useState<string|null>(null)
+  const exhibit = artifacts.find(item=>item.id===exhibitId)
   const [showHint,setShowHint] = useState(false)
   const {clues,opened} = state.gallery
 
@@ -31,13 +35,17 @@ export default function GalleryHunt({active}:{active:boolean}) {
     else dispatch({type:'gallery-clue',id:station})
   }
 
+  function inspectExhibit(id:string) {
+    if (active && exhibit?.id===id) onArtifact(exhibit)
+  }
+
   const collected = near !== null && near !== 'chest' && clues.includes(near)
   const blockedChest = near === 'chest' && clues.length !== clueIds.length
 
   return <section className="hunt-root" aria-labelledby="hunt-title">
     <div className="hunt-scene">
       <Suspense fallback={<div className="scene-error">3D…</div>}>
-        <Scene active={active} clues={clues} opened={opened} onNear={setNear} onInspect={inspect} error={t('error')}/>
+        <Scene active={active} clues={clues} opened={opened} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
       </Suspense>
     </div>
     <div className="hunt-brief">
@@ -59,9 +67,10 @@ export default function GalleryHunt({active}:{active:boolean}) {
       </div>
       <div className="hunt-status">
         <strong>{t('huntClues')} {clues.length} / {clueIds.length}</strong>
-        <p role="status">{opened?t('huntDone'):blockedChest?t('huntNeedClues'):near?t(stationLabels[near]):t('huntApproach')}</p>
+        <p role="status">{opened?t('huntDone'):blockedChest?t('huntNeedClues'):near?t(stationLabels[near]):exhibit?exhibit.name[state.language]:t('huntApproach')}</p>
         {!opened && near && !collected && !blockedChest &&
           <button type="button" className="stone-button" onClick={() => inspect(near)}>{t(near==='chest'?'huntOpen':'huntCollect')}</button>}
+        {exhibit && !near && <button type="button" className="stone-button" onClick={() => inspectExhibit(exhibit.id)}>{t('huntExhibit')}</button>}
       </div>
     </div>
   </section>
