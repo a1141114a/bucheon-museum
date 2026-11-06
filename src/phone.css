@@ -316,11 +316,14 @@
     width: 100%;
     max-width: 225px;
     min-width: 0;
-    padding: 7px 14px;
+    min-height: 66px;
+    height: auto;
+    padding: 9px 14px;
     gap: 6px;
   }
 
   .restoration-root .chapter-plaque > span { font-size: 24px; }
+  .restoration-root .chapter-plaque > div { min-width: 0; }
   .restoration-root .chapter-plaque strong { overflow-wrap: anywhere; }
 
   .restoration-root .restoration-stats { justify-self: end; }
