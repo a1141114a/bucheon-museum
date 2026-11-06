@@ -1,5 +1,5 @@
 /* Keep phone controls inside their frames at both orientations. */
-@media (max-width: 760px), (orientation: landscape) and (max-height: 550px) and (pointer: coarse) {
+@media (max-width: 760px), (orientation: landscape) and (max-height: 550px) {
   .restoration-root .restoration-tools {
     width: clamp(112px, 32vw, 132px);
     gap: 6px;
@@ -39,7 +39,44 @@
   }
 }
 
-@media (orientation: landscape) and (max-height: 550px) and (pointer: coarse) {
+/* Short tablet and desktop windows keep a separate lane for the side tools. */
+@media (min-width: 761px) and (max-height: 760px) {
+  .restoration-root .restoration-console {
+    left: 16px;
+    right: 192px;
+    bottom: 16px;
+    grid-template-columns: minmax(0, 1fr) 110px minmax(0, 1fr);
+    gap: 8px;
+    border-width: 10px;
+    padding: 8px 10px;
+  }
+
+  .restoration-console .fragment-section,
+  .restoration-console .target-section { min-width: 0; }
+  .restoration-console .console-title { margin-bottom: 5px; }
+  .restoration-console .console-title small { display: none; }
+  .restoration-console .rotation-section { padding-inline: 4px; }
+  .restoration-console .fragment-button,
+  .restoration-console .slot-button {
+    min-width: 0;
+    min-height: 40px;
+    height: 40px;
+    padding: 2px;
+  }
+
+  .restoration-root .restoration-feedback { bottom: 118px; }
+}
+
+@media (min-width: 761px) and (max-width: 950px) and (max-height: 760px) {
+  .restoration-console .fragment-buttons,
+  .restoration-console .target-buttons {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .restoration-root .restoration-feedback { bottom: 160px; }
+}
+
+@media (orientation: landscape) and (max-height: 550px) {
   .restoration-view header {
     height: 54px;
     min-height: 0;
@@ -65,7 +102,7 @@
   .restoration-root .restoration-console {
     grid-template-columns: minmax(0, 1fr) 86px minmax(0, 1fr);
     left: 8px;
-    right: 153px;
+    right: 172px;
     bottom: 12px;
     gap: 6px;
     border-width: 8px;
@@ -89,13 +126,17 @@
   .restoration-root .restoration-feedback { bottom: 90px; font-size: 10px; }
 }
 
-@media (orientation: landscape) and (max-height: 550px) and (max-width: 740px) and (pointer: coarse) {
+@media (orientation: landscape) and (max-height: 550px) and (max-width: 950px) {
   .restoration-console .fragment-buttons,
   .restoration-console .target-buttons {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .restoration-root .restoration-feedback { bottom: 125px; }
+}
+
+@media (orientation: landscape) and (max-height: 550px) and (max-width: 760px) {
+  .restoration-root .restoration-console { right: 156px; }
 }
 
 @media (orientation: portrait) and (max-height: 680px) and (max-width: 600px) {
