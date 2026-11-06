@@ -56,22 +56,27 @@
       "rights": "pending",
       "licenseEvidence": null,
       "localPath": null,
-      "visualInspection": "pending"
+      "visualInspection": "reference-views-checked"
     }
   ],
   "review": {
-    "status": "pending",
-    "approvedAt": null,
-    "evidence": null
+    "status": "approved-for-modeling",
+    "approvedAt": "2026-11-06",
+    "evidence": "用户确认按所列八件建模并在第二关新增展位展示。"
   },
   "model": {
-    "status": "awaiting-user-review",
-    "confidence": "unrated",
+    "status": "completed",
+    "confidence": "approximate-photo-reference",
     "proposedMethodAndUnknownsZh": "钟身旋转体，挂件分件。原图404，仅600×600缩略图。钟舌是否可见和内部构造待补。",
-    "blend": null,
-    "glb": null,
-    "script": null,
-    "preview": null
+    "blend": "model.blend",
+    "glb": "model.glb",
+    "script": "../../generate_gallery_collection.py",
+    "preview": "preview.png",
+    "stats": "model-stats.json"
   },
-  "placement": null
+  "placement": {
+    "level": 2,
+    "use": "exhibit",
+    "modelUrl": "models/bcm-1060-exhibit.glb"
+  }
 }

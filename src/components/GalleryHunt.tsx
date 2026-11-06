@@ -57,7 +57,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   return <section className="hunt-root" aria-labelledby="hunt-title">
     <div className="hunt-scene">
       <Suspense fallback={<div className="scene-error">3D…</div>}>
-        <Scene key={sceneKey} active={active} clues={clues} opened={opened} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
+        <Scene key={sceneKey} language={state.language} active={active} clues={clues} opened={opened} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
       </Suspense>
     </div>
     <div className="hunt-brief">

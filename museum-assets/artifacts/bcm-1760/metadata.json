@@ -53,22 +53,27 @@
       "rights": "pending",
       "licenseEvidence": null,
       "localPath": null,
-      "visualInspection": "pending"
+      "visualInspection": "reference-views-checked"
     }
   ],
   "review": {
-    "status": "pending",
-    "approvedAt": null,
-    "evidence": null
+    "status": "approved-for-modeling",
+    "approvedAt": "2026-11-06",
+    "evidence": "用户确认按所列八件建模并在第二关新增展位展示。"
   },
   "model": {
-    "status": "awaiting-user-review",
-    "confidence": "unrated",
+    "status": "completed",
+    "confidence": "approximate-photo-reference",
     "proposedMethodAndUnknownsZh": "旋转体。梅花可用浅浮雕，铭文需对应照片或可靠转录；铭文方位及背面待核。",
-    "blend": null,
-    "glb": null,
-    "script": null,
-    "preview": null
+    "blend": "model.blend",
+    "glb": "model.glb",
+    "script": "../../generate_gallery_collection.py",
+    "preview": "preview.png",
+    "stats": "model-stats.json"
   },
-  "placement": null
+  "placement": {
+    "level": 2,
+    "use": "exhibit",
+    "modelUrl": "models/bcm-1760-exhibit.glb"
+  }
 }

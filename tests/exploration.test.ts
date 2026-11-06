@@ -7,6 +7,7 @@ it('keeps the camera inside the larger hall and out of case bases',()=>{
   expect(isWalkable(0,0)).toBe(false)
   expect(isWalkable(-14,0)).toBe(false)
   expect(isWalkable(0,-13)).toBe(false)
+  expect(displays).toHaveLength(12)
   for(const display of displays) {
     expect(isWalkable(display.x,display.z)).toBe(false)
     expect(nearbyExhibit(display.x,display.z+2)).toBe(display.id)
