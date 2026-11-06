@@ -278,111 +278,86 @@
   }
 }
 
-/* Portrait phones give the canvas its own row so the toolbar cannot cover a target. */
+/* The portrait rail keeps the original artwork while leaving the canvas clear. */
 @media (orientation: portrait) and (max-width: 600px) {
-  .app-shell.restoration-view {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-
-  .restoration-view .main-shell,
-  .restoration-view main { height: auto; }
-
-  .restoration-view .restoration-root {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-content: start;
-    align-items: center;
-    gap: 8px;
-    height: auto;
-    min-height: 100dvh;
-    padding: 90px 10px 8px;
-  }
-
-  .restoration-root .chapter-plaque,
-  .restoration-root .restoration-stats,
-  .restoration-root .quest-progress,
-  .restoration-root .atelier-label,
-  .restoration-root .restoration-scene,
-  .restoration-root .restoration-feedback,
-  .restoration-root .restoration-tools,
-  .restoration-root .restoration-console,
-  .restoration-root .restore-storage {
-    position: relative;
-    inset: auto;
-  }
-
-  .restoration-root .chapter-plaque {
-    width: 100%;
-    max-width: 225px;
-    min-width: 0;
-    min-height: 66px;
-    height: auto;
-    padding: 9px 14px;
-    gap: 6px;
-  }
-
-  .restoration-root .chapter-plaque > span { font-size: 24px; }
-  .restoration-root .chapter-plaque > div { min-width: 0; }
-  .restoration-root .chapter-plaque strong { overflow-wrap: anywhere; }
-
-  .restoration-root .restoration-stats { justify-self: end; }
-  .restoration-root .stone-counter {
-    min-height: 54px;
-    padding: 8px 10px;
-    line-height: 1.15;
-  }
-
-  .restoration-root .quest-progress { width: min(100%, 200px); }
-  .restoration-root .atelier-label { max-width: 130px; margin: 0; text-align: end; }
-
-  .restoration-root .restoration-scene {
-    grid-column: 1 / -1;
-    height: clamp(240px, 42svh, 380px);
-    margin-inline: -10px;
-    overflow: hidden;
-    background: #373b2c;
-  }
-
-  .restoration-root .restoration-feedback {
-    grid-column: 1 / -1;
-    justify-self: center;
-    transform: none;
-    margin: 0;
-  }
+  .restoration-root .restoration-scene { right: 60px; }
 
   .restoration-root .restoration-tools {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    align-items: stretch;
-    width: 100%;
+    display: flex;
+    right: 7px;
+    width: 46px;
     gap: 4px;
   }
 
   .restoration-root .restoration-tools .stone-button,
   .restoration-root .restoration-tools .stone-button:focus-visible {
-    grid-column: span 2;
-    min-width: 0;
-    padding: 6px 9px;
-    gap: 3px;
-    font-size: 11px;
+    min-width: 44px;
+    justify-content: center;
+    padding: 7px;
+    gap: 0;
   }
 
-  .restoration-root .restoration-tools .stone-button:nth-last-child(-n+2) { grid-column: span 3; }
-  .restoration-root .restoration-tools .stone-button > span { flex-basis: 11px; font-size: 13px; }
-  .restoration-root .restoration-tools .stone-button small { font-size: 8px; }
-  .restoration-root .restoration-tools .tool-label {
-    position: static;
-    width: auto;
+  .restoration-root .restoration-tools .stone-button > span {
+    flex: 0 0 16px;
+    font-size: 17px;
+  }
+
+  .restoration-root .restoration-tools .tool-label,
+  .restoration-root .restoration-tools .stone-button small {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .restoration-root .restoration-tools .stone-button:disabled { opacity: .65; }
+
+  .restoration-root .chapter-plaque {
     height: auto;
-    overflow: visible;
-    clip-path: none;
-    white-space: normal;
-    overflow-wrap: anywhere;
+    min-height: 66px;
+    width: min(198px, calc(100% - 157px));
+    padding: 9px 14px;
+    gap: 6px;
+  }
+  .restoration-root .chapter-plaque > div { min-width: 0; }
+  .restoration-root .chapter-plaque > span { font-size: 24px; }
+  .restoration-root .chapter-plaque strong { overflow-wrap: anywhere; }
+}
+
+@media (orientation: portrait) and (max-height: 640px) and (max-width: 600px) {
+  .restoration-root .restoration-tools { top: 151px; gap: 2px; }
+  .restoration-root .restoration-console { right: 63px; }
+  .restoration-root .restoration-console .rotation-section { padding-inline-start: 5px; }
+  .restoration-root .restoration-console { grid-template-columns: minmax(0, 1fr) 108px; }
+}
+
+@media (min-width: 761px) and (max-width: 1366px) {
+  .restoration-root .restoration-stats .stone-counter {
+    box-sizing: border-box;
+    justify-content: center;
+    min-width: 112px;
+    min-height: 64px;
+    padding: 10px 16px;
+    gap: 6px;
+    line-height: 1.15;
+    text-align: center;
   }
 
-  .restoration-root .restoration-console { grid-column: 1 / -1; margin: 0; }
-  .restoration-root .restoration-console .console-title small { display: none; }
-  .restoration-root .restore-storage { grid-column: 1 / -1; justify-self: end; }
+  .restoration-root .restoration-stats .stone-counter > span {
+    flex-shrink: 0;
+    font-size: 17px;
+  }
+
+  .restoration-root .restoration-stats .stone-counter small {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .restoration-root .restoration-stats .stone-counter strong {
+    font-size: 20px;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
 }
