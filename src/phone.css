@@ -1,0 +1,131 @@
+/* Keep phone controls inside their frames at both orientations. */
+@media (max-width: 760px), (orientation: landscape) and (max-height: 550px) and (pointer: coarse) {
+  .restoration-root .restoration-tools {
+    width: clamp(112px, 32vw, 132px);
+    gap: 6px;
+  }
+
+  .restoration-root .restoration-tools .stone-button,
+  .restoration-root .restoration-tools .stone-button:focus-visible {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 44px;
+    padding: 6px 9px;
+    gap: 5px;
+    border: 2px solid #664322;
+    border-radius: 8px;
+    background: linear-gradient(#f9e1b5, #d4ab73);
+    box-shadow: inset 0 0 0 1px #f7dbab, 0 2px 3px #22130880;
+    filter: none;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: start;
+    text-shadow: none;
+  }
+
+  .restoration-root .restoration-tools .stone-button > span {
+    flex: 0 0 14px;
+    font-size: 15px;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .restoration-tools .tool-label {
+    min-width: 0;
+    font-weight: 700;
+  }
+
+  .restoration-root .restoration-tools .stone-button small {
+    flex-shrink: 0;
+    padding: 0;
+    margin-inline-start: auto;
+    font-size: 9px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 550px) and (pointer: coarse) {
+  .restoration-view header {
+    height: 54px;
+    min-height: 0;
+    padding: 4px 12px;
+    flex-wrap: nowrap;
+  }
+
+  .restoration-view .header-title { flex-basis: auto; }
+  .restoration-view .game-toolbar .carved-button { min-height: 36px; }
+  .restoration-view.menu-open .chapter-panel {
+    top: 56px;
+    max-height: calc(100dvh - 62px);
+  }
+
+  .restoration-root .restoration-tools { top: 59px; gap: 4px; }
+  .restoration-root .chapter-plaque { top: 58px; width: 180px; height: 56px; padding: 6px 20px; }
+  .restoration-root .chapter-plaque strong { font-size: 15px; }
+  .restoration-root .restoration-stats { top: 116px; left: 16px; right: auto; }
+  .restoration-root .stone-counter { min-height: 48px; padding: 6px 10px; }
+  .restoration-root .quest-progress { top: 170px; left: 20px; width: 144px; }
+  .restoration-root .atelier-label { top: 203px; left: 20px; }
+
+  .restoration-root .restoration-console {
+    grid-template-columns: minmax(0, 1fr) 86px minmax(0, 1fr);
+    left: 8px;
+    right: 153px;
+    bottom: 12px;
+    gap: 6px;
+    border-width: 8px;
+    padding: 4px 6px 5px;
+  }
+
+  .restoration-console .fragment-section,
+  .restoration-console .rotation-section,
+  .restoration-console .target-section { grid-area: auto; min-width: 0; }
+  .restoration-console .console-title { gap: 3px; min-height: 0; margin-bottom: 4px; }
+  .restoration-console .console-title strong { font-size: 12px; }
+  .restoration-console .console-title small { display: none; }
+  .restoration-console .rotation-section { padding: 0; border: 0; }
+  .restoration-console .rotation-section > div { gap: 2px; justify-content: center; }
+  .restoration-console .tool-square { min-width: 25px; font-size: 20px; }
+  .restoration-console .fragment-buttons,
+  .restoration-console .target-buttons { grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 2px; }
+  .restoration-console .fragment-button,
+  .restoration-console .slot-button { min-width: 0; min-height: 34px; height: 34px; padding: 0; }
+  .restoration-console .fragment-button > span { font-size: 13px; }
+  .restoration-root .restoration-feedback { bottom: 90px; font-size: 10px; }
+}
+
+@media (orientation: landscape) and (max-height: 550px) and (max-width: 740px) and (pointer: coarse) {
+  .restoration-console .fragment-buttons,
+  .restoration-console .target-buttons {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .restoration-root .restoration-feedback { bottom: 125px; }
+}
+
+@media (orientation: portrait) and (max-height: 680px) and (max-width: 600px) {
+  .restoration-root .restoration-tools {
+    display: grid;
+    grid-template-columns: repeat(2, 44px);
+    width: auto;
+  }
+
+  .restoration-root .restoration-tools .stone-button,
+  .restoration-root .restoration-tools .stone-button:focus-visible {
+    justify-content: center;
+    padding: 5px;
+    gap: 2px;
+  }
+
+  .restoration-tools .tool-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .restoration-root .restoration-tools .stone-button small { margin: 0; }
+}

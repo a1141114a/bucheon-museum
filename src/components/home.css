@@ -326,3 +326,68 @@
     transition: none;
   }
 }
+
+.home-rotate-note {
+  display: none;
+}
+
+@media (orientation: portrait) and (max-width: 600px) {
+  .museum-home {
+    padding-top: calc(56.25vw + 20px);
+    padding-bottom: 28px;
+  }
+
+  .home-backdrop {
+    height: 56.25vw;
+    object-fit: contain;
+    object-position: top center;
+  }
+
+  .museum-home::after {
+    height: 56.25vw;
+    background: linear-gradient(transparent 75%, #211812);
+  }
+
+  .home-rotate-note {
+    display: block;
+    max-width: 28em;
+    margin: -8px 0 0;
+    color: #ffe2af;
+    font: 500 13px/1.55 var(--museum-reading, system-ui), sans-serif;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 550px) and (pointer: coarse) {
+  .museum-home {
+    align-content: center;
+    padding: 40px 24px 14px;
+  }
+
+  .home-backdrop {
+    object-fit: contain;
+  }
+
+  .home-content {
+    width: min(100%, 500px);
+    gap: 10px;
+  }
+
+  .home-pavilion { width: 104px; }
+  .home-museum { font-size: 22px; }
+  .home-title-line h1,
+  .museum-home[lang='ko'] .home-title-line h1,
+  .museum-home[lang='en'] .home-title-line h1 {
+    font-size: clamp(28px, 10svh, 46px);
+  }
+
+  .home-tagline { margin-top: 5px; }
+  .home-menu { width: min(100%, 255px); gap: 5px; }
+  .home-content .home-menu-item {
+    min-height: 44px;
+    padding: 4px 31px;
+    gap: 8px;
+    font-size: 18px;
+  }
+
+  .home-menu-icon { height: 21px; }
+}

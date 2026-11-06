@@ -7,4 +7,5 @@ import './styles.css'
 import './adventure.css'
 import './interface-skin.css'
 import './typography.css'
+import './phone.css'
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><HashRouter><GameProvider><App/></GameProvider></HashRouter></React.StrictMode>)

@@ -54,6 +54,8 @@ export const copy = {
   stageNote: ['当前为展厅技术验证，尚未实现修复、寻宝或机关玩法。', '현재는 전시실 기술 검증 단계입니다. 복원, 보물찾기, 장치 퍼즐은 아직 구현되지 않았습니다.', 'This is a gallery technology test. Restoration, treasure hunt and time puzzles are not implemented yet.'],
   locked: ['未发现', '미발견', 'Locked'], discovered: ['已发现', '발견됨', 'Discovered'], unlocked: ['已收录', '기록됨', 'Unlocked'],
   save: ['收录图鉴 +10', '도감에 기록 +10', 'Add to journal +10'], close: ['关闭', '닫기', 'Close'],
+  modelPreview: ['3D复原模型渲染图', '3D 재현 모델 렌더링', '3D reconstruction render'],
+  rotateDevice: ['横放手机可查看完整画面，操作也更方便。', '휴대폰을 가로로 돌리면 전체 화면을 보고 더 편하게 조작할 수 있습니다.', 'Turn your phone sideways for a wider view and easier controls.'],
   noPhoto: ['馆藏照片请在馆方网站查看。', '소장품 사진은 박물관 웹사이트에서 볼 수 있습니다.', 'View the collection photograph on the museum website.'],
   officialPhoto: ['查看馆方实物照片', '박물관 소장품 사진', 'View the museum photograph'],
   museum: ['收藏机构', '소장 기관', 'Collection'],

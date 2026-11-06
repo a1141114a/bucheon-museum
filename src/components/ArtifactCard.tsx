@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { useGame } from '../state/GameProvider'
 import { statusOf } from '../state/game'
-import { canModelCollection, canPublishPhoto } from '../data/artifacts'
+import { canModelCollection, canPublishPhoto, storageJarArtifact } from '../data/artifacts'
 import type { Artifact } from '../types'
 import './artifact-model.css'
 
@@ -13,8 +13,11 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
   const [photoFailed, setPhotoFailed] = useState(false)
   const status=statusOf(state,artifact.id)
   const modelUrl = artifact.kind === 'test' || canModelCollection(artifact) ? artifact.model.url : null
-  // The museum-hosted reference is visible during local review while reuse permission is pending.
-  const photoUrl = canPublishPhoto(artifact) ? artifact.photo.url : import.meta.env.DEV ? artifact.photo.sourceUrl : null
+  const photoUrl = canPublishPhoto(artifact) ? artifact.photo.url : null
+  const showPhoto = Boolean(photoUrl && !photoFailed)
+  const previewUrl = modelUrl && artifact.id === storageJarArtifact.id
+    ? import.meta.env.BASE_URL + 'models/bcm-1072-preview.png'
+    : null
   useEffect(()=>{
     const previous=document.activeElement as HTMLElement|null
     const element=dialog.current; element?.showModal()
@@ -39,11 +42,13 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
         ))}
       </p>
       <figure className="exhibit-photo">
-        {photoUrl&&!photoFailed
+        {showPhoto && photoUrl
           ? <img src={photoUrl} alt={artifact.name[state.language]} referrerPolicy="no-referrer" onError={()=>setPhotoFailed(true)}/>
-          : <p>{t('noPhoto')}</p>}
-        {(artifact.photo.credit||artifact.photo.sourceUrl)&&<figcaption>
-          <span>{artifact.museum?.[state.language] ?? artifact.photo.credit}</span>
+          : previewUrl
+            ? <img src={previewUrl} alt={`${artifact.name[state.language]} · ${t('modelPreview')}`} width={840} height={840}/>
+            : <p>{t('noPhoto')}</p>}
+        {(!showPhoto && previewUrl || artifact.photo.credit || artifact.photo.sourceUrl) && <figcaption>
+          <span>{!showPhoto && previewUrl ? t('modelPreview') : artifact.museum?.[state.language] ?? artifact.photo.credit}</span>
           {artifact.photo.sourceUrl&&<a className="artifact-source-link" href={artifact.photo.sourceUrl} target="_blank" rel="noreferrer">{t('officialPhoto')} ↗</a>}
         </figcaption>}
       </figure>

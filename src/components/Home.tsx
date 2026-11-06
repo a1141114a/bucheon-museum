@@ -1,4 +1,4 @@
-import {useId,useRef} from 'react'
+import {useId,useRef,type MouseEvent} from 'react'
 import {Link} from 'react-router-dom'
 import {useGame} from '../state/GameProvider'
 import './home.css'
@@ -54,6 +54,26 @@ function Plaque(){
   </svg>
 }
 
+type LockableOrientation = ScreenOrientation & { lock?: (orientation: 'landscape') => Promise<void> }
+
+async function preferLandscape(event: MouseEvent<HTMLAnchorElement>) {
+  if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey ||
+    !window.matchMedia('(pointer: coarse) and (orientation: portrait)').matches) return
+
+  const orientation = screen.orientation as LockableOrientation | undefined
+  if (!orientation?.lock || !document.fullscreenEnabled) return
+
+  const enteredFullscreen = !document.fullscreenElement
+  try {
+    if (enteredFullscreen) await document.documentElement.requestFullscreen()
+    await orientation.lock('landscape')
+  } catch {
+    if (enteredFullscreen && document.fullscreenElement) {
+      await document.exitFullscreen().catch(() => {})
+    }
+  }
+}
+
 export default function Home(){
   const {state,t}=useGame()
   const settings=useRef<HTMLDialogElement>(null)
@@ -77,12 +97,13 @@ export default function Home(){
         <p className="home-tagline">{t('homeTagline')}</p>
       </div>
       <nav className="home-menu" aria-label={t('title')}>
-        <Link className="home-menu-item" to="/levels/1"><Plaque/><MenuIcon name="play"/><span>{t('startGame')}</span></Link>
+        <Link className="home-menu-item" to="/levels/1" onClick={preferLandscape}><Plaque/><MenuIcon name="play"/><span>{t('startGame')}</span></Link>
         <Link className="home-menu-item" to="/journal"><Plaque/><MenuIcon name="journal"/><span>{t('atlas')}</span></Link>
         <button className="home-menu-item" aria-haspopup="dialog" onClick={()=>settings.current?.showModal()}>
           <Plaque/><MenuIcon name="settings"/><span>{t('gameSettings')}</span>
         </button>
       </nav>
+      <p className="home-rotate-note">{t('rotateDevice')}</p>
     </div>
     <dialog ref={settings} className="home-settings" aria-labelledby="home-settings-title"
       onClick={event=>{if(event.target===event.currentTarget)settings.current?.close()}}>

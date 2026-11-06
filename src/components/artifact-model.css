@@ -42,3 +42,12 @@
   text-decoration: underline;
   text-underline-offset: .2em;
 }
+
+.exhibit-card .exhibit-photo img {
+  display: block;
+  width: min(100%, 300px);
+  height: auto;
+  margin-inline: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
