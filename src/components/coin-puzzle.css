@@ -4,7 +4,7 @@
   width:min(560px,calc(100vw - 20px));
   max-height:94dvh;
   overflow:auto;
-  padding:12px 16px 14px;
+  padding:17px 20px 26px;
   color:var(--coin-ink);
   background:transparent;
   border:20px solid transparent;
@@ -47,12 +47,12 @@
 .coin-puzzle-reward .coin-puzzle-footer { justify-content:center; }
 .coin-puzzle-next { background:linear-gradient(#ffd686,#c18239); }
 @media (max-height:500px) and (orientation:landscape) {
-  .coin-puzzle-dialog { padding:6px 13px; }
+  .coin-puzzle-dialog { padding:8px 15px 16px; }
   .coin-puzzle-board { width:min(100%,47dvh); justify-self:center; }
   .coin-puzzle-content { grid-template-columns:minmax(0,1fr) 74px; }
   .coin-puzzle-instructions { margin:5px 0 7px; }
 }
 @media (max-width:360px) {
-  .coin-puzzle-dialog { border-width:15px; padding:8px; }
+  .coin-puzzle-dialog { border-width:15px; padding:12px 12px 19px; }
   .coin-puzzle-content { gap:7px; }
 }
