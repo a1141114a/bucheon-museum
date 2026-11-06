@@ -326,7 +326,7 @@
   .restoration-root .chapter-plaque strong { overflow-wrap: anywhere; }
 }
 
-@media (orientation: portrait) and (max-height: 640px) and (max-width: 600px) {
+@media (orientation: portrait) and (max-height: 700px) and (max-width: 600px) {
   .restoration-root .restoration-tools { top: 151px; gap: 2px; }
   .restoration-root .restoration-console { right: 63px; }
   .restoration-root .restoration-console .rotation-section { padding-inline-start: 5px; }
@@ -360,4 +360,14 @@
     line-height: 1.15;
     white-space: nowrap;
   }
+}
+
+@media (min-width: 761px) and (max-width: 1366px) and (max-height: 550px) {
+  .restoration-root .quest-progress { top: 190px; }
+  .restoration-root .atelier-label { top: 224px; }
+}
+
+@media (min-width: 761px) and (max-width: 1366px) and (min-height: 551px) and (max-height: 670px) {
+  .restoration-root .quest-progress { top: 246px; }
+  .restoration-root .atelier-label { top: 280px; }
 }

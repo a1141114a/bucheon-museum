@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {lazy,Suspense,useState,useEffect,useRef,type ReactNode} from 'react'
 import {useGame} from '../state/GameProvider'
 import {completionDurationMs,fragmentIds,trayOrder,rotationOf,placementResult,restorationScore} from '../state/restoration'
@@ -59,6 +60,6 @@ export default function Restoration({inspect,active}:{inspect:()=>void;active:bo
     </section>
     <div className="restore-storage">{storageError?t('storageError'):t('saved')}</div>
     {(!r.started||help)&&<Modal label={t('help')} onClose={r.started?()=>setHelp(false):undefined}><div className="dialog-emblem">◇</div><span className="quest-eyebrow">{t('phase')}</span><h1>{t('restoreTitle')}</h1><p>{t('restoreIntro')}</p><ol className="tutorial-steps"><li>{t('chooseFragment')}</li><li>{t('chooseRotation')} · Q / E</li><li>{t('chooseTarget')}</li></ol><p className="tutorial-detail">{t('rotateHelp')}<br/>{t('hintCost')} · {t('hintsLeft')} 3</p><p className="prop-note">{t('restorationArtifact')}</p><button className="adventure-primary" onClick={()=>{dispatch({type:'restore-start'});setHelp(false)}}>{r.started?t('resume'):t('begin')} <span>➜</span></button></Modal>}
-    {complete&&!revealing&&!dismissed&&<Modal label={t('finished')} onClose={()=>setDismissed(true)}><div className="dialog-emblem stars">✦ ✦ ✦</div><span className="quest-eyebrow">{t('phase')}</span><h1>{t('finished')}</h1><p>{t('finishedDesc')}</p><div className="completion-score">{restorationScore(r)}<small>{t('chapterPoints')}</small></div><p className="bonus-note">{t('completionBonus')}</p><button className="adventure-primary" onClick={()=>{setDismissed(true);inspect()}}>{t('inspectRestored')} ➜</button><button className="stone-button completion-secondary" onClick={()=>setDismissed(true)}>{t('close')}</button><p className="prop-note">{t('nextSoon')}</p></Modal>}
+    {complete&&!revealing&&!dismissed&&<Modal label={t('finished')} onClose={()=>setDismissed(true)}><div className="dialog-emblem stars">✦ ✦ ✦</div><span className="quest-eyebrow">{t('phase')}</span><h1>{t('finished')}</h1><p>{t('finishedDesc')}</p><div className="completion-score">{restorationScore(r)}<small>{t('chapterPoints')}</small></div><p className="bonus-note">{t('completionBonus')}</p><button className="adventure-primary" onClick={()=>{setDismissed(true);inspect()}}>{t('inspectRestored')} ➜</button><button className="stone-button completion-secondary" onClick={()=>setDismissed(true)}>{t('close')}</button><Link className="adventure-primary" to="/levels/2">{t('l2')} ➜</Link></Modal>}
   </div>
 }
