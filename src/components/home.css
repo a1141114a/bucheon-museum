@@ -9,7 +9,7 @@
   min-height: 100vh;
   min-height: 100svh;
   margin: 0;
-  padding: clamp(58px, 7.5vh, 88px) 16px 56px;
+  padding: clamp(58px, 7.5vh, 88px) 16px calc(56px + clamp(32px, 7svh, 80px));
   overflow: hidden;
   background: #211812;
   color: #f7d8a0;
@@ -334,7 +334,7 @@
 @media (orientation: portrait) and (max-width: 600px) {
   .museum-home {
     padding-top: calc(56.25vw + 20px);
-    padding-bottom: 28px;
+    padding-bottom: 48px;
   }
 
   .home-backdrop {
@@ -360,7 +360,7 @@
 @media (orientation: landscape) and (max-height: 550px) and (pointer: coarse) {
   .museum-home {
     align-content: safe center;
-    padding: 40px 24px 14px;
+    padding: 40px 24px 24px;
   }
 
   .home-backdrop {
