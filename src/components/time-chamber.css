@@ -1,0 +1,72 @@
+.time-view main>.meta-strip,.time-view main>footer { display:none; }
+.time-root { position:relative; width:100%; height:100dvh; color:#ffe6b5; background:#20231e; overflow:hidden; }
+.time-scene { position:absolute; inset:0; }
+.time-scene canvas { touch-action:none; }
+.time-brief { position:absolute; top:88px; left:18px; width:min(330px,calc(100% - 36px)); padding:12px 15px; border:1px solid #b79152; border-radius:12px; background:#241c17e8; }
+.time-brief h1 { margin:2px 0 7px; font:600 26px/1.2 var(--museum-interface); }
+.time-brief p { margin:0 0 6px; font-size:13px; line-height:1.5; }
+.time-eyebrow { color:#d2ab6e; letter-spacing:.05em; }
+.time-detail-toggle { min-height:36px; padding:3px 8px; border:1px solid #a27943; border-radius:6px; background:#624025; color:#ffe6b5; font:inherit; font-size:12px; }
+.time-tools { position:absolute; top:92px; right:18px; display:grid; gap:6px; width:176px; }
+.time-root .stone-button { min-height:44px; padding:9px 13px; font-family:var(--museum-reading,system-ui); font-size:13px; line-height:1.3; }
+.time-dock { position:absolute; bottom:14px; left:18px; right:18px; width:min(1100px,calc(100% - 36px)); margin:auto; padding:14px; border:3px solid #70472c; border-radius:15px; background:linear-gradient(110deg,#493222ef,#241d17f5); box-shadow:inset 0 0 0 1px #c39856,0 4px 24px #100a07a8; }
+.time-artifact-clues { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin-bottom:10px; }
+.time-ring-controls { display:grid; grid-template-columns:minmax(0,1fr) 228px; gap:12px; }
+.time-ring-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.time-root .time-ring-tabs .stone-button { display:grid; gap:4px; justify-items:center; padding:7px 10px; text-align:center; }
+.time-ring-tabs .stone-button strong { font-size:13px; }
+.time-ring-tabs .stone-button span { font-size:11px; overflow-wrap:anywhere; }
+.time-root .stone-button[aria-pressed=true] { outline:2px solid #ffdf94; outline-offset:2px; filter:brightness(1.08); }
+.time-turn-controls { display:grid; grid-template-columns:44px minmax(0,1fr) 44px; gap:6px; align-items:stretch; }
+.time-root .time-arrow { font-size:25px; padding:2px; }
+.time-root .time-activate { background:linear-gradient(#f6c677,#bf7b37); }
+.time-feedback { margin:9px 0 0; font-size:12px; line-height:1.4; text-align:center; }
+.time-hint { margin:8px 0 0; padding:8px; background:#edca8529; border-radius:7px; font-size:13px; line-height:1.5; }
+.time-finale { box-sizing:border-box; width:min(520px,calc(100vw - 24px)); max-height:90dvh; overflow:auto; padding:25px; border:5px double #c19454; border-radius:20px 6px 20px 6px; background:radial-gradient(ellipse at top,#f8e6bd,#d4b482); color:#4c2f1b; text-align:center; box-shadow:0 10px 55px #130d08a8; }
+.time-finale::backdrop { background:#17110bc7; }
+.time-finale h2 { font:600 26px/1.3 var(--museum-interface); margin:9px 0; }
+.time-finale p { font-size:14px; line-height:1.6; }
+.time-finale .time-eyebrow { color:#785028; }
+.time-finale-emblem { font:60px/1 Georgia; color:#90622c; }
+.time-scoreboard { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:16px 0; }
+.time-scoreboard span { display:block; font-size:12px; }
+.time-scoreboard strong { font-size:32px; }
+.time-finale-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+.time-finale-actions .stone-button { font:600 13px/1.3 var(--museum-reading,system-ui); min-height:44px; padding:9px 13px; }
+.time-root [hidden] { display:none; }
+@media (max-width:760px) {
+  .time-brief { top:88px; left:10px; width:calc(100% - 20px); padding:8px 11px; }
+  .time-brief h1 { font-size:20px; }
+  .time-brief p { font-size:11px; }
+  .time-brief .time-eyebrow { font-size:10px; }
+  .time-tools { top:auto; bottom:255px; right:10px; width:auto; grid-template-columns:repeat(3,minmax(0,1fr)); left:10px; gap:5px; }
+  .time-root .time-tools .stone-button { font-size:10px; padding:6px; }
+  .time-dock { bottom:9px; left:10px; right:10px; width:calc(100% - 20px); padding:10px; }
+  .time-artifact-clues { gap:5px; margin-bottom:8px; }
+  .time-root .time-clue { font-size:10px; padding:6px; }
+  .time-ring-controls { grid-template-columns:1fr; gap:8px; }
+  .time-ring-tabs { gap:5px; }
+  .time-root .time-ring-tabs .stone-button { padding:6px 4px; }
+  .time-ring-tabs .stone-button strong { font-size:11px; }
+  .time-ring-tabs .stone-button span { font-size:10px; }
+  .time-turn-controls { grid-template-columns:48px minmax(0,1fr) 48px; gap:8px; }
+  .time-feedback { font-size:10px; }
+  .time-scene { top:190px; bottom:286px; }
+}
+@media (max-height:560px) and (orientation:landscape) {
+  .time-brief { top:57px; width:245px; padding:7px 10px; }
+  .time-brief h1 { font-size:18px; }
+  .time-brief p { font-size:10px; }
+  .time-tools { top:58px; bottom:auto; left:auto; right:10px; width:153px; grid-template-columns:1fr; gap:4px; }
+  .time-root .time-tools .stone-button { padding:5px 9px; font-size:10px; }
+  .time-scene { top:0; bottom:100px; }
+  .time-dock { bottom:8px; padding:8px 10px; }
+  .time-artifact-clues { margin-bottom:6px; }
+  .time-root .time-clue { min-height:36px; font-size:10px; padding:4px; }
+  .time-ring-controls { grid-template-columns:minmax(0,1fr) 172px; gap:8px; }
+  .time-root .time-ring-tabs .stone-button { min-height:40px; padding:4px; gap:2px; }
+  .time-feedback { margin-top:5px; font-size:10px; }
+}
+
+.time-dock .time-turn-controls .time-activate:disabled { opacity:.62; }
+.time-locked h1 { margin:0 0 10px; }

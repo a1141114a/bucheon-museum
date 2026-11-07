@@ -1,3 +1,4 @@
+import {freshTime,parseTime,timeAligned,timeScore,type TimeProgress} from './time'
 import {clueIds,parseGallery,type ClueId,type GalleryProgress} from './exploration'
 import { artifacts, storageJarArtifact } from '../data/artifacts'
 import type { ArtifactStatus, Language, LevelId } from '../types'
@@ -12,16 +13,18 @@ export interface GameState {
   hintsUsed: number
   restoration: RestorationState
   gallery: GalleryProgress
+  time: TimeProgress
 }
-export const initialState: GameState = {version:2, language:'zh', artifacts:{}, score:0, completedLevels:[], hintsUsed:0,restoration:freshRestoration(),gallery:{clues:[],opened:false}}
-export type Action = {type:'language'; language:Language} | {type:'discover'|'unlock'; id:string} | {type:'hint'} | {type:'reset'} | {type:'restore-start'|'restore-restart'|'restore-hint'} | {type:'restore-rotate';id:string;direction:1|-1} | {type:'restore-place';id:string;target:string} | {type:'gallery-clue';id:ClueId} | {type:'gallery-open'|'gallery-restart'}
-function withProgress(state:GameState,restoration=state.restoration,gallery=state.gallery):GameState {
+export const initialState: GameState = {version:2, language:'zh', artifacts:{}, score:0, completedLevels:[], hintsUsed:0,restoration:freshRestoration(),gallery:{clues:[],opened:false},time:freshTime()}
+export type Action = {type:'language'; language:Language} | {type:'discover'|'unlock'; id:string} | {type:'hint'} | {type:'reset'} | {type:'restore-start'|'restore-restart'|'restore-hint'} | {type:'restore-rotate';id:string;direction:1|-1} | {type:'restore-place';id:string;target:string} | {type:'gallery-clue';id:ClueId} | {type:'gallery-open'|'gallery-restart'} | {type:'time-rotate';ring:number;direction:1|-1} | {type:'time-hint'|'time-check'|'time-restart'}
+function withProgress(state:GameState,restoration=state.restoration,gallery=state.gallery,time=state.time):GameState {
   const score = Object.values(state.artifacts).filter(status => status === 'unlocked').length * 10
-    + restorationScore(restoration) + gallery.clues.length * 15 + (gallery.opened ? 60 : 0)
+    + restorationScore(restoration) + gallery.clues.length * 15 + (gallery.opened ? 60 : 0) + timeScore(time)
   const completedLevels: LevelId[] = []
   if (restoration.placed.length === 9) completedLevels.push(1)
   if (gallery.opened) completedLevels.push(2)
-  return {...state,restoration,gallery,score,completedLevels}
+  if (time.solved) completedLevels.push(3)
+  return {...state,restoration,gallery,time,score,completedLevels}
 }
 const validId = (id:string) => artifacts.some(a=>a.id===id)
 export const statusOf = (s:GameState,id:string):ArtifactStatus => s.artifacts[id] || 'locked'
@@ -44,6 +47,21 @@ export function gameReducer(state:GameState, action:Action):GameState {
     case 'gallery-open':
       if (!isLevelUnlocked(state,2) || state.gallery.opened || state.gallery.clues.length !== clueIds.length) return state
       return withProgress(state,state.restoration,{...state.gallery,opened:true})
+    case 'time-rotate': {
+      if(!isLevelUnlocked(state,3)||state.time.solved||!Number.isInteger(action.ring)||action.ring<0||action.ring>2) return state
+      const rings=[...state.time.rings] as TimeProgress['rings']
+      rings[action.ring]=(rings[action.ring]+action.direction+3)%3
+      return withProgress(state,state.restoration,state.gallery,{...state.time,rings})
+    }
+    case 'time-hint':
+      if(!isLevelUnlocked(state,3)||state.time.solved||state.time.hints>=3)return state
+      return withProgress(state,state.restoration,state.gallery,{...state.time,hints:state.time.hints+1})
+    case 'time-check':
+      if(!isLevelUnlocked(state,3)||state.time.solved)return state
+      return withProgress(state,state.restoration,state.gallery,{...state.time,attempts:state.time.attempts+1,solved:timeAligned(state.time.rings)})
+    case 'time-restart':
+      if(!isLevelUnlocked(state,3))return state
+      return withProgress(state,state.restoration,state.gallery,freshTime())
     case 'discover': return validId(action.id) && statusOf(state,action.id)==='locked'
       ? {...state,artifacts:{...state.artifacts,[action.id]:'discovered'}} : state
     case 'unlock': return validId(action.id) && statusOf(state,action.id)==='discovered'
@@ -68,6 +86,7 @@ export function parseSave(raw:string|null):GameState {
     const restoration=candidate.version===2?parseRestoration(candidate.restoration):freshRestoration()
     const gallery=candidate.version===2?parseGallery(candidate.gallery):initialState.gallery
     const hintsUsed=typeof candidate.hintsUsed==='number'&&Number.isSafeInteger(candidate.hintsUsed)?Math.max(0,candidate.hintsUsed):0
-    return withProgress({...initialState,language,artifacts:records,hintsUsed},restoration,gallery)
+    return withProgress({...initialState,language,artifacts:records,hintsUsed},restoration,gallery,
+      candidate.version===2?parseTime(candidate.time):freshTime())
   } catch { return {...initialState} }
 }

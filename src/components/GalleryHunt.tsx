@@ -23,6 +23,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   const [exhibitId,setExhibitId] = useState<string|null>(null)
   const exhibit = artifacts.find(item=>item.id===exhibitId)
   const [showHint,setShowHint] = useState(false)
+  const [instructions,setInstructions] = useState(()=>!window.matchMedia('(max-width:760px)').matches)
   const [sceneKey,setSceneKey] = useState(0)
   const [phase,setPhase] = useState<'idle'|'puzzle'|'celebration'|'reward'>('idle')
   const [board,setBoard] = useState(createCoinPuzzle)
@@ -97,12 +98,16 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
       </Suspense>
     </div>
     <div className="hunt-brief" inert={!sceneActive} hidden={celebrating}>
-      <h1 id="hunt-title">{t('l2')}</h1>
-      <p>{t('huntIntro')}</p>
-      <p>{t('huntControls')}</p>
+      <div className="hunt-brief-heading">
+        <h1 id="hunt-title">{t('l2')}</h1>
+        <button type="button" className="hunt-collapse" aria-label={t(instructions?'hideInstructions':'showInstructions')}
+          aria-expanded={instructions} onClick={()=>setInstructions(!instructions)}>{instructions?'−':'＋'}</button>
+      </div>
+      <div hidden={!instructions}><p>{t('huntIntro')}</p><p>{t('huntControls')}</p></div>
       <div className="hunt-brief-actions">
         <button type="button" className="stone-button" aria-expanded={showHint} onClick={() => setShowHint(!showHint)}>{t('hint')}</button>
         <button type="button" className="stone-button" disabled={!active} onClick={restart}>{t('huntRestart')}</button>
+        <button type="button" className="stone-button" disabled={!sceneActive} onClick={()=>{movement.forward=0;movement.side=0;setNear(null);setExhibitId(null);setSceneKey(value=>value+1)}}>{t('returnEntrance')}</button>
       </div>
       {showHint && <ul>{clueIds.map(id => <li key={id}>{clues.includes(id) ? '✓' : '◇'} {t(stationLabels[id])}</li>)}</ul>}
     </div>
