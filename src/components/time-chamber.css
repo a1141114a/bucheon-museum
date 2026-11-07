@@ -132,3 +132,8 @@
   line-height:inherit;
   color:inherit;
 }
+
+@media(max-height:560px) and (orientation:landscape) {
+  .time-ring-controls { grid-template-columns:minmax(0,1fr) 190px; }
+  .time-root .time-activate { padding:5px 6px; font-size:11px; }
+}
