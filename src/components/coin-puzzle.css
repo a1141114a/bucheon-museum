@@ -103,7 +103,7 @@
   .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-content { display:contents; }
   .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-board {
     grid-column:1; grid-row:1/5;
-    width:min(100%,300px,calc(100dvh - 100px));
+    width:min(100%,300px,calc(100dvh - 112px));
     align-self:center;
   }
   .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-reference {
