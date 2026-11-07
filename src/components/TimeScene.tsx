@@ -1,5 +1,5 @@
 import { Component, Suspense, useEffect, useMemo, useRef, type ReactNode } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber'
 import { OrbitControls, useGLTF } from '@react-three/drei'
 import { Box3, CanvasTexture, MathUtils, Object3D, SRGBColorSpace, Vector3 } from 'three'
 import { artifacts } from '../data/artifacts'
@@ -67,7 +67,7 @@ function Mechanism({rings,selected,active,solved,onSelect}:SceneProps) {
     })
   })
   return <>
-    <primitive object={object} onClick={event=>{
+    <primitive object={object} onClick={(event:ThreeEvent<MouseEvent>)=>{
       if(!active||solved)return
       event.stopPropagation()
       let node:Object3D|null=event.object
