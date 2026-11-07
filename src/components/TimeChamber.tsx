@@ -46,7 +46,7 @@ export default function TimeChamber({active,onArtifact}:{active:boolean;onArtifa
   const [feedback,setFeedback]=useState<CopyKey>('timeReady')
   const [celebrating,setCelebrating]=useState(false)
   const [finale,setFinale]=useState(false)
-  const [details,setDetails]=useState(false)
+  const [details,setDetails]=useState(()=>!window.matchMedia('(max-width:760px)').matches)
   const time=state.time
   const enabled=active&&!celebrating&&!finale&&!time.solved
 
@@ -104,30 +104,34 @@ export default function TimeChamber({active,onArtifact}:{active:boolean;onArtifa
     <div className="time-brief" hidden={celebrating} inert={!active}>
       <p className="time-eyebrow">Ⅲ · {t('l3')}</p>
       <h1 id="time-title">{t('timeTitle')}</h1>
-      <p>{t('timeIntro')}</p>
+      {details&&<p>{t('timeIntro')}</p>}
       <button type="button" className="time-detail-toggle" aria-expanded={details} onClick={()=>setDetails(!details)}>
         {t(details?'hideInstructions':'showInstructions')}
       </button>
       {details&&<p>{t('timeScoreRule')}</p>}
+      {hint&&time.hints>0&&<div className="time-hint">
+        <p>{t((['timeHintOne','timeHintTwo','timeHintThree'] as const)[time.hints-1])}</p>
+        <button type="button" className="time-detail-toggle" onClick={()=>setHint(false)}>{t('close')}</button>
+      </div>}
     </div>
     <div className="time-tools" hidden={celebrating} inert={!active}>
-      <button type="button" className="stone-button" onClick={()=>setViewKey(value=>value+1)}>{t('resetView')}</button>
+      <button type="button" className="stone-button" onClick={()=>setViewKey(value=>value+1)}><span aria-hidden="true">⌖</span><span className="time-tool-caption">{t('resetView')}</span></button>
       <button type="button" className="stone-button" disabled={time.solved||time.hints>=3} onClick={()=>{
         if(!enabled)return
         dispatch({type:'time-hint'});setHint(true)
-      }}>{t('timeHint')} · {3-time.hints}/3</button>
-      <button type="button" className="stone-button" onClick={restart}>{t('timeRestart')}</button>
+      }}><span aria-hidden="true">✧</span><span className="time-tool-caption">{t('timeHint')} · {3-time.hints}/3</span></button>
+      <button type="button" className="stone-button" onClick={restart}><span aria-hidden="true">↺</span><span className="time-tool-caption">{t('timeRestart')}</span></button>
     </div>
     <div className="time-dock" hidden={celebrating} inert={!active||finale}>
       <div className="time-artifact-clues" role="group" aria-label={t('timeClues')}>
         {clueArtifacts.map((artifact,index)=><button type="button" className="stone-button time-clue" key={artifact.id}
-          onClick={()=>onArtifact(artifact)}><span aria-hidden="true">▤</span>{t(symbolLabels[index])}</button>)}
+          onClick={()=>onArtifact(artifact)}><span aria-hidden="true">▤</span><span className="time-clue-letter" aria-hidden="true">{String.fromCharCode(65+index)}</span><span className="time-clue-name">{t(symbolLabels[index])}</span></button>)}
       </div>
       <div className="time-ring-controls">
         <div className="time-ring-tabs" role="group" aria-label={t('timeSelected')}>
           {ringLabels.map((label,index)=><button type="button" className="stone-button" key={label}
             aria-pressed={selected===index} onClick={()=>setSelected(index)}>
-            <strong>{t(label)}</strong><span>{t(symbolLabels[time.rings[index]])}</span>
+            <strong>{t(label)}</strong><span><b className="time-ring-symbol-letter" aria-hidden="true">{String.fromCharCode(65+time.rings[index])}</b><span className="time-ring-symbol-name">{t(symbolLabels[time.rings[index]])}</span></span>
           </button>)}
         </div>
         <div className="time-turn-controls">
@@ -137,7 +141,7 @@ export default function TimeChamber({active,onArtifact}:{active:boolean;onArtifa
         </div>
       </div>
       <p className="time-feedback" role="status">{time.solved?t('timeSuccess'):t(feedback)}</p>
-      {hint&&time.hints>0&&<p className="time-hint">{t((['timeHintOne','timeHintTwo','timeHintThree'] as const)[time.hints-1])}</p>}
+
       {time.solved&&<button type="button" className="time-detail-toggle" onClick={()=>setFinale(true)}>{t('timeFinish')}</button>}
     </div>
     {finale&&<Finale onClose={()=>setFinale(false)}/>}

@@ -77,7 +77,8 @@ function Mechanism({rings,selected,active,solved,onSelect}:SceneProps) {
         node=node.parent
       }
     }}/>
-    {radii.map((radius,i)=><group key={i} position={[0,[1.15,1.17,1.19][i],0]} rotation={[0,rings[i]*turn,0]}>
+    {radii.map((radius,i)=><group key={i} position={[0,[1.15,1.17,1.19][i],0]} rotation={[0,rings[i]*turn,0]}
+      onClick={event=>{if(active&&!solved){event.stopPropagation();onSelect(i)}}}>
       {['A','B','C'].map((letter,index)=><Symbol key={letter} letter={letter} ring={i} index={index}/>)}
       {selected===i&&!solved&&<mesh rotation={[-Math.PI/2,0,0]} position={[0,.025,0]}>
         <ringGeometry args={[radius-.125,radius+.125,96]}/><meshBasicMaterial color="#ffcb71" transparent opacity={.20} depthWrite={false}/>
