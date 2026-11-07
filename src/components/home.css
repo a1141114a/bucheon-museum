@@ -3,7 +3,7 @@
   isolation: isolate;
   display: grid;
   justify-items: center;
-  align-content: start;
+  align-content: safe center;
   width: 100%;
   max-width: none;
   min-height: 100vh;
@@ -359,7 +359,7 @@
 
 @media (orientation: landscape) and (max-height: 550px) and (pointer: coarse) {
   .museum-home {
-    align-content: center;
+    align-content: safe center;
     padding: 40px 24px 14px;
   }
 
