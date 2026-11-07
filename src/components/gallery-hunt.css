@@ -64,3 +64,25 @@
   .hunt-brief { top:88px; left:10px; width:min(310px,calc(100% - 20px)); padding:8px 10px; }
   .hunt-brief-actions .stone-button { font-size:10px; padding:6px 8px; }
 }
+
+.hunt-root .hunt-brief-launch {
+  position:absolute;
+  top:88px;
+  left:18px;
+  min-height:44px;
+  max-width:calc(100% - 36px);
+  padding:9px 15px;
+  font-size:12px;
+  line-height:1.4;
+  white-space:normal;
+  overflow-wrap:anywhere;
+}
+.hunt-root .hunt-brief-launch[hidden] { display:none; }
+.hunt-brief { max-height:calc(100dvh - 120px); overflow:auto; }
+.hunt-collapse { flex-shrink:0; }
+@media(max-width:760px) {
+  .hunt-root .hunt-brief-launch { left:10px; max-width:calc(100% - 20px); }
+}
+@media(max-height:520px) and (orientation:landscape) {
+  .hunt-root .hunt-brief-launch { top:78px; }
+}

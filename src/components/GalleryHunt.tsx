@@ -23,7 +23,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   const [exhibitId,setExhibitId] = useState<string|null>(null)
   const exhibit = artifacts.find(item=>item.id===exhibitId)
   const [showHint,setShowHint] = useState(false)
-  const [instructions,setInstructions] = useState(()=>!window.matchMedia('(max-width:760px)').matches)
+  const [briefOpen,setBriefOpen] = useState(false)
   const [sceneKey,setSceneKey] = useState(0)
   const [phase,setPhase] = useState<'idle'|'puzzle'|'celebration'|'reward'>('idle')
   const [board,setBoard] = useState(createCoinPuzzle)
@@ -97,13 +97,16 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
         <Scene key={sceneKey} language={state.language} active={sceneActive} clues={clues} opened={opened} celebrating={celebrating} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
       </Suspense>
     </div>
-    <div className="hunt-brief" inert={!sceneActive} hidden={phase!=='idle'}>
+    <button type="button" className="stone-button hunt-brief-launch" aria-controls="hunt-task-panel"
+      aria-expanded={briefOpen} disabled={!sceneActive} hidden={briefOpen||phase!=='idle'}
+      onClick={()=>setBriefOpen(true)}>☷ {t('huntTaskPanel')}</button>
+    <div id="hunt-task-panel" className="hunt-brief" inert={!sceneActive} hidden={!briefOpen||phase!=='idle'}>
       <div className="hunt-brief-heading">
         <h1 id="hunt-title">{t('l2')}</h1>
-        <button type="button" className="hunt-collapse" aria-label={t(instructions?'hideInstructions':'showInstructions')}
-          aria-expanded={instructions} onClick={()=>setInstructions(!instructions)}>{instructions?'−':'＋'}</button>
+        <button type="button" className="hunt-collapse" aria-label={t('huntHidePanel')}
+          aria-controls="hunt-task-panel" aria-expanded={briefOpen} onClick={()=>setBriefOpen(false)}>×</button>
       </div>
-      <div hidden={!instructions}><p>{t('huntIntro')}</p><p>{t('huntControls')}</p></div>
+      <div><p>{t('huntIntro')}</p><p>{t('huntControls')}</p></div>
       <div className="hunt-brief-actions">
         <button type="button" className="stone-button" aria-expanded={showHint} onClick={() => setShowHint(!showHint)}>{t('hint')}</button>
         <button type="button" className="stone-button" disabled={!active} onClick={restart}>{t('huntRestart')}</button>
