@@ -3,6 +3,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import { Box3, CanvasTexture, InstancedMesh, MathUtils, Matrix4, Object3D, Quaternion, SRGBColorSpace, Vector3 } from 'three'
 import { artifacts } from '../data/artifacts'
+import { exhibitLabels } from '../data/exhibitLabels'
 import type { Language } from '../types'
 import { clueIds, displays, galleryBounds, gallerySpawn, nearbyExhibit, nearbyStation, stations, type ClueId, type Station } from '../state/exploration'
 import WalkControls from './WalkControls'
@@ -92,7 +93,7 @@ function ExhibitPlaque({name,language}:{name:string;language:Language}) {
     return result
   },[name,language])
   useEffect(()=>()=>texture?.dispose(),[texture])
-  return <mesh position={[0,.97,.801]}>
+  return <mesh position={[0,.76,.801]}>
     <planeGeometry args={[1.75,.394]}/>
     <meshBasicMaterial map={texture} color={texture?'#ffffff':'#ead4a7'} toneMapped={false}/>
   </mesh>
@@ -107,7 +108,7 @@ function DisplayCase({id,x,z,language,onExhibit}:{id:string;x:number;z:number;la
     <Box position={[0,.59,0]} scale={[2.2,1.02,1.52]} color="#4c3828"/>
     <Box position={[0,1.11,0]} scale={[2.32,.12,1.62]} color="#a38657"/>
     <Box position={[0,1.18,0]} scale={[1.82,.06,1.28]} color="#413e36"/>
-    <Box position={[0,.97,.781]} scale={[1.78,.42,.032]} color="#ad7940"/>
+    <Box position={[0,.76,.781]} scale={[1.78,.42,.032]} color="#ad7940"/>
     {[-1,1].map(side=><group key={side}>
       <Box position={[side*.98,.57,.765]} scale={[.025,.77,.027]} color="#b18652"/>
       <Box position={[side*.88,.22,.768]} scale={[.21,.024,.027]} color="#b18652"/>
@@ -117,7 +118,7 @@ function DisplayCase({id,x,z,language,onExhibit}:{id:string;x:number;z:number;la
       </mesh>
     </group>)}
     <Box position={[0,.17,.821]} scale={[2.16,.024,.02]} color="#a97f46"/>
-    {artifact && <ExhibitPlaque name={artifact.name[language]} language={language}/>}
+    {artifact && <ExhibitPlaque name={exhibitLabels[id]?.[language]??artifact.name[language]} language={language}/>}
     <Box position={[0,2.65,0]} scale={[2.27,.09,1.59]} color="#76583a"/>
     {[-1,1].map(side=><group key={side}>
       <Glass position={[side*1.09,1.92,0]} scale={[.025,1.43,1.54]}/>

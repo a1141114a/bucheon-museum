@@ -97,7 +97,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
         <Scene key={sceneKey} language={state.language} active={sceneActive} clues={clues} opened={opened} celebrating={celebrating} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
       </Suspense>
     </div>
-    <div className="hunt-brief" inert={!sceneActive} hidden={celebrating}>
+    <div className="hunt-brief" inert={!sceneActive} hidden={phase!=='idle'}>
       <div className="hunt-brief-heading">
         <h1 id="hunt-title">{t('l2')}</h1>
         <button type="button" className="hunt-collapse" aria-label={t(instructions?'hideInstructions':'showInstructions')}
@@ -111,7 +111,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
       </div>
       {showHint && <ul>{clueIds.map(id => <li key={id}>{clues.includes(id) ? '✓' : '◇'} {t(stationLabels[id])}</li>)}</ul>}
     </div>
-    <div className="hunt-controls" inert={!sceneActive} hidden={celebrating}>
+    <div className="hunt-controls" inert={!sceneActive} hidden={phase!=='idle'}>
       <div className="hunt-pad" role="group" aria-label={t('huntControls')} inert={!active}>
         {directions.map(([label,symbol,axis,value]) => <button type="button" key={label} className="stone-button" aria-label={t(label)}
           onPointerDown={event => { event.currentTarget.setPointerCapture(event.pointerId); movement[axis]=value }}
