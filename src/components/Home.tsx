@@ -1,4 +1,4 @@
-import {useId,useRef,type MouseEvent} from 'react'
+import {useEffect,useId,useRef,type MouseEvent} from 'react'
 import {Link} from 'react-router-dom'
 import {useGame} from '../state/GameProvider'
 import './home.css'
@@ -77,13 +77,37 @@ async function preferLandscape(event: MouseEvent<HTMLAnchorElement>) {
 export default function Home(){
   const {state,t}=useGame()
   const settings=useRef<HTMLDialogElement>(null)
+  const backgroundVideo=useRef<HTMLVideoElement>(null)
+  useEffect(()=>{
+    const video=backgroundVideo.current
+    if(!video)return
+    const resume=()=>{
+      if(!document.hidden&&video.paused){
+        video.muted=true
+        void video.play().catch(()=>{})
+      }
+    }
+    const visibility=()=>{if(document.hidden)video.pause();else resume()}
+    resume()
+    document.addEventListener('visibilitychange',visibility)
+    window.addEventListener('pageshow',resume)
+    window.addEventListener('pointerdown',resume,{passive:true})
+    return ()=>{
+      document.removeEventListener('visibilitychange',visibility)
+      window.removeEventListener('pageshow',resume)
+      window.removeEventListener('pointerdown',resume)
+      video.pause()
+    }
+  },[])
   const toggleFullscreen=()=>{
     const request=document.fullscreenElement?document.exitFullscreen?.():document.documentElement.requestFullscreen?.()
     request?.catch(()=>{})
   }
 
   return <main className="museum-home" lang={state.language==='zh'?'zh-CN':state.language} aria-labelledby="home-title">
-    <img className="home-backdrop" src={import.meta.env.BASE_URL+'ui/museum-home.webp'} alt="" fetchPriority="high"/>
+    <video ref={backgroundVideo} className="home-backdrop" src={import.meta.env.BASE_URL+'ui/museum-home-loop.mp4'}
+      poster={import.meta.env.BASE_URL+'ui/museum-home.webp'} autoPlay loop muted playsInline
+      preload="auto" disablePictureInPicture disableRemotePlayback aria-hidden="true" tabIndex={-1}/>
     <div className="home-top"><LanguageSelector/></div>
     <div className="home-content">
       <div className="home-heading">
