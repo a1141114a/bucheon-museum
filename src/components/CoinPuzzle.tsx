@@ -16,7 +16,7 @@ function CopperDialog({children,onClose,reward=false}:{children:ReactNode;onClos
   },[])
   return <dialog ref={dialog} className={`coin-puzzle-dialog${reward?' coin-puzzle-reward':''}`}
     aria-labelledby="coin-puzzle-title" onCancel={event=>{event.preventDefault();onClose()}}>
-    {children}
+    <div className="coin-puzzle-surface">{children}</div>
   </dialog>
 }
 

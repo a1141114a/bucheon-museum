@@ -1,35 +1,64 @@
 .coin-puzzle-dialog {
   --coin-ink:#51321f;
   box-sizing:border-box;
-  width:min(560px,calc(100vw - 20px));
-  max-height:94dvh;
+  position:fixed;
+  inset:0;
+  width:min(680px,calc(100vw - 24px));
+  max-width:calc(100vw - 24px);
+  max-height:calc(100dvh - 24px);
+  margin:auto;
+  padding:28px;
   overflow:auto;
-  padding:17px 20px 26px;
   color:var(--coin-ink);
-  background:transparent;
-  border:20px solid transparent;
-  border-image:url('/ui/coin-puzzle-frame.svg') 27 fill stretch;
-  box-shadow:0 14px 54px #160d09b3;
+  border:8px solid transparent;
+  border-radius:24px 8px;
+  background:linear-gradient(125deg,#f9e7c5,#efd09b) padding-box,
+    linear-gradient(135deg,#ffe1a0,#b17a39 32%,#614026 54%,#e2b364 82%,#ffdfa0) border-box;
+  box-shadow:0 16px 70px #100a08c9,inset 0 0 0 2px #82532b;
+  isolation:isolate;
+  font-family:var(--museum-reading,system-ui),sans-serif;
 }
-.coin-puzzle-dialog::backdrop { background:#1b140ec4; }
-.coin-puzzle-heading,.coin-puzzle-footer { display:flex; align-items:center; justify-content:space-between; gap:9px; }
-.coin-puzzle-heading h2,.coin-puzzle-reward h2 { margin:0; font:600 clamp(20px,4.8vw,30px)/1.2 var(--museum-interface); }
-.coin-puzzle-kicker { margin:0 0 4px; color:#9a572a; font-size:13px; letter-spacing:.16em; }
-.coin-puzzle-instructions { margin:8px 0 12px; font-size:13px; line-height:1.5; }
+/* Decoration has a fixed inset; it never scales across the content area. */
+.coin-puzzle-dialog::before {
+  content:''; position:absolute; inset:8px; pointer-events:none;
+  border:1px solid #aa7a43; border-radius:12px 2px;
+}
+.coin-puzzle-dialog::after {
+  content:''; position:absolute; inset:12px; pointer-events:none;
+  background:
+    linear-gradient(#82532b,#82532b) left top/12px 2px,
+    linear-gradient(#82532b,#82532b) left top/2px 12px,
+    linear-gradient(#82532b,#82532b) right bottom/12px 2px,
+    linear-gradient(#82532b,#82532b) right bottom/2px 12px;
+  background-repeat:no-repeat;
+}
+.coin-puzzle-dialog::backdrop { background:#17110ff2; }
+.coin-puzzle-surface { position:relative; display:grid; gap:16px; min-width:0; }
+.coin-puzzle-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; min-width:0; }
+.coin-puzzle-heading>div { min-width:0; }
+.coin-puzzle-heading h2,.coin-puzzle-reward h2 {
+  margin:0; font:600 clamp(21px,3vw,28px)/1.35 var(--museum-interface); overflow-wrap:anywhere;
+}
+.coin-puzzle-kicker { margin:0 0 4px; color:#925b2e; font-size:11px; line-height:1.4; letter-spacing:.15em; }
+.coin-puzzle-instructions { margin:0; font-size:13px; line-height:1.6; overflow-wrap:anywhere; }
 .coin-puzzle-close,.coin-puzzle-action {
-  display:inline-flex; align-items:center; justify-content:center;
-  min-height:44px; border:2px solid #78502e; border-radius:8px;
-  padding:6px 11px; background:linear-gradient(#fbe6b9,#d79d59); color:#4f2d19;
-  font:700 13px/1.2 var(--museum-reading,system-ui),sans-serif;
+  box-sizing:border-box; display:inline-flex; align-items:center; justify-content:center;
+  min-height:44px; max-width:100%; border:1px solid #87582e; border-radius:8px;
+  padding:10px 16px; background:linear-gradient(#fff0d0,#dfb575); color:#51321f;
+  box-shadow:inset 0 1px #fff5db,0 2px 0 #8c5b31;
+  font:600 13px/1.3 var(--museum-reading,system-ui),sans-serif;
+  text-align:center; overflow-wrap:anywhere;
 }
-.coin-puzzle-close { flex:0 0 44px; font-size:22px; }
-.coin-puzzle-content { display:grid; grid-template-columns:minmax(0,1fr) minmax(55px,.28fr); gap:12px; align-items:center; }
+.coin-puzzle-close { flex:0 0 44px; width:44px; height:44px; padding:0; font:26px/1 system-ui; }
+.coin-puzzle-dialog button:focus-visible,.coin-puzzle-dialog a:focus-visible { outline:2px solid #835725; outline-offset:3px; }
+.coin-puzzle-content { display:grid; grid-template-columns:minmax(0,1fr) 112px; gap:24px; align-items:center; min-width:0; }
 .coin-puzzle-board {
-  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:repeat(3,minmax(0,1fr));
-  width:min(100%,350px); aspect-ratio:1; gap:3px; padding:4px; background:#4a2c20; border-radius:8px;
-  box-shadow:inset 0 0 0 2px #a87944; touch-action:manipulation;
+  box-sizing:border-box; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-rows:repeat(3,minmax(0,1fr));
+  width:min(100%,340px,calc(100dvh - 290px)); aspect-ratio:1;
+  justify-self:center; gap:3px; padding:5px; background:#523425; border-radius:10px;
+  box-shadow:0 0 0 1px #b58a50,inset 0 0 0 2px #a87944; touch-action:manipulation;
 }
-.coin-puzzle-tile,.coin-puzzle-empty { position:relative; min-height:0; border:0; border-radius:3px; }
+.coin-puzzle-tile,.coin-puzzle-empty { position:relative; min-height:0; min-width:0; border:0; border-radius:3px; }
 .coin-puzzle-tile { padding:0; background-color:#63402b; background-size:300% 300%; box-shadow:inset 0 0 0 1px #f0bd75; }
 .coin-puzzle-tile[aria-disabled=true] { cursor:default; }
 .coin-puzzle-tile[aria-disabled=false]:hover { filter:brightness(1.13); }
@@ -38,79 +67,43 @@
   min-width:17px; height:17px; color:#ffe6b5; background:#3b231cdd; border-radius:3px; font:600 10px/1 system-ui;
 }
 .coin-puzzle-empty { display:grid; place-items:center; color:#ab7e5c; background:#3d251d; box-shadow:inset 0 0 0 1px #774c33; }
-.coin-puzzle-reference { text-align:center; margin:0; font-size:11px; line-height:1.25; }
-.coin-puzzle-reference img { display:block; width:100%; height:auto; margin:0 auto 5px; }
-.coin-puzzle-footer { margin-top:9px; flex-wrap:wrap; }
-.coin-puzzle-footer p { margin:0; font-size:13px; }
-.coin-puzzle-reward { inset:auto 0 14px; margin:0 auto; width:min(440px,calc(100vw - 20px)); text-align:center; }
+.coin-puzzle-reference { min-width:0; margin:0; padding:10px; background:#fff4db70; border:1px solid #b78c5266; border-radius:10px; text-align:center; font-size:11px; line-height:1.5; }
+.coin-puzzle-reference img { display:block; width:100%; height:auto; margin:0 auto 8px; }
+.coin-puzzle-reference figcaption { overflow-wrap:anywhere; }
+.coin-puzzle-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; min-width:0; padding-top:16px; border-top:1px solid #ae81494d; }
+.coin-puzzle-footer p { margin:0; font-size:13px; line-height:1.5; }
+.coin-puzzle-next { background:linear-gradient(#ffdf98,#d39a4d); }
+.coin-puzzle-reward { inset:auto 0 16px; width:min(460px,calc(100vw - 24px)); text-align:center; }
 .coin-puzzle-reward::backdrop { background:#2a160e3b; }
+.coin-puzzle-reward .coin-puzzle-surface { gap:12px; }
+.coin-puzzle-reward .coin-puzzle-kicker { margin:0; }
 .coin-puzzle-reward .coin-puzzle-footer { justify-content:center; }
-.coin-puzzle-next { background:linear-gradient(#ffd686,#c18239); }
-@media (max-height:500px) and (orientation:landscape) {
-  .coin-puzzle-dialog { padding:8px 15px 16px; }
-  .coin-puzzle-board { width:min(100%,47dvh); justify-self:center; }
-  .coin-puzzle-content { grid-template-columns:minmax(0,1fr) 74px; }
-  .coin-puzzle-instructions { margin:5px 0 7px; }
-}
-@media (max-width:360px) {
-  .coin-puzzle-dialog { border-width:15px; padding:12px 12px 19px; }
-  .coin-puzzle-content { gap:7px; }
-}
-
-/* Keep the new puzzle frame, with its content safely inside the inner rim. */
-.coin-puzzle-dialog:not(.coin-puzzle-reward) {
-  width:min(620px,calc(100vw - 24px));
-  max-width:calc(100vw - 24px);
-  max-height:calc(100dvh - 24px);
-  margin:auto;
-  padding:28px;
-  background:#f3d6a4;
-  background-clip:padding-box;
-  isolation:isolate;
-}
-.coin-puzzle-dialog:not(.coin-puzzle-reward)::backdrop { background:#17110ff2; }
-.coin-puzzle-dialog .coin-puzzle-heading,
-.coin-puzzle-dialog .coin-puzzle-content,
-.coin-puzzle-dialog .coin-puzzle-footer { min-width:0; }
-.coin-puzzle-heading h2 { overflow-wrap:anywhere; }
-.coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-board {
-  box-sizing:border-box;
-  width:min(100%,330px,calc(100dvh - 260px));
-  justify-self:center;
-}
-.coin-puzzle-action { max-width:100%; overflow-wrap:anywhere; text-align:center; }
-@media(max-width:400px) and (orientation:portrait) {
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) { border-width:16px; padding:28px; }
-  .coin-puzzle-heading h2 { font-size:21px; }
-  .coin-puzzle-content { grid-template-columns:minmax(0,1fr) 55px; gap:9px; }
+@media(max-width:480px) and (orientation:portrait) {
+  .coin-puzzle-dialog { padding:22px; }
+  .coin-puzzle-surface { gap:12px; }
+  .coin-puzzle-heading { gap:12px; }
   .coin-puzzle-instructions { font-size:12px; }
+  .coin-puzzle-content { grid-template-columns:minmax(0,1fr) 66px; gap:12px; }
+  .coin-puzzle-reference { padding:5px; font-size:10px; }
+  .coin-puzzle-footer { padding-top:12px; }
 }
 @media(max-height:540px) and (orientation:landscape) {
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) {
-    width:min(760px,calc(100vw - 24px));
-    border-width:16px;
-    padding:24px 28px;
-    display:grid;
+  .coin-puzzle-dialog:not(.coin-puzzle-reward) { width:min(760px,calc(100vw - 24px)); padding:22px; }
+  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-surface {
     grid-template-columns:minmax(0,1fr) minmax(0,1fr);
     grid-template-rows:auto auto auto auto;
-    gap:4px 16px;
-    align-items:center;
+    gap:8px 22px; align-items:center;
   }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-heading { grid-column:2; grid-row:1; }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-heading h2 { font-size:19px; }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-kicker { display:none; }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-instructions { grid-column:2; grid-row:2; margin:0; font-size:11px; }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-content { display:contents; }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-board {
-    grid-column:1; grid-row:1/5;
-    width:min(100%,300px,calc(100dvh - 112px));
-    align-self:center;
-  }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-reference {
-    grid-column:2; grid-row:3;
-    display:flex; align-items:center; gap:9px; text-align:start;
-  }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-reference img { width:50px; height:50px; margin:0; }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-footer { grid-column:2; grid-row:4; margin:0; gap:5px; }
-  .coin-puzzle-dialog:not(.coin-puzzle-reward) .coin-puzzle-action { font-size:11px; padding:6px 8px; }
+  .coin-puzzle-heading { grid-column:2; grid-row:1; gap:10px; align-items:center; }
+  .coin-puzzle-heading h2 { font-size:20px; }
+  .coin-puzzle-heading .coin-puzzle-kicker { display:none; }
+  .coin-puzzle-instructions { grid-column:2; grid-row:2; font-size:11px; line-height:1.5; }
+  .coin-puzzle-content { display:contents; }
+  .coin-puzzle-board { grid-column:1; grid-row:1/5; width:min(100%,300px,calc(100dvh - 104px)); align-self:center; }
+  .coin-puzzle-reference { grid-column:2; grid-row:3; display:flex; align-items:center; gap:10px; padding:5px 8px; text-align:start; }
+  .coin-puzzle-reference img { width:42px; height:42px; margin:0; }
+  .coin-puzzle-footer { grid-column:2; grid-row:4; padding-top:8px; gap:6px; }
+  .coin-puzzle-action { padding:8px 11px; font-size:12px; }
+  .coin-puzzle-reward .coin-puzzle-instructions,.coin-puzzle-reward .coin-puzzle-footer { grid-column:auto; grid-row:auto; }
 }
+
