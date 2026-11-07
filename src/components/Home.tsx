@@ -81,20 +81,39 @@ export default function Home(){
   useEffect(()=>{
     const video=backgroundVideo.current
     if(!video)return
+    video.defaultMuted=true
+    video.muted=true
+    video.setAttribute('muted','')
+    video.setAttribute('playsinline','')
+    video.setAttribute('webkit-playsinline','')
+    const reveal=()=>{video.dataset.playing='true'}
+    const fallback=()=>{video.dataset.playing='false'}
     const resume=()=>{
-      if(!document.hidden&&video.paused){
-        video.muted=true
-        void video.play().catch(()=>{})
-      }
+      if(document.hidden)return
+      video.muted=true
+      if(video.paused)void video.play().catch(fallback)
     }
     const visibility=()=>{if(document.hidden)video.pause();else resume()}
-    resume()
+    const readyEvents=['loadedmetadata','loadeddata','canplay'] as const
+    readyEvents.forEach(event=>video.addEventListener(event,resume))
+    video.addEventListener('playing',reveal)
+    video.addEventListener('pause',fallback)
+    video.addEventListener('waiting',fallback)
     document.addEventListener('visibilitychange',visibility)
     window.addEventListener('pageshow',resume)
+    window.addEventListener('focus',resume)
     window.addEventListener('pointerdown',resume,{passive:true})
+    const retries=[250,1000,2500].map(delay=>window.setTimeout(resume,delay))
+    resume()
     return ()=>{
+      retries.forEach(window.clearTimeout)
+      readyEvents.forEach(event=>video.removeEventListener(event,resume))
+      video.removeEventListener('playing',reveal)
+      video.removeEventListener('pause',fallback)
+      video.removeEventListener('waiting',fallback)
       document.removeEventListener('visibilitychange',visibility)
       window.removeEventListener('pageshow',resume)
+      window.removeEventListener('focus',resume)
       window.removeEventListener('pointerdown',resume)
       video.pause()
     }
@@ -105,8 +124,9 @@ export default function Home(){
   }
 
   return <main className="museum-home" lang={state.language==='zh'?'zh-CN':state.language} aria-labelledby="home-title">
-    <video ref={backgroundVideo} className="home-backdrop" src={import.meta.env.BASE_URL+'ui/museum-home-loop.mp4'}
-      poster={import.meta.env.BASE_URL+'ui/museum-home.webp'} autoPlay loop muted playsInline
+    <img className="home-backdrop home-motion" src={import.meta.env.BASE_URL+'ui/museum-home-motion.webp'} alt="" fetchPriority="high"/>
+    <video ref={backgroundVideo} className="home-backdrop home-video" src={import.meta.env.BASE_URL+'ui/museum-home-stream.mp4'}
+      autoPlay loop muted playsInline
       preload="auto" disablePictureInPicture disableRemotePlayback aria-hidden="true" tabIndex={-1}/>
     <div className="home-top"><LanguageSelector/></div>
     <div className="home-content">

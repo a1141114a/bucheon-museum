@@ -391,3 +391,7 @@
 
   .home-menu-icon { height: 21px; }
 }
+
+/* The same scene stays animated while video loads or autoplay is unavailable. */
+.home-video { opacity:0; }
+.home-video[data-playing='true'] { opacity:1; }
