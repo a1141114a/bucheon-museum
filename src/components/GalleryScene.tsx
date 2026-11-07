@@ -5,8 +5,9 @@ import { Box3, CanvasTexture, InstancedMesh, MathUtils, Matrix4, Object3D, Quate
 import { artifacts } from '../data/artifacts'
 import { exhibitLabels } from '../data/exhibitLabels'
 import type { Language } from '../types'
-import { clueIds, displays, galleryBounds, gallerySpawn, nearbyExhibit, nearbyStation, stations, type ClueId, type Station } from '../state/exploration'
+import { clueIds, displays, gallerySpawn, nearbyExhibit, nearbyStation, stations, type ClueId, type Station } from '../state/exploration'
 import WalkControls from './WalkControls'
+import GalleryArchitecture from './GalleryArchitecture'
 
 type Position = [number,number,number]
 
@@ -105,8 +106,8 @@ function DisplayCase({id,x,z,language,onExhibit}:{id:string;x:number;z:number;la
   const small=id==='bcm-937'||id==='bcm-926'||id==='bcm-929'
   return <group position={[x,0,z]} onClick={event=>{event.stopPropagation();onExhibit(id)}}>
     <Box position={[0,.08,0]} scale={[2.4,.16,1.7]} color="#231b15"/>
-    <Box position={[0,.59,0]} scale={[2.2,1.02,1.52]} color="#4c3828"/>
-    <Box position={[0,1.11,0]} scale={[2.32,.12,1.62]} color="#a38657"/>
+    <Box position={[0,.59,0]} scale={[2.2,1.02,1.52]} color="#b29b79"/>
+    <Box position={[0,1.11,0]} scale={[2.32,.12,1.62]} color="#b59b71"/>
     <Box position={[0,1.18,0]} scale={[1.82,.06,1.28]} color="#413e36"/>
     <Box position={[0,.76,.781]} scale={[1.78,.42,.032]} color="#ad7940"/>
     {[-1,1].map(side=><group key={side}>
@@ -119,7 +120,7 @@ function DisplayCase({id,x,z,language,onExhibit}:{id:string;x:number;z:number;la
     </group>)}
     <Box position={[0,.17,.821]} scale={[2.16,.024,.02]} color="#a97f46"/>
     {artifact && <ExhibitPlaque name={exhibitLabels[id]?.[language]??artifact.name[language]} language={language}/>}
-    <Box position={[0,2.65,0]} scale={[2.27,.09,1.59]} color="#76583a"/>
+    <Box position={[0,2.65,0]} scale={[2.27,.09,1.59]} color="#6b573b"/>
     {[-1,1].map(side=><group key={side}>
       <Glass position={[side*1.09,1.92,0]} scale={[.025,1.43,1.54]}/>
       <Box position={[side*1.09,1.92,-.76]} scale={[.065,1.47,.065]} color="#74593c"/>
@@ -127,55 +128,11 @@ function DisplayCase({id,x,z,language,onExhibit}:{id:string;x:number;z:number;la
     </group>)}
     <Glass position={[0,1.92,-.77]} scale={[2.17,1.43,.025]}/>
     <Glass position={[0,1.92,.77]} scale={[2.17,1.43,.025]}/>
-    {Math.abs(x)<7 && <pointLight position={[0,2.44,.33]} color="#ffddb1" intensity={11} distance={4}/>}
+    {Math.abs(x)<7 && <pointLight position={[0,2.44,.33]} color="#ffddb1" intensity={5} distance={4}/>}
     {model && <group position={[0,1.21,0]}><Suspense fallback={null}>
       <ExhibitModel url={model} span={small?1.04:1.64} tilt={id==='bcm-1252'?.52:0}/>
     </Suspense></group>}
   </group>
-}
-
-function TileSeams() {
-  const positions=useMemo(()=>{
-    const {width,depth}=galleryBounds
-    const vertices:number[]=[]
-    for(let x=-width/2;x<=width/2;x+=2) vertices.push(x,.004,-depth/2,x,.004,depth/2)
-    for(let z=-depth/2;z<=depth/2;z+=2) vertices.push(-width/2,.004,z,width/2,.004,z)
-    return new Float32Array(vertices)
-  },[])
-  return <lineSegments>
-    <bufferGeometry><bufferAttribute attach="attributes-position" args={[positions,3]}/></bufferGeometry>
-    <lineBasicMaterial color="#52483d"/>
-  </lineSegments>
-}
-
-function Architecture() {
-  const {width,depth}=galleryBounds
-  return <>
-    <mesh rotation={[-Math.PI/2,0,0]} receiveShadow><planeGeometry args={[width,depth]}/>
-      <meshStandardMaterial color="#423d32" roughness={.8}/>
-    </mesh>
-    <TileSeams/>
-    <Box position={[0,3,-depth/2]} scale={[width,6,.25]} color="#3b3027"/>
-    <Box position={[0,3,depth/2]} scale={[width,6,.25]} color="#3b3027"/>
-    {[-1,1].map(side=><group key={side}>
-      <Box position={[side*width/2,3,0]} scale={[.25,6,depth]} color="#40362c"/>
-      <Box position={[side*(width/2-.14),1.08,0]} scale={[.08,.14,depth]} color="#86694a"/>
-      <Box position={[side*(width/2-.14),4.62,0]} scale={[.08,.13,depth]} color="#9f7a4b"/>
-      {[-9,-4,1,6,11].map(z=><group key={z}>
-        <Box position={[side*(width/2-.18),2.8,z]} scale={[.13,5.6,.19]} color="#96734b"/>
-        <Box position={[side*(width/2-.25),3.98,z]} scale={[.23,.43,1.6]} color="#6b5138"/>
-      </group>)}
-    </group>)}
-    {[-9,-3,3,9].map(x=><group key={x}>
-      <Box position={[x,2.86,-depth/2+.22]} scale={[.16,5.65,.18]} color="#9a7951"/>
-      <Box position={[x,4.34,-depth/2+.27]} scale={[3.9,.16,.12]} color="#7c6448"/>
-    </group>)}
-    {[-6,0,6].map(z=><group key={z}>
-      <Box position={[0,5.68,z]} scale={[width,.18,.26]} color="#59432f"/>
-      <Box position={[0,5.46,z]} scale={[2.2,.14,.53]} color="#edcd91"/>
-    </group>)}
-    <Box position={[0,5.96,0]} scale={[width,.12,depth]} color="#322a22"/>
-  </>
 }
 
 const treasureModel = (part: 'cabinet'|'chest'|'coin') =>
@@ -194,7 +151,7 @@ function TreasureCabinet({opened,onOpen}:{opened:boolean;onOpen:()=>void}) {
   return <group onClick={event=>{event.stopPropagation();onOpen()}}>
     <primitive object={cabinet.scene}/>
     <group position={[0,1.32,0]}><primitive object={chestModel}/></group>
-    <pointLight position={[0,2.88,.38]} color="#ffd595" intensity={17} distance={5.2}/>
+    <pointLight position={[0,2.88,.38]} color="#ffd595" intensity={8} distance={5.2}/>
     {opened && <pointLight position={[0,1.67,.05]} color="#ffca6f" intensity={3} distance={2.8}/>}
   </group>
 }
@@ -279,9 +236,9 @@ function Hall({active,language,clues,opened,celebrating,onNear,onInspect,onNearE
   })
   return <>
     <color attach="background" args={['#352d24']}/><fog attach="fog" args={['#352d24',24,56]}/>
-    <ambientLight intensity={.5}/><hemisphereLight args={['#ffe8c6','#59493d',1.7]}/>
-    <directionalLight position={[6,10,8]} intensity={2.2} color="#ffe3b1"/>
-    <Architecture/>
+    <ambientLight intensity={.35}/><hemisphereLight args={['#ffefd9','#51483a',1.05]}/>
+    <directionalLight position={[6,10,8]} intensity={1.2} color="#ffe8c6"/>
+    <Suspense fallback={null}><GalleryArchitecture/></Suspense>
     {displays.map(display=><DisplayCase key={display.id} {...display} language={language} onExhibit={onExhibit}/>)}
     <Suspense fallback={null}>
       <TreasureCabinet opened={opened} onOpen={()=>onInspect('chest')}/>
@@ -303,3 +260,5 @@ class SceneBoundary extends Component<{children:ReactNode;message:string},{faile
 export default function GalleryScene({error,...props}:GalleryProps & {error:string}) {
   return <SceneBoundary message={error}><Canvas dpr={[1,1.35]} camera={{position:[...gallerySpawn],fov:58,near:.08,far:64}} gl={{antialias:true,powerPreference:'high-performance'}} fallback={<div className="scene-error">{error}</div>}><Hall {...props}/></Canvas></SceneBoundary>
 }
+
+
