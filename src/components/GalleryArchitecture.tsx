@@ -53,7 +53,7 @@ export default function GalleryArchitecture(){
   useEffect(()=>()=>Object.values(textures).forEach(texture=>texture.dispose()),[textures])
   const {width,depth}=galleryBounds
   const structure=useMemo(()=>{
-    const stone:Block[]=[],gold:Block[]=[],dark:Block[]=[],lamps:Block[]=[]
+    const gold:Block[]=[],dark:Block[]=[],lamps:Block[]=[]
     const add=(list:Block[],position:Position,scale:Position)=>list.push({position,scale})
     for(const side of [-1,1]){
       for(const y of [1.28,5.55,5.82]){
@@ -62,12 +62,6 @@ export default function GalleryArchitecture(){
       }
       add(dark,[side*(width/2-.10),.16,0],[.15,.24,depth])
       add(dark,[0,.16,side*(depth/2-.10)],[width,.24,.15])
-      for(const z of [-depth/2,-depth/6,depth/6,depth/2]){
-        add(stone,[side*(width/2-.16),3.5,z],[.26,4.1,.38])
-        add(dark,[side*(width/2-.18),.72,z],[.28,1.15,.46])
-        add(gold,[side*(width/2-.20),1.35,z],[.30,.10,.49])
-        add(gold,[side*(width/2-.20),5.5,z],[.36,.17,.56])
-      }
       // Two warm tracks carry visible bulbs; they add no per-bulb light cost.
       add(dark,[side*8.3,5.65,0],[.12,.13,depth-1])
       for(const z of [-11,-7,-3,1,5,9])add(lamps,[side*8.3,5.56,z],[.13,.035,.20])
@@ -77,7 +71,7 @@ export default function GalleryArchitecture(){
     }
     for(const x of [-14,-7,0,7,14])add(gold,[x,5.86,0],[.11,.12,depth])
     for(const z of [-13,-6.5,0,6.5,13])add(gold,[0,5.86,z],[width,.12,.11])
-    return {stone,gold,dark,lamps}
+    return {gold,dark,lamps}
   },[width,depth])
   return <group name="GalleryArchitecture">
     <mesh name="GalleryMarbleFloor" rotation={[-Math.PI/2,0,0]} receiveShadow><planeGeometry args={[width,depth]}/>
@@ -90,7 +84,6 @@ export default function GalleryArchitecture(){
       <mesh position={[side*3.25,3.05,-depth/2+.075]}><planeGeometry args={[.86,2.55]}/><meshStandardMaterial map={side<0?textures.red:textures.blue} roughness={.9}/></mesh>
     </group>)}
     <mesh name="GalleryCofferedCeiling" position={[0,5.98,0]} rotation={[Math.PI/2,0,0]}><planeGeometry args={[width,depth]}/><meshStandardMaterial map={textures.ceiling} color="#b2a28a" roughness={.85}/></mesh>
-    <Blocks name="StonePilasters" items={structure.stone} color="#b5a48e" metalness={0} roughness={.7}/>
     <Blocks name="BrassCornicesAndInlays" items={structure.gold} color="#ad8043" metalness={.48} roughness={.48}/>
     <Blocks name="DarkPlinthsAndTracks" items={structure.dark} color="#24221e" metalness={.12}/>
     <Blocks name="WarmTrackDiffusers" items={structure.lamps} color="#ffe2ab" emission/>
