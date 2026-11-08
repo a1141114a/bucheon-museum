@@ -25,3 +25,17 @@ Three real collection models, clue cards, chronology rules, ring controls, hints
 Blender 5.2.3 exported all five GLBs and saved the packed, editable `.blend`. TypeScript and Vite production build pass; 39 existing tests pass. Browser checks covered 1280×800 desktop, 1024×768 tablet, 390×844 portrait and 844×390 landscape, plus artifact-card access, ring rotation, completion (180 points), and rear-camera cutaway. These are browser viewport checks, not claims of physical-device performance measurements.
 
 The real-time scene is an initial interpretation of the reference. Geometry, palette, composition and effects can be refined independently of the gameplay.
+
+## Front exhibit plinths and atmosphere update
+
+The three collection plinths are now in front of the altar at X/Z = (-3.25, 2.8), (0, 3.75), (3.25, 2.8), on ground level. Their 0.84m-radius footprints stay clear of the altar's 2.13m foundation, each other and the terrace steps (front edge Z=0.38). The minimum altar/plinth gap is 0.78m. Real collection models sit at Y=0.68 on the new plinth, with their original sizing and click-to-inspect behavior.
+
+New files:
+
+- `blender/scripts/create_time_exhibit_pedestal.py`: editable stone tiers, bronze molding, inset facet panels, turquoise top inlay and geometric key strokes, matching the existing altar materials.
+- `blender/blend/time-exhibit-pedestal.blend`: separate editable asset with packed textures and preview camera.
+- `public/models/time-exhibit-pedestal.glb`: one optimized game asset shared by the three plinth instances.
+- `src/components/timeExhibitLayout.ts`: placement and support height; corresponding clearance regression tests in `tests/time-exhibit-layout.test.ts`.
+- `src/components/TimeAtmosphere.tsx`: surrounding 3D sphere with a slowly changing teal/earth/gold mist shader, gentle fog-color variation and drifting round motes. A wider stone floor hides the previous abrupt island edge. The mobile UI gutter uses a matching slow gradient; game geometry and exhibits remain fully 3D. Reduced-motion preferences pause decorative movement.
+
+The default camera now includes all three foreground plinths, with extra clearance above the tablet control dock. Original rings, symbols, chronology solution, collection cards and score/completion logic are unchanged. Browser checks cover direct clicks on the rebuilt plinth, front/rear orbit views, desktop, tablet and phone framing, plus a full three-ring completion. Production build and 43 tests pass. `exhibit-pedestal-validation.json` records measured Blender geometry bounds against the layout's clearance radius.

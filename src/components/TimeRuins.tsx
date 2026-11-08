@@ -3,6 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { Environment, Lightformer, useGLTF, useTexture } from '@react-three/drei'
 import { Box3, BufferAttribute, BufferGeometry, CatmullRomCurve3, DoubleSide, Group, Mesh, Points, RepeatWrapping, SRGBColorSpace, TubeGeometry, Vector3 } from 'three'
 import { sceneryBlocksView } from './sceneVisibility'
+import TimeAtmosphere from './TimeAtmosphere'
 
 const base=import.meta.env.BASE_URL
 const northBounds=new Box3(new Vector3(-8,0,-8),new Vector3(8,7,-3.15))
@@ -47,14 +48,14 @@ function AncientBackdrop() {
 function Paving() {
   const maps=useTexture([base+'textures/time-ruins/floor.jpg',base+'textures/time-ruins/floor-height.jpg'])
   const textures=useMemo(()=>maps.map((map,i)=>{
-    const clone=map.clone();clone.wrapS=clone.wrapT=RepeatWrapping;clone.repeat.set(5,5)
+    const clone=map.clone();clone.wrapS=clone.wrapT=RepeatWrapping;clone.repeat.set(13,13)
     if(i===0)clone.colorSpace=SRGBColorSpace
     clone.anisotropy=4;return clone
   }),[maps])
   useEffect(()=>()=>textures.forEach(t=>t.dispose()),[textures])
   return <>
     <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.025,0]} receiveShadow>
-      <circleGeometry args={[10,96]}/><meshStandardMaterial map={textures[0]} bumpMap={textures[1]} bumpScale={.055} color="#a49a7d" roughness={.92}/>
+      <circleGeometry args={[26,128]}/><meshStandardMaterial map={textures[0]} bumpMap={textures[1]} bumpScale={.055} color="#a49a7d" roughness={.92}/>
     </mesh>
     {[2.52,4.64].map(radius=><mesh key={radius} rotation={[-Math.PI/2,0,0]} position={[0,-.014,0]}>
       <ringGeometry args={[radius,radius+.055,128]}/><meshStandardMaterial color="#685239" metalness={.35} roughness={.65}/>
@@ -108,7 +109,8 @@ function Energy({solved}:{solved:boolean}) {
 
 export default function TimeRuins({solved}:{solved:boolean}) {
   return <>
-    <color attach="background" args={['#171b18']}/><fog attach="fog" args={['#171b18',15,32]}/>
+    <color attach="background" args={['#435347']}/><fog attach="fog" args={['#555441',19,43]}/>
+    <TimeAtmosphere/>
     <hemisphereLight args={['#d4c5a8','#263b38',.72]}/><ambientLight intensity={.18}/>
     <directionalLight position={[-2,8,3]} color="#ffe0a7" intensity={2.7} castShadow shadow-mapSize={[1024,1024]}
       shadow-camera-left={-9} shadow-camera-right={9} shadow-camera-top={9} shadow-camera-bottom={-9} shadow-bias={-.0004} shadow-normalBias={.035}/>

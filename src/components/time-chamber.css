@@ -1,5 +1,7 @@
 .time-view main>.meta-strip,.time-view main>footer { display:none; }
-.time-root { position:relative; width:100%; height:100dvh; color:#ffe6b5; background:#20231e; overflow:hidden; }
+.time-root { position:relative; width:100%; height:100dvh; color:#ffe6b5; background:linear-gradient(125deg,#344b40,#685339 52%,#3e5144); background-size:220% 220%; animation:time-ambient-shift 32s ease-in-out infinite; overflow:hidden; }
+@keyframes time-ambient-shift { 0%,100% {background-position:0% 40%} 50% {background-position:100% 65%} }
+@media(prefers-reduced-motion:reduce) { .time-root {animation:none} }
 .time-scene { position:absolute; inset:0; }
 .time-scene canvas { touch-action:none; }
 .time-brief { position:absolute; top:88px; left:18px; width:min(330px,calc(100% - 36px)); padding:12px 15px; border:1px solid #b79152; border-radius:12px; background:#241c17e8; }

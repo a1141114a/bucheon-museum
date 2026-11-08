@@ -6,10 +6,20 @@ import { artifacts } from '../data/artifacts'
 import { timeArtifactIds } from '../state/time'
 import type { Artifact } from '../types'
 import TimeRuins from './TimeRuins'
+import {timeExhibitPositions,timeExhibitSupportHeight} from './timeExhibitLayout'
 
 const turn=Math.PI*2/3
 const radii=[1.47,1.09,.71]
-const positions:[number,number,number][]=[[-3.55,.64,-.35],[0,.64,-3.7],[3.55,.64,-.35]]
+
+function ExhibitPedestal(){
+  const {scene}=useGLTF(import.meta.env.BASE_URL+'models/time-exhibit-pedestal.glb')
+  const object=useMemo(()=>{
+    const copy=scene.clone(true)
+    copy.traverse(node=>{if(node instanceof Mesh){node.castShadow=true;node.receiveShadow=true}})
+    return copy
+  },[scene])
+  return <primitive object={object}/>
+}
 
 function Model({url}:{url:string}) {
   const {scene}=useGLTF(import.meta.env.BASE_URL+url)
@@ -111,10 +121,10 @@ function Chamber({onArtifact,solved}:Pick<SceneProps,'onArtifact'|'solved'>) {
     <Suspense fallback={null}><TimeRuins solved={solved}/></Suspense>
     {timeArtifactIds.map((id,index)=>{
       const artifact=artifacts.find(item=>item.id===id)!
-      return <group key={id} position={positions[index]} onClick={event=>{event.stopPropagation();onArtifact(artifact)}}>
-        <mesh position={[0,-.32,0]}><cylinderGeometry args={[.67,.73,.64,8]}/><meshStandardMaterial color="#464739" roughness={.8}/></mesh>
-        <mesh position={[0,.025,0]}><cylinderGeometry args={[.70,.70,.07,64]}/><meshStandardMaterial color="#a08048" metalness={.65} roughness={.45}/></mesh>
-        <group position={[0,.065,0]}><Suspense fallback={null}><Model url={artifact.model.url!}/></Suspense></group>
+      return <group key={id} name={'TimeExhibit-'+id} position={timeExhibitPositions[index]} onClick={event=>{event.stopPropagation();onArtifact(artifact)}}>
+        <Suspense fallback={null}><ExhibitPedestal/>
+          <group position={[0,timeExhibitSupportHeight,0]}><Model url={artifact.model.url!}/></group>
+        </Suspense>
       </group>
     })}
   </>
@@ -124,9 +134,10 @@ function Framing({viewKey}:{viewKey:number}) {
   const {camera,size,controls}=useThree()
   const orbit=controls as {target:Vector3;update:()=>void}|null
   useEffect(()=>{
-    const factor=Math.max(1,Math.min(1.65,1/(size.width/size.height)))
-    camera.position.set(.2*factor,6.1*factor,12.4*factor)
-    orbit?.target.set(0,2,-1)
+    const compact=size.width>size.height&&size.height<820
+    const factor=Math.max(1,Math.min(1.65,1/(size.width/size.height)))*(compact?1.04:1)
+    camera.position.set(.2*factor,8.5*factor,16*factor)
+    orbit?.target.set(0,compact?1.1:1.5,.2)
     orbit?.update()
   },[camera,orbit,size.width,size.height,viewKey])
   return null
@@ -140,12 +151,12 @@ class Boundary extends Component<{children:ReactNode;error:string},{failed:boole
 
 export default function TimeScene(props:SceneProps) {
   return <Boundary error={props.error}>
-    <Canvas shadows dpr={[1,1.4]} camera={{position:[.2,6.1,12.4],fov:46,near:.1,far:45}} gl={{antialias:true}}>
+    <Canvas shadows dpr={[1,1.4]} camera={{position:[.2,8.5,16],fov:46,near:.1,far:90}} gl={{antialias:true}}>
       <Chamber onArtifact={props.onArtifact} solved={props.solved}/>
       <Suspense fallback={null}><Mechanism {...props}/></Suspense>
       <Framing viewKey={props.viewKey}/>
-      <OrbitControls makeDefault enabled={props.active} target={[0,2,-1]} enablePan={false} enableDamping={false}
-        minDistance={4.9} maxDistance={17} minPolarAngle={.22} maxPolarAngle={Math.PI/2-.12}/>
+      <OrbitControls makeDefault enabled={props.active} target={[0,1.5,.2]} enablePan={false} enableDamping={false}
+        minDistance={5.5} maxDistance={24} minPolarAngle={.22} maxPolarAngle={Math.PI/2-.12}/>
     </Canvas>
   </Boundary>
 }
