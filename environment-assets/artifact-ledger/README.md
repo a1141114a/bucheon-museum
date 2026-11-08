@@ -18,6 +18,8 @@ Portrait phones: the entire undistorted animated frame forms a title header, fol
 
 Source files: `src/components/ArtifactCard.tsx`, `ArtifactFrameMotion.tsx`, `artifact-ledger.css`.
 
+The journal keeps its original locked/discovered card design. Once a record reaches `unlocked`, `JournalArtwork.tsx` replaces the symbol with that artifact's image, retaining the original 120-pixel image/symbol area. An authorized museum photograph is used only if the existing publication checks pass; otherwise the approved project's own 3D reconstruction render is shown and labelled accordingly. All 12 current artifacts have a matching preview. Unlocked image loading and the absence of images on locked entries were verified in the browser.
+
 ## Reproduction
 
 Install Python packages `pillow` and `imageio-ffmpeg` (or supply a system FFmpeg), then run:
@@ -36,3 +38,4 @@ Use `--video`, `--frame`, `--layout` to import replacement sources. A differentl
 - TypeScript/Vite build and 39 existing tests pass.
 
 These are browser viewport checks, not physical-device performance measurements. The original complete PNG and layout JPG are archived here; derived WebP assets and the unchanged MP4 are in `public/ui/artifact-ledger/`.
+
