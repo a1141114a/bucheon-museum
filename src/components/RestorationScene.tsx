@@ -1,11 +1,12 @@
 import {Component,createRef,useMemo,useRef,useEffect,useState,Suspense,type ReactNode,type RefObject} from 'react'
 import {Canvas,useFrame,useThree} from '@react-three/fiber'
-import {OrbitControls,RoundedBox,useGLTF,useTexture,Html,Line} from '@react-three/drei'
-import {Box3,BufferGeometry,Group,Mesh,RepeatWrapping,SRGBColorSpace,Vector3,type Material} from 'three'
+import {OrbitControls,RoundedBox,useGLTF,Html,Line} from '@react-three/drei'
+import {Box3,BufferGeometry,Group,Mesh,Vector3,type Material} from 'three'
 import {fragmentIds,trayOrder,rotationOf,type RestorationState} from '../state/restoration'
 import {buildGhostGeometry} from './ghostGeometry'
 import {sceneryBlocksView,labelFacesCamera} from './sceneVisibility'
 import {jarPosition,RestoredJar} from './RestorationReveal'
+import {AnimatedScreenWall,RestorationColumn,RestorationFloor,RestorationFurniture} from './RestorationDecor'
 
 interface Part {geometry:BufferGeometry;material:Material|Material[]}
 interface Fragment {id:string;center:Vector3;parts:Part[];guide:{geometry:BufferGeometry;outline:[number,number,number][]}[]}
@@ -79,20 +80,6 @@ function CutawayScenery({children,min,max}:{children:ReactNode;min:[number,numbe
 const screenHeight=4
 const screenRepeats=6
 const wallWidth=screenHeight*2*screenRepeats
-function ScreenWall(){
-  const texture=useTexture(import.meta.env.BASE_URL+'ui/restoration-screen.png')
-  texture.colorSpace=SRGBColorSpace
-  texture.anisotropy=4
-  if(texture.wrapS!==RepeatWrapping){
-    texture.wrapS=RepeatWrapping
-    texture.needsUpdate=true
-  }
-  texture.repeat.x=screenRepeats
-  return <mesh position={[0,2.02,-3.74]} receiveShadow>
-    <planeGeometry args={[wallWidth,screenHeight]}/>
-    <meshStandardMaterial map={texture} color="#bea68c" roughness={.96}/>
-  </mesh>
-}
 function Room(){
   return <>
     <color attach="background" args={['#38372b']}/><fog attach="fog" args={['#38372b',14,30]}/>
@@ -100,18 +87,13 @@ function Room(){
     <spotLight position={[0,7,3]} intensity={140} angle={.65} penumbra={.8} color="#ffdfaa" castShadow shadow-mapSize={[1024,1024]} shadow-bias={-.0005}/>
     <pointLight position={[-4,3,-2]} intensity={25} color="#efbe7d"/>
     <pointLight position={[2.8,2.8,3.1]} intensity={18} color="#fff1d8" distance={6}/>
-    <mesh rotation={[-Math.PI/2,0,0]} receiveShadow><planeGeometry args={[30,30]}/><meshStandardMaterial color="#77694f" roughness={.9}/></mesh>
+    <Suspense fallback={null}><RestorationFloor/></Suspense>
     <CutawayScenery min={[-wallWidth/2-.1,-.2,-4.35]} max={[wallWidth/2+.1,4.3,-3.45]}>
       <Block position={[0,2.02,-3.91]} args={[wallWidth+.04,screenHeight+.04,.32]} color="#3c2b21" radius={.035}/>
-      <Suspense fallback={null}><ScreenWall/></Suspense>
+      <Suspense fallback={null}><AnimatedScreenWall width={wallWidth} height={screenHeight}/></Suspense>
     </CutawayScenery>
-    {[-5,5].map(x=><CutawayScenery key={x} min={[x-.65,-.2,-.7]} max={[x+.65,4.5,.7]}><Block position={[x,2,0]} args={[.5,4.1,.65]} color="#9e8962"/><Block position={[x,4.1,0]} args={[.8,.2,.9]} color="#b8a27c"/></CutawayScenery>)}
-    <Block position={[-1.75,.65,0]} args={[2.6,.18,2.8]} color="#6c492d" radius={.09}/>
-    <Block position={[-1.75,.77,0]} args={[2.48,.07,2.65]} color="#a89770" radius={.04}/>
-    {[-2.7,-.8].map(x=><Block key={x} position={[x,.31,0]} args={[.17,.6,2.25]} color="#473322"/>)}
-    <mesh position={[.75,.43,0]} castShadow receiveShadow><cylinderGeometry args={[1.04,1.12,.86,96]}/><meshStandardMaterial color="#a99a7a" roughness={.7}/></mesh>
-    <mesh position={[.75,.88,0]} receiveShadow><cylinderGeometry args={[1.08,1.08,.06,96]}/><meshStandardMaterial color="#d3c49b" roughness={.6}/></mesh>
-    <mesh position={[.75,.92,0]} rotation={[-Math.PI/2,0,0]}><ringGeometry args={[.82,.84,96]}/><meshStandardMaterial color="#9c7742"/></mesh>
+    {[-5,5].map(x=><CutawayScenery key={x} min={[x-.65,-.2,-3.65]} max={[x+.65,4.5,-2.55]}><Suspense fallback={null}><RestorationColumn x={x}/></Suspense></CutawayScenery>)}
+    <Suspense fallback={null}><RestorationFurniture/></Suspense>
   </>
 }
 class Boundary extends Component<{children:ReactNode;error:string},{failed:boolean}>{state={failed:false};static getDerivedStateFromError(){return {failed:true}};render(){return this.state.failed?<div className="scene-error" role="alert">{this.props.error}</div>:this.props.children}}
@@ -154,3 +136,6 @@ interface SceneProps {
 export default function RestorationScene(props:SceneProps){
   return <Boundary error={props.error}><Canvas shadows dpr={[1,1.5]} camera={{position:[3.8,3.4,6.5],fov:44,near:.1,far:40}} gl={{antialias:true}} fallback={<div className="scene-error">{props.error}</div>}><Room/><Suspense fallback={null}><Model {...props}/></Suspense><CameraFraming {...props}/><OrbitControls enabled={props.active} makeDefault target={[-.5,1.1,0]} minDistance={3} maxDistance={18} minPolarAngle={.3} maxPolarAngle={Math.PI/2-.05} enablePan={false}/></Canvas></Boundary>
 }
+
+
+
