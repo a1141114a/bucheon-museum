@@ -30,9 +30,9 @@ function AncientBackdrop() {
   useFrame(({camera})=>{if(group.current)group.current.visible=!sceneryBlocksView(camera.position,northBounds)})
   return <group ref={group}>
     <Prop name="architecture"/>
-    <Wheel position={[0,4.25,-6.05]} scale={1.71} speed={.025}/>
-    <Wheel position={[-2.65,2.30,-5.55]} scale={1.46} speed={-.035}/>
-    <Wheel position={[2.65,2.30,-5.55]} scale={1.46} speed={.035}/>
+    <Wheel position={[0,4.25,-6.05]} scale={1.71} speed={.04}/>
+    <Wheel position={[-2.65,2.30,-5.55]} scale={1.46} speed={-.056}/>
+    <Wheel position={[2.65,2.30,-5.55]} scale={1.46} speed={.056}/>
     <Prop name="elephant" position={[-3.18,0,-4.85]} scale={1.2}/>
     <Prop name="elephant" position={[3.18,0,-4.85]} scale={1.2}/>
     {[-1,1].map(side=><group key={side}>
@@ -43,6 +43,18 @@ function AncientBackdrop() {
       <Prop name="chain" position={[side*5,4.65,-3.65]}/>
     </group>)}
   </group>
+}
+
+function WallWing({side}:{side:'left'|'right'}){
+  const {scene}=useGLTF(base+'models/time-ruins-wall-'+side+'.glb')
+  const group=useRef<Group>(null)
+  const {object,bounds}=useMemo(()=>{
+    const object=scene.clone(true)
+    object.traverse(node=>{if(node instanceof Mesh){node.castShadow=true;node.receiveShadow=true}})
+    return {object,bounds:new Box3().setFromObject(object)}
+  },[scene])
+  useFrame(({camera})=>{if(group.current)group.current.visible=!sceneryBlocksView(camera.position,bounds)})
+  return <group ref={group}><primitive object={object}/></group>
 }
 
 function Paving() {
@@ -121,7 +133,7 @@ export default function TimeRuins({solved}:{solved:boolean}) {
       <Lightformer position={[0,7,2]} rotation={[Math.PI/2,0,0]} scale={[8,8,1]} intensity={2.2} color="#ffe4b5"/>
       <Lightformer position={[0,3,-7]} scale={[7,4,1]} intensity={1.2} color="#d6923a"/>
     </Environment>
-    <Paving/><AncientBackdrop/><Prop name="altar"/>
+    <Paving/><AncientBackdrop/><WallWing side="left"/><WallWing side="right"/><Prop name="altar"/>
     <Energy solved={solved}/>
   </>
 }

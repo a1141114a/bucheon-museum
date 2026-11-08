@@ -42,11 +42,10 @@ export default function TimeChamber({active,onArtifact}:{active:boolean;onArtifa
   const {state,dispatch,t}=useGame()
   const [selected,setSelected]=useState(0)
   const [viewKey,setViewKey]=useState(0)
-  const [hint,setHint]=useState(false)
   const [feedback,setFeedback]=useState<CopyKey>('timeReady')
   const [celebrating,setCelebrating]=useState(false)
   const [finale,setFinale]=useState(false)
-  const [details,setDetails]=useState(()=>!window.matchMedia('(max-width:760px)').matches)
+  const [briefOpen,setBriefOpen]=useState(false)
   const time=state.time
   const enabled=active&&!celebrating&&!finale&&!time.solved
 
@@ -90,10 +89,10 @@ export default function TimeChamber({active,onArtifact}:{active:boolean;onArtifa
   function restart() {
     if(!active||celebrating||!window.confirm(t('timeRestartConfirm')))return
     dispatch({type:'time-restart'})
-    setFeedback('timeReady');setHint(false);setFinale(false);setSelected(0)
+    setFeedback('timeReady');setBriefOpen(false);setFinale(false);setSelected(0)
   }
 
-  return <section className="time-root" aria-labelledby="time-title">
+  return <section className={`time-root${briefOpen?'':' time-guide-collapsed'}`} aria-label={t('timeTitle')}>
     <div className="time-scene">
       <Suspense fallback={<div className="scene-error">3D…</div>}>
         <Scene rings={time.rings} selected={selected} active={active&&!finale&&!celebrating}
@@ -101,24 +100,23 @@ export default function TimeChamber({active,onArtifact}:{active:boolean;onArtifa
           onSelect={setSelected} onArtifact={onArtifact} error={t('error')}/>
       </Suspense>
     </div>
-    <div className="time-brief" hidden={celebrating} inert={!active}>
-      <p className="time-eyebrow">Ⅲ · {t('l3')}</p>
-      <h1 id="time-title">{t('timeTitle')}</h1>
-      {details&&<p>{t('timeIntro')}</p>}
-      <button type="button" className="time-detail-toggle" aria-expanded={details} onClick={()=>setDetails(!details)}>
-        {t(details?'hideInstructions':'showInstructions')}
-      </button>
-      {details&&<p>{t('timeScoreRule')}</p>}
-      {hint&&time.hints>0&&<div className="time-hint">
-        <p>{t((['timeHintOne','timeHintTwo','timeHintThree'] as const)[time.hints-1])}</p>
-        <button type="button" className="time-detail-toggle" onClick={()=>setHint(false)}>{t('close')}</button>
-      </div>}
-    </div>
+    {briefOpen?<aside id="time-guide-panel" className="time-brief" hidden={celebrating} inert={!active}>
+      <div className="time-brief-heading">
+        <p className="time-eyebrow">Ⅲ · {t('l3')}</p>
+        <h1 id="time-title">{t('timeTitle')}</h1>
+        <button type="button" className="time-detail-toggle time-brief-collapse" aria-expanded="true" aria-controls="time-guide-panel" onClick={()=>setBriefOpen(false)}>{t('timePanelHide')}</button>
+      </div>
+      <p>{t('timeIntro')}</p><p>{t('timeScoreRule')}</p>
+      {time.hints>0&&<section className="time-hint" aria-label={t('timeHintsRevealed')}>
+        <h2>{t('timeHintsRevealed')}</h2>
+        <ol className="time-hint-list">{(['timeHintOne','timeHintTwo','timeHintThree'] as const).slice(0,time.hints).map(key=><li key={key}>{t(key)}</li>)}</ol>
+      </section>}
+    </aside>:<button type="button" className="time-detail-toggle time-brief-reopen" hidden={celebrating} disabled={!active} aria-label={t('timePanelShow')} aria-expanded="false" onClick={()=>setBriefOpen(true)}><span aria-hidden="true">◇</span> {t('timeGuideLabel')}</button>}
     <div className="time-tools" hidden={celebrating} inert={!active}>
       <button type="button" className="stone-button" onClick={()=>setViewKey(value=>value+1)}><span aria-hidden="true">⌖</span><span className="time-tool-caption">{t('resetView')}</span></button>
       <button type="button" className="stone-button" disabled={time.solved||time.hints>=3} onClick={()=>{
         if(!enabled)return
-        dispatch({type:'time-hint'});setHint(true)
+        dispatch({type:'time-hint'});setBriefOpen(true)
       }}><span aria-hidden="true">✧</span><span className="time-tool-caption">{t('timeHint')} · {3-time.hints}/3</span></button>
       <button type="button" className="stone-button" onClick={restart}><span aria-hidden="true">↺</span><span className="time-tool-caption">{t('timeRestart')}</span></button>
     </div>

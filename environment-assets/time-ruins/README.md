@@ -39,3 +39,13 @@ New files:
 - `src/components/TimeAtmosphere.tsx`: surrounding 3D sphere with a slowly changing teal/earth/gold mist shader, gentle fog-color variation and drifting round motes. A wider stone floor hides the previous abrupt island edge. The mobile UI gutter uses a matching slow gradient; game geometry and exhibits remain fully 3D. Reduced-motion preferences pause decorative movement.
 
 The default camera now includes all three foreground plinths, with extra clearance above the tablet control dock. Original rings, symbols, chronology solution, collection cards and score/completion logic are unchanged. Browser checks cover direct clicks on the rebuilt plinth, front/rear orbit views, desktop, tablet and phone framing, plus a full three-ring completion. Production build and 43 tests pass. `exhibit-pedestal-validation.json` records measured Blender geometry bounds against the layout's clearance radius.
+
+## Extended curved walls and retained hints
+
+`blender/scripts/create_time_wall_extensions.py` continues the original brick-course coordinates for five columns on each side, including matching turquoise/Greek-key bands and two additional column supports. The new left/right wings reach around the front sides of the courtyard while keeping the foreground exhibit positions unchanged. Editable packed source is `blender/blend/time-wall-extensions.blend`; game models are `public/models/time-ruins-wall-left.glb` and `time-ruins-wall-right.glb`. Each wing has its own camera cutaway, so orbiting does not hide the entire room or leave a wall across the puzzle.
+
+The three main decorative wheels run at 1.6× their previous speed (0.04, -0.056 and 0.056 radians/second). Hanging wheel speeds and player-operated puzzle rings are unchanged; reduced-motion preferences still pause decoration.
+
+The guide panel now fully collapses to a small reopen button and starts collapsed. Using a hint opens it and displays every revealed hint in order. Three uses show all three tips; hiding/reopening or reloading preserves their availability without spending another use. The existing three-use limit and 5-point cost remain. Restarting Chapter 3 clears its hints as before.
+
+An isolated WebKit regression at desktop, tablet and portrait-phone sizes verified progressive 1/2/3 tips, the disabled fourth use, retained tips after reload, complete panel removal on collapse, all three languages and no overlap with the bottom dock. Measurements are in `hints-validation.json`.

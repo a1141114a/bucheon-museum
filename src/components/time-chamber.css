@@ -135,6 +135,25 @@
   color:inherit;
 }
 
+.time-brief {max-height:calc(100dvh - 320px);overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#b58b50 transparent}
+.time-brief-heading {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 8px;align-items:start;margin-bottom:9px}
+.time-brief-heading .time-eyebrow {grid-column:1;grid-row:1}
+.time-brief-heading h1 {grid-column:1;grid-row:2;padding-inline-end:0;overflow-wrap:anywhere}
+.time-brief-heading .time-brief-collapse {grid-column:2;grid-row:1/span 2;max-width:88px;font-size:11px;white-space:normal}
+.time-brief-reopen {position:absolute;top:88px;left:18px;min-height:40px;max-width:180px;padding:7px 12px;background:#2b231be8;color:#ffe6b5;box-shadow:0 3px 12px #100a0755;white-space:normal}
+.time-hint h2 {margin:0 0 7px;font-size:12px;line-height:1.5}
+.time-hint-list {padding-left:20px;margin:0}
+.time-hint-list li {margin:0 0 9px;line-height:1.6;overflow-wrap:anywhere}
+@media(max-width:760px) and (orientation:portrait) {
+  .time-brief {width:calc(100% - 82px);max-height:calc(100dvh - 340px)}
+  .time-brief-reopen {top:88px;left:10px;max-width:170px}
+  .time-guide-collapsed .time-scene {top:88px}
+}
+@media(max-height:560px) and (orientation:landscape) {
+  .time-brief {max-height:calc(100dvh - 190px)}
+  .time-brief-reopen {top:58px;left:18px}
+}
+
 @media(max-height:560px) and (orientation:landscape) {
   .time-ring-controls { grid-template-columns:minmax(0,1fr) 190px; }
   .time-root .time-activate { padding:5px 6px; font-size:11px; }

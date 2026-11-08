@@ -1,7 +1,9 @@
 import type { Language, Localized } from './types'
 export const copy = {
-  huntTaskPanel: ['任务指引','임무 안내','Task guide'],
-  huntHidePanel: ['隐藏任务指引','임무 안내 숨기기','Hide task guide'],
+  timeGuideLabel: ['关卡提示','장치 안내','Guide'],
+  timePanelShow: ['展开关卡提示','장치 안내 열기','Show chapter guide'],
+  timePanelHide: ['收起提示窗','안내 접기','Hide guide'],
+  timeHintsRevealed: ['已使用的提示','사용한 힌트','Revealed hints'],
   timeViewResults: ['查看结算', '결과 보기', 'View results'],
   timeTitle: ["时间之门","시간의 문","The gate of time"],
   timeIntro: ["将外环、中环、内环按藏品年代从早到晚排列，对齐北侧指针。","유물의 시대가 이른 순서대로 바깥·가운데·안쪽 고리를 북쪽 표시선에 맞추세요.","Align the outer, middle and inner rings at the north pointer, from the earliest artifact to the latest."],
