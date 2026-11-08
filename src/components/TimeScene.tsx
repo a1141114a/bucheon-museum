@@ -1,10 +1,11 @@
-import { Component, Suspense, useEffect, useMemo, useRef, type ReactNode } from 'react'
+import { Component, Suspense, useEffect, useMemo, type ReactNode } from 'react'
 import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber'
 import { OrbitControls, useGLTF } from '@react-three/drei'
-import { Box3, CanvasTexture, MathUtils, Object3D, SRGBColorSpace, Vector3 } from 'three'
+import { Box3, CanvasTexture, MathUtils, Mesh, MeshStandardMaterial, Object3D, SRGBColorSpace, Vector3 } from 'three'
 import { artifacts } from '../data/artifacts'
 import { timeArtifactIds } from '../state/time'
 import type { Artifact } from '../types'
+import TimeRuins from './TimeRuins'
 
 const turn=Math.PI*2/3
 const radii=[1.47,1.09,.71]
@@ -56,7 +57,25 @@ interface SceneProps {
 
 function Mechanism({rings,selected,active,solved,onSelect}:SceneProps) {
   const {scene}=useGLTF(import.meta.env.BASE_URL+'models/time-mechanism.glb')
-  const object=useMemo(()=>scene.clone(true),[scene])
+  const object=useMemo(()=>{
+    const clone=scene.clone(true)
+    clone.traverse(node=>{
+      if(!(node instanceof Mesh))return
+      node.castShadow=true;node.receiveShadow=true
+      const recolor=(original:MeshStandardMaterial)=>{
+        const material=original.clone()
+        if(material.name==='Teal enamel')material.color.set('#805322')
+        if(material.name==='Dark basalt')material.color.set('#3b3c32')
+        material.roughness=Math.max(material.roughness,.43)
+        return material
+      }
+      node.material=Array.isArray(node.material)?node.material.map(recolor):recolor(node.material)
+    })
+    return clone
+  },[scene])
+  useEffect(()=>()=>object.traverse(node=>{
+    if(node instanceof Mesh)(Array.isArray(node.material)?node.material:[node.material]).forEach(m=>m.dispose())
+  }),[object])
   const nodes=useMemo(()=>radii.map((_,i)=>object.getObjectByName('TimeRing'+i)),[object])
   useFrame((_,delta)=>{
     nodes.forEach((node,i)=>{
@@ -89,35 +108,15 @@ function Mechanism({rings,selected,active,solved,onSelect}:SceneProps) {
 
 function Chamber({onArtifact,solved}:Pick<SceneProps,'onArtifact'|'solved'>) {
   return <>
-    <color attach="background" args={['#1f2824']}/><fog attach="fog" args={['#1f2824',14,31]}/>
-    <hemisphereLight args={['#ffe8c8','#263d36',2]}/><ambientLight intensity={.55}/>
-    <directionalLight position={[3,8,5]} intensity={2.5} color="#ffe0a3"/>
-    <pointLight position={[0,3,-3.5]} color={solved?'#b2f1df':'#5ba394'} intensity={solved?18:7} distance={13}/>
-    <mesh rotation={[-Math.PI/2,0,0]}><planeGeometry args={[22,22]}/><meshStandardMaterial color="#414037" roughness={.72}/></mesh>
-    <gridHelper args={[22,11,'#796849','#504b3f']} position={[0,.003,0]}/>
-    <mesh position={[0,3.2,-6]}><boxGeometry args={[18,6.4,.25]}/><meshStandardMaterial color="#293c34"/></mesh>
-    {[-1,1].map(side=><group key={side}>
-      <mesh position={[side*7,3.1,0]}><boxGeometry args={[.25,6.2,12]}/><meshStandardMaterial color="#293c34"/></mesh>
-      {[-4,0,4].map(z=><mesh key={z} position={[side*6.75,2.7,z]}><cylinderGeometry args={[.18,.23,5.4,8]}/><meshStandardMaterial color="#5f5038" metalness={.3}/></mesh>)}
-    </group>)}
-    <group position={[0,2.5,-5.78]}>
-      {[1.5,1.73,1.98].map(radius=><mesh key={radius}><torusGeometry args={[radius,.034,8,96]}/><meshStandardMaterial color="#b68a49" metalness={.52} roughness={.4}/></mesh>)}
-      {[0,1,2,3,4,5].map(i=><mesh key={i} position={[Math.sin(i*Math.PI/3)*2.18,Math.cos(i*Math.PI/3)*2.18,0]} rotation={[0,0,-i*Math.PI/3]}>
-        <boxGeometry args={[.075,.25,.055]}/><meshStandardMaterial color="#c29d60" metalness={.45}/>
-      </mesh>)}
-    </group>
+    <Suspense fallback={null}><TimeRuins solved={solved}/></Suspense>
     {timeArtifactIds.map((id,index)=>{
       const artifact=artifacts.find(item=>item.id===id)!
       return <group key={id} position={positions[index]} onClick={event=>{event.stopPropagation();onArtifact(artifact)}}>
-        <mesh position={[0,-.32,0]}><cylinderGeometry args={[.67,.73,.64,8]}/><meshStandardMaterial color="#544731" roughness={.5}/></mesh>
-        <mesh position={[0,.025,0]}><cylinderGeometry args={[.70,.70,.07,64]}/><meshStandardMaterial color="#a08048" metalness={.35}/></mesh>
+        <mesh position={[0,-.32,0]}><cylinderGeometry args={[.67,.73,.64,8]}/><meshStandardMaterial color="#464739" roughness={.8}/></mesh>
+        <mesh position={[0,.025,0]}><cylinderGeometry args={[.70,.70,.07,64]}/><meshStandardMaterial color="#a08048" metalness={.65} roughness={.45}/></mesh>
         <group position={[0,.065,0]}><Suspense fallback={null}><Model url={artifact.model.url!}/></Suspense></group>
       </group>
     })}
-    {solved&&<>
-      <mesh position={[0,3.15,0]}><cylinderGeometry args={[.08,.24,3.4,32,1,true]}/><meshBasicMaterial color="#97f6da" transparent opacity={.18} depthWrite={false}/></mesh>
-      <mesh position={[0,1.42,0]}><sphereGeometry args={[.21,20,12]}/><meshBasicMaterial color="#c0ffe5"/></mesh>
-    </>}
   </>
 }
 
@@ -126,8 +125,8 @@ function Framing({viewKey}:{viewKey:number}) {
   const orbit=controls as {target:Vector3;update:()=>void}|null
   useEffect(()=>{
     const factor=Math.max(1,Math.min(1.65,1/(size.width/size.height)))
-    camera.position.set(3.65*factor,6.55*factor,7.5*factor)
-    orbit?.target.set(0,.95,-.2)
+    camera.position.set(.2*factor,6.1*factor,12.4*factor)
+    orbit?.target.set(0,2,-1)
     orbit?.update()
   },[camera,orbit,size.width,size.height,viewKey])
   return null
@@ -141,11 +140,11 @@ class Boundary extends Component<{children:ReactNode;error:string},{failed:boole
 
 export default function TimeScene(props:SceneProps) {
   return <Boundary error={props.error}>
-    <Canvas dpr={[1,1.4]} camera={{position:[3.65,6.55,7.5],fov:43,near:.1,far:45}} gl={{antialias:true}}>
+    <Canvas shadows dpr={[1,1.4]} camera={{position:[.2,6.1,12.4],fov:46,near:.1,far:45}} gl={{antialias:true}}>
       <Chamber onArtifact={props.onArtifact} solved={props.solved}/>
       <Suspense fallback={null}><Mechanism {...props}/></Suspense>
       <Framing viewKey={props.viewKey}/>
-      <OrbitControls makeDefault enabled={props.active} target={[0,.95,-.2]} enablePan={false}
+      <OrbitControls makeDefault enabled={props.active} target={[0,2,-1]} enablePan={false} enableDamping={false}
         minDistance={4.9} maxDistance={17} minPolarAngle={.22} maxPolarAngle={Math.PI/2-.12}/>
     </Canvas>
   </Boundary>

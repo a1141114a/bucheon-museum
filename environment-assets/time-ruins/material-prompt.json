@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-11-08",
+  "reference": "reference.png",
+  "asset": "material-atlas.png",
+  "prompt": "Create a production 3D game material texture atlas, square, FOUR equal square quadrants in a precise 2x2 grid with NO gutters, NO labels, NO text, NO borders. Reference image is STYLE AND MATERIAL REFERENCE ONLY. Do not reproduce the scene or sheet. Top left: seamless worn grey-brown irregular limestone floor paving slabs, fine cracks, very sparse olive moss in joints. Top right: seamless weathered dark grey-brown ashlar stone masonry blocks, subtle mineral mottling, aged cracks. Bottom left: flat ancient architectural ornamental frieze texture, three horizontal repeating bands of weathered turquoise paint and antique gold Greek key motifs on brown stone, completely flat orthographic pattern. Bottom right: seamless antique bronze metal surface, warm muted bronze-gold, subtle scratches and dark patina, no gears or circles. All four materials: realistic high detail albedo/color only, uniform lighting, no directional shadows, no perspective, no objects, no vignette. These will be cropped and wrapped onto actual meshes in a real-time 3D ruined temple with giant bronze gears. Large square image, ideally 2048x2048."
+}

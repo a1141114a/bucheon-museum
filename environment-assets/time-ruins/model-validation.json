@@ -1,0 +1,37 @@
+[
+  {
+    "file": "time-ruins-altar.glb",
+    "bytes": 926068,
+    "triangles": 15672,
+    "materialBatches": 3,
+    "embeddedImages": 2
+  },
+  {
+    "file": "time-ruins-architecture.glb",
+    "bytes": 3304708,
+    "triangles": 75612,
+    "materialBatches": 5,
+    "embeddedImages": 3
+  },
+  {
+    "file": "time-ruins-chain.glb",
+    "bytes": 266680,
+    "triangles": 5632,
+    "materialBatches": 1,
+    "embeddedImages": 1
+  },
+  {
+    "file": "time-ruins-elephant.glb",
+    "bytes": 627020,
+    "triangles": 13648,
+    "materialBatches": 5,
+    "embeddedImages": 2
+  },
+  {
+    "file": "time-ruins-gear.glb",
+    "bytes": 649332,
+    "triangles": 16856,
+    "materialBatches": 3,
+    "embeddedImages": 1
+  }
+]
