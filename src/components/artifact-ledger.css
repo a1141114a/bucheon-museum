@@ -1,49 +1,56 @@
-/* The outer artwork always retains the 1112:720 composition. The source movie
-   occupies exactly 960:720 inside it; static additions sit OUTSIDE that movie. */
-.app-shell .artifact-dialog.exhibit-card.artifact-ledger {
+/* Explicit pixel sizing is supplied by React, avoiding WebKit's zero-height
+   dialog/size-containment combination. Tall frames insert static middle rails. */
+.artifact-dialog.exhibit-card.artifact-ledger {
   --ledger-ink:#4c2d16;
-  width:min(1200px,calc(100vw - 24px),calc((100dvh - 24px)*1112/720));
+  width:94vw;
+  height:84vh;
   max-width:none;
   max-height:none;
-  aspect-ratio:1112/720;
+
   padding:0;
   border:0;
   border-radius:16px;
   overflow:hidden;
   color:var(--ledger-ink);
-  background:#30200d;
+  background:#ffdaa0;
   box-shadow:0 20px 80px #120b06a0;
-  container-type:inline-size;
+  position:fixed;
+  inset:0;
+  margin:auto;
+  box-sizing:border-box;
 }
-.artifact-ledger::backdrop {background:#120d09bd;backdrop-filter:blur(5px)}
+.artifact-ledger::backdrop {background:#120d09bd;}
 .ledger-artwork {position:absolute;inset:0;pointer-events:none;user-select:none}
 .ledger-frame-complete {display:block;width:100%;height:100%}
-.ledger-frame-video {position:absolute;top:0;left:6.8345323741%;width:86.3309352518%;height:100%;object-fit:contain;max-width:none;border:0;outline:none}
+.ledger-frame-video {position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.001;max-width:none;border:0;outline:none}
+.ledger-frame-canvas {position:absolute;inset:0;width:100%;height:100%;display:block}
+.artifact-ledger[open] {display:block}
 .ledger-safe-area {position:absolute;inset:11.5% 10% 17% 10%;display:flex;flex-direction:column;min-height:0}
 .ledger-topline {display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none;margin:0 0 10px}
 .artifact-ledger .status {font:600 13px/1.3 var(--museum-reading,sans-serif);padding:4px 12px;color:#62401e;border:1px solid #a8793f;border-radius:7px;background:#dca45a55;white-space:nowrap}
 .artifact-ledger .card-actions {gap:9px;min-width:0}
 .artifact-ledger .card-actions .languages {display:flex;gap:1px;margin:0;border:1px solid #ab793f;padding:2px;background:#e5b87488;border-radius:7px;box-shadow:inset 0 1px #fff0cb}
-.app-shell .artifact-ledger .card-actions .languages button {min-height:30px;padding:3px 7px;color:#6a431e;font:600 11px/1.2 var(--museum-reading,sans-serif);border:0;background:none;box-shadow:none;border-radius:4px}
-.app-shell .artifact-ledger .card-actions .languages button[aria-pressed=true] {background:#855027;color:#fff0cd;box-shadow:inset 0 1px #d5a66b}
+.artifact-ledger .card-actions .languages button {min-height:30px;padding:3px 7px;color:#6a431e;font:600 11px/1.2 var(--museum-reading,sans-serif);border:0;background:none;box-shadow:none;border-radius:4px}
+.artifact-ledger .card-actions .languages button[aria-pressed=true] {background:#855027;color:#fff0cd;box-shadow:inset 0 1px #d5a66b}
 .artifact-ledger .ledger-close {display:grid;place-items:center;flex:none;width:34px;min-height:34px;padding:0;border:1px solid #9b6832;border-radius:7px;background:linear-gradient(#f6ddb1,#d8a76b);color:#61391d;font:24px/1 Georgia,serif;box-shadow:0 2px 0 #7f4b27}
 .ledger-scroll {min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#ac7a3f transparent;padding:0 5px 8px 0}
-.ledger-columns {display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(18px,2.3cqw,30px);align-items:start}
+.ledger-columns {display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(18px,2.3vw,30px);align-items:start}
 .ledger-display,.ledger-information {min-width:0}
-.app-shell .artifact-ledger h2 {margin:0 0 6px;font-family:var(--museum-interface,serif);font-size:clamp(19px,2.25cqw,29px);line-height:1.35;font-weight:700;letter-spacing:0;color:#47280f;overflow-wrap:anywhere}
+.artifact-ledger h2 {margin:0 0 6px;font-family:var(--museum-interface,serif);font-size:clamp(19px,2.25vw,29px);line-height:1.35;font-weight:700;letter-spacing:0;color:#47280f;overflow-wrap:anywhere}
 .artifact-ledger .multilingual {font:12px/1.55 var(--museum-reading,sans-serif);color:#715033;margin:0 0 12px;overflow-wrap:anywhere}
-.app-shell .artifact-ledger .ledger-photo {margin:0;border:2px solid #96602c;border-radius:11px;background:#3c3631;box-shadow:0 0 0 3px #cf9d59,0 0 0 4px #a47138;overflow:hidden}
+.artifact-ledger .ledger-photo {margin:0;border:2px solid #96602c;border-radius:11px;background:#3c3631;box-shadow:0 0 0 3px #cf9d59,0 0 0 4px #a47138;overflow:hidden}
 .ledger-image-slot {aspect-ratio:1.5;display:grid;place-items:center;min-height:0;background:#3f3a36}
-.app-shell .artifact-ledger .ledger-photo img {display:block;width:100%;height:100%;max-height:none;max-width:none;min-height:0;object-fit:contain;border-radius:0;margin:0;background:#3f3a36}
+.artifact-ledger[data-layout=landscape][data-compact=true] .ledger-image-slot {aspect-ratio:1.8}
+.artifact-ledger .ledger-photo img {display:block;width:100%;height:100%;max-height:none;max-width:none;min-height:0;object-fit:contain;border-radius:0;margin:0;background:#3f3a36}
 .artifact-ledger .ledger-image-slot>p {font:14px/1.7 var(--museum-reading,sans-serif);text-align:center;padding:16px;color:#f9e6c1}
 .artifact-ledger .ledger-photo figcaption {display:flex;flex-wrap:wrap;gap:3px 10px;align-items:center;justify-content:space-between;padding:6px 9px;background:linear-gradient(#eac78e,#d7a96d);font:12px/1.45 var(--museum-reading,sans-serif);color:#5b3619;overflow-wrap:anywhere}
 .artifact-ledger .ledger-photo figcaption a {color:#5b3619}
 .ledger-model-actions {text-align:center;padding-top:14px}
-.app-shell .artifact-ledger .ledger-button {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;max-width:100%;padding:8px 26px;border:2px solid #855327;border-radius:10px;background:linear-gradient(#f6dfb6,#d6a364);box-shadow:inset 0 0 0 2px #f7e0b0,0 3px 0 #71411f;color:#4e2d15;font:700 15px/1.35 var(--museum-reading,sans-serif);white-space:normal;overflow-wrap:anywhere}
+.artifact-ledger .ledger-button {display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;max-width:100%;padding:8px 26px;border:2px solid #855327;border-radius:10px;background:linear-gradient(#f6dfb6,#d6a364);box-shadow:inset 0 0 0 2px #f7e0b0,0 3px 0 #71411f;color:#4e2d15;font:700 15px/1.35 var(--museum-reading,sans-serif);white-space:normal;overflow-wrap:anywhere}
 .artifact-ledger .ledger-button:hover {filter:brightness(1.06)}
 .artifact-ledger .ledger-button:active {transform:translateY(1px);box-shadow:inset 0 0 0 2px #f7e0b0,0 1px 0 #71411f}
 .artifact-ledger .ledger-note {margin:10px 0 0;font:12px/1.7 var(--museum-reading,sans-serif);color:#735032;text-align:left;overflow-wrap:anywhere}
-.artifact-ledger .ledger-information {border-left:1px solid #ad7e3544;padding-left:clamp(14px,1.6cqw,20px);font:14px/1.75 var(--museum-reading,sans-serif);color:#50331d}
+.artifact-ledger .ledger-information {border-left:1px solid #ad7e3544;padding-left:clamp(14px,1.6vw,20px);font:14px/1.75 var(--museum-reading,sans-serif);color:#50331d}
 .artifact-ledger .ledger-information dl {margin:0 0 15px}
 .artifact-ledger .ledger-information dl>div {display:grid;grid-template-columns:minmax(72px,.65fr) minmax(0,1.5fr);gap:8px;padding:6px 0;border:0;border-bottom:1px solid #9d6f3555;font:inherit}
 .artifact-ledger .ledger-information dt {color:#6b4725;font-weight:600;overflow-wrap:anywhere}
@@ -56,41 +63,27 @@
 .artifact-ledger .artifact-model-viewer {width:100%;height:100%;min-height:0;border:0;border-radius:0}
 .artifact-ledger button:focus-visible,.artifact-ledger a:focus-visible {outline:3px solid #855329;outline-offset:3px}
 
-@media (max-width:760px) and (orientation:portrait) {
-  /* Keep the FULL movie in an undistorted header. The readable parchment
-     continues below it, rather than squeezing all information into a tiny frame. */
-  .app-shell .artifact-dialog.exhibit-card.artifact-ledger {
-    width:min(440px,calc(100vw - 16px));
-    max-height:calc(100dvh - 16px);
-    aspect-ratio:auto;
-    overflow-y:auto;
-    overflow-x:hidden;
-    background:linear-gradient(100deg,#edc285,#ffe0aa 45%,#ecca91);
-    box-shadow:inset 0 0 0 3px #9c652e,0 20px 80px #120b06a0;
-  }
-  .ledger-artwork {inset:0 0 auto;aspect-ratio:1112/720}
-  .ledger-safe-area {position:relative;inset:auto;padding:10cqw 9% 28px;display:block}
-  .ledger-topline {position:sticky;top:6px;z-index:2;margin-bottom:6px;gap:5px;min-height:34px;background:#efca91e8;border-radius:6px}
-  .ledger-scroll {overflow:visible;padding:0;scrollbar-gutter:auto}
-  .ledger-identity {height:calc(64.748201cqw - 10cqw - 40px);padding:7px 0 42px;box-sizing:border-box;overflow:auto;scrollbar-width:thin}
-  .ledger-columns {display:block}
-  .artifact-ledger .ledger-information {border-left:0;border-top:1px solid #ad7e3555;padding:18px 0 0;margin-top:22px;font-size:14px}
-  .app-shell .artifact-ledger h2 {font-size:20px}
-  .artifact-ledger .status {font-size:11px;padding:3px 8px}
-  .app-shell .artifact-ledger .card-actions .languages button {font-size:10px;min-height:28px;padding:2px 4px}
-  .artifact-ledger .card-actions {gap:5px}
-  .artifact-ledger .ledger-close {width:30px;min-height:30px;font-size:21px}
-}
+/* One tall frame encloses both the photo and details. */
+.artifact-ledger[data-layout=portrait] .ledger-safe-area {inset:36px 10% 64px;display:flex;flex-direction:column;min-height:0}
+.artifact-ledger[data-layout=portrait] .ledger-topline {position:static;margin-bottom:12px;gap:5px;min-height:34px;background:none}
+.artifact-ledger[data-layout=portrait] .ledger-scroll {overflow:auto;padding:3px 5px 8px 0;scrollbar-gutter:stable}
+.artifact-ledger[data-layout=portrait] .ledger-identity {height:auto;padding:0;overflow:visible}
+.artifact-ledger[data-layout=portrait] .ledger-columns {display:block}
+.artifact-ledger[data-layout=portrait] .ledger-information {border-left:0;border-top:1px solid #ad7e3555;padding:18px 0 0;margin-top:22px;font-size:14px}
+.artifact-ledger[data-layout=portrait] h2 {font-size:20px}
+.artifact-ledger[data-layout=portrait] .status {font-size:11px;padding:3px 8px}
+.artifact-ledger[data-layout=portrait] .card-actions .languages button {font-size:10px;min-height:28px;padding:2px 4px}
+.artifact-ledger[data-layout=portrait] .card-actions {gap:5px}
+.artifact-ledger[data-layout=portrait] .ledger-close {width:30px;min-height:30px;font-size:21px}
 @media (max-height:500px) and (orientation:landscape) {
-  .app-shell .artifact-dialog.exhibit-card.artifact-ledger {width:min(820px,calc(100vw - 16px),calc((100dvh - 12px)*1112/720))}
   .ledger-safe-area {inset:12% 10% 17%}
   .ledger-topline {margin-bottom:6px;gap:5px}
   .artifact-ledger .status {font-size:11px;padding:3px 8px}
-  .app-shell .artifact-ledger .card-actions .languages button {font-size:10px;min-height:28px;padding:2px 4px}
+  .artifact-ledger .card-actions .languages button {font-size:10px;min-height:28px;padding:2px 4px}
   .artifact-ledger .card-actions {gap:5px}
   .artifact-ledger .ledger-close {width:30px;min-height:30px;font-size:21px}
   .ledger-columns {grid-template-columns:1fr 1fr;gap:15px}
-  .app-shell .artifact-ledger h2 {font-size:17px}
+  .artifact-ledger h2 {font-size:17px}
   .artifact-ledger .ledger-information {font-size:13px;padding-left:10px}
   .artifact-ledger .ledger-information dl>div {grid-template-columns:1fr;gap:1px}
 }

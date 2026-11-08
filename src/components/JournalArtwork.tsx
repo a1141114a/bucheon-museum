@@ -4,7 +4,7 @@ import {useGame} from '../state/GameProvider'
 import type {Artifact} from '../types'
 import './journal-artwork.css'
 
-/** Only mounted for an unlocked entry. Unreviewed photos are never published. */
+/** Found/openable entries show images. Unreviewed photos are never published. */
 export default function JournalArtwork({artifact}:{artifact:Artifact}) {
   const {state,t}=useGame()
   const [photoFailed,setPhotoFailed]=useState(false)
@@ -22,4 +22,3 @@ export default function JournalArtwork({artifact}:{artifact:Artifact}) {
     {label&&<span className="journal-artwork-caption">{label}</span>}
   </div>
 }
-

@@ -25,7 +25,7 @@ function Journal({open}:{open:(a:Artifact)=>void}) {
   const {state,t}=useGame()
   return <><div className="page-heading"><div><span className="eyebrow">FIELD NOTES / 01</span><h1>{t('atlas')}</h1></div></div><p className="intro">{t('journalDesc')}</p><div className="journal-grid">{artifacts.map(a=>{
     const status=statusOf(state,a.id)
-    return <button key={a.id} className="journal-entry" disabled={status==='locked'} onClick={()=>open(a)}>{status==='unlocked'?<JournalArtwork artifact={a}/>:<div className="journal-symbol">{status==='locked'?'?':'◇'}</div>}<span className="status">{t(status)}</span><h2>{a.name[state.language]}</h2><p>{status==='locked'?t('lockedRecord'):a.museum?.[state.language]??t('testBadge')}</p><span className="arrow">↗</span></button>
+    return <button key={a.id} className="journal-entry" disabled={status==='locked'} onClick={()=>open(a)}>{status!=='locked'?<JournalArtwork artifact={a}/>:<div className="journal-symbol">?</div>}<span className="status">{t(status)}</span><h2>{a.name[state.language]}</h2><p>{status==='locked'?t('lockedRecord'):a.museum?.[state.language]??t('testBadge')}</p><span className="arrow">↗</span></button>
   })}</div></>
 }
 export default function App(){
@@ -48,4 +48,3 @@ export default function App(){
       <footer><span>{storageError?'—':t('saved')}</span><button onClick={()=>{if(window.confirm(t('resetConfirm'))){setSelected(null);dispatch({type:'reset'})}}}>{t('reset')}</button></footer>
     </main></div>{selected&&<ArtifactCard artifact={selected} onClose={()=>setSelected(null)}/>}</div>
 }
-

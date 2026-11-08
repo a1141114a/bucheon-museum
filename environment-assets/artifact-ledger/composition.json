@@ -17,5 +17,5 @@
   },
   "sourceVideoSHA256": "c64b3782bd175da962a2e7293639e5486f2dc6747ea52ab77896cd50f62a886e",
   "copiedVideoSHA256": "c64b3782bd175da962a2e7293639e5486f2dc6747ea52ab77896cd50f62a886e",
-  "processing": "Original video copied byte-for-byte. Static image underneath, full video layered on top. No video crop, mask, stretch or content replacement."
+  "processing": "Original video copied byte-for-byte. Every original row is drawn once. Tall layouts insert static paper and side rails between rows 209 and 210; moving content is neither removed nor stretched."
 }

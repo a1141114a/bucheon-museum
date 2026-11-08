@@ -41,10 +41,18 @@ def main():
         static.save(assets/'frame-complete.webp',quality=94,method=6)
         poster=static.copy();poster.paste(first,(76,0));poster.save(assets/'frame-poster.webp',quality=94,method=6)
         first.save(assets/'video-poster.webp',quality=91,method=6)
+        tile=poster.crop((0,210,1112,450));pixels=tile.load()
+        for i in range(28):
+            amount=(1-i/28)/2
+            for x in range(tile.width):
+                a=pixels[x,i];b=pixels[x,tile.height-1-i]
+                pixels[x,i]=tuple(round(v*(1-amount)+w*amount) for v,w in zip(a,b))
+                pixels[x,tile.height-1-i]=tuple(round(w*(1-amount)+v*amount) for v,w in zip(a,b))
+        tile.save(assets/'frame-extension.webp',quality=94,method=6)
     metadata={'videoSize':[960,720],'completeFrameSize':[1112,720],'videoOffset':[76,0],
       'extensions':{'left':76,'right':76},'sourceVideoSHA256':digest(args.video),
       'copiedVideoSHA256':digest(assets/'frame-motion.mp4'),
-      'processing':'Original video copied byte-for-byte. Static image underneath, full video layered on top. No video crop, mask, stretch or content replacement.'}
+      'processing':'Original video copied byte-for-byte. Every original row is drawn once. Tall layouts insert static paper and side rails between rows 209 and 210; moving content is neither removed nor stretched.'}
     assert metadata['sourceVideoSHA256']==metadata['copiedVideoSHA256']
     (archive/'composition.json').write_text(json.dumps(metadata,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(metadata,indent=2))

@@ -1,4 +1,5 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import {createPortal} from 'react-dom'
 import { useGame } from '../state/GameProvider'
 import { statusOf } from '../state/game'
 import { canModelCollection, canPublishPhoto, storageJarArtifact } from '../data/artifacts'
@@ -6,11 +7,13 @@ import type { Artifact } from '../types'
 import './artifact-model.css'
 import './artifact-ledger.css'
 import ArtifactFrameMotion from './ArtifactFrameMotion'
+import {fitLedgerFrame} from './ledgerFrame'
 
 const ArtifactModelViewer = lazy(() => import('./ArtifactModelViewer'))
 
 export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>void}) {
   const {state,dispatch,t}=useGame(); const dialog=useRef<HTMLDialogElement>(null)
+  const [frame,setFrame]=useState(()=>fitLedgerFrame(window.innerWidth,window.visualViewport?.height||window.innerHeight))
   const [showModel, setShowModel] = useState(false)
   const [photoFailed, setPhotoFailed] = useState(false)
   const status=statusOf(state,artifact.id)
@@ -20,14 +23,23 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
   const previewUrl = modelUrl && (artifact.id === storageJarArtifact.id || artifact.level === 2)
     ? import.meta.env.BASE_URL + `models/${artifact.id}-preview.png`
     : null
+  useLayoutEffect(()=>{
+    const resize=()=>setFrame(fitLedgerFrame(window.innerWidth,window.visualViewport?.height||window.innerHeight))
+    resize()
+    window.addEventListener('resize',resize)
+    window.visualViewport?.addEventListener('resize',resize)
+    return ()=>{window.removeEventListener('resize',resize);window.visualViewport?.removeEventListener('resize',resize)}
+  },[])
   useEffect(()=>{
     const previous=document.activeElement as HTMLElement|null
+    const previousOverflow=document.body.style.overflow
+    document.body.style.overflow='hidden'
     const element=dialog.current; element?.showModal()
-    return ()=>{element?.close();previous?.focus()}
+    return ()=>{element?.close();document.body.style.overflow=previousOverflow;previous?.focus()}
   },[])
-  return <dialog ref={dialog} className="artifact-dialog exhibit-card artifact-ledger" onCancel={onClose} onClick={e=>{if(e.target===e.currentTarget)onClose()}} aria-labelledby="artifact-title">
-    <ArtifactFrameMotion/>
-    <div className="ledger-safe-area">
+  return createPortal(<dialog ref={dialog} className="artifact-dialog exhibit-card artifact-ledger" data-layout={frame.portrait?'portrait':'landscape'} data-compact={frame.width<1050} style={{width:frame.width,height:frame.height}} onCancel={onClose} onClick={e=>{if(e.target===e.currentTarget)onClose()}} aria-labelledby="artifact-title">
+    <ArtifactFrameMotion width={frame.width} height={frame.height}/>
+    <div className="ledger-safe-area" style={frame.portrait?{top:Math.round(frame.width*.10),bottom:Math.round(frame.width*.17)}:undefined}>
       <div className="ledger-topline">
         <span className="status">{t(status)}</span>
         <div className="card-actions">
@@ -81,5 +93,5 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
         </div>
       </div>
     </div>
-  </dialog>
+  </dialog>,document.body)
 }

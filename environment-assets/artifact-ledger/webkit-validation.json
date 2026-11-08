@@ -1,0 +1,178 @@
+{
+  "previousWebKit": {
+    "width": 1000,
+    "height": 0
+  },
+  "results": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "repeat": 0,
+      "width": 374,
+      "height": 828,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0659015,
+      "videoError": null,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "repeat": 1,
+      "width": 374,
+      "height": 828,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0589431,
+      "videoError": null,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "repeat": 0,
+      "width": 304,
+      "height": 552,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0614523,
+      "videoError": null,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "repeat": 1,
+      "width": 304,
+      "height": 552,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0805329,
+      "videoError": null,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "repeat": 0,
+      "width": 1000,
+      "height": 647.46875,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0921977,
+      "videoError": null,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "repeat": 1,
+      "width": 1000,
+      "height": 647.46875,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0601589,
+      "videoError": null,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "repeat": 0,
+      "width": 680,
+      "height": 1008,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0806701,
+      "videoError": null,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "repeat": 1,
+      "width": 680,
+      "height": 1008,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0570039,
+      "videoError": null,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "repeat": 0,
+      "width": 1200,
+      "height": 776.96875,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0951641,
+      "videoError": null,
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "repeat": 1,
+      "width": 1200,
+      "height": 776.96875,
+      "parent": "BODY",
+      "overflow": false,
+      "contentInside": true,
+      "modelButtonVisible": true,
+      "playing": true,
+      "time": 0.0769406,
+      "videoError": null,
+      "errors": []
+    }
+  ]
+}
