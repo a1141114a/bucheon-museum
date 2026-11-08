@@ -1,0 +1,23 @@
+.completion-card{position:fixed;inset:0;margin:auto;padding:0;border:0;border-radius:0;background:transparent;color:#53321b;max-width:none;max-height:none;overflow:hidden;box-shadow:none;font-family:var(--museum-reading);isolation:isolate}
+.completion-card::backdrop{background:#100b06bd;backdrop-filter:blur(5px)}
+.completion-artwork{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.completion-artwork img,.completion-artwork canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.completion-artwork video{position:absolute;inset:0;width:100%;height:100%;opacity:.001;pointer-events:none}
+.completion-card-content{position:absolute;display:flex;flex-direction:column;align-items:stretch;justify-content:safe center;gap:9px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;text-align:center;padding:3px 5px;box-sizing:border-box}
+.completion-card-content>*{flex-shrink:0;min-width:0;max-width:100%;box-sizing:border-box;margin:0;overflow-wrap:anywhere}
+.completion-card h1,.completion-card h2{font-family:var(--museum-interface);font-size:clamp(20px,2.3vw,28px);line-height:1.3;font-weight:600}
+.completion-card p{font-size:13px;line-height:1.55}
+.completion-card .dialog-emblem{font-size:20px;line-height:1;color:#a06b22}
+.completion-card .quest-eyebrow{font-family:var(--museum-interface);font-size:12px;line-height:1.4;letter-spacing:.1em}
+.completion-card .completion-score{font:52px/1.05 Georgia,serif;color:#81501d}
+.completion-card .completion-score small{display:block;font-family:var(--museum-interface);font-size:12px;line-height:1.6}
+.completion-card .bonus-note{font-size:12px}
+.completion-actions{display:grid;gap:8px;width:100%}
+.completion-card .adventure-primary,.completion-card .completion-secondary{width:100%;margin:0;min-height:44px;padding:8px 12px;font-size:14px;line-height:1.35;justify-content:center;font-family:var(--museum-interface)}
+.completion-card .completion-secondary{display:block}
+.completion-card .coin-puzzle-kicker{font-size:12px;letter-spacing:.2em;color:#91631f}
+.completion-card .coin-puzzle-instructions{font-size:14px;line-height:1.5;color:#684b2d}
+.completion-card .coin-puzzle-footer{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:4px 0 0;padding:8px 0 0;border:0}
+.completion-card .coin-puzzle-action{font-family:var(--museum-reading);font-size:14px;line-height:1.4;min-height:44px;max-width:100%;white-space:normal;text-align:center}
+@media(max-height:540px){.completion-card-content{gap:6px}.completion-card .completion-score{font-size:34px}.completion-card h1,.completion-card h2{font-size:19px}.completion-card .adventure-primary,.completion-card .completion-secondary{font-size:12px}}
+@media(max-width:699px) and (orientation:portrait){.completion-card-content{gap:12px}.completion-card h1,.completion-card h2{font-size:23px}.completion-card .coin-puzzle-footer{flex-direction:column;gap:10px}.completion-card .coin-puzzle-action{width:100%}.completion-card .adventure-primary,.completion-card .completion-secondary{font-size:13px;padding:9px 6px}.completion-card .completion-score{font-size:44px}}

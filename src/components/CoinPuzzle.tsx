@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { coinPuzzleNeighbors } from '../state/coinPuzzle'
 import { useGame } from '../state/GameProvider'
 import './coin-puzzle.css'
+import CompletionCard from './CompletionCard'
 
 const faceUrl=import.meta.env.BASE_URL+'models/gallery-coin-puzzle.png'
 
@@ -69,7 +70,7 @@ export function CoinPuzzle({board,moves,onMove,onShuffle,onClose}:PuzzleProps) {
 
 export function CoinReward({onClose}:{onClose:()=>void}) {
   const {t}=useGame()
-  return <CopperDialog onClose={onClose} reward>
+  return <CompletionCard chapter={2} label={t('coinPuzzleReward')} onClose={onClose}>
     <p className="coin-puzzle-kicker">◈ ◈ ◈</p>
     <h2 id="coin-puzzle-title">{t('coinPuzzleReward')}</h2>
     <p className="coin-puzzle-instructions">{t('coinPuzzleNextNote')}</p>
@@ -77,5 +78,6 @@ export function CoinReward({onClose}:{onClose:()=>void}) {
       <button type="button" className="coin-puzzle-action" onClick={onClose}>{t('close')}</button>
       <Link className="coin-puzzle-action coin-puzzle-next" to="/levels/3">{t('coinPuzzleNext')} →</Link>
     </div>
-  </CopperDialog>
+  </CompletionCard>
 }
+
