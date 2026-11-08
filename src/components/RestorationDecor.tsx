@@ -21,7 +21,7 @@ export function RestorationFurniture(){
 }
 
 export function RestorationColumn({x}:{x:number}){
-  return <Prop part="pillar" position={[x,0,-3.1]} name={'RestorationReferencePillar'+x}/>
+  return <Prop part="pillar" position={[x,0,0]} name={'RestorationReferencePillar'+x}/>
 }
 
 export function RestorationFloor(){

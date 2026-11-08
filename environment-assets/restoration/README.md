@@ -25,8 +25,7 @@ scores and UI assets are preserved.
 - `src/components/RestorationDecor.tsx`: GLB props, floor and video/canvas textures.
 
 The table surface remains at 0.805 m and the jar base at 0.91 m so the puzzle's
-existing shard placement is unchanged. Pillars stand behind the work area at
-X=±5, Z=-3.1. Their camera cutaway bounds match those positions.
+existing shard placement is unchanged. Pillars flank the table and plinth at X=±5, Z=0, matching the original first-chapter layout. Their camera cutaway bounds match those positions.
 
 The back wall retains its 48×4 m size. Each repetition uses the video's actual
 16:9 aspect ratio, rather than stretching it to the older static image's 2:1

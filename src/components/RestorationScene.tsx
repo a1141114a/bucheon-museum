@@ -92,7 +92,7 @@ function Room(){
       <Block position={[0,2.02,-3.91]} args={[wallWidth+.04,screenHeight+.04,.32]} color="#3c2b21" radius={.035}/>
       <Suspense fallback={null}><AnimatedScreenWall width={wallWidth} height={screenHeight}/></Suspense>
     </CutawayScenery>
-    {[-5,5].map(x=><CutawayScenery key={x} min={[x-.65,-.2,-3.65]} max={[x+.65,4.5,-2.55]}><Suspense fallback={null}><RestorationColumn x={x}/></Suspense></CutawayScenery>)}
+    {[-5,5].map(x=><CutawayScenery key={x} min={[x-.65,-.2,-.7]} max={[x+.65,4.5,.7]}><Suspense fallback={null}><RestorationColumn x={x}/></Suspense></CutawayScenery>)}
     <Suspense fallback={null}><RestorationFurniture/></Suspense>
   </>
 }
