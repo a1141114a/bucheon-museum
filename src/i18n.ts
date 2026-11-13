@@ -145,6 +145,18 @@ export const copy = {
   modelControls: ['拖动旋转，滚轮或双指捏合缩放。', '드래그하여 회전하고, 휠이나 두 손가락으로 확대·축소하세요.', 'Drag to rotate. Scroll or pinch to zoom.'],
   loadingModel: ['正在加载 3D 模型…', '3D 모델을 불러오는 중…', 'Loading 3D model…'],
   modelUnavailable: ['暂时无法显示 3D 模型。', '현재 3D 모델을 표시할 수 없습니다.', 'The 3D model is unavailable.'],
+  journalSections: ["图鉴分区","도감 구역","Journal sections"],
+  journalCardsTab: ["收藏卡片","수집 카드","Collection cards"],
+  journalCompareTab: ["原图与3D对照","실물 · 3D 비교","Photo & 3D comparison"],
+  journalCompareTitle: ["藏品实物与3D复原对照","소장품 실물과 3D 재현 비교","Museum originals & 3D reconstructions"],
+  journalCompareIntro: ["已发现或已解锁的藏品会在此直接展开：左侧查看博物馆原图与3D模型，旁边阅读藏品资料，无需打开卡片。","발견했거나 해제한 유물의 공식 사진, 3D 모델과 설명을 카드를 열지 않고 함께 볼 수 있습니다.","View museum photographs, 3D models and full information for discovered or unlocked exhibits without opening a card."],
+  journalCompareCount: ["可对照藏品","비교 가능한 유물","Available exhibits"],
+  journalCompareEmpty: ["还没有可对照的藏品。先在关卡中发现器物，它们便会出现在这里。","아직 비교할 유물이 없습니다. 게임에서 유물을 발견하면 이곳에 표시됩니다.","No exhibits to compare yet. Discover an object in the game and it will appear here."],
+  journalMuseumPhoto: ["博物馆原图","공식 소장품 사진","Museum photograph"],
+  journalModel: ["3D复原模型","3D 재현 모델","3D reconstruction"],
+  journalPhotoUnavailable: ["原图暂时无法加载，可通过下方官方入口查看。","원본 사진을 불러올 수 없습니다. 아래 공식 링크에서 확인하세요.","The original image could not load. Use the official link below."],
+  journalPhotoRightsPending: ["图片公开使用许可待确认","이미지 공개 이용 허가 확인 중","Image reuse permission pending"],
+  journalModelControls: ["横向拖动旋转模型；上下滚动继续浏览。","가로로 드래그해 회전하고, 세로로 스크롤해 계속 둘러보세요.","Drag horizontally to rotate; scroll vertically to browse."],
   journalDesc: ['记录你在各章遇见的藏品。', '각 장에서 만난 소장품을 기록합니다.', 'Record the collection objects you encounter in each chapter.'],
   lockedRecord: ['先在修复室查看这件器物。', '복원실에서 이 유물을 먼저 살펴보세요.', 'Inspect this object in the restoration atelier first.'],
   future: ['章节正在制作', '제작 중인 챕터', 'This chapter is in development'], futureDesc: ['本次集中完成第一关。此章节将在后续制作并开放，真实文物素材仍须先由你审核。', '이번에는 첫 번째 챕터를 완성합니다. 이 챕터는 추후 제작 및 개방되며 실제 소장품 자료는 먼저 승인이 필요합니다.', 'This release focuses on chapter one. This chapter will be built later; real collection assets still require your approval first.'],
@@ -157,5 +169,6 @@ export const copy = {
 export type CopyKey = keyof typeof copy
 export function translate(lang: Language, key: CopyKey): string { return copy[key][{zh:0,ko:1,en:2}[lang]] }
 export const localized = (zh: string, ko: string, en: string): Localized => ({zh, ko, en})
+
 
 

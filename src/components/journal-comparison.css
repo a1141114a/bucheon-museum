@@ -1,0 +1,48 @@
+.journal-partitions{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 22px}
+.journal-partitions button{min-height:46px;padding:10px 20px;border:1px solid #987548;border-radius:8px;background:#e9ddc6;color:#62462b;font:600 14px/1.4 var(--museum-interface,serif);white-space:normal}
+.journal-partitions button[aria-pressed=true]{background:#62462b;color:#fff0cd;border-color:#62462b;box-shadow:inset 0 1px #b39264}
+.journal-comparison{min-width:0;color:#493923;font-family:var(--museum-reading,system-ui)}
+.comparison-section-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.comparison-section-heading h2{margin:6px 0;font:500 clamp(21px,2vw,28px)/1.4 var(--museum-interface,serif)}
+.comparison-count{font-size:12px;color:#7a694e;display:flex;gap:12px;align-items:center}
+.comparison-count strong{font:500 20px/1.2 Georgia,serif;white-space:nowrap}
+.comparison-intro{font-size:13px;line-height:1.8;color:#74674e;max-width:900px;margin:12px 0 22px}
+.comparison-list{display:grid;gap:28px}
+.comparison-exhibit{min-width:0;padding:22px;border:1px solid #b99b6a;border-radius:12px;background:linear-gradient(125deg,#f7eedc,#ede0c7);box-shadow:0 5px 16px #44311c0d;scroll-margin-top:20px}
+.comparison-exhibit-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:20px;padding-bottom:15px;border-bottom:1px solid #cdb994}
+.comparison-exhibit-heading>div{min-width:0}
+.comparison-id{font:10px/1.4 var(--museum-reading,system-ui);letter-spacing:1.4px;color:#987444}
+.comparison-exhibit h3{margin:5px 0 7px;font:500 clamp(18px,1.5vw,23px)/1.45 var(--museum-interface,serif);overflow-wrap:anywhere}
+.comparison-other-names{margin:0;font-size:12px;line-height:1.7;color:#857354;overflow-wrap:anywhere}
+.comparison-exhibit .status{flex-shrink:0;line-height:1.4;white-space:nowrap;border-radius:5px}
+.comparison-body{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(230px,1fr);gap:24px;align-items:start}
+.comparison-media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;min-width:0}
+.comparison-figure{margin:0;min-width:0}
+.comparison-media-title{font:600 13px/1.5 var(--museum-interface,serif);padding:0 0 9px;color:#71512c}
+.comparison-photo,.comparison-model{position:relative;height:clamp(220px,23vw,320px);border:1px solid #b6996f;border-radius:7px;overflow:hidden;background:#e2d7c4}
+.comparison-photo{background:#e9e6de}
+.comparison-photo img,.comparison-model-preview{display:block;width:100%;height:100%;object-fit:contain}
+.comparison-live-model{position:absolute;inset:0;background:transparent}
+.journal-comparison .artifact-model-viewer{height:100%;border:0;border-radius:0}
+.comparison-model .artifact-model-viewer canvas{touch-action:pan-y!important}
+.comparison-live-model .artifact-model-viewer{background:transparent}
+.comparison-live-model .artifact-model-viewer:not([data-ready=true]) canvas{opacity:0}
+.comparison-live-model [role=alert]{position:absolute;inset:auto 8px 8px;margin:0;padding:8px;border-radius:5px;background:#362c20e6;color:#fff0ce;font-size:11px;line-height:1.5;text-align:center}
+.comparison-media-note{display:grid;gap:6px;margin-top:10px;font-size:11px;line-height:1.6;color:#7d6a4e;overflow-wrap:anywhere}
+.comparison-media-note small{font-size:10px;line-height:1.65}
+.comparison-media-note a,.comparison-sources a{color:#71502c;text-decoration:underline;text-underline-offset:3px}
+.comparison-placeholder,.comparison-loading{position:absolute;inset:0;display:grid;place-content:center;margin:0;padding:18px;text-align:center;font-size:12px;line-height:1.7;color:#7c6b51}
+.comparison-information{min-width:0}
+.comparison-information dl{margin:0}
+.comparison-information dl>div{display:grid;grid-template-columns:78px minmax(0,1fr);gap:10px;border-bottom:1px solid #d8c6a8;padding:9px 0;font-size:12px;line-height:1.7}
+.comparison-information dt{color:#8c7654}
+.comparison-information dd{margin:0;overflow-wrap:anywhere}
+.comparison-information section{margin:20px 0 0}
+.comparison-information h4{margin:0 0 8px;font:600 13px/1.5 var(--museum-interface,serif)}
+.comparison-information p{margin:0;font-size:13px;line-height:1.9;overflow-wrap:anywhere}
+.comparison-sources{display:grid;gap:8px;font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+.comparison-save{min-height:44px;padding:10px 16px;margin-top:20px;background:#765332;color:#fff3d5;border-radius:6px;font:600 13px/1.5 var(--museum-interface,serif)}
+.comparison-empty{padding:28px;border:1px dashed #bba37b;border-radius:10px;color:#7e6a4d;line-height:1.8}
+.comparison-empty .carved-button{display:inline-flex;align-items:center;min-height:44px;margin-top:8px}
+@media(max-width:1100px){.comparison-body{grid-template-columns:1fr;gap:24px}.comparison-photo,.comparison-model{height:300px}.comparison-information dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px}}
+@media(max-width:700px){.journal-partitions{gap:8px;margin:18px 0 22px}.journal-partitions button{flex:1;padding:10px 12px;font-size:13px}.comparison-exhibit{padding:15px;border-radius:9px}.comparison-exhibit-heading{gap:8px;margin-bottom:15px}.comparison-exhibit .status{font-size:10px;padding:4px 6px}.comparison-media{gap:10px}.comparison-photo,.comparison-model{height:clamp(185px,47vw,270px)}.comparison-information dl{display:block}.comparison-information dl>div{grid-template-columns:76px minmax(0,1fr)}.comparison-other-names{font-size:11px}.comparison-media-title{font-size:12px}.comparison-count{font-size:11px}.comparison-section-heading{gap:8px}}

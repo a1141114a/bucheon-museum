@@ -24,7 +24,7 @@ export const storageJarArtifact = {
   verification: 'verified',
   sources: storageJar.sources.map(({title, url, checkedOn}) => ({title, url, accessedAt: checkedOn})),
   review: { status: 'approved', approvedAt: storageJar.review.approvedAt, evidence: 'User selected the jar and requested its use in chapter one.' },
-  photo: { url: null, sourceUrl: storageJar.photos[0].originalUrl, rights: 'pending', credit: storageJar.photos[0].publisher, licenseEvidence: null },
+  photo: { url: null, sourceUrl: storageJar.photos[0].originalUrl, previewUrl: storageJar.photos[0].previewUrl, rights: 'pending', credit: storageJar.photos[0].publisher, licenseEvidence: null },
   model: { url: 'models/bcm-1072-storage-jar.glb', provenance: 'blender', accuracy: 'approximate' },
 } satisfies Artifact
 
@@ -41,7 +41,7 @@ function displayArtifact(record:typeof arrowhead | typeof placentaJars | typeof 
     sources:record.sources.map(({title,url,checkedOn})=>({title,url,accessedAt:checkedOn})),
     review:{status:'approved',approvedAt:record.review.approvedAt,
       evidence:'User approved the independent model and requested distinct modeled exhibits in chapter two display cases.'},
-    photo:{url:null,sourceUrl:photo.originalUrl,rights:'pending',credit:photo.publisher,licenseEvidence:null},
+    photo:{url:null,sourceUrl:photo.originalUrl,previewUrl:'previewUrl' in photo&&typeof photo.previewUrl==='string'?photo.previewUrl:null,rights:'pending',credit:photo.publisher,licenseEvidence:null},
     model:{url:`models/${record.id}-exhibit.glb`,provenance:'blender',accuracy:'approximate'},
   }
 }

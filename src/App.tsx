@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { artifacts } from './data/artifacts'
 import { ArtifactCard } from './components/ArtifactCard'
-import JournalArtwork from './components/JournalArtwork'
+import Journal from './components/Journal'
 import { useGame } from './state/GameProvider'
-import { isLevelUnlocked, statusOf } from './state/game'
+import { isLevelUnlocked } from './state/game'
 import type { Artifact, Language } from './types'
 import Restoration from './components/Restoration'
 import Home from './components/Home'
@@ -20,13 +20,6 @@ function ToolbarIcon({name}:{name:'chapters'|'close'|'journal'|'fullscreen'|'hom
     home:'m3 11 9-7 9 7M5.5 10v10h4v-6h5v6h4V10',
   }
   return <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name]}/></svg>
-}
-function Journal({open}:{open:(a:Artifact)=>void}) {
-  const {state,t}=useGame()
-  return <><div className="page-heading"><div><span className="eyebrow">FIELD NOTES / 01</span><h1>{t('atlas')}</h1></div></div><p className="intro">{t('journalDesc')}</p><div className="journal-grid">{artifacts.map(a=>{
-    const status=statusOf(state,a.id)
-    return <button key={a.id} className="journal-entry" disabled={status==='locked'} onClick={()=>open(a)}>{status!=='locked'?<JournalArtwork artifact={a}/>:<div className="journal-symbol">?</div>}<span className="status">{t(status)}</span><h2>{a.name[state.language]}</h2><p>{status==='locked'?t('lockedRecord'):a.museum?.[state.language]??t('testBadge')}</p><span className="arrow">↗</span></button>
-  })}</div></>
 }
 export default function App(){
   const {state,dispatch,storageError,t}=useGame();const [selected,setSelected]=useState<Artifact|null>(null)
@@ -48,3 +41,4 @@ export default function App(){
       <footer><span>{storageError?'—':t('saved')}</span><button onClick={()=>{if(window.confirm(t('resetConfirm'))){setSelected(null);dispatch({type:'reset'})}}}>{t('reset')}</button></footer>
     </main></div>{selected&&<ArtifactCard artifact={selected} onClose={()=>setSelected(null)}/>}</div>
 }
+
