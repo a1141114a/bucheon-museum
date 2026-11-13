@@ -97,3 +97,107 @@
     font-size:10px;
   }
 }
+
+/* Keep the whole upper-left brief in normal flow so completion text and
+   the results action cannot overlap. The same header button folds it away. */
+.restoration-root.restoration-direct .restoration-brief {
+  position:absolute;
+  top:91px;
+  left:24px;
+  width:270px;
+  z-index:5;
+}
+.restoration-root.restoration-direct .restoration-brief.is-collapsed {width:180px}
+.restoration-root.restoration-direct .restoration-brief .chapter-plaque {
+  position:relative;
+  inset:auto;
+  width:100%;
+  height:auto;
+  min-height:87px;
+  padding:14px 34px 14px 24px;
+  text-align:left;
+  pointer-events:auto;
+  border:0;
+  border-radius:0;
+}
+.restoration-brief .chapter-plaque > div {min-width:0}
+.restoration-brief .chapter-plaque .restoration-brief-chevron {
+  position:absolute;right:15px;top:50%;transform:translateY(-50%);
+  font:700 20px/1 var(--museum-interface,serif);color:#704522;
+}
+.restoration-brief-content {display:grid;gap:8px;margin-top:9px}
+.restoration-brief-content[hidden] {display:none}
+.restoration-root.restoration-direct .restoration-brief .quest-progress {
+  position:static;
+  inset:auto;
+  display:grid;
+  gap:8px;
+  width:auto;
+  margin:0;
+  padding:0 12px;
+  pointer-events:auto;
+}
+.restoration-brief .quest-progress > p {margin:0;line-height:1.5;overflow-wrap:anywhere}
+.restoration-root.restoration-direct .restoration-brief .restoration-result {
+  justify-self:start;
+  margin:0;
+  min-height:40px;
+  max-width:100%;
+  padding:7px 12px;
+  white-space:normal;
+  line-height:1.4;
+}
+.restoration-root.restoration-direct .restoration-brief .atelier-label {
+  position:static;
+  inset:auto;
+  max-width:none;
+  margin:0;
+  padding:0 12px;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+.restoration-root.restoration-direct .restoration-brief-reopen {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  width:100%;
+  min-height:48px;
+  padding:10px 20px;
+  font:600 12px/1.4 var(--museum-interface,serif);
+}
+.restoration-brief-reopen b {min-width:0;overflow-wrap:anywhere}
+.restoration-brief-toggle:focus-visible {outline:2px solid #ffdd8b;outline-offset:3px}
+@media(min-width:761px) {
+  .restoration-root.restoration-direct .restoration-stats {top:94px;right:24px;left:auto}
+}
+@media(max-width:760px) {
+  .restoration-root.restoration-direct .restoration-brief {
+    top:166px;left:12px;width:min(230px,calc(100% - 150px));
+  }
+  .restoration-root.restoration-direct .restoration-brief .chapter-plaque {
+    min-height:66px;padding:9px 25px 9px 14px;gap:6px;
+  }
+  .restoration-brief .chapter-plaque .restoration-brief-chevron {right:9px;font-size:16px}
+  .restoration-root.restoration-direct .restoration-brief .chapter-plaque strong {font-size:14px;letter-spacing:0;line-height:1.25}
+  html[lang='en'] .restoration-root.restoration-direct .restoration-brief .chapter-plaque strong {font-size:12px}
+  .restoration-root.restoration-direct .restoration-brief .chapter-plaque small {font-size:7px}
+  .restoration-root.restoration-direct .restoration-brief.is-collapsed {width:150px}
+  .restoration-brief-content {gap:6px;margin-top:7px}
+  .restoration-root.restoration-direct .restoration-brief .quest-progress,
+  .restoration-root.restoration-direct .restoration-brief .atelier-label {padding-inline:7px}
+}
+@media(orientation:portrait) and (max-width:600px) {
+  .restoration-root.restoration-direct .restoration-brief {width:min(198px,calc(100% - 157px))}
+}
+@media(orientation:landscape) and (max-height:550px) {
+  .restoration-root.restoration-direct .restoration-brief {top:58px;left:12px;width:180px}
+  .restoration-root.restoration-direct .restoration-brief .chapter-plaque {min-height:56px;padding:6px 24px 6px 16px;gap:7px}
+  .restoration-root.restoration-direct .restoration-brief .chapter-plaque strong {font-size:12px;letter-spacing:0}
+  html[lang='en'] .restoration-root.restoration-direct .restoration-brief .chapter-plaque strong {font-size:10px}
+  .restoration-root.restoration-direct .restoration-stats {top:60px;left:auto;right:154px;gap:7px}
+  .restoration-root.restoration-direct .restoration-stats .stone-counter {min-width:78px;min-height:46px;padding:6px 12px;gap:4px}
+  .restoration-root.restoration-direct .restoration-stats .stone-counter strong {font-size:16px}
+  .restoration-root.restoration-direct .restoration-stats .stone-counter small {font-size:9px}
+}
+

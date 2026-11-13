@@ -97,6 +97,8 @@ export const copy = {
   fragment: ['碎片', '조각', 'Fragment'], target: ['修复位置', '복원 위치', 'Target slot'],
   chooseFragment: ['① 点击桌上的碎片', '① 탁자 위 조각 선택', '① Tap a piece on the table'],
   chooseRotation: ['② 转正碎片', '② 조각 회전', '② Rotate the fragment'],
+  restorationBriefHide: ['收起关卡提示', '안내 접기', 'Hide chapter info'],
+  restorationBriefShow: ['展开关卡提示', '안내 펼치기', 'Show chapter info'],
   directPlacePrompt: ['旋转后点击对应虚影', '회전 후 맞는 잔상 선택', 'Rotate, then tap the matching outline'],
   chooseTarget: ['③ 点击对应虚影拼合', '③ 맞는 잔상에 눌러 맞추기', '③ Tap its matching outline'],
   rotateLeft: ['左转 90°', '왼쪽 90°', 'Turn left 90°'], rotateRight: ['右转 90°', '오른쪽 90°', 'Turn right 90°'],
@@ -155,4 +157,5 @@ export const copy = {
 export type CopyKey = keyof typeof copy
 export function translate(lang: Language, key: CopyKey): string { return copy[key][{zh:0,ko:1,en:2}[lang]] }
 export const localized = (zh: string, ko: string, en: string): Localized => ({zh, ko, en})
+
 

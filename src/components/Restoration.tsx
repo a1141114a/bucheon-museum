@@ -15,6 +15,7 @@ export default function Restoration({inspect,active}:{inspect:()=>void;active:bo
   const {state,dispatch,t,storageError}=useGame();const r=state.restoration
   const [selected,setSelected]=useState('');const [feedback,setFeedback]=useState('');const [hinted,setHinted]=useState(false)
   const [help,setHelp]=useState(false);const [dismissed,setDismissed]=useState(false)
+  const [briefOpen,setBriefOpen]=useState(true)
   const [viewKey,setViewKey]=useState(0)
   const [completionStart,setCompletionStart]=useState<number|null>(null)
   const [revealing,setRevealing]=useState(false)
@@ -49,10 +50,19 @@ export default function Restoration({inspect,active}:{inspect:()=>void;active:bo
   const blocked=!active||help||!r.started||revealing
   return <div className={`restoration-root restoration-direct${revealing?' revealing':''}`}>
     <section className="restoration-scene" aria-label={t('workshop')}><Suspense fallback={<div className="scene-error">3D…</div>}><Scene restoration={r} selected={selected} onSelect={select} onTarget={place} onInspect={()=>{if(!blocked)inspect()}} active={!blocked} hinted={hinted} error={t('error')} viewKey={viewKey} completionStart={completionStart} revealing={revealing}/></Suspense></section>
-    <div className="chapter-plaque"><span>Ⅰ</span><div><small>{t('phase')}</small><strong>{t('workshop')}</strong></div></div>
+    <aside className={`restoration-brief ${briefOpen?'is-open':'is-collapsed'}`} aria-label={t('workshop')}>
+      <button type="button" className={`restoration-brief-toggle ${briefOpen?'chapter-plaque':'stone-button restoration-brief-reopen'}`}
+        aria-expanded={briefOpen} aria-controls="restoration-brief-content"
+        aria-label={briefOpen?t('restorationBriefHide'):t('restorationBriefShow')}
+        onClick={()=>setBriefOpen(open=>!open)}>
+        {briefOpen?<><span aria-hidden="true">Ⅰ</span><div><small>{t('phase')}</small><strong>{t('workshop')}</strong></div><b className="restoration-brief-chevron" aria-hidden="true">⌃</b></>:<><span aria-hidden="true">☰</span><b>{t('restorationBriefShow')}</b></>}
+      </button>
+      <div id="restoration-brief-content" className="restoration-brief-content" hidden={!briefOpen}>
+        <div className="quest-progress"><div className="progress-track"><span style={{width:`${r.placed.length/9*100}%`}}/></div><p>{complete?t('finished'):t('chooseFragment')}</p>{complete&&<button type="button" className="restoration-result" onClick={()=>setDismissed(false)}>{t('timeViewResults')}</button>}</div>
+        <div className="atelier-label">{t('restorationArtifact')}</div>
+      </div>
+    </aside>
     <div className="restoration-stats"><div className="stone-counter"><span>✦</span><div><small>{t('chapterPoints')}</small><strong>{restorationScore(r)}</strong></div></div><div className="stone-counter"><span>◈</span><div><small>{t('progress')}</small><strong>{r.placed.length} / 9</strong></div></div></div>
-    <div className="quest-progress"><div className="progress-track"><span style={{width:`${r.placed.length/9*100}%`}}/></div><p>{complete?t('finished'):t('chooseFragment')}</p>{complete&&<button type="button" className="restoration-result" onClick={()=>setDismissed(false)}>{t('timeViewResults')}</button>}</div>
-    <div className="atelier-label">{t('restorationArtifact')}</div>
     <aside className="restoration-tools" inert={revealing}><button className="stone-button" onClick={()=>setHelp(true)}><span aria-hidden="true" title={t('help')}>?</span><b className="tool-label">{t('help')}</b></button><button className="stone-button" onClick={()=>setViewKey(v=>v+1)}><span aria-hidden="true" title={t('resetView')}>⌖</span><b className="tool-label">{t('resetView')}</b></button><button className="stone-button" disabled={!selected||r.hints>=3||complete||blocked} onClick={()=>{dispatch({type:'restore-hint'});setHinted(true);setFeedback('')}}><span aria-hidden="true" title={t('hintCost')}>✧</span><b className="tool-label">{t('hintCost')}</b><small>{3-r.hints}/3</small></button><button className="stone-button" onClick={inspect}><span aria-hidden="true" title={t('inspectRestored')}>▤</span><b className="tool-label">{t('inspectRestored')}</b></button><button className="stone-button" onClick={replay}><span aria-hidden="true" title={t('replay')}>↺</span><b className="tool-label">{t('replay')}</b></button></aside>
     <div className={`restoration-feedback ${feedback==='correct'?'success':''}`} data-state={feedback} role="status" aria-live="polite">{revealing?t('revealing'):feedback?t(feedback as 'correct'|'wrongSlot'|'wrongRotation'|'invalid'):hinted&&selected?`${t('hintSlot')} ${fragmentIds.indexOf(selected)+1} · ${t('hintTurns')} ${(4-rotationOf(r,selected))%4}`:selected?`${t('selectedFragment')} ${letter} · ${t('directPlacePrompt')}`:t('rotateHelp')}</div>
     <div className="restoration-rotation-dock" role="group" aria-label={t('chooseRotation')} inert={revealing}>
@@ -64,5 +74,6 @@ export default function Restoration({inspect,active}:{inspect:()=>void;active:bo
     {complete&&!revealing&&!dismissed&&<CompletionCard chapter={1} label={t('finished')} onClose={()=>setDismissed(true)}><div className="dialog-emblem stars">✦ ✦ ✦</div><span className="quest-eyebrow">{t('phase')}</span><h1>{t('finished')}</h1><p>{t('finishedDesc')}</p><div className="completion-score">{restorationScore(r)}<small>{t('chapterPoints')}</small></div><p className="bonus-note">{t('completionBonus')}</p><div className="completion-actions"><button className="adventure-primary" onClick={()=>{setDismissed(true);inspect()}}>{t('inspectRestored')} ➜</button><button className="stone-button completion-secondary" onClick={()=>setDismissed(true)}>{t('close')}</button><Link className="adventure-primary" to="/levels/2">{t('l2')} ➜</Link></div></CompletionCard>}
   </div>
 }
+
 
 
