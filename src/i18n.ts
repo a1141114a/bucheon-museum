@@ -95,12 +95,13 @@ export const copy = {
   begin: ['开始修复', '복원 시작', 'Begin restoration'], resume: ['继续修复', '복원 계속', 'Continue restoration'],
   progress: ['修复进度', '복원 진행', 'Restoration'], fragmentTray: ['碎片匣', '조각 상자', 'Fragment tray'],
   fragment: ['碎片', '조각', 'Fragment'], target: ['修复位置', '복원 위치', 'Target slot'],
-  chooseFragment: ['① 选择一枚碎片', '① 조각 선택', '① Choose a fragment'],
+  chooseFragment: ['① 点击桌上的碎片', '① 탁자 위 조각 선택', '① Tap a piece on the table'],
   chooseRotation: ['② 转正碎片', '② 조각 회전', '② Rotate the fragment'],
-  chooseTarget: ['③ 选择对应位置', '③ 맞는 위치 선택', '③ Choose its matching slot'],
+  directPlacePrompt: ['旋转后点击对应虚影', '회전 후 맞는 잔상 선택', 'Rotate, then tap the matching outline'],
+  chooseTarget: ['③ 点击对应虚影拼合', '③ 맞는 잔상에 눌러 맞추기', '③ Tap its matching outline'],
   rotateLeft: ['左转 90°', '왼쪽 90°', 'Turn left 90°'], rotateRight: ['右转 90°', '오른쪽 90°', 'Turn right 90°'],
-  rotateHelp: ['选择后可按 Q / E 旋转；拖动空白处观察，双指缩放。', '선택 후 Q / E로 회전. 빈 곳을 드래그해 둘러보고 두 손가락으로 확대하세요.', 'Q / E rotates the selected piece. Drag empty space to orbit; pinch to zoom.'],
-  selectedFragment: ['当前碎片', '선택한 조각', 'Selected fragment'], noSelection: ['先从碎片匣选择一枚', '상자에서 조각을 선택하세요', 'Choose a piece from the tray'],
+  rotateHelp: ['点击碎片 → 旋转 → 点击对应虚影拼合。拖动空白处观察，双指缩放。', '조각 선택 → 회전 → 맞는 잔상 선택. 빈 곳을 드래그해 둘러보고 두 손가락으로 확대하세요.', 'Tap a piece → rotate → tap its matching outline. Drag empty space to orbit; pinch to zoom.'],
+  selectedFragment: ['当前碎片', '선택한 조각', 'Selected fragment'], noSelection: ['先点击桌上的一枚碎片', '탁자 위 조각을 선택하세요', 'Tap a piece on the table'],
   correct: ['严丝合缝！修复成功 +20', '딱 맞아요! 복원 성공 +20', 'A perfect fit! Restored +20'],
   wrongSlot: ['断面不吻合，再观察一下位置。', '단면이 맞지 않아요. 위치를 다시 살펴보세요.', 'Those edges do not match. Try a different slot.'],
   wrongRotation: ['位置正确，再转一转碎片。', '위치는 맞아요. 조각을 회전해 보세요.', 'The slot is right. Rotate the fragment to align it.'],
@@ -154,3 +155,4 @@ export const copy = {
 export type CopyKey = keyof typeof copy
 export function translate(lang: Language, key: CopyKey): string { return copy[key][{zh:0,ko:1,en:2}[lang]] }
 export const localized = (zh: string, ko: string, en: string): Localized => ({zh, ko, en})
+

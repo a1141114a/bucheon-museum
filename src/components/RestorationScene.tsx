@@ -20,10 +20,10 @@ function FragmentMesh({fragment,position,scale=1,rotation=0,ghost=false,selected
   const [hovered,setHovered]=useState(false)
   const highlighted=selected||hovered
   useFrame((_,dt)=>{if(ref.current){ref.current.position.lerp(position,1-Math.exp(-dt*10));ref.current.scale.lerp(new Vector3(scale,scale,scale),1-Math.exp(-dt*10));ref.current.rotation.y+=((rotation-ref.current.rotation.y))*Math.min(dt*10,1)}})
-  return <group ref={node=>{ref.current=node;if(occluderRef)occluderRef.current=node}} position={initialPosition.current} scale={initialScale.current} onPointerOver={e=>{if(ghost){e.stopPropagation();setHovered(true)}}} onPointerOut={()=>setHovered(false)} onClick={e=>{if(e.delta>5)return;e.stopPropagation();onClick()}}>
+  return <group name={`${ghost?'restoration-target':'restoration-piece'}-${fragment.id}`} ref={node=>{ref.current=node;if(occluderRef)occluderRef.current=node}} position={initialPosition.current} scale={initialScale.current} onPointerOver={e=>{if(ghost){e.stopPropagation();setHovered(true)}}} onPointerOut={()=>setHovered(false)} onClick={e=>{if(e.delta>5)return;e.stopPropagation();onClick()}}>
     {ghost?fragment.guide.map((part,i)=><group key={i}><mesh geometry={part.geometry}>
       <meshBasicMaterial color={highlighted?'#f0cb79':'#e2d9c6'} transparent opacity={highlighted?.44:.31} depthWrite polygonOffset polygonOffsetFactor={1} polygonOffsetUnits={1}/>
-    </mesh><GhostOutline points={part.outline} highlighted={highlighted}/></group>):fragment.parts.map((part,i)=><mesh key={i} geometry={part.geometry} material={part.material} castShadow receiveShadow/>)}
+    </mesh><GhostOutline points={part.outline} highlighted={highlighted}/></group>):<>{fragment.parts.map((part,i)=><mesh key={i} geometry={part.geometry} material={part.material} castShadow receiveShadow/>)}{selected&&fragment.guide.map((part,i)=><GhostOutline key={i} points={part.outline} highlighted/>)}</>}
   </group>
 }
 function PendingSlotLabel({fragment,position,slot,lit,occluders}:{fragment:Fragment;position:Vector3;slot:number;lit:boolean;occluders:RefObject<Group|null>[]}){
@@ -32,7 +32,7 @@ function PendingSlotLabel({fragment,position,slot,lit,occluders}:{fragment:Fragm
   // Drei's public type predates nullable React refs; all groups mount before frames.
   return <Html key={`${fragment.id}-pending-label`} position={position} center distanceFactor={6} zIndexRange={[2,0]} occlude={occluders as RefObject<Group>[]} style={{pointerEvents:'none'}}><span ref={label} data-slot-id={fragment.id} className={`slot-marker ${lit?'lit':''}`}>{slot}</span></Html>
 }
-function Model({restoration,selected,onSelect,onTarget,onInspect,hinted,completionStart,revealing}:SceneProps){
+function Model({restoration,selected,onSelect,onTarget,onInspect,hinted,completionStart,revealing,active}:SceneProps){
   const {scene}=useGLTF(import.meta.env.BASE_URL+'models/bcm-1072-restoration.glb')
   const shardGroup=useRef<Group>(null)
   const complete=restoration.placed.length===fragmentIds.length
@@ -62,8 +62,8 @@ function Model({restoration,selected,onSelect,onTarget,onInspect,hinted,completi
     const inspectionPosition=new Vector3(-1.05,2.15,.8)
     const slot=fragmentIds.indexOf(fragment.id)+1
     return <group key={fragment.id}>
-      <FragmentMesh fragment={fragment} position={placed?target:inspecting?inspectionPosition:tray} scale={placed||inspecting?1:.52} rotation={placed?0:rotationOf(restoration,fragment.id)*Math.PI/2} selected={inspecting} onClick={()=>placed?onInspect():onSelect(fragment.id)} occluderRef={solidRefs[fragment.id]}/>
-      {!placed&&<><FragmentMesh fragment={fragment} position={target} ghost selected={hinted&&selected===fragment.id} onClick={()=>onTarget(fragment.id)}/><PendingSlotLabel fragment={fragment} position={target.clone().add(new Vector3(.04,0,.07))} slot={slot} lit={hinted&&selected===fragment.id} occluders={occluders}/></>}
+      <FragmentMesh fragment={fragment} position={placed?target:inspecting?inspectionPosition:tray} scale={placed||inspecting?1:.52} rotation={placed?0:rotationOf(restoration,fragment.id)*Math.PI/2} selected={inspecting} onClick={()=>{if(active){if(placed)onInspect();else onSelect(fragment.id)}}} occluderRef={solidRefs[fragment.id]}/>
+      {!placed&&<><FragmentMesh fragment={fragment} position={target} ghost selected={hinted&&selected===fragment.id} onClick={()=>{if(active)onTarget(fragment.id)}}/><PendingSlotLabel fragment={fragment} position={target.clone().add(new Vector3(.04,0,.07))} slot={slot} lit={hinted&&selected===fragment.id} occluders={occluders}/></>}
       {!placed&&<Html position={inspecting?[-1.05,1.48,1.02]:[tray.x,.73,tray.z+.30]} center distanceFactor={6} zIndexRange={[2,0]} style={{pointerEvents:'none'}}><span className={`tray-marker ${inspecting?'lit':''}`}>{String.fromCharCode(65+i)}</span></Html>}
     </group>
   })}</group>{complete&&<Suspense fallback={null}><RestoredJar start={completionStart} revealing={revealing} onInspect={onInspect}/></Suspense>}</>
@@ -136,6 +136,7 @@ interface SceneProps {
 export default function RestorationScene(props:SceneProps){
   return <Boundary error={props.error}><Canvas shadows dpr={[1,1.5]} camera={{position:[3.8,3.4,6.5],fov:44,near:.1,far:40}} gl={{antialias:true}} fallback={<div className="scene-error">{props.error}</div>}><Room/><Suspense fallback={null}><Model {...props}/></Suspense><CameraFraming {...props}/><OrbitControls enabled={props.active} makeDefault target={[-.5,1.1,0]} minDistance={3} maxDistance={18} minPolarAngle={.3} maxPolarAngle={Math.PI/2-.05} enablePan={false}/></Canvas></Boundary>
 }
+
 
 
 

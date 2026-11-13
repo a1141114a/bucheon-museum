@@ -1,0 +1,99 @@
+/* Direct scene interaction replaces the old fragment and target button tray. */
+.restoration-view .restoration-root.restoration-direct {
+  display:block;
+  padding:0;
+}
+.restoration-root.restoration-direct .restoration-rotation-dock {
+  position:absolute;
+  left:calc((100% - 60px) / 2);
+  bottom:calc(20px + env(safe-area-inset-bottom, 0px));
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  z-index:5;
+}
+.restoration-direct .direct-rotate-button {
+  display:grid;
+  place-items:center;
+  width:64px;
+  height:64px;
+  min-height:48px;
+  padding:12px;
+  border:0;
+  border-radius:10px;
+  background:transparent url('/ui/adventure-slot.png') center/100% 100% no-repeat;
+  color:#593719;
+  font:700 32px/1 var(--museum-interface,serif);
+  box-shadow:0 5px 14px #100b0666;
+  touch-action:manipulation;
+}
+.restoration-direct .direct-rotate-button > span {
+  display:block;
+  line-height:1;
+  pointer-events:none;
+}
+.restoration-direct .direct-rotate-button:disabled {
+  opacity:.55;
+  box-shadow:none;
+}
+.restoration-direct .direct-rotate-button:focus-visible {
+  outline:2px solid #ffde84;
+  outline-offset:3px;
+}
+.restoration-root.restoration-direct .restoration-feedback {
+  position:absolute;
+  inset:auto auto calc(96px + env(safe-area-inset-bottom, 0px)) 50%;
+  transform:translateX(-50%);
+  width:max-content;
+  max-width:min(680px,calc(100% - 48px));
+  margin:0;
+  padding:7px 14px;
+  font-size:12px;
+  line-height:1.5;
+}
+.restoration-root.restoration-direct .quest-progress .restoration-result {pointer-events:auto}
+.restoration-root.restoration-direct .restoration-tools {
+  position:absolute;
+  left:auto;
+  right:24px;
+  top:190px;
+  bottom:auto;
+}
+.restoration-direct.revealing .restoration-rotation-dock {opacity:.34}
+@media(min-width:761px) {
+  .restoration-root.restoration-direct .restoration-rotation-dock {left:50%}
+}
+@media(max-width:760px) {
+  .restoration-root.restoration-direct .restoration-tools {right:12px;top:230px}
+  .restoration-root.restoration-direct .restoration-feedback {
+    left:calc((100% - 60px) / 2);
+    bottom:calc(84px + env(safe-area-inset-bottom, 0px));
+    max-width:calc(100% - 80px);
+    font-size:11px;
+  }
+  .restoration-direct .direct-rotate-button {width:56px;height:56px;padding:11px;font-size:28px}
+}
+@media(orientation:portrait) and (max-width:600px) {
+  .restoration-root.restoration-direct .restoration-tools {right:7px;top:210px}
+}
+@media(orientation:landscape) and (max-height:550px) {
+  .restoration-root.restoration-direct .chapter-plaque > div {min-width:0}
+  .restoration-root.restoration-direct .chapter-plaque strong {font-size:12px;letter-spacing:0;line-height:1.2}
+  .restoration-root.restoration-direct .chapter-plaque small {font-size:7px;line-height:1.2}
+  .restoration-root.restoration-direct .chapter-plaque > span {font-size:27px;padding-right:8px}
+  html[lang='en'] .restoration-root.restoration-direct .chapter-plaque strong {font-size:10px;line-height:1.15}
+  .restoration-root.restoration-direct .restoration-tools {right:12px;top:59px}
+  .restoration-root.restoration-direct .restoration-rotation-dock {
+    left:50%;
+    bottom:calc(10px + env(safe-area-inset-bottom, 0px));
+    gap:12px;
+  }
+  .restoration-direct .direct-rotate-button {width:48px;height:48px;padding:9px;font-size:26px}
+  .restoration-root.restoration-direct .restoration-feedback {
+    left:50%;
+    bottom:calc(64px + env(safe-area-inset-bottom, 0px));
+    max-width:48%;
+    font-size:10px;
+  }
+}
