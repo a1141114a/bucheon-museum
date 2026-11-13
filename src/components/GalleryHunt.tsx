@@ -8,6 +8,7 @@ import { isLevelUnlocked } from '../state/game'
 import { clueIds, movement, type Station } from '../state/exploration'
 import { coinPuzzleSolved, createCoinPuzzle, moveCoinTile } from '../state/coinPuzzle'
 import { CoinPuzzle, CoinReward } from './CoinPuzzle'
+import MovementJoystick,{useTouchControls} from './MovementJoystick'
 import './gallery-hunt.css'
 
 const Scene = lazy(() => import('./GalleryScene'))
@@ -19,6 +20,7 @@ const directions = [
 
 export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifact:(artifact:Artifact)=>void}) {
   const {state,dispatch,t} = useGame()
+  const touchControls=useTouchControls()
   const [near,setNear] = useState<Station | null>(null)
   const [exhibitId,setExhibitId] = useState<string|null>(null)
   const exhibit = artifacts.find(item=>item.id===exhibitId)
@@ -88,10 +90,9 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
     if (sceneActive && exhibit?.id===id) onArtifact(exhibit)
   }
 
-  const collected = near !== null && near !== 'chest' && clues.includes(near)
   const blockedChest = near === 'chest' && clues.length !== clueIds.length
 
-  return <section className="hunt-root" aria-labelledby="hunt-title">
+  return <section className="hunt-root" data-touch-controls={touchControls} aria-labelledby="hunt-title">
     <div className="hunt-scene">
       <Suspense fallback={<div className="scene-error">3D…</div>}>
         <Scene key={sceneKey} language={state.language} active={sceneActive} clues={clues} opened={opened} celebrating={celebrating} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
@@ -115,7 +116,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
       {showHint && <ul>{clueIds.map(id => <li key={id}>{clues.includes(id) ? '✓' : '◇'} {t(stationLabels[id])}</li>)}</ul>}
     </div>
     <div className="hunt-controls" inert={!sceneActive} hidden={phase!=='idle'}>
-      <div className="hunt-pad" role="group" aria-label={t('huntControls')} inert={!active}>
+      {touchControls?<MovementJoystick key={sceneKey} active={sceneActive} label={t('huntJoystick')} help={t('huntJoystickHelp')}/>:<div className="hunt-pad" role="group" aria-label={t('huntControls')} inert={!active}>
         {directions.map(([label,symbol,axis,value]) => <button type="button" key={label} className="stone-button" aria-label={t(label)}
           onPointerDown={event => { event.currentTarget.setPointerCapture(event.pointerId); movement[axis]=value }}
           onPointerUp={() => { if (movement[axis]===value) movement[axis]=0 }}
@@ -123,12 +124,12 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
           onPointerCancel={() => { if (movement[axis]===value) movement[axis]=0 }}>
           {symbol}
         </button>)}
-      </div>
+      </div>}
       <div className="hunt-status">
         <strong>{t('huntClues')} {clues.length} / {clueIds.length}</strong>
-        <p role="status">{opened?t('huntDone'):blockedChest?t('huntNeedClues'):near?t(stationLabels[near]):exhibit?exhibit.name[state.language]:t('huntApproach')}</p>
-        {!opened && near && !collected && !blockedChest &&
-          <button type="button" className="stone-button" onClick={() => inspect(near)}>{t(near==='chest'?'huntOpen':'huntCollect')}</button>}
+        <p role="status">{opened?t('huntDone'):blockedChest?t('huntNeedClues'):near&&near!=='chest'?(clues.includes(near)?t('huntCoinCollected'):t('huntClickCoin')):near?t(stationLabels[near]):exhibit?exhibit.name[state.language]:t('huntApproach')}</p>
+        {!opened && near==='chest' && !blockedChest &&
+          <button type="button" className="stone-button" onClick={() => inspect(near)}>{t('huntOpen')}</button>}
         {exhibit && !near && <button type="button" className="stone-button" onClick={() => inspectExhibit(exhibit.id)}>{t('huntExhibit')}</button>}
       </div>
     </div>
@@ -136,3 +137,4 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
     {phase==='reward' && <CoinReward onClose={()=>setPhase('idle')}/>}
   </section>
 }
+

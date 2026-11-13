@@ -1,5 +1,5 @@
 import { Component, Suspense, useEffect, useMemo, useRef, type ReactNode } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import { Box3, CanvasTexture, InstancedMesh, MathUtils, Matrix4, Object3D, Quaternion, SRGBColorSpace, Vector3 } from 'three'
 import { artifacts } from '../data/artifacts'
@@ -104,7 +104,7 @@ function DisplayCase({id,x,z,language,onExhibit}:{id:string;x:number;z:number;la
   const artifact=artifacts.find(item=>item.id===id)
   const model=artifact?.model.url
   const small=id==='bcm-937'||id==='bcm-926'||id==='bcm-929'
-  return <group position={[x,0,z]} onClick={event=>{event.stopPropagation();onExhibit(id)}}>
+  return <group position={[x,0,z]} onClick={event=>{event.stopPropagation();if(event.delta<=6)onExhibit(id)}}>
     <Box position={[0,.08,0]} scale={[2.4,.16,1.7]} color="#231b15"/>
     <Box position={[0,.59,0]} scale={[2.2,1.02,1.52]} color="#4c3828"/>
     <Box position={[0,1.11,0]} scale={[2.32,.12,1.62]} color="#a38657"/>
@@ -148,7 +148,7 @@ function TreasureCabinet({opened,onOpen}:{opened:boolean;onOpen:()=>void}) {
     if (lid) lid.rotation.x=MathUtils.damp(lid.rotation.x,opened?-1.32:0,5,delta)
   })
 
-  return <group onClick={event=>{event.stopPropagation();onOpen()}}>
+  return <group onClick={event=>{event.stopPropagation();if(event.delta<=6)onOpen()}}>
     <primitive object={cabinet.scene}/>
     <group position={[0,1.32,0]}><primitive object={chestModel}/></group>
     <pointLight position={[0,2.88,.38]} color="#ffd595" intensity={8} distance={5.2}/>
@@ -162,8 +162,9 @@ function HiddenCoin({id,onCollect}:{id:ClueId;onCollect:()=>void}) {
   const [x,z]=stations[id]
   const height={west:.26,east:.36,rear:.25}[id]
   const turn=Math.PI
-  return <group position={[x,height,z]} rotation={[-.1,turn,0]} onClick={event=>{event.stopPropagation();onCollect()}}>
+  return <group name={`hidden-coin-${id}`} position={[x,height,z]} rotation={[-.1,turn,0]} onClick={event=>{event.stopPropagation();if(event.delta<=6)onCollect()}}>
     <primitive object={coin}/>
+    <mesh name={`coin-touch-target-${id}`}><sphereGeometry args={[.18,12,8]}/><meshBasicMaterial transparent opacity={0} depthWrite={false}/></mesh>
   </group>
 }
 
@@ -225,6 +226,10 @@ interface GalleryProps {
 }
 
 function Hall({active,language,clues,opened,celebrating,onNear,onInspect,onNearExhibit,onExhibit}:GalleryProps) {
+  const {camera}=useThree()
+  const collectCoin=(id:ClueId)=>{
+    if(active&&!opened&&nearbyStation(camera.position.x,camera.position.z)===id)onInspect(id)
+  }
   const previous=useRef<Station|null>(null)
   const previousExhibit=useRef<string|null>(null)
   useFrame(({camera})=>{
@@ -245,7 +250,7 @@ function Hall({active,language,clues,opened,celebrating,onNear,onInspect,onNearE
     </Suspense>
     <Suspense fallback={null}>
       {clueIds.filter(id=>!clues.includes(id)).map(id=>
-        <HiddenCoin key={id} id={id} onCollect={()=>onInspect(id)}/>)}
+        <HiddenCoin key={id} id={id} onCollect={()=>collectCoin(id)}/>)}
     </Suspense>
     <WalkControls active={active}/>
     {celebrating&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&<><TreasureCamera/><CoinFountain/></>}
@@ -258,7 +263,9 @@ class SceneBoundary extends Component<{children:ReactNode;message:string},{faile
   render(){return this.state.failed?<div className="scene-error" role="alert">{this.props.message}</div>:this.props.children}
 }
 export default function GalleryScene({error,...props}:GalleryProps & {error:string}) {
-  return <SceneBoundary message={error}><Canvas dpr={[1,1.35]} camera={{position:[...gallerySpawn],fov:58,near:.08,far:64}} gl={{antialias:true,powerPreference:'high-performance'}} fallback={<div className="scene-error">{error}</div>}><Hall {...props}/></Canvas></SceneBoundary>
+  const camera=useMemo(()=>({position:[...gallerySpawn] as Position,fov:58,near:.08,far:64}),[])
+  return <SceneBoundary message={error}><Canvas dpr={[1,1.35]} camera={camera} gl={{antialias:true,powerPreference:'high-performance'}} fallback={<div className="scene-error">{error}</div>}><Hall {...props}/></Canvas></SceneBoundary>
 }
+
 
 

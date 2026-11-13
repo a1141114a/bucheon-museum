@@ -58,12 +58,16 @@ export const copy = {
   current: ['可以游玩', '플레이 가능', 'PLAYABLE'], upcoming: ['开发中 · 尚未开放', '개발 중 · 미개방', 'IN DEVELOPMENT · LOCKED'],
   huntLocked: ['先完成第一关', '1장을 먼저 완료하세요', 'Finish Chapter 1 first'],
   huntIntro: ["在展厅找到三枚隐藏金币，再打开中央展柜里的宝箱。","전시실에 숨겨진 금화 세 닢을 찾아 중앙 진열장의 보물 상자를 여세요.","Find three hidden gold coins, then open the treasure chest in the central case."],
-  huntControls: ["拖动视角，使用方向键或屏幕按键移动。走近金币即可拾取。","화면을 드래그해 둘러보고 방향키나 화면 버튼으로 이동하세요. 금화에 다가가면 주울 수 있습니다.","Drag to look around. Move with arrow keys or the on-screen pad. Approach a coin to pick it up."],
+  huntControls: ["拖动画面转动视角；电脑用 WASD/方向键移动，触屏用左下摇杆。靠近后点击金币收取。","화면을 드래그해 시점을 돌리세요. PC는 WASD/방향키, 터치는 왼쪽 아래 조이스틱으로 이동합니다. 금화에 다가가 눌러 수집하세요.","Drag the scene to look around. Move with WASD/arrow keys on desktop or the lower-left joystick on touchscreens. Approach a coin, then click or tap it to collect."],
   huntClues: ["金币","금화","Gold coins"],
   huntWest: ["西侧后角的展柜附近","서쪽 뒤편 모서리의 진열장 근처","Near the case in the west rear corner"],
   huntEast: ["东侧入口角落的展柜附近","동쪽 입구 모서리의 진열장 근처","Near the case by the east entrance corner"],
   huntRear: ["东侧后角的展柜附近","동쪽 뒤편 모서리의 진열장 근처","Near the case in the east rear corner"],
   huntChest: ["中央宝箱","중앙 보물 상자","Central treasure chest"],
+  huntJoystick: ['移动摇杆','이동 조이스틱','Movement joystick'],
+  huntJoystickHelp: ['拖动摇杆移动，松手停止；拖动画面转动视角。','조이스틱을 끌어 이동하고 놓으면 멈춥니다. 화면을 드래그해 시점을 돌리세요.','Drag the joystick to move; release to stop. Drag the scene to look around.'],
+  huntClickCoin: ['已靠近金币，请点击金币收取。','금화가 가까이 있습니다. 금화를 눌러 수집하세요.','Coin within reach. Click or tap the coin to collect it.'],
+  huntCoinCollected: ['这枚金币已收取。','이 금화는 수집했습니다.','This coin has been collected.'],
   huntCollect: ["拾取金币","금화 줍기","Pick up coin"],
   huntOpen: ["打开宝箱","보물 상자 열기","Open treasure chest"],
   huntApproach: ["留意角落展柜背后的小金币。","모서리에 있는 진열장 뒤의 작은 금화를 살펴보세요.","Look behind the corner display cases for tiny gold coins."],
@@ -169,6 +173,7 @@ export const copy = {
 export type CopyKey = keyof typeof copy
 export function translate(lang: Language, key: CopyKey): string { return copy[key][{zh:0,ko:1,en:2}[lang]] }
 export const localized = (zh: string, ko: string, en: string): Localized => ({zh, ko, en})
+
 
 
 

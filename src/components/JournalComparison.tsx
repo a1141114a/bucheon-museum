@@ -74,7 +74,7 @@ function ComparisonModel({artifact,active}:{artifact:Artifact;active:boolean}){
 }
 
 export default function JournalComparison(){
-  const {state,dispatch,t}=useGame()
+  const {state,t}=useGame()
   const available=artifacts.filter(a=>statusOf(state,a.id)!=='locked'&&canModelCollection(a))
   const {root,active}=useVisibleModels(available.map(a=>a.id))
   return <section ref={root} className="journal-comparison" aria-labelledby="journal-comparison-title">
@@ -94,10 +94,10 @@ export default function JournalComparison(){
             <dl>{(['museum','period','material','dimensions','purpose'] as const).map(field=>artifact[field]&&<div key={field}><dt>{t(field)}</dt><dd>{artifact[field][state.language]}</dd></div>)}</dl>
             <section><h4>{t('history')}</h4><p>{artifact.history[state.language]}</p></section>
             <section className="comparison-sources"><h4>{t('sources')}</h4>{artifact.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.title} ↗</a>)}</section>
-            {status==='discovered'&&<button className="comparison-save" type="button" onClick={()=>dispatch({type:'unlock',id:artifact.id})}>{t('save')} ↗</button>}
           </div>
         </div>
       </article>
     })}</div>}
   </section>
 }
+

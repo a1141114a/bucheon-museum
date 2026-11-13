@@ -16,10 +16,11 @@ export default function WalkControls({active}:{active:boolean}) {
     const clear=()=>{keys.current.clear();movement.forward=0;movement.side=0;pointer=null}
     const start=(e:PointerEvent)=>{if(!active)return;pointer=e.pointerId;lastX=e.clientX;lastY=e.clientY;canvas.setPointerCapture(e.pointerId)}
     const move=(e:PointerEvent)=>{if(pointer!==e.pointerId)return;if(e.pointerType==='mouse'&&e.buttons!==1){pointer=null;return}angle.current.yaw-=(e.clientX-lastX)*.004;angle.current.pitch=Math.max(-.85,Math.min(.85,angle.current.pitch-(e.clientY-lastY)*.004));lastX=e.clientX;lastY=e.clientY}
-    const end=()=>{pointer=null}
-    window.addEventListener('keydown',down);window.addEventListener('keyup',up);window.addEventListener('blur',clear);window.addEventListener('pointerup',end);window.addEventListener('pointercancel',end)
+    const end=(e:PointerEvent)=>{if(pointer===e.pointerId)pointer=null}
+    const visibility=()=>{if(document.visibilityState==='hidden')clear()}
+    window.addEventListener('keydown',down);window.addEventListener('keyup',up);window.addEventListener('blur',clear);document.addEventListener('visibilitychange',visibility);window.addEventListener('pointerup',end);window.addEventListener('pointercancel',end)
     canvas.addEventListener('pointerdown',start);canvas.addEventListener('pointermove',move);canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end)
-    return()=>{clear();window.removeEventListener('keydown',down);window.removeEventListener('keyup',up);window.removeEventListener('blur',clear);window.removeEventListener('pointerup',end);window.removeEventListener('pointercancel',end);canvas.removeEventListener('pointerdown',start);canvas.removeEventListener('pointermove',move);canvas.removeEventListener('pointerup',end);canvas.removeEventListener('pointercancel',end)}
+    return()=>{clear();window.removeEventListener('keydown',down);window.removeEventListener('keyup',up);window.removeEventListener('blur',clear);document.removeEventListener('visibilitychange',visibility);window.removeEventListener('pointerup',end);window.removeEventListener('pointercancel',end);canvas.removeEventListener('pointerdown',start);canvas.removeEventListener('pointermove',move);canvas.removeEventListener('pointerup',end);canvas.removeEventListener('pointercancel',end)}
   },[gl,active,camera])
   useFrame((_,delta)=>{
     if(!active||document.querySelector('dialog[open]')){keys.current.clear();return}
@@ -36,3 +37,4 @@ export default function WalkControls({active}:{active:boolean}) {
   })
   return null
 }
+

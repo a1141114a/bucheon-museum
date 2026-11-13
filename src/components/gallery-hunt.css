@@ -86,3 +86,29 @@
 @media(max-height:520px) and (orientation:landscape) {
   .hunt-root .hunt-brief-launch { top:78px; }
 }
+
+/* Touch movement: one analogue joystick, independent of scene look gestures. */
+.hunt-joystick-wrap{flex:0 0 auto;display:grid;justify-items:center;gap:6px;pointer-events:auto;user-select:none;-webkit-user-select:none}
+.hunt-joystick{position:relative;width:clamp(108px,25vw,132px);height:clamp(108px,25vw,132px);border:3px solid #b58c50;border-radius:50%;background:radial-gradient(circle,#5b432d 0 33%,#36291fe8 34% 65%,#937046 66% 70%,#32241a 71%);box-shadow:inset 0 2px 8px #150e09aa,0 4px 14px #110b0799;touch-action:none;cursor:grab;-webkit-touch-callout:none}
+.hunt-joystick:active{cursor:grabbing}
+.hunt-joystick:focus-visible{outline:2px solid #ffdc8a;outline-offset:4px}
+.hunt-joystick[aria-disabled=true]{opacity:.45}
+.joystick-knob{position:absolute;left:calc(50% - 24px);top:calc(50% - 24px);width:48px;height:48px;border:2px solid #e5ba70;border-radius:50%;background:radial-gradient(circle at 35% 25%,#f4d49b,#be8e4d 66%,#6d4729);box-shadow:inset 0 2px #fff1c1,0 3px 7px #130d0a99;pointer-events:none}
+.joystick-directions{position:absolute;inset:0;pointer-events:none;color:#caa36b;font:10px/1 Arial,sans-serif}
+.joystick-directions i{position:absolute;font-style:normal}
+.joystick-directions i:nth-child(1){left:calc(50% - 5px);top:7px}
+.joystick-directions i:nth-child(2){left:7px;top:calc(50% - 5px)}
+.joystick-directions i:nth-child(3){right:7px;top:calc(50% - 5px)}
+.joystick-directions i:nth-child(4){left:calc(50% - 5px);bottom:7px}
+.joystick-label{max-width:140px;text-align:center;font:600 11px/1.4 var(--museum-interface);color:#ffe5b5;text-shadow:0 1px 3px #100a06}
+.hunt-root[data-touch-controls=true] .hunt-controls{gap:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:calc(12px + env(safe-area-inset-left,0px));right:calc(12px + env(safe-area-inset-right,0px))}
+.hunt-root[data-touch-controls=true] .hunt-status{flex:0 1 238px;width:auto;max-width:calc(100% - 120px);min-width:0}
+.hunt-root[data-touch-controls=true] .hunt-brief{max-height:max(96px,calc(100dvh - 270px))}
+.hunt-status .stone-button{white-space:normal;line-height:1.4;padding:8px 14px}
+@media(max-height:520px) and (orientation:landscape){
+  .hunt-joystick{width:108px;height:108px}
+  .hunt-joystick-wrap{gap:3px}
+  .hunt-root[data-touch-controls=true] .hunt-controls{bottom:calc(8px + env(safe-area-inset-bottom,0px))}
+  .hunt-status{font-size:12px}
+}
+
