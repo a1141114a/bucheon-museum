@@ -8,6 +8,7 @@ import type { Language } from '../types'
 import { clueIds, displays, gallerySpawn, nearbyExhibit, nearbyStation, stations, type ClueId, type Station } from '../state/exploration'
 import WalkControls from './WalkControls'
 import GalleryArchitecture from './GalleryArchitecture'
+import ArtPortal from './ArtPortal'
 
 type Position = [number,number,number]
 
@@ -223,21 +224,28 @@ interface GalleryProps {
   onInspect:(station:Station)=>void
   onNearExhibit:(id:string|null)=>void
   onExhibit:(id:string)=>void
+  entering?:boolean
+  onNearPainting?:(near:boolean)=>void
+  onEnterPainting?:()=>void
+  onEnteredPainting?:()=>void
 }
 
-function Hall({active,language,clues,opened,celebrating,onNear,onInspect,onNearExhibit,onExhibit}:GalleryProps) {
+function Hall({active,language,clues,opened,celebrating,onNear,onInspect,onNearExhibit,onExhibit,entering=false,onNearPainting,onEnterPainting,onEnteredPainting}:GalleryProps) {
   const {camera}=useThree()
   const collectCoin=(id:ClueId)=>{
     if(active&&!opened&&nearbyStation(camera.position.x,camera.position.z)===id)onInspect(id)
   }
   const previous=useRef<Station|null>(null)
   const previousExhibit=useRef<string|null>(null)
+  const previousPainting=useRef(false)
   useFrame(({camera})=>{
     const {x,z}=camera.position
     const station=active?nearbyStation(x,z):null
     const exhibit=active?nearbyExhibit(x,z):null
     if (station!==previous.current) { previous.current=station; onNear(station) }
     if (exhibit!==previousExhibit.current) { previousExhibit.current=exhibit; onNearExhibit(exhibit) }
+    const near=opened&&Math.hypot(x,z+12)<2.3
+    if(near!==previousPainting.current){previousPainting.current=near;onNearPainting?.(near)}
   })
   return <>
     <color attach="background" args={['#352d24']}/><fog attach="fog" args={['#352d24',24,56]}/>
@@ -253,6 +261,7 @@ function Hall({active,language,clues,opened,celebrating,onNear,onInspect,onNearE
         <HiddenCoin key={id} id={id} onCollect={()=>collectCoin(id)}/>)}
     </Suspense>
     <WalkControls active={active}/>
+    <Suspense fallback={null}><ArtPortal index={0} placed={opened} entering={entering} position={[0,2,-12.35]} height={3.8} onEntered={()=>onEnteredPainting?.()} onClick={()=>{if(opened&&Math.hypot(camera.position.x,camera.position.z+12)<2.3)onEnterPainting?.()}}/></Suspense>
     {celebrating&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&<><TreasureCamera/><CoinFountain/></>}
   </>
 }

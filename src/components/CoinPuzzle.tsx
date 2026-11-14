@@ -1,5 +1,4 @@
 import { useEffect, useRef, type KeyboardEvent, type ReactNode } from 'react'
-import { Link } from 'react-router-dom'
 import { coinPuzzleNeighbors } from '../state/coinPuzzle'
 import { useGame } from '../state/GameProvider'
 import './coin-puzzle.css'
@@ -76,7 +75,7 @@ export function CoinReward({onClose}:{onClose:()=>void}) {
     <p className="coin-puzzle-instructions">{t('coinPuzzleNextNote')}</p>
     <div className="coin-puzzle-footer">
       <button type="button" className="coin-puzzle-action" onClick={onClose}>{t('close')}</button>
-      <Link className="coin-puzzle-action coin-puzzle-next" to="/levels/3">{t('coinPuzzleNext')} →</Link>
+      <button type="button" className="coin-puzzle-action coin-puzzle-next" onClick={onClose}>{t('coinPuzzleNext')} →</button>
     </div>
   </CompletionCard>
 }

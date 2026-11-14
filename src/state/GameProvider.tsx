@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer, useState, type Dispatch, type ReactNode } from 'react'
-import { gameReducer, initialState, parseSave, STORAGE_KEY, type Action, type GameState } from './game'
+import { gameReducer, initialState, parseSave, STORAGE_KEY, type Action, type PaintingAction, type GameState } from './game'
 import { translate, type CopyKey } from '../i18n'
-const Context=createContext<{state:GameState;dispatch:Dispatch<Action>;storageError:boolean;t:(key:CopyKey)=>string}|null>(null)
+const Context=createContext<{state:GameState;dispatch:Dispatch<Action|PaintingAction>;storageError:boolean;t:(key:CopyKey)=>string}|null>(null)
 export function GameProvider({children}:{children:ReactNode}) {
   const [storageError,setStorageError]=useState(false)
   const [state,dispatch]=useReducer(gameReducer,initialState,()=>{

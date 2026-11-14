@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
+import {paintingCopy} from '../data/paintingWorlds'
 import { artifacts } from '../data/artifacts'
 import type { Artifact } from '../types'
 import type { CopyKey } from '../i18n'
@@ -20,6 +21,8 @@ const directions = [
 
 export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifact:(artifact:Artifact)=>void}) {
   const {state,dispatch,t} = useGame()
+  const navigate=useNavigate()
+  const [nearPainting,setNearPainting]=useState(false)
   const touchControls=useTouchControls()
   const [near,setNear] = useState<Station | null>(null)
   const [exhibitId,setExhibitId] = useState<string|null>(null)
@@ -27,7 +30,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   const [showHint,setShowHint] = useState(false)
   const [briefOpen,setBriefOpen] = useState(false)
   const [sceneKey,setSceneKey] = useState(0)
-  const [phase,setPhase] = useState<'idle'|'puzzle'|'celebration'|'reward'>('idle')
+  const [phase,setPhase] = useState<'idle'|'puzzle'|'celebration'|'reward'|'entering'>('idle')
   const [board,setBoard] = useState(createCoinPuzzle)
   const [moves,setMoves] = useState(0)
   const {clues,opened} = state.gallery
@@ -95,7 +98,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
   return <section className="hunt-root" data-touch-controls={touchControls} aria-labelledby="hunt-title">
     <div className="hunt-scene">
       <Suspense fallback={<div className="scene-error">3D…</div>}>
-        <Scene key={sceneKey} language={state.language} active={sceneActive} clues={clues} opened={opened} celebrating={celebrating} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')}/>
+        <Scene key={sceneKey} language={state.language} active={sceneActive} clues={clues} opened={opened} celebrating={celebrating} onNear={setNear} onInspect={inspect} onNearExhibit={setExhibitId} onExhibit={inspectExhibit} error={t('error')} entering={phase==='entering'} onNearPainting={setNearPainting} onEnterPainting={()=>{if(sceneActive&&nearPainting){movement.forward=0;movement.side=0;setPhase('entering')}}} onEnteredPainting={()=>{dispatch({type:'photo-start'});navigate('/levels/3')}}/>
       </Suspense>
     </div>
     <button type="button" className="stone-button hunt-brief-launch" aria-controls="hunt-task-panel"
@@ -131,10 +134,12 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
         {!opened && near==='chest' && !blockedChest &&
           <button type="button" className="stone-button" onClick={() => inspect(near)}>{t('huntOpen')}</button>}
         {exhibit && !near && <button type="button" className="stone-button" onClick={() => inspectExhibit(exhibit.id)}>{t('huntExhibit')}</button>}
+        {opened&&nearPainting&&<button type="button" className="stone-button" onClick={()=>{movement.forward=0;movement.side=0;setPhase('entering')}}>{paintingCopy(state.language,'enter')}</button>}
       </div>
     </div>
     {phase==='puzzle' && <CoinPuzzle board={board} moves={moves} onMove={movePuzzle} onShuffle={shufflePuzzle} onClose={()=>setPhase('idle')}/>}
     {phase==='reward' && <CoinReward onClose={()=>setPhase('idle')}/>}
+    {phase==='entering'&&<div className="photo-crossing"><span>{paintingCopy(state.language,'reveal')}</span></div>}
   </section>
 }
 
