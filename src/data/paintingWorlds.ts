@@ -6,7 +6,8 @@ export const paintingNames=[
  ['晨光圣殿','새벽빛 성전','Sanctuary of Dawn'],
  ['蓝金之夜','푸른 황금의 밤','A Night in Blue and Gold'],
 ] as const
-export const paintingCrops=[[.21,.205,.585,.59],[.349,.128,.303,.746],[.21,.205,.585,.59],[.218,.215,.565,.576],[.212,.212,.578,.578]] as const
+// Rectangular bounds retain every original frame; never extract a subject silhouette.
+export const paintingCrops=[[.096,.094,.808,.810],[.282,.058,.437,.885],[.086,.090,.824,.826],[.106,.096,.787,.804],[.082,.094,.836,.822]] as const
 export const paintingText={
  title:['画境之门','그림 속으로','Beyond the Frame'],
  guide:['旅途指引','여정 안내','Journey guide'],
@@ -36,11 +37,12 @@ export const paintingText={
  back:['前往第二关的发光画作','2장의 빛나는 그림으로','Find the glowing artwork in Chapter 2'],
  entryNote:['宝箱开启后，展厅后方的画作将发光。靠近它，走入第三章。','보물상자를 연 뒤 전시장 뒤쪽 그림이 빛납니다. 가까이 가서 3장으로 들어가세요.','After opening the chest, a painting glows at the back of the hall. Approach it to enter Chapter 3.'],
  info:['查看原作','원작 보기','View the original'],
- source:['玩家提供的原作参考；藏品的正式题名、年代、作者与来源尚待核实。场景名称为游戏章节名称。立体展品依据照片重建正面构图，背面与厚度为艺术化推定，并非实物扫描。','사용자가 제공한 원작 참고 이미지입니다. 정식 명칭·연대·작가·출처는 확인 중이며 공간명은 게임의 장 제목입니다. 입체 전시물은 사진의 정면 구도를 재구성했으며 뒷면과 두께는 해석된 형상으로 실물 스캔이 아닙니다.','Original reference supplied by the player. Official title, date, creator and source remain unverified. World names are game chapter titles. The sculptural relief reconstructs the photograph’s frontal composition; depth and reverse are interpreted, not scanned.'],
+ source:['玩家提供的原作参考；藏品的正式题名、年代、作者与来源尚待核实。场景名称为游戏章节名称。展件完整保留原作、衬底及原始画框的正面图像，并建有实体背板、侧壁和外层框线；不再将画中人物抠成浮雕。它是带框展示模型，并非实物扫描或人物雕塑。','사용자가 제공한 원작 참고 이미지입니다. 정식 명칭·연대·작가·출처는 확인 중이며 공간명은 게임의 장 제목입니다. 전시 모델은 작품과 바탕, 원래 액자의 정면 이미지를 온전히 보존하고 입체 뒷판·측면·외곽 몰딩을 갖춥니다. 인물 실루엣 부조나 실물 스캔이 아닌 액자형 전시 모델입니다.','Original reference supplied by the player. Official title, date, creator and source remain unverified. World names are game chapter titles. The display preserves the whole artwork, mount and original frame image, with a solid backing, side walls and outer mouldings. It is a framed display model, not an extracted figure relief or a scan.'],
  close:['关闭','닫기','Close'],
  locked:['先完成第二关的金币拼图。','먼저 2장의 금화 퍼즐을 완성하세요.','Complete the Chapter 2 coin puzzle first.'],
 } as const
 export function paintingCopy(language:Language,key:keyof typeof paintingText){return paintingText[key][language==='zh'?0:language==='ko'?1:2]}
 export function worldName(language:Language,index:number){return paintingNames[index][language==='zh'?0:language==='ko'?1:2]}
-export const worldAsset=(file:string)=>`${import.meta.env.BASE_URL}models/painting-worlds/${file}.glb`
+export const worldAsset=(file:string)=>`${import.meta.env.BASE_URL}models/painting-worlds-v2/${file}.glb`
 export const artPhoto=(index:number)=>`${import.meta.env.BASE_URL}paintings/art-${index+1}.jpg`
+

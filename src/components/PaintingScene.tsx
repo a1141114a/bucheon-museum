@@ -19,7 +19,7 @@ function DoorBloom({onDone}:{onDone:()=>void}){
 export interface PaintingSceneProps {progress:PaintingProgress;active:boolean;raised:boolean;entering:boolean;opening:boolean;onPose:(pose:Pose)=>void;onTake:()=>void;onEnter:()=>void;onEntered:()=>void;onReady:()=>void;onOpen:()=>void;onFinish:()=>void}
 function Content(p:PaintingSceneProps){
  const {camera,size}=useThree(),room=p.progress.room,n=room+1
- useEffect(()=>{if(camera instanceof PerspectiveCamera){camera.fov=Math.min(90,2*Math.atan(Math.tan(Math.PI/8)/Math.min(1,size.width/size.height))*180/Math.PI);camera.updateProjectionMatrix()}},[camera,size.width,size.height])
+ useEffect(()=>{if(camera instanceof PerspectiveCamera){camera.fov=Math.min(92,2*Math.atan(Math.tan(55*Math.PI/360)/Math.min(1,size.width/size.height))*180/Math.PI);camera.updateProjectionMatrix()}},[camera,size.width,size.height])
  const point=artworkPositions[room]
  return <>
  <WorldLight index={room}/><Suspense fallback={null}><PaintingWorld index={room} doorOpen={p.opening||p.progress.finished} onReady={p.onReady}/></Suspense>
@@ -36,6 +36,7 @@ function Content(p:PaintingSceneProps){
  </>
 }
 export default function PaintingScene(p:PaintingSceneProps){
- const camera=useMemo(()=>({position:[0,1.65,8] as [number,number,number],fov:45,near:.08,far:70}),[])
- return <Canvas camera={camera} dpr={[1,1.4]} gl={{antialias:true,powerPreference:'high-performance'}}><Content {...p}/></Canvas>
+ const camera=useMemo(()=>({position:[0,1.65,8] as [number,number,number],fov:55,near:.08,far:70}),[])
+ return <Canvas shadows camera={camera} dpr={[1,1.5]} gl={{antialias:true,powerPreference:'high-performance'}}><Content {...p}/></Canvas>
 }
+

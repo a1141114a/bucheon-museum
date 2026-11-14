@@ -26,7 +26,7 @@ npm run preview
 2. **展厅寻宝**：探索展柜、查看藏品介绍，靠近后点击藏品背后的三枚金币拾取。中央宝箱的金币滑块拼图完成后，宝箱打开并喷出金币。后墙第一幅画作发光，靠近后点击“走入画境”进入第三章。
 3. **画境之门**：依次探索青花庭院、哥特教堂、金色沙龙、晨光圣殿、蓝金宫廷五个三维空间。前四个空间各藏有下一幅画作。拾取后到金色地面圆纹处，正对预设画框，举起、对齐、放置，再向前走入实时展开的空间。最后寻找钥匙、打开最终之门，结束旅程。没有计时、计分或尝试次数限制，也不能自由改造空间。
 
-第三章的场景名称是游戏章节名，并非已核实的藏品正式题名。原作信息入口保留完整参考图，并明确注明尚待核实的资料。入口立体展品采用有实际厚度、封闭背面及原作投影的高浮雕；深度和背面是艺术化推定，不是扫描得到的完整圆雕。
+第三章的场景名称是游戏章节名，并非已核实的藏品正式题名。原作信息入口保留完整参考图，并明确注明尚待核实的资料。现行展件采用完整带框原作、实体背板、侧壁及分层外框，不再使用提取人物轮廓的高浮雕。五个空间的结构、陈设及灯光经过重建，详见 [场景精细化记录](docs/PAINTING_REFINEMENT.md)。
 
 桌面：WASD / 方向键移动，拖动画面转向，第三章可按 E 互动。手机与 iPad：左侧摇杆移动、拖动画面转向；按钮可完成拾取、举起、放置、入画和开门。网页不会强制锁定横屏。
 
@@ -43,14 +43,14 @@ npm run preview
 第三章新增两份可重复执行的 `bpy` 脚本：
 
 ```sh
-blender --background --factory-startup --python blender/scripts/create_painting_worlds.py
-blender --background --factory-startup --python blender/scripts/create_painting_props.py
+blender --background --factory-startup --python-exit-code 1 --python blender/scripts/refine_painting_worlds.py
+blender --background --factory-startup --python-exit-code 1 --python blender/scripts/refine_painting_props.py
 ```
 
-- `blender/blend/painting-worlds/world-1.blend` 至 `world-5.blend`：五个可编辑场景，原始贴图已打包。
+- `blender/blend/painting-worlds-v2/world-1.blend` 至 `world-5.blend`：五个可编辑场景，原始贴图已打包。
 - 同目录 `portal-frame.blend`、`lectern.blend`、`key.blend`：画框、画架和钥匙。
-- `public/models/painting-worlds/room-1.glb` 至 `room-5.glb`：游戏场景模型。
-- 同目录 `sculpture-1.glb` 至 `sculpture-5.glb`：独立入口高浮雕。
+- `public/models/painting-worlds-v2/room-1.glb` 至 `room-5.glb`：游戏场景模型。
+- 同目录 `artwork-1.glb` 至 `artwork-5.glb`：完整带框原作展件。
 - 同目录 `portal-frame.glb`、`lectern.glb`、`key.glb`：公共交互模型。
 - `environment-assets/painting-worlds/source/atlas-1.png` 至 `atlas-5.png`：原始材质集合图。
 - `public/paintings/art-1.jpg` 至 `art-5.jpg`：用户提供的原作参考，文件未改写。
@@ -74,6 +74,7 @@ blender --background --factory-startup --python blender/scripts/create_painting_
 
 ## 验证
 
-本次类型检查、54 项自动测试、生产构建通过。隔离浏览器进度完成第二章入口 → 四次拾画 / 对齐 / 穿越 → 第五画境钥匙与最终门 → 刷新与重新探索。另检查五种窗口尺寸的中韩英排版、桌面键盘、WebKit 触屏摇杆与原作信息窗。
+精细化版类型检查、57 项自动测试、生产构建通过；当前验证记录见 [场景精细化记录](docs/PAINTING_REFINEMENT.md)。隔离浏览器完成第二章入口 → 四次拾画 / 对齐 / 穿越 → 第五画境钥匙与最终门 → 刷新与重新探索，并检查手机、iPad 尺寸的中韩英排版、键盘和触屏。
 
 这些是桌面浏览器和 WebKit 引擎的自动化检查，不等于所有真实手机 / iPad 的性能验收。Three.js 生产包保留大体积渲染依赖的构建提示；画境按当前与相邻场景加载，离开后释放模型资源。
+

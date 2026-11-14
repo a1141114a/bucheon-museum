@@ -32,14 +32,14 @@ export default function ArtPortal({index,placed,entering,onEntered,onReady,posit
  useFrame((state,dt)=>{
   if(placed&&ready)reveal.current=Math.min(1,reveal.current+dt/1.5)
   if(photo.current)photo.current.opacity=empty&&!placed?0:1-reveal.current
-  if(view.current){view.current.aspect=width/height;view.current.fov=45;view.current.updateProjectionMatrix()}
+  if(view.current){view.current.aspect=width/height;view.current.fov=55;view.current.updateProjectionMatrix()}
   if(entering&&ready&&target.current){
    if(start.current===null){start.current=state.clock.elapsedTime
     const a=new Vector3(position[0]-width/2,position[1]-height/2,position[2]).project(camera),b=new Vector3(position[0]+width/2,position[1]+height/2,position[2]).project(camera)
     initialRect.current=new Vector4((a.x+1)/2,(a.y+1)/2,Math.abs(b.x-a.x)/2,Math.abs(b.y-a.y)/2)
    }
    const t=Math.min(1,(state.clock.elapsedTime-start.current)/2.25),ease=t*t*(3-2*t),r=rectangle.current.copy(initialRect.current!).lerp(new Vector4(0,0,1,1),ease)
-   if(view.current){view.current.aspect=r.z*size.width/(r.w*size.height);view.current.fov=45+(Math.min(90,2*Math.atan(Math.tan(Math.PI/8)/Math.min(1,size.width/size.height))*180/Math.PI)-45)*ease;view.current.updateProjectionMatrix()}
+   if(view.current){view.current.aspect=r.z*size.width/(r.w*size.height);view.current.fov=55+(Math.min(92,2*Math.atan(Math.tan(55*Math.PI/360)/Math.min(1,size.width/size.height))*180/Math.PI)-55)*ease;view.current.updateProjectionMatrix()}
    overlay.material.uniforms.picture.value=target.current;overlay.material.uniforms.rect.value=r
    gl.autoClear=true;gl.render(state.scene,camera);gl.autoClear=false;gl.clearDepth();gl.render(overlay.scene,overlay.cam);gl.autoClear=true
    if(t===1&&!finished.current){finished.current=true;onEntered()}
@@ -50,7 +50,7 @@ export default function ArtPortal({index,placed,entering,onEntered,onReady,posit
  <mesh position={[0,0,-.04]}><planeGeometry args={[width,height]}/><meshBasicMaterial color="#302014"/></mesh>
  {placed&&<Suspense fallback={null}><mesh><planeGeometry args={[width,height]}/><meshBasicMaterial toneMapped={false}>
   <RenderTexture attach="map" ref={target} samples={2} width={Math.min(1440,size.width)} height={Math.min(1100,size.height)} renderPriority={0}>
-   <PerspectiveCamera ref={view} makeDefault manual fov={45} aspect={width/height} position={[0,1.65,8]} near={.08} far={70}/>
+   <PerspectiveCamera ref={view} makeDefault manual fov={55} aspect={width/height} position={[0,1.65,8]} near={.08} far={70}/>
    <WorldLight index={index}/><Suspense fallback={null}><PaintingWorld index={index} onReady={onLoaded}/></Suspense>
   </RenderTexture>
  </meshBasicMaterial></mesh></Suspense>}
@@ -62,3 +62,4 @@ function PhotoFade({index,materialRef}:{index:number;materialRef:React.RefObject
  const src=useTexture(artPhoto(index)),texture=useMemo(()=>{const t=src.clone(),[x,y,w,h]=paintingCrops[index];t.offset.set(x,1-y-h);t.repeat.set(w,h);t.needsUpdate=true;return t},[src,index])
  useEffect(()=>()=>texture.dispose(),[texture]);return <meshBasicMaterial ref={materialRef} map={texture} transparent side={DoubleSide} toneMapped={false}/>
 }
+

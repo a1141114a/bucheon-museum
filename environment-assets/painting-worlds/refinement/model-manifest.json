@@ -1,0 +1,37 @@
+[
+  {
+    "room": 1,
+    "editableObjects": 5131,
+    "renderBatches": 12,
+    "vertices": 423516,
+    "framedOriginal": true
+  },
+  {
+    "room": 2,
+    "editableObjects": 1979,
+    "renderBatches": 14,
+    "vertices": 153146,
+    "framedOriginal": true
+  },
+  {
+    "room": 3,
+    "editableObjects": 2628,
+    "renderBatches": 22,
+    "vertices": 207660,
+    "framedOriginal": true
+  },
+  {
+    "room": 4,
+    "editableObjects": 2127,
+    "renderBatches": 14,
+    "vertices": 169752,
+    "framedOriginal": true
+  },
+  {
+    "room": 5,
+    "editableObjects": 2650,
+    "renderBatches": 10,
+    "vertices": 261682,
+    "framedOriginal": true
+  }
+]

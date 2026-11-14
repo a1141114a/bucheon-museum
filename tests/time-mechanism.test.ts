@@ -46,7 +46,7 @@ describe('formal painting chapter replaces the gear mechanism',()=>{
   expect(parsePaintings(null)).toEqual(freshPaintings())
  })
  it('keeps paths open around sculptures, furniture, fountain and bridge',()=>{
-  expect(paintingWalkable(0,0,3.5)).toBe(false);expect(paintingWalkable(0,-3,3.5)).toBe(true)
+  expect(paintingWalkable(0,-3.2,-.7)).toBe(false);expect(paintingWalkable(0,0,3.5)).toBe(true)
   expect(paintingWalkable(0,2.3,0)).toBe(false);expect(paintingWalkable(0,3.7,0)).toBe(true)
   expect(paintingWalkable(1,3.8,0)).toBe(false);expect(paintingWalkable(4,0,-1.7)).toBe(false)
   expect(paintingWalkable(4,3,-1.7)).toBe(true);expect(paintingWalkable(4,0,-7.6)).toBe(true);expect(paintingWalkable(4,0,-8.2)).toBe(false)
