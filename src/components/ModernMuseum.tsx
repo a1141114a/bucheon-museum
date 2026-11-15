@@ -4,7 +4,7 @@ import {Canvas,useFrame,useThree} from '@react-three/fiber'
 import {Environment,Lightformer,useGLTF} from '@react-three/drei'
 import {Mesh,Object3D,Texture} from 'three'
 import {useGame} from '../state/GameProvider'
-import {paintingArtifacts} from '../data/paintingArtifacts'
+import {museumExhibits} from '../data/museumExhibits'
 import {modernMuseumModel,museumText,museumWalkable} from '../data/modernMuseum'
 import type {Artifact} from '../types'
 import PaintingWalk from './PaintingWalk'
@@ -28,7 +28,7 @@ function MuseumRoom({onReady,inspect}:{onReady:()=>void;inspect:(a:Artifact)=>vo
  const {scene}=useGLTF(url,import.meta.env.BASE_URL+'draco/')
  const model=useMemo(()=>{const o=scene.clone(true);o.traverse(n=>{if(n instanceof Mesh){const materials=Array.isArray(n.material)?n.material:[n.material];n.castShadow=!materials.some(m=>m.transparent||/oak|plank joints/i.test(m.name));n.receiveShadow=true;for(const m of materials){for(const value of Object.values(m))if(value instanceof Texture)value.anisotropy=8;if(m.transparent){m.depthWrite=false;n.renderOrder=2}}}});return o},[scene])
  useEffect(()=>onReady(),[onReady])
- return <primitive object={model} onClick={(e:{delta:number;object:Mesh;stopPropagation:()=>void})=>{if(e.delta>6)return;let o:typeof e.object|null=e.object;while(o){const id=o.userData.artifactId,art=paintingArtifacts.find(a=>a.id===id);if(art){e.stopPropagation();inspect(art);return}o=o.parent as Mesh|null}}}/>
+ return <primitive object={model} onClick={(e:{delta:number;object:Mesh;stopPropagation:()=>void})=>{if(e.delta>6)return;let o:typeof e.object|null=e.object;while(o){const id=o.userData.artifactId,art=museumExhibits.find(a=>a.id===id);if(art){e.stopPropagation();inspect(art);return}o=o.parent as Mesh|null}}}/>
 }
 export default function ModernMuseum({active,onArtifact,onRestart}:{active:boolean;onArtifact:(a:Artifact)=>void;onRestart:()=>void}){
  const {state}=useGame(),txt=(key:Parameters<typeof museumText>[1])=>museumText(state.language,key),touch=useTouchControls()

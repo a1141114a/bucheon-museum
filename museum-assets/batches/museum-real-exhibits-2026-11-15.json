@@ -1,0 +1,212 @@
+[
+  {
+    "id": "bcm-951",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "皇家伍斯特《日本风钱纹花瓶》",
+      "ko": "로열 우스터 ‘일본풍의 엽전’ 화병",
+      "en": "Royal Worcester: Japanese-style coin vase"
+    },
+    "maker": {
+      "zh": "皇家伍斯特",
+      "ko": "로열 우스터",
+      "en": "Royal Worcester"
+    },
+    "period": {
+      "zh": "英国／19世纪",
+      "ko": "영국 / 19세기",
+      "en": "United Kingdom / 19th century"
+    },
+    "material": {
+      "zh": "瓷器、金彩装饰；底座具体材质未注明",
+      "ko": "자기와 금색 장식, 받침의 세부 재질 미기재",
+      "en": "Porcelain with gilt decoration; base material not specified"
+    },
+    "purpose": {
+      "zh": "观赏陈设花瓶",
+      "ko": "장식용 화병",
+      "en": "Decorative display vase"
+    },
+    "history": {
+      "zh": "馆方将其描述为窄口、长颈的扁瓶，颈肩之间有云纹双耳，底部有枝蔓状承托。器身以钱币、竹、扇及日式陶器等装饰，体现英国瓷器对日本题材的吸收。\n\n本件官方照片与现代展厅前方玻璃柜中的扁瓶一致。模型按照照片重建扁圆器身、双耳、开口、钱币和底座；细小文字不作未经核实的转写，背面及微细纹样为近似。",
+      "ko": "박물관은 좁은 입과 긴 목의 편병, 목과 어깨를 잇는 구름형 손잡이, 줄기 모양 받침을 설명한다. 엽전·대나무·부채·일본식 도자기 등으로 일본 취향을 표현했다.\n\n공식 사진은 현대 전시실 앞쪽 진열장의 유물과 일치한다. 모델은 납작한 몸체·두 귀·입구·엽전·받침을 사진에 따라 제작했다. 작은 글씨를 추측해 옮기지 않았으며 뒷면과 미세 무늬는 근사했다.",
+      "en": "The museum describes a narrow mouth, long neck, flattened body, cloud-shaped handles and a scrolling support. Coins, bamboo, fans and Japanese-style ceramics form the decoration.\n\nThe official photograph matches the vase in the foreground case. The model reconstructs its form, handles, opening, coins and support from photographs. Tiny inscriptions are not invented; hidden surfaces and fine ornament remain approximate."
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "dimensions": {
+      "zh": "29.0X40.0cm（馆方登记，测量范围未注明）",
+      "ko": "29.0X40.0cm (측정 범위 미기재)",
+      "en": "29.0X40.0cm (measurement scope unspecified)"
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved bcm-951, bcm-941 and bcm-978 for modelling and replacing the museum scene context objects."
+    },
+    "sources": [
+      {
+        "title": "로열 우스터 '일본풍의 엽전' 화병",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/951/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1281",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/museum-real-exhibits/bcm-951.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-941",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "塞夫勒《和平花瓶》",
+      "ko": "세브르 ‘평화의 화병’",
+      "en": "Sèvres: Peace Vase"
+    },
+    "maker": {
+      "zh": "塞夫勒",
+      "ko": "세브르",
+      "en": "Sèvres"
+    },
+    "period": {
+      "zh": "法国／19世纪",
+      "ko": "프랑스 / 19세기",
+      "en": "France / 19th century"
+    },
+    "material": {
+      "zh": "瓷器、白泥叠饰及鎏金底座装饰（依馆方说明）",
+      "ko": "자기·백토 중첩 장식·오르물루 받침 (박물관 설명)",
+      "en": "Porcelain with layered white-clay decoration and an ormolu support (museum description)"
+    },
+    "purpose": {
+      "zh": "以和平为主题的观赏花瓶",
+      "ko": "평화를 주제로 한 장식 화병",
+      "en": "Decorative vase with a peace theme"
+    },
+    "history": {
+      "zh": "蓝色瓶身以鸽子和花卉表现和平意象，背景带有中国山水画风。馆方说明其以白泥叠饰表现立体装饰，底座使用鎏金装饰工艺。\n\n馆方引用1873年塞夫勒目录，认为它原可能属于一对，目前仅确认一件。1873年是目录依据，不擅自当作本件制作年份。官方照片与过道后方主玻璃柜中的蓝色花瓶一致。模型重建长颈、敞口、鸽子和花卉浅浮雕及分层底座；微细装饰和背面近似处理。",
+      "ko": "푸른 몸체에 평화를 상징하는 비둘기와 꽃을 중국 산수화풍 배경과 함께 배치했다. 박물관은 백토를 겹쳐 입히는 장식과 오르물루 받침을 설명한다.\n\n1873년 세브르 목록에 따르면 한 쌍이었을 가능성이 있으나 현재는 한 점만 확인된다. 목록의 연도를 제작연도로 단정하지 않는다. 공식 사진은 통로 뒤쪽의 큰 푸른 화병과 일치한다. 모델은 목·입구·비둘기와 꽃 부조·받침을 재현하되 미세 장식과 뒷면은 근사했다.",
+      "en": "A blue ground carries a dove and flowers within a Chinese-landscape-inspired setting. The museum describes layered white-clay decoration and an ormolu support.\n\nAn 1873 Sèvres catalogue suggests a pair, but only one is currently identified. That catalogue date is not asserted as this object’s exact production year. Its official photograph matches the blue vase in the rear case. The model reconstructs the neck, flared mouth, dove, flowers and support; fine and hidden details are approximate."
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "dimensions": {
+      "zh": "24.0X83.0cm（馆方登记，测量范围未注明）",
+      "ko": "24.0X83.0cm (측정 범위 미기재)",
+      "en": "24.0X83.0cm (measurement scope unspecified)"
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved bcm-951, bcm-941 and bcm-978 for modelling and replacing the museum scene context objects."
+    },
+    "sources": [
+      {
+        "title": "세브르 '평화의 화병'",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/941/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1271",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/museum-real-exhibits/bcm-941.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-978",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "迈森花卉餐具组",
+      "ko": "마이센 디너서비스",
+      "en": "Meissen floral dinner service"
+    },
+    "maker": {
+      "zh": "迈森",
+      "ko": "마이센",
+      "en": "Meissen"
+    },
+    "period": {
+      "zh": "德国／19世纪",
+      "ko": "독일 / 19세기",
+      "en": "Germany / 19th century"
+    },
+    "material": {
+      "zh": "瓷器、金彩及花卉彩绘（依馆方说明）",
+      "ko": "자기·금색 테두리·꽃 장식 (박물관 설명)",
+      "en": "Porcelain with floral painting and gilt borders (museum description)"
+    },
+    "purpose": {
+      "zh": "餐桌陈设与餐饮器具",
+      "ko": "식탁 진열 및 식사용 기물",
+      "en": "Table display and dining vessels"
+    },
+    "history": {
+      "zh": "馆方介绍这套餐具以紫色花卉为中心，组合其他花朵，并在盘和汤碗的边缘加入几何金彩装饰。官方照片可见椭圆盘、圆盘和带盖器物等。\n\n本组用于替换游戏原先没有明确藏品身份的青花示意餐具；未将它冒称为实景照片中青花餐桌的原位同款。模型按官方照片制作可辨识的盘、碗和盖，花卉及微细纹饰作近似处理，不推断照片之外的完整原始件数。",
+      "ko": "자주색 꽃을 중심으로 여러 꽃을 구성하고 접시와 수프 볼 가장자리에 기하학적 금색 장식을 더한 식기다. 공식 사진에서 타원 접시·원형 접시·뚜껑 있는 기물을 확인할 수 있다.\n\n게임의 신원이 없는 청화 예시 식기를 대체한다. 실경 사진 속 청화 식기와 같은 원위치 유물이라고 주장하지 않는다. 사진에서 구별되는 접시·볼·뚜껑을 제작하고 꽃과 미세 장식은 근사했으며 원래 전체 수량을 추측하지 않았다.",
+      "en": "Purple flowers anchor the decoration, accompanied by other blossoms and geometric gilt borders on plates and soup bowls. The official photograph shows oval and round dishes and covered vessels.\n\nThis set replaces the game’s unidentified blue-and-white context tableware. It is not presented as the identical service in the room photograph. Recognizable photographed pieces are modelled, with approximate flowers and fine details; the original complete set size is not inferred."
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "dimensions": {
+      "zh": "24.8cm（馆方登记，测量范围未注明）",
+      "ko": "24.8cm (측정 범위 미기재)",
+      "en": "24.8cm (measurement scope unspecified)"
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved bcm-951, bcm-941 and bcm-978 for modelling and replacing the museum scene context objects."
+    },
+    "sources": [
+      {
+        "title": "마이센 디너서비스",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/978/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1308",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/museum-real-exhibits/bcm-978.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  }
+]

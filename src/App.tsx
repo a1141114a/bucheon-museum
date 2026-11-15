@@ -40,7 +40,7 @@ export default function App(){
       {storageError&&<p className="storage-warning" role="alert">{t('storageError')}</p>}
       <Routes><Route path="/levels/1" element={<Restoration inspect={()=>inspect()} active={!selected&&!menu}/>}/><Route path="/levels/2" element={<GalleryHunt active={!menu&&!selected} onArtifact={inspect}/>}/><Route path="/levels/3" element={<TimeChamber active={!menu&&!selected} onArtifact={inspect}/>}/><Route path="/journal" element={<Journal open={inspect}/>}/><Route path="/collection-library" element={<Suspense fallback={<p>Loading…</p>}><CollectionLibrary/></Suspense>}/><Route path="*" element={<Navigate to="/" replace/>}/></Routes>
       <footer><span>{storageError?'—':t('saved')}</span><button onClick={()=>{if(window.confirm(t('resetConfirm'))){setSelected(null);dispatch({type:'reset'})}}}>{t('reset')}</button></footer>
-    </main></div>{selected&&<ArtifactCard artifact={selected} onClose={()=>setSelected(null)}/>}</div>
+    </main></div>{selected&&<ArtifactCard artifact={selected} catalogueOnly={!artifacts.some(a=>a.id===selected.id)} onClose={()=>setSelected(null)}/>}</div>
 }
 
 

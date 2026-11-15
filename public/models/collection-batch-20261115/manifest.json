@@ -1,7 +1,7 @@
 {
   "approvedAt": "2026-11-15",
   "count": 30,
-  "placedInGame": false,
+  "placedInGame": true,
   "items": [
     {
       "id": "bcm-1101",
@@ -10,7 +10,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1101.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1101.py",
       "preview": "models/bcm-1101-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1102",
@@ -19,7 +20,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1102.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1102.py",
       "preview": "models/bcm-1102-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1103",
@@ -28,7 +30,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1103.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1103.py",
       "preview": "models/bcm-1103-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1104",
@@ -37,7 +40,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1104.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1104.py",
       "preview": "models/bcm-1104-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1105",
@@ -46,7 +50,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1105.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1105.py",
       "preview": "models/bcm-1105-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1106",
@@ -55,7 +60,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1106.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1106.py",
       "preview": "models/bcm-1106-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1107",
@@ -64,7 +70,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1107.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1107.py",
       "preview": "models/bcm-1107-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1108",
@@ -73,7 +80,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1108.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1108.py",
       "preview": "models/bcm-1108-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1109",
@@ -82,7 +90,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1109.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1109.py",
       "preview": "models/bcm-1109-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1110",
@@ -91,7 +100,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1110.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1110.py",
       "preview": "models/bcm-1110-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1111",
@@ -100,7 +110,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1111.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1111.py",
       "preview": "models/bcm-1111-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1112",
@@ -109,7 +120,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1112.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1112.py",
       "preview": "models/bcm-1112-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1113",
@@ -118,7 +130,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1113.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1113.py",
       "preview": "models/bcm-1113-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1114",
@@ -127,7 +140,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1114.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1114.py",
       "preview": "models/bcm-1114-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1115",
@@ -136,7 +150,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1115.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1115.py",
       "preview": "models/bcm-1115-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1116",
@@ -145,7 +160,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1116.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1116.py",
       "preview": "models/bcm-1116-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1117",
@@ -154,7 +170,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1117.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1117.py",
       "preview": "models/bcm-1117-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1120",
@@ -163,7 +180,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1120.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1120.py",
       "preview": "models/bcm-1120-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1121",
@@ -172,7 +190,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1121.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1121.py",
       "preview": "models/bcm-1121-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-996",
@@ -181,7 +200,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-996.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-996.py",
       "preview": "models/bcm-996-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": "modern-museum"
     },
     {
       "id": "bcm-995",
@@ -190,7 +210,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-995.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-995.py",
       "preview": "models/bcm-995-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": "modern-museum"
     },
     {
       "id": "bcm-994",
@@ -199,7 +220,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-994.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-994.py",
       "preview": "models/bcm-994-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": "modern-museum"
     },
     {
       "id": "bcm-993",
@@ -208,7 +230,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-993.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-993.py",
       "preview": "models/bcm-993-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": "modern-museum"
     },
     {
       "id": "bcm-992",
@@ -217,7 +240,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-992.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-992.py",
       "preview": "models/bcm-992-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": "modern-museum"
     },
     {
       "id": "bcm-985",
@@ -226,7 +250,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-985.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-985.py",
       "preview": "models/bcm-985-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": "modern-museum"
     },
     {
       "id": "bcm-1000",
@@ -235,7 +260,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1000.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1000.py",
       "preview": "models/bcm-1000-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": "modern-museum"
     },
     {
       "id": "bcm-957",
@@ -244,7 +270,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-957.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-957.py",
       "preview": "models/bcm-957-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": "modern-museum"
     },
     {
       "id": "bcm-1074",
@@ -253,7 +280,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1074.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1074.py",
       "preview": "models/bcm-1074-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1075",
@@ -262,7 +290,8 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1075.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1075.py",
       "preview": "models/bcm-1075-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     },
     {
       "id": "bcm-1076",
@@ -271,7 +300,9 @@
       "blend": "blender/blend/collection-batch-20261115/bcm-1076.blend",
       "script": "blender/scripts/collection-batch-20261115/bcm-1076.py",
       "preview": "models/bcm-1076-preview.png",
-      "accuracy": "approximate"
+      "accuracy": "approximate",
+      "usedIn": null
     }
-  ]
+  ],
+  "placementAuthorization": "2026-11-15: user requested all virtual exhibits replaced by real museum collection"
 }

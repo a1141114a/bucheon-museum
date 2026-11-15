@@ -19,10 +19,145 @@
   ],
   "simplifications": [
     "Unsurveyed distances and unseen joins",
-    "Context vases and tableware decoration",
+    "Fine exhibit decoration and hidden surfaces",
     "Mirror reflection",
     "Fine wall typography"
   ],
-  "newIndependentBatchPlaced": false,
-  "detailRevision": 2
+  "newIndependentBatchPlaced": true,
+  "placements": [
+    {
+      "id": "bcm-951",
+      "position": [
+        -0.3,
+        1.18,
+        2.2
+      ],
+      "height": 1.1,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/951/view",
+      "placement": "photo-corresponding main case"
+    },
+    {
+      "id": "bcm-941",
+      "position": [
+        -0.45,
+        1.18,
+        -3.25
+      ],
+      "height": 1.18,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/941/view",
+      "placement": "photo-corresponding main case"
+    },
+    {
+      "id": "bcm-978",
+      "position": [
+        -3.05,
+        0.925,
+        0.45
+      ],
+      "height": 0.52,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/978/view",
+      "placement": "approved replacement; not asserted original position"
+    },
+    {
+      "id": "bcm-985",
+      "position": [
+        -3.05,
+        0.925,
+        1.65
+      ],
+      "height": 0.15,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/985/view",
+      "placement": "approved replacement; not asserted original position"
+    },
+    {
+      "id": "bcm-994",
+      "position": [
+        -3.8,
+        0.375,
+        -2.1
+      ],
+      "height": 0.3,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/994/view",
+      "placement": "approved replacement; not asserted original position"
+    },
+    {
+      "id": "bcm-995",
+      "position": [
+        -3.8,
+        0.925,
+        -2.1
+      ],
+      "height": 0.455,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/995/view",
+      "placement": "approved replacement; not asserted original position"
+    },
+    {
+      "id": "bcm-993",
+      "position": [
+        -3.8,
+        1.475,
+        -2.1
+      ],
+      "height": 0.265,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/993/view",
+      "placement": "approved replacement; not asserted original position"
+    },
+    {
+      "id": "bcm-992",
+      "position": [
+        -3.8,
+        0.925,
+        3.7
+      ],
+      "height": 0.43,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/992/view",
+      "placement": "approved replacement; not asserted original position"
+    },
+    {
+      "id": "bcm-997",
+      "position": [
+        -3.8,
+        1.475,
+        3.7
+      ],
+      "height": 0.16,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/997/view",
+      "placement": "approved replacement; not asserted original position"
+    },
+    {
+      "id": "bcm-996",
+      "position": [
+        3.3,
+        1.12,
+        4.8
+      ],
+      "height": 0.43,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/996/view",
+      "placement": "approved replacement; not asserted original position"
+    },
+    {
+      "id": "bcm-957",
+      "position": [
+        3.3,
+        1.12,
+        -1.1
+      ],
+      "height": 0.23,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/957/view",
+      "placement": "approved replacement; not asserted original position"
+    },
+    {
+      "id": "bcm-1000",
+      "position": [
+        3.99,
+        1.7,
+        -2.8
+      ],
+      "height": 0.65,
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1000/view",
+      "placement": "approved replacement; not asserted original position"
+    }
+  ],
+  "removedContextObjects": 404,
+  "detailRevision": 3
 }

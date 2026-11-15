@@ -1,10 +1,10 @@
 import type {Language} from '../types'
-export const modernMuseumModel='models/modern-museum/european-porcelain-passage-v2.glb'
+export const modernMuseumModel='models/modern-museum/european-porcelain-passage-v3.glb'
 const copy={
  title:['现代 · 富川市立博物馆','현재 · 부천시립박물관','The present · Bucheon City Museum'],
  place:['统合馆 2F · 欧洲瓷器展厅','통합관 2층 · 유럽자기전시실','Integrated Hall 2F · European Porcelain Gallery'],
  welcome:['你回到了现代。曾经走入的画作，如今安静地陈列在真实展厅中。','현재로 돌아왔습니다. 지나온 그림들이 이제 실제 전시실에 조용히 놓여 있습니다.','You have returned to the present. The artworks you entered now rest quietly in the gallery.'],
- controls:['WASD／方向键或摇杆移动，拖动画面转向。点击画框可查看作品介绍。','WASD·방향키 또는 스틱으로 이동하고 화면을 드래그해 둘러보세요. 액자를 누르면 작품 소개를 볼 수 있습니다.','Move with WASD, arrows or the joystick; drag to look. Click a framed work to read its introduction.'],
+ controls:['WASD／方向键或摇杆移动，拖动画面转向。点击展品或画框可查看馆藏介绍。','WASD·방향키 또는 스틱으로 이동하고 화면을 드래그해 둘러보세요. 전시품이나 액자를 누르면 소개를 볼 수 있습니다.','Move with WASD, arrows or the joystick; drag to look. Click an exhibit or framed work to read its introduction.'],
  ending:['旅途在此完整','여정의 완성','The Journey Is Whole'],
  recap:['旅途回顾','여정 돌아보기','Journey recap'],
  close:['继续参观','계속 관람','Continue exploring'],
