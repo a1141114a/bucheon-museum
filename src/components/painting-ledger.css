@@ -1,0 +1,13 @@
+/* The raster border is rendered from the actual in-game 3D portal frame.
+   Nine-slice preserves corner proportions in portrait and landscape dialogs. */
+.artifact-dialog.artifact-ledger.painting-ledger{--painting-border:clamp(24px,4.4vw,52px);border-radius:0;background:radial-gradient(ellipse at 30% 10%,#fff6df,#f0dfb7 72%,#dbc295);box-shadow:0 22px 85px #090602b0}
+.painting-ledger-frame{position:absolute;inset:0;pointer-events:none;border:var(--painting-border) solid transparent;border-image-slice:170;border-image-width:1;border-image-repeat:stretch;z-index:2}
+.painting-ledger .ledger-safe-area,.painting-ledger[data-layout=portrait] .ledger-safe-area{inset:calc(var(--painting-border) + 12px);z-index:3}
+.painting-ledger .ledger-history p,.comparison-exhibit .comparison-information p{white-space:pre-line}
+.painting-ledger .ledger-image-slot{aspect-ratio:1.18}
+.artifact-ledger.painting-ledger[data-layout=landscape] .ledger-image-slot{aspect-ratio:1.18}
+.painting-ledger[data-layout=portrait] .ledger-image-slot{aspect-ratio:1.1}
+.painting-ledger .ledger-photo-rights{font-size:11px;color:#7b654b;line-height:1.6}
+@media(max-width:440px){.artifact-dialog.artifact-ledger.painting-ledger{--painting-border:24px}.painting-ledger .ledger-safe-area,.painting-ledger[data-layout=portrait] .ledger-safe-area{inset:34px}.painting-ledger[data-layout=portrait] .ledger-information{font-size:13px}.painting-ledger[data-layout=portrait] h2{font-size:19px}}
+@media(max-height:500px) and (orientation:landscape){.artifact-dialog.artifact-ledger.painting-ledger{--painting-border:24px}.painting-ledger .ledger-safe-area{inset:34px}.painting-ledger .ledger-image-slot{aspect-ratio:1.4}}
+

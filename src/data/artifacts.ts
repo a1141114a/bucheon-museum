@@ -1,4 +1,5 @@
 import type { Artifact, Localized } from '../types'
+import {paintingArtifacts} from './paintingArtifacts'
 import storageJar from '../../museum-assets/artifacts/bcm-1072/metadata.json'
 import arrowhead from '../../museum-assets/artifacts/bcm-937/metadata.json'
 import placentaJars from '../../museum-assets/artifacts/bcm-exh-1659-tae/metadata.json'
@@ -89,6 +90,7 @@ export const artifacts: Artifact[] = [
     {"zh":"法国，19 世纪","ko":"프랑스, 19세기","en":"France, 19th century"},
     {"zh":"不透明玻璃、珐琅、金饰","ko":"불투명 유리, 에나멜, 금장","en":"Opaque glass, enamel and gilding"},
     {"zh":"11 × 7.4 × 14 厘米","ko":"11 × 7.4 × 14 cm","en":"11 × 7.4 × 14 cm"}),
+  ...paintingArtifacts,
 ]
 
 export function canPublishPhoto(artifact: Artifact): boolean {
@@ -102,3 +104,4 @@ export function canModelCollection(artifact: Artifact): boolean {
   return artifact.kind === 'collection' && artifact.verification === 'verified'
     && artifact.review.status === 'approved' && Boolean(artifact.review.approvedAt && artifact.review.evidence)
 }
+

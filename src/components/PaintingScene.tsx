@@ -16,13 +16,13 @@ function DoorBloom({onDone}:{onDone:()=>void}){
  useFrame(({clock})=>{if(start.current===null)start.current=clock.elapsedTime;if(clock.elapsedTime-start.current>2.7&&!called.current){called.current=true;onDone()}})
  return <><pointLight position={[0,2,-7.8]} color="#fff4cc" intensity={120} distance={12}/><mesh position={[0,1.9,-8.55]}><planeGeometry args={[2.9,3.8]}/><meshBasicMaterial color="#fff0bd"/></mesh></>
 }
-export interface PaintingSceneProps {progress:PaintingProgress;active:boolean;raised:boolean;entering:boolean;opening:boolean;onPose:(pose:Pose)=>void;onTake:()=>void;onEnter:()=>void;onEntered:()=>void;onReady:()=>void;onOpen:()=>void;onFinish:()=>void}
+export interface PaintingSceneProps {progress:PaintingProgress;active:boolean;raised:boolean;entering:boolean;opening:boolean;onPose:(pose:Pose)=>void;onTake:()=>void;onEnter:()=>void;onEntered:()=>void;onReady:()=>void;onOpen:()=>void;onFinish:()=>void;onInspectArtwork?:()=>void}
 function Content(p:PaintingSceneProps){
  const {camera,size}=useThree(),room=p.progress.room,n=room+1
  useEffect(()=>{if(camera instanceof PerspectiveCamera){camera.fov=Math.min(92,2*Math.atan(Math.tan(55*Math.PI/360)/Math.min(1,size.width/size.height))*180/Math.PI);camera.updateProjectionMatrix()}},[camera,size.width,size.height])
  const point=artworkPositions[room]
  return <>
- <WorldLight index={room}/><Suspense fallback={null}><PaintingWorld index={room} doorOpen={p.opening||p.progress.finished} onReady={p.onReady}/></Suspense>
+ <WorldLight index={room}/><Suspense fallback={null}><PaintingWorld index={room} doorOpen={p.opening||p.progress.finished} onReady={p.onReady} onArtwork={p.active?p.onInspectArtwork:undefined}/></Suspense>
  <PaintingWalk room={room} active={p.active&&!p.entering&&!p.opening} onPose={p.onPose}/>
  {room<4?<>
  {!p.progress.found.includes(n)&&<group position={[point[0],0,point[1]]} onClick={e=>{if(e.delta<6&&camera.position.distanceTo(e.point)<3){e.stopPropagation();p.onTake()}}} name="next-artwork"><Suspense fallback={null}><Model file="lectern"/><ArtFrame index={n} height={.68} position={[0,1.45,0]}/></Suspense><pointLight position={[0,1.5,.4]} intensity={3} color="#ffd182" distance={3}/></group>}

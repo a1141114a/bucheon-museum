@@ -1,6 +1,6 @@
 import { Component, Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Html, OrbitControls, useGLTF } from '@react-three/drei'
+import { OrbitControls, useGLTF } from '@react-three/drei'
 import { Box3, Sphere } from 'three'
 
 class ModelBoundary extends Component<{ message: string; children: ReactNode }, { failed: boolean }> {
@@ -14,7 +14,7 @@ class ModelBoundary extends Component<{ message: string; children: ReactNode }, 
 }
 
 function Model({ url,onReady }: { url: string;onReady?:()=>void }) {
-  const { scene } = useGLTF(url)
+  const { scene } = useGLTF(url,`${import.meta.env.BASE_URL}draco/`)
   const model = useMemo(() => {
     const object = scene.clone(true)
     const bounds = new Box3().setFromObject(object)
@@ -54,12 +54,14 @@ export default function ArtifactModelViewer({ url, label, error, loading, inline
         <color attach="background" args={['#362c20']} />
         <hemisphereLight args={['#fff4dc', '#92795d', 2]} />
         <directionalLight position={[3, 4, 4]} intensity={2.4} />
-        <Suspense fallback={inline?null:<Html center><span className="artifact-model-loading" role="status">{loading}</span></Html>}>
-          <Model url={url} onReady={inline?handleReady:undefined} />
+        <Suspense fallback={null}>
+          <Model url={url} onReady={handleReady} />
         </Suspense>
         <OrbitControls enableZoom={!inline} enablePan={false} minDistance={1.5} maxDistance={8} />
       </Canvas>
+      {!inline&&readyUrl!==url&&<span className="artifact-model-loading" role="status">{loading}</span>}
     </ModelBoundary>
   </div>
 }
+
 

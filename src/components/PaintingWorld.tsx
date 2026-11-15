@@ -47,7 +47,7 @@ function Water({index}:{index:number}){
  {index===0?<planeGeometry args={[3.1,6.2,32,48]}/>:<circleGeometry args={[1.65,64]}/>}
  <meshPhysicalMaterial color={index===0?'#437f9a':'#1d647e'} metalness={.36} roughness={.13} clearcoat={1} envMapIntensity={1.3} transparent opacity={.85} side={DoubleSide}/></mesh>
 }
-export default memo(function PaintingWorld({index,doorOpen=false,onReady}:{index:number;doorOpen?:boolean;onReady?:()=>void}){
+export default memo(function PaintingWorld({index,doorOpen=false,onReady,onArtwork}:{index:number;doorOpen?:boolean;onReady?:()=>void;onArtwork?:()=>void}){
  const {scene}=usePaintingModel(`room-${index+1}`),hero=usePaintingModel(`artwork-${index+1}`),group=useRef<Group>(null)
  const copy=useMemo(()=>{const c=scene.clone(true);c.traverse(o=>{if(o instanceof Mesh){o.castShadow=true;o.receiveShadow=true;for(const m of Array.isArray(o.material)?o.material:[o.material])for(const value of Object.values(m))if(value instanceof Texture){value.anisotropy=8;if(value.name.includes('original'))value.colorSpace=SRGBColorSpace}}});return c},[scene])
  const artwork=useMemo(()=>{const c=hero.scene.clone(true);c.traverse(o=>{if(o instanceof Mesh){o.castShadow=true;o.receiveShadow=true}});return c},[hero.scene])
@@ -56,7 +56,7 @@ export default memo(function PaintingWorld({index,doorOpen=false,onReady}:{index
   for(const [name,sign] of [['FinalDoorLeft',-1],['FinalDoorRight',1]] as const){const door=copy.getObjectByName(name);if(door)door.rotation.y=MathUtils.damp(door.rotation.y,doorOpen?sign*1.45:0,3,dt)}
   if(group.current)group.current.rotation.y+=dt*.025
  })
- return <><primitive object={copy}/><primitive object={artwork}/>{(index===0||index===4)&&<Water index={index}/>}
+ return <><primitive object={copy}/><primitive object={artwork} onClick={(event:{delta:number;stopPropagation:()=>void})=>{if(onArtwork&&event.delta<6){event.stopPropagation();onArtwork()}}}/>{(index===0||index===4)&&<Water index={index}/>}
  <ContactShadows key={index} position={[0,.012,0]} scale={23} opacity={.48} far={5} blur={2.2} resolution={512} frames={1} color="#31241c"/>
  <group ref={group} position={[0,2,-1]}>{Array.from({length:24},(_,i)=><mesh key={i} position={[Math.sin(i*7)*6,Math.sin(i*2)*1.7,Math.cos(i*7)*7]}><sphereGeometry args={[.012,5,4]}/><meshBasicMaterial color={index===0?'#d9f3ff':'#ffc975'}/></mesh>)}</group>
  <SceneryEffects index={index}/>

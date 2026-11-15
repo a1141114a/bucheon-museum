@@ -4,7 +4,7 @@ import {museumReferencePhotoCandidates,museumReferencePhotoUrl} from '../src/dat
 
 describe('official comparison references',()=>{
   it('keeps all requested official originals and their pending license status',()=>{
-    expect(artifacts).toHaveLength(12)
+    expect(artifacts).toHaveLength(17)
     for(const artifact of artifacts){
       expect(museumReferencePhotoUrl(artifact)).toBe(artifact.photo.sourceUrl)
       expect(artifact.photo.rights).toBe('pending')
@@ -26,3 +26,4 @@ describe('official comparison references',()=>{
     expect(museumReferencePhotoCandidates({...artifact,photo:{...artifact.photo,previewUrl:'https://example.com/other.jpg'}})).toEqual([artifact.photo.sourceUrl])
   })
 })
+

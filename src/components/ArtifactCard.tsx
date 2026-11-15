@@ -3,9 +3,11 @@ import {createPortal} from 'react-dom'
 import { useGame } from '../state/GameProvider'
 import { statusOf } from '../state/game'
 import { canModelCollection, canPublishPhoto, storageJarArtifact } from '../data/artifacts'
+import {suppliedPaintingReference} from '../data/referenceImages'
 import type { Artifact } from '../types'
 import './artifact-model.css'
 import './artifact-ledger.css'
+import './painting-ledger.css'
 import ArtifactFrameMotion from './ArtifactFrameMotion'
 import {fitLedgerFrame} from './ledgerFrame'
 
@@ -17,10 +19,11 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
   const [showModel, setShowModel] = useState(false)
   const [photoFailed, setPhotoFailed] = useState(false)
   const status=statusOf(state,artifact.id)
+  const painting=artifact.cardStyle==='painting'
   const modelUrl = artifact.kind === 'test' || canModelCollection(artifact) ? artifact.model.url : null
-  const photoUrl = canPublishPhoto(artifact) ? artifact.photo.url : null
+  const photoUrl = suppliedPaintingReference(artifact)||(canPublishPhoto(artifact) ? artifact.photo.url : null)
   const showPhoto = Boolean(photoUrl && !photoFailed)
-  const previewUrl = modelUrl && (artifact.id === storageJarArtifact.id || artifact.level === 2)
+  const previewUrl = modelUrl && (artifact.id === storageJarArtifact.id || artifact.level === 2 || painting)
     ? import.meta.env.BASE_URL + `models/${artifact.id}-preview.png`
     : null
   useLayoutEffect(()=>{
@@ -37,9 +40,9 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
     const element=dialog.current; element?.showModal()
     return ()=>{element?.close();document.body.style.overflow=previousOverflow;previous?.focus()}
   },[])
-  return createPortal(<dialog ref={dialog} className="artifact-dialog exhibit-card artifact-ledger" data-layout={frame.portrait?'portrait':'landscape'} data-compact={frame.width<1050} style={{width:frame.width,height:frame.height}} onCancel={onClose} onClick={e=>{if(e.target===e.currentTarget)onClose()}} aria-labelledby="artifact-title">
-    <ArtifactFrameMotion width={frame.width} height={frame.height}/>
-    <div className="ledger-safe-area" style={frame.portrait?{top:Math.round(frame.width*.10),bottom:Math.round(frame.width*.17)}:undefined}>
+  return createPortal(<dialog ref={dialog} className={`artifact-dialog exhibit-card artifact-ledger${painting?' painting-ledger':''}`} data-layout={frame.portrait?'portrait':'landscape'} data-compact={frame.width<1050} style={{width:frame.width,height:frame.height}} onCancel={onClose} onClick={e=>{if(e.target===e.currentTarget)onClose()}} aria-labelledby="artifact-title">
+    {painting?<div className="painting-ledger-frame" style={{borderImageSource:`url("${import.meta.env.BASE_URL}ui/painting-card-frame.png")`}} aria-hidden="true"/>:<ArtifactFrameMotion width={frame.width} height={frame.height}/>}
+    <div className="ledger-safe-area" style={frame.portrait&&!painting?{top:Math.round(frame.width*.10),bottom:Math.round(frame.width*.17)}:undefined}>
       <div className="ledger-topline">
         <span className="status">{t(status)}</span>
         <div className="card-actions">
@@ -85,7 +88,8 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
             </div>}
           </section>
           <section className="ledger-information">
-            <dl>{(['museum','period','material','dimensions','purpose'] as const).map(field=>artifact[field]&&<div key={field}><dt>{t(field)}</dt><dd>{artifact[field][state.language]}</dd></div>)}</dl>
+            <dl>{(['museum','maker','creator','period','material','dimensions','purpose'] as const).map(field=>artifact[field]&&<div key={field}><dt>{t(field)}</dt><dd>{artifact[field][state.language]}</dd></div>)}</dl>
+            {painting&&artifact.photo.rights==='pending'&&<p className="ledger-photo-rights">{t('journalPhotoRightsPending')}</p>}
             <section className="ledger-history"><h3>{t('history')}</h3><p>{artifact.history[state.language]}</p></section>
             <section className="ledger-sources"><h3>{t('sources')}</h3>{artifact.sources.length?artifact.sources.map(s=><p key={s.url}><a className="artifact-source-link" href={s.url} target="_blank" rel="noreferrer">{s.title} ↗</a></p>):<p>{t('noSources')}</p>}</section>
             {status==='discovered'&&<button type="button" className="ledger-button ledger-save" onClick={()=>dispatch({type:'unlock',id:artifact.id})}>{t('save')} <span aria-hidden="true">↗</span></button>}
@@ -95,3 +99,4 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
     </div>
   </dialog>,document.body)
 }
+

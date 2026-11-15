@@ -91,7 +91,7 @@ export default function JournalComparison(){
         <div className="comparison-body">
           <div className="comparison-media"><MuseumPhoto artifact={artifact}/><ComparisonModel artifact={artifact} active={active.includes(artifact.id)}/></div>
           <div className="comparison-information">
-            <dl>{(['museum','period','material','dimensions','purpose'] as const).map(field=>artifact[field]&&<div key={field}><dt>{t(field)}</dt><dd>{artifact[field][state.language]}</dd></div>)}</dl>
+            <dl>{(['museum','maker','creator','period','material','dimensions','purpose'] as const).map(field=>artifact[field]&&<div key={field}><dt>{t(field)}</dt><dd>{artifact[field][state.language]}</dd></div>)}</dl>
             <section><h4>{t('history')}</h4><p>{artifact.history[state.language]}</p></section>
             <section className="comparison-sources"><h4>{t('sources')}</h4>{artifact.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.title} ↗</a>)}</section>
           </div>
@@ -100,4 +100,5 @@ export default function JournalComparison(){
     })}</div>}
   </section>
 }
+
 

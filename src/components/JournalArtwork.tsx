@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {canModelCollection,canPublishPhoto} from '../data/artifacts'
+import {suppliedPaintingReference} from '../data/referenceImages'
 import {useGame} from '../state/GameProvider'
 import type {Artifact} from '../types'
 import './journal-artwork.css'
@@ -9,7 +10,7 @@ export default function JournalArtwork({artifact}:{artifact:Artifact}) {
   const {state,t}=useGame()
   const [photoFailed,setPhotoFailed]=useState(false)
   const [previewFailed,setPreviewFailed]=useState(false)
-  const photo=canPublishPhoto(artifact)&&!photoFailed?artifact.photo.url:null
+  const photo=!photoFailed?(suppliedPaintingReference(artifact)||(canPublishPhoto(artifact)?artifact.photo.url:null)):null
   const preview=canModelCollection(artifact)&&artifact.model.url&&!previewFailed
     ?import.meta.env.BASE_URL+`models/${artifact.id}-preview.png`:null
   const url=photo||preview
@@ -22,3 +23,4 @@ export default function JournalArtwork({artifact}:{artifact:Artifact}) {
     {label&&<span className="journal-artwork-caption">{label}</span>}
   </div>
 }
+

@@ -1,5 +1,7 @@
 import type { Language, Localized } from './types'
 export const copy = {
+  maker:['制作机构（馆方标注）','제작기관 (박물관 표기)','Maker (museum attribution)'],
+  creator:['个人作者 / 画师','개인 작가 / 화가','Individual artist / painter'],
   timeGuideLabel: ['关卡提示','장치 안내','Guide'],
   timePanelShow: ['展开关卡提示','장치 안내 열기','Show chapter guide'],
   timePanelHide: ['收起提示窗','안내 접기','Hide guide'],
@@ -173,6 +175,7 @@ export const copy = {
 export type CopyKey = keyof typeof copy
 export function translate(lang: Language, key: CopyKey): string { return copy[key][{zh:0,ko:1,en:2}[lang]] }
 export const localized = (zh: string, ko: string, en: string): Localized => ({zh, ko, en})
+
 
 
 

@@ -19,6 +19,7 @@
 }
 
 .artifact-model-viewer {
+  position: relative;
   height: clamp(220px, 38vh, 340px);
   overflow: hidden;
   border: 1px solid #795337;
@@ -36,7 +37,13 @@
 }
 
 .artifact-model-loading {
-  white-space: nowrap;
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  padding:12px;
+  pointer-events:none;
+  text-align:center;
 }
 .artifact-source-link {
   text-decoration: underline;
@@ -51,3 +58,4 @@
   object-fit: contain;
   border-radius: 6px;
 }
+

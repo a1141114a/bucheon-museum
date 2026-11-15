@@ -2,6 +2,7 @@ import {freshTime,type TimeProgress} from './time'
 import {freshPaintings,parsePaintings,nearPoint,nearPortal,alignedPainting,artworkPositions,type PaintingProgress,type Pose} from './paintings'
 import {clueIds,parseGallery,type ClueId,type GalleryProgress} from './exploration'
 import { artifacts, storageJarArtifact } from '../data/artifacts'
+import {paintingArtifactIds} from '../data/paintingArtifacts'
 import type { ArtifactStatus, Language, LevelId } from '../types'
 import {freshRestoration,fragmentIds,placementResult,rotationOf,restorationScore,parseRestoration,type RestorationState} from './restoration'
 export const STORAGE_KEY = 'bucheon-museum:prototype:v1'
@@ -20,13 +21,18 @@ export interface GameState {
 export const initialState: GameState = {version:2, language:'zh', artifacts:{}, score:0, completedLevels:[], hintsUsed:0,restoration:freshRestoration(),gallery:{clues:[],opened:false},time:freshTime(),photo:freshPaintings()}
 export type Action = {type:'language'; language:Language} | {type:'discover'|'unlock'; id:string} | {type:'hint'} | {type:'reset'} | {type:'restore-start'|'restore-restart'|'restore-hint'} | {type:'restore-rotate';id:string;direction:1|-1} | {type:'restore-place';id:string;target:string} | {type:'gallery-clue';id:ClueId} | {type:'gallery-open'|'gallery-restart'} | {type:'time-rotate';ring:number;direction:1|-1} | {type:'time-hint'|'time-check'|'time-restart'}
 function withProgress(state:GameState,restoration=state.restoration,gallery=state.gallery,time=state.time):GameState {
-  const score = Object.values(state.artifacts).filter(status => status === 'unlocked').length * 10
+  let records=state.artifacts
+  if(state.photo.entered){
+    const seen=new Set([0,...Array.from({length:state.photo.room},(_,i)=>i+1),...state.photo.found])
+    for(const index of seen){const id=paintingArtifactIds[index];if(id&&!records[id])records={...records,[id]:'discovered'}}
+  }
+  const score = artifacts.filter(a=>a.level!==3&&records[a.id]==='unlocked').length * 10
     + restorationScore(restoration) + gallery.clues.length * 15 + (gallery.opened ? 60 : 0)
   const completedLevels: LevelId[] = []
   if (restoration.placed.length === 9) completedLevels.push(1)
   if (gallery.opened) completedLevels.push(2)
   if (state.photo.finished) completedLevels.push(3)
-  return {...state,restoration,gallery,time,score,completedLevels}
+  return {...state,artifacts:records,restoration,gallery,time,score,completedLevels}
 }
 const validId = (id:string) => artifacts.some(a=>a.id===id)
 export const statusOf = (s:GameState,id:string):ArtifactStatus => s.artifacts[id] || 'locked'
@@ -73,7 +79,7 @@ export function gameReducer(state:GameState, action:Action|PaintingAction):GameS
     case 'discover': return validId(action.id) && statusOf(state,action.id)==='locked'
       ? {...state,artifacts:{...state.artifacts,[action.id]:'discovered'}} : state
     case 'unlock': return validId(action.id) && statusOf(state,action.id)==='discovered'
-      ? {...state,artifacts:{...state.artifacts,[action.id]:'unlocked'}, score:state.score+10} : state
+      ? {...state,artifacts:{...state.artifacts,[action.id]:'unlocked'}, score:state.score+(artifacts.find(a=>a.id===action.id)?.level===3?0:10)} : state
   }
   return state
 }
@@ -98,3 +104,4 @@ export function parseSave(raw:string|null):GameState {
     return withProgress({...initialState,language,artifacts:records,hintsUsed,photo:gallery.opened?parsePaintings(candidate.photo):freshPaintings()},restoration,gallery,freshTime())
   } catch { return {...initialState} }
 }
+
