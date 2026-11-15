@@ -5,10 +5,10 @@ import {DoubleSide,Mesh,MeshBasicMaterial,OrthographicCamera,PlaneGeometry,Scene
 import {artPhoto,paintingCrops} from '../data/paintingWorlds'
 import PaintingWorld,{Model,WorldLight} from './PaintingWorld'
 
-export function OriginalSurface({index,opacity=1}:{index:number;opacity?:number}){
+export function OriginalSurface({index,opacity=1,materialRef}:{index:number;opacity?:number;materialRef?:React.RefObject<MeshBasicMaterial|null>}){
  const src=useTexture(artPhoto(index));const texture=useMemo(()=>{const t=src.clone();const [x,y,w,h]=paintingCrops[index];t.offset.set(x,1-y-h);t.repeat.set(w,h);t.needsUpdate=true;return t},[src,index])
  useEffect(()=>()=>texture.dispose(),[texture])
- return <meshBasicMaterial map={texture} transparent opacity={opacity} side={DoubleSide} toneMapped={false}/>
+ return <meshBasicMaterial ref={materialRef} map={texture} transparent opacity={opacity} side={DoubleSide} toneMapped={false}/>
 }
 export function ArtFrame({index,position=[0,1.8,-8.4],height=3.4,onClick,opacity=1}:{index:number;position?:[number,number,number];height?:number;onClick?:(e:ThreeEvent<MouseEvent>)=>void;opacity?:number}){
  const crop=paintingCrops[index],w=height*crop[2]/crop[3]

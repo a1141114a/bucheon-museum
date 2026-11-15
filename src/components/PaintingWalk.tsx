@@ -1,11 +1,11 @@
-import {useEffect,useRef} from 'react'
+import {useEffect,useLayoutEffect,useRef} from 'react'
 import {useFrame,useThree} from '@react-three/fiber'
 import {Euler} from 'three'
 import {movement} from '../state/exploration'
-import {paintingWalkable,type Pose} from '../state/paintings'
-export default function PaintingWalk({active,room,onPose}:{active:boolean;room:number;onPose:(p:Pose)=>void}){
+import {paintingWalkable,type Pose,type PortalDirection} from '../state/paintings'
+export default function PaintingWalk({active,room,onPose,arrival,canPass}:{active:boolean;room:number;onPose:(p:Pose)=>void;arrival?:Pose&{room:number};canPass?:(direction:PortalDirection)=>boolean}){
  const {camera,gl}=useThree(),keys=useRef(new Set<string>()),angle=useRef({yaw:0,pitch:0}),tick=useRef(0)
- useEffect(()=>{camera.position.set(0,1.65,8);camera.rotation.set(0,0,0);angle.current={yaw:0,pitch:0};onPose({x:0,z:8,yaw:0,pitch:0})},[room,camera])
+ useLayoutEffect(()=>{const p=arrival?.room===room?arrival:{x:0,z:8,yaw:0,pitch:0};camera.position.set(p.x,1.65,p.z);camera.rotation.set(p.pitch,p.yaw,0,'YXZ');angle.current={yaw:p.yaw,pitch:p.pitch};onPose(p)},[room,camera,arrival])
  useEffect(()=>{
   const euler=new Euler().setFromQuaternion(camera.quaternion,'YXZ');angle.current={yaw:euler.y,pitch:euler.x}
   const canvas=gl.domElement;let pointer:number|null=null,x=0,y=0
@@ -26,11 +26,15 @@ export default function PaintingWalk({active,room,onPose}:{active:boolean;room:n
   const mag=Math.hypot(f,s);if(mag>1){f/=mag;s/=mag}
   const {yaw,pitch}=angle.current,speed=Math.min(dt,.05)*2.65,dx=(s*Math.cos(yaw)-f*Math.sin(yaw))*speed,dz=(-s*Math.sin(yaw)-f*Math.cos(yaw))*speed
   if(paintingWalkable(room,camera.position.x+dx,camera.position.z))camera.position.x+=dx
-  if(paintingWalkable(room,camera.position.x,camera.position.z+dz))camera.position.z+=dz
+  let nextZ=camera.position.z+dz
+  if(nextZ< -8.22&&room<4&&!canPass?.('forward'))nextZ=-8.22
+  if(nextZ>8.22&&room>0&&!canPass?.('back'))nextZ=8.22
+  if(paintingWalkable(room,camera.position.x,nextZ))camera.position.z=nextZ
   let height=1.65
   if(room===0&&Math.abs(camera.position.x-3.7)<.9&&Math.abs(camera.position.z)<3.2)height+=.57*Math.sin(Math.PI*(camera.position.z+3.2)/6.4)
   camera.position.y=height;camera.rotation.set(pitch,yaw,0,'YXZ')
   tick.current+=dt;if(tick.current>.08){tick.current=0;onPose({x:camera.position.x,z:camera.position.z,yaw,pitch})}
- })
+ },-2)
  return null
 }
+

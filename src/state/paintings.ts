@@ -1,3 +1,4 @@
+import {paintingCrops} from '../data/paintingWorlds'
 export interface PaintingProgress { schema:1; entered:boolean; room:number; found:number[]; placed:number[]; key:boolean; finished:boolean }
 export const freshPaintings=():PaintingProgress=>({schema:1,entered:false,room:0,found:[],placed:[],key:false,finished:false})
 export function parsePaintings(value:unknown):PaintingProgress {
@@ -6,11 +7,22 @@ export function parsePaintings(value:unknown):PaintingProgress {
   const found:number[]=[],placed:number[]=[]
   for(let n=1;n<=4;n++){if(!s.found?.includes(n))break;found.push(n);if(!s.placed?.includes(n))break;placed.push(n)}
   const room=Number.isInteger(s.room)?Math.max(0,Math.min(placed.length,s.room!)):0
-  return {schema:1,entered:true,room,found:found.filter(n=>n<=room+1),placed:placed.filter(n=>n<=room+1),key:room===4&&s.key===true,finished:room===4&&s.key===true&&s.finished===true}
+  return {schema:1,entered:true,room,found,placed,key:placed.length===4&&s.key===true,finished:room===4&&s.key===true&&s.finished===true}
 }
 export const artworkPositions=[[-4.5,-3.8],[4.5,-3.8],[-5.3,-3.8],[5.1,-4.8],[-5.8,-4.8]] as const
 export const framedWorkPositions=[[-3.2,-.7],[0,-.8],[0,-.8],[0,-.8],[-3.7,1.4]] as const
 export interface Pose { x:number; z:number; yaw:number; pitch:number }
+export type PortalDirection='forward'|'back'
+export const portalPlane=8.4
+export function portalWidth(frameIndex:number){const crop=paintingCrops[frameIndex];return crop?3.4*crop[2]/crop[3]:0}
+/** Both walking forwards and backing up can cross. Look direction is irrelevant. */
+export function insidePortal(p:Pose,direction:PortalDirection,frameIndex:number){
+ const z=direction==='forward'?-portalPlane:portalPlane
+ return [p.x,p.z,p.yaw,p.pitch].every(Number.isFinite)&&Math.abs(p.x)<portalWidth(frameIndex)/2-.10&&Math.abs(p.z-z)<.32
+}
+export function throughPortal(p:Pose,direction:PortalDirection):Pose {
+ return {...p,z:direction==='forward'?Math.min(8.30,p.z+portalPlane*2):Math.max(-8.30,p.z-portalPlane*2)}
+}
 export function nearPoint(p:Pose,point:readonly number[],radius=2){return Number.isFinite(p.x)&&Number.isFinite(p.z)&&Math.hypot(p.x-point[0],p.z-point[1])<radius}
 export function alignedPainting(p:Pose){return nearPoint(p,[0,-4.8],1.15)&&Number.isFinite(p.yaw)&&Number.isFinite(p.pitch)&&Math.cos(p.yaw)>.985&&Math.abs(p.pitch)<.18}
 export function nearPortal(p:Pose){return nearPoint(p,[0,-8],1.6)&&Math.cos(p.yaw)>.5}

@@ -1,5 +1,5 @@
 import {freshTime,type TimeProgress} from './time'
-import {freshPaintings,parsePaintings,nearPoint,nearPortal,alignedPainting,artworkPositions,type PaintingProgress,type Pose} from './paintings'
+import {freshPaintings,parsePaintings,nearPoint,nearPortal,insidePortal,alignedPainting,artworkPositions,type PaintingProgress,type Pose} from './paintings'
 import {clueIds,parseGallery,type ClueId,type GalleryProgress} from './exploration'
 import { artifacts, storageJarArtifact } from '../data/artifacts'
 import {paintingArtifactIds} from '../data/paintingArtifacts'
@@ -36,7 +36,7 @@ function withProgress(state:GameState,restoration=state.restoration,gallery=stat
 }
 const validId = (id:string) => artifacts.some(a=>a.id===id)
 export const statusOf = (s:GameState,id:string):ArtifactStatus => s.artifacts[id] || 'locked'
-export type PaintingAction = {type:'photo-start'|'photo-restart'} | {type:'photo-find'|'photo-place'|'photo-enter'|'photo-key'|'photo-finish';pose:Pose}
+export type PaintingAction = {type:'photo-start'|'photo-restart'} | {type:'photo-find'|'photo-place'|'photo-enter'|'photo-back'|'photo-key'|'photo-finish';pose:Pose}
 export function gameReducer(state:GameState, action:Action|PaintingAction):GameState {
   if(action.type.startsWith('photo-')) {
     if(!isLevelUnlocked(state,3))return state
@@ -47,7 +47,8 @@ export function gameReducer(state:GameState, action:Action|PaintingAction):GameS
     else if(p.entered&&!p.finished&&'pose' in a){
       if(a.type==='photo-find'&&p.room<4&&!p.found.includes(n)&&nearPoint(a.pose,artworkPositions[p.room]))photo={...p,found:[...p.found,n]}
       if(a.type==='photo-place'&&p.found.includes(n)&&!p.placed.includes(n)&&alignedPainting(a.pose))photo={...p,placed:[...p.placed,n]}
-      if(a.type==='photo-enter'&&p.placed.includes(n)&&nearPortal(a.pose))photo={...p,room:n}
+      if(a.type==='photo-enter'&&p.room<4&&p.placed.includes(n)&&(nearPortal(a.pose)||insidePortal(a.pose,'forward',n)))photo={...p,room:n}
+      if(a.type==='photo-back'&&p.room>0&&p.placed.includes(p.room)&&insidePortal(a.pose,'back',p.room))photo={...p,room:p.room-1}
       if(a.type==='photo-key'&&p.room===4&&nearPoint(a.pose,artworkPositions[4]))photo={...p,key:true}
       if(a.type==='photo-finish'&&p.room===4&&p.key&&nearPortal(a.pose))photo={...p,finished:true}
     }

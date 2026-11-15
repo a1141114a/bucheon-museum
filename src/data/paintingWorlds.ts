@@ -13,7 +13,7 @@ export const paintingText={
  guide:['旅途指引','여정 안내','Journey guide'],
  intro:['寻找下一幅画作，将它带到地面的金色圆纹处。面向预设画框，举起画作并对齐，然后走入画中。','다음 그림을 찾아 바닥의 금빛 문양으로 가져가세요. 지정된 액자를 바라보고 그림을 들어 맞춘 뒤, 그림 안으로 걸어가세요.','Find the next artwork and carry it to the golden floor mark. Face the fixed frame, raise and align the artwork, then walk through.'],
  controls:['WASD / 方向键移动 · 拖动画面转向 · E 互动。触屏：左侧摇杆移动，拖动画面转向。','WASD / 방향키 이동 · 화면 드래그 시점 · E 상호작용. 터치: 왼쪽 스틱 이동, 화면 드래그 시점.','WASD / arrows to move · drag to look · E to interact. Touch: left joystick to move, drag the scene to look.'],
- free:['没有计时、计分或尝试次数限制。进度自动保存。','시간·점수·시도 횟수 제한이 없습니다. 진행은 자동 저장됩니다.','No timer, score or attempt limit. Progress saves automatically.'],
+ free:['没有计时、计分或尝试次数限制。进度自动保存。回头走过入口画框即可返回上一空间，也可以倒退着穿过。','시간·점수·시도 횟수 제한이 없습니다. 진행은 자동 저장됩니다. 뒤돌아 입구 액자를 지나면 이전 공간으로 돌아갑니다. 뒷걸음으로 지나가도 됩니다.','No timer, score or attempt limit. Progress saves automatically. Turn around and walk through the entrance frame to return; backing through also works.'],
  find:['寻找下一幅画作','다음 그림 찾기','Find the next artwork'],
  take:['拾取画作','그림 줍기','Collect artwork'],
  carry:['画作已携带 · 前往金色地面标记','그림을 들고 금빛 바닥 표시로 이동하세요','Artwork collected · find the golden floor mark'],
@@ -21,7 +21,7 @@ export const paintingText={
  lower:['放下查看','그림 내리기','Lower artwork'],
  align:['站在金色圆纹处，正对画框，调整视角使两框重合。','금빛 문양 위에서 액자를 정면으로 바라보며 두 테두리를 맞추세요.','Stand on the golden mark and face the frame. Adjust your view until the frames align.'],
  place:['对齐并放置','맞추어 놓기','Align & place'],
- walk:['画境已展开 · 向前走入画框','그림 속 공간이 열렸습니다 · 앞으로 걸어가세요','The world has unfolded · walk through the frame'],
+ walk:['画境已展开 · 走过画框进入，回头可走回上一空间','그림 속 공간이 열렸습니다 · 액자를 지나가세요. 돌아서서 걸어가면 이전 공간으로 돌아갑니다','Walk through the frame · turn back and walk through to return'],
  enter:['走入画境','그림 속으로 입장','Enter the artwork'],
  reveal:['画作正在化为立体空间…','그림이 입체 공간으로 펼쳐집니다…','The artwork is unfolding into space…'],
  loading:['正在准备画境…','그림 속 공간 준비 중…','Preparing the artwork world…'],
@@ -45,4 +45,5 @@ export function paintingCopy(language:Language,key:keyof typeof paintingText){re
 export function worldName(language:Language,index:number){return paintingNames[index][language==='zh'?0:language==='ko'?1:2]}
 export const worldAsset=(file:string)=>`${import.meta.env.BASE_URL}models/painting-worlds-v2/${file}.glb`
 export const artPhoto=(index:number)=>`${import.meta.env.BASE_URL}paintings/art-${index+1}.jpg`
+
 
