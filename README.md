@@ -99,3 +99,5 @@ blender --background --factory-startup --python-exit-code 1 --python blender/scr
 新增30件经用户批准的独立馆藏模型及三语资料：访问 [独立资料库](https://a1141114a.github.io/bucheon-museum/#/collection-library)。不加入关卡或主图鉴进度，等待后续用途决定。每件保留可编辑 `.blend`、单件脚本、GLB及真实3D预览，卡片提供官方原图入口，图片许可不冒称已确认。
 
 当前验证：69项测试、生产构建、31个新Blender源文件实际打开，以及电脑/WebKit模型与排版检查通过。官方资料、复刻范围、生成与验证说明见 [现代博物馆及新资产说明](docs/MODERN_BUCHEON_MUSEUM.md)。
+
+现代展厅已进行第二版精细化：错缝木地板、玻璃收口、桌布与餐具、柜体及顶棚细部，采用重点照明和静态阴影。游玩页面去除复原字样与说明面板，保留两条官方入口。详见 [精细化记录](docs/MODERN_MUSEUM_REFINEMENT.md)。

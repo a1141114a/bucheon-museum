@@ -117,6 +117,8 @@ artwork(1,'bcm-991',(3.99,2.02,3.55),.83,-math.pi/2)
 artwork(5,'bcm-986',(3.99,2.02,1.92),.83,-math.pi/2)
 artwork(2,'bcm-990',(.15,2.06,-6.20),1.25)
 artwork(4,'bcm-988',(-4.10,2.05,.40),.85,math.pi/2)
+from refine_modern_museum_details import refine
+refine()
 bpy.context.scene['reconstruction']='Bucheon City Museum, Integrated Hall 2F, European Porcelain Gallery, photographed passage. Photo-based approximate dimensions. Context vessels and patterned crockery simplified; no invented collection identities.'
 bpy.context.scene['primary_source']='https://www.bcmuseum.or.kr/ko/pages/exhi_permanent'
 save(SRC/'european-porcelain-passage.blend')
@@ -132,7 +134,7 @@ for (id,m),obs in groups.items():
  bpy.context.view_layer.objects.active=obs[0]
  if len(obs)>1:bpy.ops.object.join()
  if id!='building':bpy.context.object['artifactId']=id
-export(OUT/'european-porcelain-passage.glb')
+export(OUT/'european-porcelain-passage-v2.glb')
 # An actual rendered overview for source QA, not an image background in the game.
 scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=24;scene.cycles.use_denoising=True;scene.render.resolution_x=1280;scene.render.resolution_y=800;scene.render.resolution_percentage=100;scene.world=bpy.data.worlds.new('Gallery ambient');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[1].default_value=.55
 bpy.ops.object.camera_add(location=v((1.1,1.65,5.7)));camera=bpy.context.object;camera.data.lens=24;camera.rotation_euler=(Vector(v((-.1,1.8,-4.5)))-camera.location).to_track_quat('-Z','Y').to_euler();scene.camera=camera
@@ -140,5 +142,6 @@ for x in [-1.1,2]:
  for z in [-4,0,4]:
   bpy.ops.object.light_add(type='AREA',location=v((x,3.14,z)));o=bpy.context.object;o.data.energy=110;o.data.shape='DISK';o.data.size=2
 scene.render.filepath=str(OUT/'overview.png');bpy.ops.render.render(write_still=True)
-(OUT/'manifest.json').write_text(json.dumps({'region':'Integrated Hall 2F European Porcelain Gallery, photographed passage beside dining diorama','surveyed':False,'dimensions':'Estimated from photographs, not surveyed','officialSources':['https://www.bcmuseum.or.kr/ko/pages/facility','https://www.bcmuseum.or.kr/ko/pages/exhi_permanent'],'photoReferences':['https://www.bcmuseum.or.kr/common/images/person/bg/exhibition/bg_1_4_01.jpg','https://www.bcmuseum.or.kr/common/images/person/bg/exhibition/bg_1_4_02.jpg','https://www.bcmuseum.or.kr/common/images/person/bg/exhibition/bg_1_4_03.jpg'],'visibleVerifiedWorks':['bcm-991','bcm-986','bcm-990','bcm-988'],'simplifications':['Unsurveyed distances and unseen joins','Context vases and tableware decoration','Mirror reflection','Fine wall typography'],'newIndependentBatchPlaced':False},ensure_ascii=False,indent=2),encoding='utf8')
+(OUT/'manifest.json').write_text(json.dumps({'region':'Integrated Hall 2F European Porcelain Gallery, photographed passage beside dining diorama','surveyed':False,'dimensions':'Estimated from photographs, not surveyed','officialSources':['https://www.bcmuseum.or.kr/ko/pages/facility','https://www.bcmuseum.or.kr/ko/pages/exhi_permanent'],'photoReferences':['https://www.bcmuseum.or.kr/common/images/person/bg/exhibition/bg_1_4_01.jpg','https://www.bcmuseum.or.kr/common/images/person/bg/exhibition/bg_1_4_02.jpg','https://www.bcmuseum.or.kr/common/images/person/bg/exhibition/bg_1_4_03.jpg'],'visibleVerifiedWorks':['bcm-991','bcm-986','bcm-990','bcm-988'],'simplifications':['Unsurveyed distances and unseen joins','Context vases and tableware decoration','Mirror reflection','Fine wall typography'],'newIndependentBatchPlaced':False,'detailRevision':2},ensure_ascii=False,indent=2),encoding='utf8')
 print('MODERN_MUSEUM_READY',flush=True)
+

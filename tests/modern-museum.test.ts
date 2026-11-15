@@ -13,9 +13,10 @@ describe('researched museum epilogue and independent collection',()=>{
  })
  it('retains evidence and marks unmeasured museum geometry as estimated',()=>{
   const manifest=JSON.parse(readFileSync(new URL('../public/models/modern-museum/manifest.json',import.meta.url),'utf8'));expect(manifest.surveyed).toBe(false);expect(manifest.newIndependentBatchPlaced).toBe(false);expect(manifest.photoReferences).toHaveLength(3);expect(manifest.visibleVerifiedWorks).toContain('bcm-991');expect(existsSync(new URL('../blender/blend/modern-museum/european-porcelain-passage.blend',import.meta.url))).toBe(true)
-  for(const lang of ['zh','ko','en']as const){expect(museumText(lang,'history').length).toBeGreaterThan(50);expect(museumText(lang,'evidence').length).toBeGreaterThan(50)}
+  for(const lang of ['zh','ko','en']as const){expect(museumText(lang,'place')).not.toMatch(/局部复原|부분 재현|partial reconstruction/);expect(museumText(lang,'source')).toBeTruthy();expect(museumText(lang,'city')).toBeTruthy()}
  })
  it('keeps camera paths outside glass cabinets and within the real-scene fragment',()=>{
   expect(museumWalkable(5,1.1,5.7)).toBe(true);expect(museumWalkable(5,1,-5)).toBe(true);expect(museumWalkable(5,-.3,2.2)).toBe(false);expect(museumWalkable(5,-.45,-3.25)).toBe(false);expect(museumWalkable(5,-2,0)).toBe(false);expect(museumWalkable(5,3,0)).toBe(false);expect(museumWalkable(5,0,7)).toBe(false);expect(museumWalkable(5,NaN,0)).toBe(false)
  })
 })
+

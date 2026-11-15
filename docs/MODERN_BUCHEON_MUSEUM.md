@@ -30,11 +30,11 @@
 
 - 最终门开启后的光效衔接现代展厅；先进入可探索的展厅，不立即用结算框遮住画面。
 - 可用键盘、方向键、摇杆移动，拖动转向；玻璃柜和区域边界有碰撞限制。
-- 点击已核实画作可打开原有资料卡。展厅说明可收起，旅途回顾按钮可查看结束文字、继续参观、返回主页或重新探索。
+- 点击已核实画作可打开原有资料卡。游玩页直接保留馆方实景导览和博物馆介绍链接，依据说明面板已移除。旅途回顾可查看结束文字、继续参观、返回主页或重新探索。
 - 完成状态沿用既有存档；刷新后进入现代展厅，重新探索才回到第一画境，不增加分数。
 - `blender/scripts/create_modern_bucheon_museum.py`：建筑与陈设建模脚本。
 - `blender/blend/modern-museum/european-porcelain-passage.blend`：实际生成、可编辑的源文件。
-- `public/models/modern-museum/european-porcelain-passage.glb`：游戏模型。
+- `public/models/modern-museum/european-porcelain-passage-v2.glb`：游戏模型。
 - 同目录 `manifest.json` 保留依据与简化说明，`overview.png` 是实际模型渲染图。
 
 ## 30件独立馆藏资产
@@ -50,3 +50,4 @@
 ## 验证
 
 69项测试、类型检查、生产构建通过。Blender逐一打开31个新源文件通过；独立Chromium检查全部30个模型卡片和3D加载，WebKit复核现代展厅、资料卡及手机/iPad尺寸的三语布局。实际走完最终门→现代展厅，检查移动、摇杆、画作点击、旅途回顾及刷新存档；这些不替代所有真实设备的帧率验收。
+
