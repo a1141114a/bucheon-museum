@@ -1,0 +1,1952 @@
+[
+  {
+    "id": "bcm-1101",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "带盖家神祭罐",
+      "ko": "성주단지",
+      "en": "Lidded household-spirit jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／朝鲜时期",
+      "ko": "대한민국 / 조선",
+      "en": "Korea / Joseon"
+    },
+    "dimensions": {
+      "zh": "26X26X21cm（馆方原值，测量范围未注明）",
+      "ko": "26X26X21cm (박물관 원문, 측정 범위 미기재)",
+      "en": "26X26X21cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "带提钮的无釉陶罐，馆方记述其用于供奉家宅守护神",
+      "ko": "뚜껑 손잡이가 있는 무유 토기다",
+      "en": "An unglazed lidded jar used in household-spirit worship"
+    },
+    "history": {
+      "zh": "带提钮的无釉陶罐，馆方记述其用于供奉家宅守护神。灰色与烟炱、无釉烧成有关。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "뚜껑 손잡이가 있는 무유 토기다. 박물관은 집을 지키는 신을 모실 때 사용한 용기라고 소개한다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "An unglazed lidded jar used in household-spirit worship. Its grey surface retains the character of smoke-fired earthenware. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "성주단지",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1101/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1431",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1101.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1102",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "草绳包裹长颈瓶",
+      "ko": "짚으로 싼 앵병",
+      "en": "Straw-wrapped long-necked bottle"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "10X32cm（馆方原值，测量范围未注明）",
+      "ko": "10X32cm (박물관 원문, 측정 범위 미기재)",
+      "en": "10X32cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "瓶与罐之间的器形，长颈外包裹密集草绳；适合分别表现陶体与绳编结构",
+      "ko": "병과 항아리의 중간 형태이며 긴 목과 몸통에 새끼줄을 촘촘히 둘렀다",
+      "en": "A long-necked vessel between a bottle and a jar, closely covered with straw rope"
+    },
+    "history": {
+      "zh": "瓶与罐之间的器形，长颈外包裹密集草绳；适合分别表现陶体与绳编结构。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "병과 항아리의 중간 형태이며 긴 목과 몸통에 새끼줄을 촘촘히 둘렀다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A long-necked vessel between a bottle and a jar, closely covered with straw rope. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "짚으로 싼 앵병",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1102/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1432",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1102.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1103",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "北方地区陶罐",
+      "ko": "이북 질그릇",
+      "en": "Northern-region earthenware jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／朝鲜时期",
+      "ko": "대한민국 / 조선",
+      "en": "Korea / Joseon"
+    },
+    "dimensions": {
+      "zh": "13X30cm（馆方原值，测量范围未注明）",
+      "ko": "13X30cm (박물관 원문, 측정 범위 미기재)",
+      "en": "13X30cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "馆方记录为朝鲜时期北方地区使用的陶罐，灰色陶胎是其识别特征",
+      "ko": "조선시대 이북 지역에서 쓰던 단지로, 질그릇의 회색 표면이 특징이다",
+      "en": "The museum identifies a grey earthenware jar used in northern Korea during the Joseon period"
+    },
+    "history": {
+      "zh": "馆方记录为朝鲜时期北方地区使用的陶罐，灰色陶胎是其识别特征。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "조선시대 이북 지역에서 쓰던 단지로, 질그릇의 회색 표면이 특징이다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "The museum identifies a grey earthenware jar used in northern Korea during the Joseon period. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "이북 질그릇",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1103/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1433",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1103.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1104",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "祭仪蒸糕甑",
+      "ko": "굿시루",
+      "en": "Ritual rice-cake steamer"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "11X16cm（馆方原值，测量范围未注明）",
+      "ko": "11X16cm (박물관 원문, 측정 범위 미기재)",
+      "en": "11X16cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "用于少量蒸糕的小甑，蒸好后可连同容器一并作为祭供",
+      "ko": "작은 떡을 찌고 완성된 떡을 용기째 제물로 바치던 시루다",
+      "en": "A small steamer for rice cakes, also presented together with its contents in ritual offerings"
+    },
+    "history": {
+      "zh": "用于少量蒸糕的小甑，蒸好后可连同容器一并作为祭供。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "작은 떡을 찌고 완성된 떡을 용기째 제물로 바치던 시루다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A small steamer for rice cakes, also presented together with its contents in ritual offerings. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "굿시루",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1104/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1434",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1104.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1105",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "腌海鲜罐",
+      "ko": "젓갈단지",
+      "en": "Salted-seafood jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "37X28cm（馆方原值，测量范围未注明）",
+      "ko": "37X28cm (박물관 원문, 측정 범위 미기재)",
+      "en": "37X28cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "全罗道地区用来盐腌和储存鱼贝的罐，宽口、高颈",
+      "ko": "전라도에서 생선과 조개를 소금에 절여 저장하던 넓은 입과 높은 목의 단지다",
+      "en": "A wide-mouthed, high-necked jar used in Jeolla to salt and store fish and shellfish"
+    },
+    "history": {
+      "zh": "全罗道地区用来盐腌和储存鱼贝的罐，宽口、高颈。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "전라도에서 생선과 조개를 소금에 절여 저장하던 넓은 입과 높은 목의 단지다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A wide-mouthed, high-necked jar used in Jeolla to salt and store fish and shellfish. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "젓갈단지",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1105/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1435",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1105.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1106",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "多用途大陶盆",
+      "ko": "소래기",
+      "en": "Multipurpose earthenware basin"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "70X58X38cm（馆方原值，测量范围未注明）",
+      "ko": "70X58X38cm (박물관 원문, 측정 범위 미기재)",
+      "en": "70X58X38cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "无足大盆，可作罐盖、洗菜及腌菜容器，馆方也提及浴盆用途",
+      "ko": "굽 없는 큰 그릇으로 채소 세척·절임, 항아리 덮개와 목욕통 등 여러 용도로 쓰였다",
+      "en": "A footless basin used for washing or salting vegetables, as a jar cover and sometimes for bathing"
+    },
+    "history": {
+      "zh": "无足大盆，可作罐盖、洗菜及腌菜容器，馆方也提及浴盆用途。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "굽 없는 큰 그릇으로 채소 세척·절임, 항아리 덮개와 목욕통 등 여러 용도로 쓰였다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A footless basin used for washing or salting vegetables, as a jar cover and sometimes for bathing. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "소래기",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1106/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1436",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1106.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1107",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "蒸甑",
+      "ko": "시루",
+      "en": "Earthenware steamer"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "70X66X35cm（馆方原值，测量范围未注明）",
+      "ko": "70X66X35cm (박물관 원문, 측정 범위 미기재)",
+      "en": "70X66X35cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "底部的多个孔让水蒸气进入，用于蒸米和米糕",
+      "ko": "바닥의 구멍으로 뜨거운 수증기가 올라와 쌀이나 떡을 익히는 찜기다",
+      "en": "Holes in the base admit steam from a heated pot below to cook rice and rice cakes"
+    },
+    "history": {
+      "zh": "底部的多个孔让水蒸气进入，用于蒸米和米糕。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "바닥의 구멍으로 뜨거운 수증기가 올라와 쌀이나 떡을 익히는 찜기다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Holes in the base admit steam from a heated pot below to cook rice and rice cakes. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "시루",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1107/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1437",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1107.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1108",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "甘薯形陶罐",
+      "ko": "고구마단지",
+      "en": "Sweet-potato-shaped jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "24X24X28cm（馆方原值，测量范围未注明）",
+      "ko": "24X24X28cm (박물관 원문, 측정 범위 미기재)",
+      "en": "24X24X28cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "名称来自类似甘薯的轮廓，与常见圆腹储藏瓮有明显区别",
+      "ko": "고구마를 닮은 독특한 윤곽을 가진 단지로, 일반 항아리와 형태가 다르다",
+      "en": "Its unusual outline resembles a sweet potato rather than a conventional round storage jar"
+    },
+    "history": {
+      "zh": "名称来自类似甘薯的轮廓，与常见圆腹储藏瓮有明显区别。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "고구마를 닮은 독특한 윤곽을 가진 단지로, 일반 항아리와 형태가 다르다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Its unusual outline resembles a sweet potato rather than a conventional round storage jar. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "고구마단지",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1108/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1438",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1108.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1109",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "竹节罐",
+      "ko": "죽절단지",
+      "en": "Bamboo-joint jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "16X19cm（馆方原值，测量范围未注明）",
+      "ko": "16X19cm (박물관 원문, 측정 범위 미기재)",
+      "en": "16X19cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "器身有竹节状槽纹，馆方记述主要作药瓶",
+      "ko": "대나무 마디를 닮은 홈이 이름의 유래이며, 주로 약을 담던 용기다",
+      "en": "Grooves resembling bamboo joints give this vessel its name; it was mainly used for medicine"
+    },
+    "history": {
+      "zh": "器身有竹节状槽纹，馆方记述主要作药瓶。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "대나무 마디를 닮은 홈이 이름의 유래이며, 주로 약을 담던 용기다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Grooves resembling bamboo joints give this vessel its name; it was mainly used for medicine. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "죽절단지",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1109/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1439",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1109.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1110",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "花草纹储藏瓮",
+      "ko": "화초문 항아리",
+      "en": "Floral storage jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／近代",
+      "ko": "대한민국 / 근대",
+      "en": "Korea / modern period"
+    },
+    "dimensions": {
+      "zh": "63X63X84cm（馆方原值，测量范围未注明）",
+      "ko": "63X63X84cm (박물관 원문, 측정 범위 미기재)",
+      "en": "63X63X84cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "馆方以忠清道瓮器的形制介绍：口、底直径近似，腹部鼓起，颈部较高",
+      "ko": "충청도 옹기의 형태로 소개된다",
+      "en": "The museum discusses its Chungcheong form: a pronounced belly, relatively tall neck and similar mouth and base diameters"
+    },
+    "history": {
+      "zh": "馆方以忠清道瓮器的形制介绍：口、底直径近似，腹部鼓起，颈部较高。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "충청도 옹기의 형태로 소개된다. 입과 바닥 지름이 비슷하고 배가 부르며 목이 높은 편이다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "The museum discusses its Chungcheong form: a pronounced belly, relatively tall neck and similar mouth and base diameters. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "화초문 항아리",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1110/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1440",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1110.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1111",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "济州岛储藏瓮",
+      "ko": "제주도항아리",
+      "en": "Jeju storage jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "65X65X82cm（馆方原值，测量范围未注明）",
+      "ko": "65X65X82cm (박물관 원문, 측정 범위 미기재)",
+      "en": "65X65X82cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "无釉烧成，含铁陶土带来红色；馆方记述其以大盆作为盖",
+      "ko": "유약 없이 구워 철분의 붉은 빛을 띠는 제주 옹기이며, 큰 대야를 덮개로 썼다",
+      "en": "An unglazed Jeju jar with an iron-rich reddish body and a basin used as its cover"
+    },
+    "history": {
+      "zh": "无釉烧成，含铁陶土带来红色；馆方记述其以大盆作为盖。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "유약 없이 구워 철분의 붉은 빛을 띠는 제주 옹기이며, 큰 대야를 덮개로 썼다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "An unglazed Jeju jar with an iron-rich reddish body and a basin used as its cover. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "제주도항아리",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1111/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1441",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1111.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1112",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "陶漏斗",
+      "ko": "깔대기",
+      "en": "Earthenware funnel"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／近代",
+      "ko": "대한민국 / 근대",
+      "en": "Korea / modern period"
+    },
+    "dimensions": {
+      "zh": "20X11cm（馆方原值，测量范围未注明）",
+      "ko": "20X11cm (박물관 원문, 측정 범위 미기재)",
+      "en": "20X11cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "用于需要过滤的食品，馆方以酒糟过滤为例说明用途",
+      "ko": "술지게미 등 여과가 필요한 음식에 사용한 깔때기형 용기다",
+      "en": "A funnel for foods requiring filtration, including the separation of brewing lees"
+    },
+    "history": {
+      "zh": "用于需要过滤的食品，馆方以酒糟过滤为例说明用途。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "술지게미 등 여과가 필요한 음식에 사용한 깔때기형 용기다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A funnel for foods requiring filtration, including the separation of brewing lees. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "깔대기",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1112/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1442",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1112.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1113",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "糠虾酱罐",
+      "ko": "곤쟁이젓독",
+      "en": "Mysid-shrimp fermenting jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／近代",
+      "ko": "대한민국 / 근대",
+      "en": "Korea / modern period"
+    },
+    "dimensions": {
+      "zh": "17X30cm（馆方原值，测量范围未注明）",
+      "ko": "17X30cm (박물관 원문, 측정 범위 미기재)",
+      "en": "17X30cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "储藏腌海鲜的宽口罐，器壁相对直，属于小型酱罐",
+      "ko": "곤쟁이젓 같은 젓갈을 저장하던 작은 독으로, 곧은 몸체와 넓은 입이 특징이다",
+      "en": "A smaller wide-mouthed seafood-fermenting jar with comparatively straight sides"
+    },
+    "history": {
+      "zh": "储藏腌海鲜的宽口罐，器壁相对直，属于小型酱罐。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "곤쟁이젓 같은 젓갈을 저장하던 작은 독으로, 곧은 몸체와 넓은 입이 특징이다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A smaller wide-mouthed seafood-fermenting jar with comparatively straight sides. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "곤쟁이젓독",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1113/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1443",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1113.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1114",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "十字纹储藏瓮（近代）",
+      "ko": "십자가문 항아리",
+      "en": "Cross-pattern jar, modern period"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／近代",
+      "ko": "대한민국 / 근대",
+      "en": "Korea / modern period"
+    },
+    "dimensions": {
+      "zh": "50X98cm（馆方原值，测量范围未注明）",
+      "ko": "50X98cm (박물관 원문, 측정 범위 미기재)",
+      "en": "50X98cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "与富川点村的天主教徒制陶历史相关，十字可隐藏在近似“米”字的纹样中",
+      "ko": "부천 점말의 천주교인 옹기 제작과 관련되며, 십자가를 쌀 미 자처럼 감춘 무늬로 설명된다",
+      "en": "Linked to Bucheon Jeommal and Catholic potters; the cross could be disguised within a rice-character-like pattern"
+    },
+    "history": {
+      "zh": "与富川点村的天主教徒制陶历史相关，十字可隐藏在近似“米”字的纹样中。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "부천 점말의 천주교인 옹기 제작과 관련되며, 십자가를 쌀 미 자처럼 감춘 무늬로 설명된다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Linked to Bucheon Jeommal and Catholic potters; the cross could be disguised within a rice-character-like pattern. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "십자가문 항아리",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1114/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1444",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1114.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1115",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "烟叶储藏瓮",
+      "ko": "연초항아리",
+      "en": "Tobacco-storage jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／近代",
+      "ko": "한국 / 근대",
+      "en": "Korea / modern period"
+    },
+    "dimensions": {
+      "zh": "42X42X75cm（馆方原值，测量范围未注明）",
+      "ko": "42X42X75cm (박물관 원문, 측정 범위 미기재)",
+      "en": "42X42X75cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "表面的“煙”字在施釉时以手绘纹技法形成，用来区分储存烟叶的容器",
+      "ko": "시유할 때 손으로 낸 煙 자는 연초 보관용임을 구별하는 표시다",
+      "en": "The character for tobacco was traced during glazing to identify the jar’s contents"
+    },
+    "history": {
+      "zh": "表面的“煙”字在施釉时以手绘纹技法形成，用来区分储存烟叶的容器。馆方记载2011年购入。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "시유할 때 손으로 낸 煙 자는 연초 보관용임을 구별하는 표시다. 박물관은 2011년 구입으로 기록한다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "The character for tobacco was traced during glazing to identify the jar’s contents. The museum records its acquisition in 2011. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "연초항아리",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1115/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1445",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1115.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1116",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "锯齿纹储藏瓮",
+      "ko": "지그재그문 항아리",
+      "en": "Zigzag-pattern storage jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／近代",
+      "ko": "대한민국 / 근대",
+      "en": "Korea / modern period"
+    },
+    "dimensions": {
+      "zh": "44X66cm（馆方原值，测量范围未注明）",
+      "ko": "44X66cm (박물관 원문, 측정 범위 미기재)",
+      "en": "44X66cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "釉层上以手绘方式作出锯齿纹，并有配套罐盖",
+      "ko": "유약을 바른 표면에 손으로 지그재그 무늬를 냈으며, 뚜껑과 함께 구성된다",
+      "en": "Finger-drawn zigzag decoration in the glaze accompanies a fitted lid"
+    },
+    "history": {
+      "zh": "釉层上以手绘方式作出锯齿纹，并有配套罐盖。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "유약을 바른 표면에 손으로 지그재그 무늬를 냈으며, 뚜껑과 함께 구성된다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Finger-drawn zigzag decoration in the glaze accompanies a fitted lid. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "지그재그문 항아리",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1116/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1446",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1116.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1117",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "白土储藏瓮",
+      "ko": "백토항아리",
+      "en": "White-clay storage jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "48X45cm（馆方原值，测量范围未注明）",
+      "ko": "48X45cm (박물관 원문, 측정 범위 미기재)",
+      "en": "48X45cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "馆方记述以山清地区白土制成，白色陶土特征明显",
+      "ko": "산청 지역의 백토로 만들었다고 기록되며, 밝은 흙빛이 잘 드러난다",
+      "en": "Made with white clay from Sancheong according to the museum, emphasizing its light body colour"
+    },
+    "history": {
+      "zh": "馆方记述以山清地区白土制成，白色陶土特征明显。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "산청 지역의 백토로 만들었다고 기록되며, 밝은 흙빛이 잘 드러난다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Made with white clay from Sancheong according to the museum, emphasizing its light body colour. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "백토항아리",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1117/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1447",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1117.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1120",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "双耳陶罐",
+      "ko": "양손잡이단지",
+      "en": "Two-handled jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "36X32cm（馆方原值，测量范围未注明）",
+      "ko": "36X32cm (박물관 원문, 측정 범위 미기재)",
+      "en": "36X32cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "主要盛放液体",
+      "ko": "주로 액체를 담았다",
+      "en": "Used mainly for liquids"
+    },
+    "history": {
+      "zh": "主要盛放液体。草叶贴在器表施釉后移除，再经烧成留下纹样。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "주로 액체를 담았다. 풀잎을 붙여 시유한 다음 떼어내고 구워 잎무늬를 남겼다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Used mainly for liquids. Leaves applied before glazing and removed before firing produced the surface decoration. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "양손잡이단지",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1120/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1450",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1120.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1121",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "全罗道储藏瓮",
+      "ko": "전라도항아리",
+      "en": "Jeolla storage jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／近代",
+      "ko": "대한민국 / 근대",
+      "en": "Korea / modern period"
+    },
+    "dimensions": {
+      "zh": "30X50cm（馆方原值，测量范围未注明）",
+      "ko": "30X50cm (박물관 원문, 측정 범위 미기재)",
+      "en": "30X50cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "馆方强调宽圆、容量充裕的形态，以及相对较深、贴合的盖",
+      "ko": "넉넉하고 둥근 형태와 비교적 깊고 잘 맞는 뚜껑이 전라도 항아리의 특징으로 소개된다",
+      "en": "A generous rounded form with a relatively deep, closely fitting cover characterizes the museum’s account"
+    },
+    "history": {
+      "zh": "馆方强调宽圆、容量充裕的形态，以及相对较深、贴合的盖。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "넉넉하고 둥근 형태와 비교적 깊고 잘 맞는 뚜껑이 전라도 항아리의 특징으로 소개된다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A generous rounded form with a relatively deep, closely fitting cover characterizes the museum’s account. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "전라도항아리",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1121/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1451",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1121.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-996",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "穆勒《中国山水》花瓶",
+      "ko": "뮬러 '중국 산수화' 화병",
+      "en": "Muller Chinese-landscape vase"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "法国／19世纪（馆方登记）",
+      "ko": "프랑스 / 19세기 (등록 정보)",
+      "en": "France / 19th century (museum record)"
+    },
+    "dimensions": {
+      "zh": "12.5X43.0cm（馆方原值，测量范围未注明）",
+      "ko": "12.5X43.0cm (박물관 원문, 측정 범위 미기재)",
+      "en": "12.5X43.0cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "玻璃（依据馆方说明）",
+      "ko": "유리 (설명에 근거)",
+      "en": "Glass (from museum description)"
+    },
+    "purpose": {
+      "zh": "琥珀色不透明玻璃上有浮雕和珐琅中国式山水，带穆勒兄弟签名",
+      "ko": "호박색 불투명 유리에 카메오와 에나멜로 중국풍 풍경을 표현했으며 뮬러 프레르 서명이 있다",
+      "en": "Amber opaque glass bears cameo and enamel Chinese-style scenery and a Muller Frères signature"
+    },
+    "history": {
+      "zh": "琥珀色不透明玻璃上有浮雕和珐琅中国式山水，带穆勒兄弟签名。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "호박색 불투명 유리에 카메오와 에나멜로 중국풍 풍경을 표현했으며 뮬러 프레르 서명이 있다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Amber opaque glass bears cameo and enamel Chinese-style scenery and a Muller Frères signature. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "뮬러 '중국 산수화' 화병",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/996/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1326",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-996.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-995",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "勒格拉葡萄藤花瓶",
+      "ko": "르그라 포도넝쿨 화병",
+      "en": "Legras grapevine vase"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "法国／19世纪（馆方登记）",
+      "ko": "프랑스 / 19세기 (등록 정보)",
+      "en": "France / 19th century (museum record)"
+    },
+    "dimensions": {
+      "zh": "2.5X45.5cm（馆方原值，测量范围未注明）",
+      "ko": "2.5X45.5cm (박물관 원문, 측정 범위 미기재)",
+      "en": "2.5X45.5cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "玻璃（依据馆方说明）",
+      "ko": "유리 (설명에 근거)",
+      "en": "Glass (from museum description)"
+    },
+    "purpose": {
+      "zh": "乳浊玻璃上以珐琅和浮雕装饰葡萄与攀援藤蔓",
+      "ko": "오팔린 유리에 포도와 덩굴을 에나멜·카메오 장식으로 표현했다",
+      "en": "Opaline glass carries enamel and cameo grapevines"
+    },
+    "history": {
+      "zh": "乳浊玻璃上以珐琅和浮雕装饰葡萄与攀援藤蔓。馆方尺寸原值保留，未擅自纠正。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "오팔린 유리에 포도와 덩굴을 에나멜·카메오 장식으로 표현했다. 특이한 치수 원문은 임의로 고치지 않았다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Opaline glass carries enamel and cameo grapevines. The museum’s unusual dimension entry is retained without correction. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "르그라 포도넝쿨 화병",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/995/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1325",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-995.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-994",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "巴卡拉向日葵花瓶",
+      "ko": "바카라 해바라기 화병",
+      "en": "Baccarat sunflower vase"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "法国／19世纪（馆方登记）",
+      "ko": "프랑스 / 19세기 (등록 정보)",
+      "en": "France / 19th century (museum record)"
+    },
+    "dimensions": {
+      "zh": "11.5X30.2cm（馆方原值，测量范围未注明）",
+      "ko": "11.5X30.2cm (박물관 원문, 측정 범위 미기재)",
+      "en": "11.5X30.2cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "玻璃（依据馆方说明）",
+      "ko": "유리 (설명에 근거)",
+      "en": "Glass (from museum description)"
+    },
+    "purpose": {
+      "zh": "以蚀刻、珐琅和金色装饰表现向日葵，深棕与金色形成对比",
+      "ko": "에칭한 유리에 에나멜과 금색 장식을 더해 해바라기를 표현하고 짙은 갈색과 금빛을 대비시켰다",
+      "en": "Etched glass with enamel and gilt sunflower decoration contrasts deep brown with gold"
+    },
+    "history": {
+      "zh": "以蚀刻、珐琅和金色装饰表现向日葵，深棕与金色形成对比。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "에칭한 유리에 에나멜과 금색 장식을 더해 해바라기를 표현하고 짙은 갈색과 금빛을 대비시켰다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Etched glass with enamel and gilt sunflower decoration contrasts deep brown with gold. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "바카라 해바라기 화병",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/994/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1324",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-994.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-993",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "拉利克酒红玫瑰花瓶",
+      "ko": "랄리크 와인색 장미 화병",
+      "en": "Lalique wine-red rose vase"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "法国／19世纪（馆方登记）",
+      "ko": "프랑스 / 19세기 (등록 정보)",
+      "en": "France / 19th century (museum record)"
+    },
+    "dimensions": {
+      "zh": "15.8X26.5cm（馆方原值，测量范围未注明）",
+      "ko": "15.8X26.5cm (박물관 원문, 측정 범위 미기재)",
+      "en": "15.8X26.5cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "水晶玻璃（依据馆方说明）",
+      "ko": "크리스탈 유리 (설명에 근거)",
+      "en": "Crystal glass (from museum description)"
+    },
+    "purpose": {
+      "zh": "酒红色透明水晶的玫瑰纹花瓶，馆方介绍其喷砂表面处理",
+      "ko": "와인색 투명 크리스탈에 장미무늬를 표현했으며, 박물관은 샌드블라스트 처리를 설명한다",
+      "en": "A wine-red transparent crystal rose vase, with sand-blasted surface treatment described by the museum"
+    },
+    "history": {
+      "zh": "酒红色透明水晶的玫瑰纹花瓶，馆方介绍其喷砂表面处理。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "와인색 투명 크리스탈에 장미무늬를 표현했으며, 박물관은 샌드블라스트 처리를 설명한다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A wine-red transparent crystal rose vase, with sand-blasted surface treatment described by the museum. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "랄리크 와인색 장미 화병",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/993/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1323",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-993.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-992",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "埃米尔·加莱红花花瓶",
+      "ko": "에밀 갈레 붉은 꽃 화병",
+      "en": "Émile Gallé red-flower vase"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "法国／19世纪（馆方登记）",
+      "ko": "프랑스 / 19세기 (등록 정보)",
+      "en": "France / 19th century (museum record)"
+    },
+    "dimensions": {
+      "zh": "12.5X43.0cm（馆方原值，测量范围未注明）",
+      "ko": "12.5X43.0cm (박물관 원문, 측정 범위 미기재)",
+      "en": "12.5X43.0cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "玻璃（依据馆方说明）",
+      "ko": "유리 (설명에 근거)",
+      "en": "Glass (from museum description)"
+    },
+    "purpose": {
+      "zh": "琥珀色玻璃与红色玻璃层结合，经吹制、雕刻和蚀刻表现红花；有加莱签名",
+      "ko": "호박색과 붉은 유리층을 불고 조각·에칭해 꽃을 표현했으며 갈레의 서명이 남아 있다",
+      "en": "Amber and red glass layers were blown, carved and etched into floral decoration; the vase bears Gallé’s signature"
+    },
+    "history": {
+      "zh": "琥珀色玻璃与红色玻璃层结合，经吹制、雕刻和蚀刻表现红花；有加莱签名。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "호박색과 붉은 유리층을 불고 조각·에칭해 꽃을 표현했으며 갈레의 서명이 남아 있다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "Amber and red glass layers were blown, carved and etched into floral decoration; the vase bears Gallé’s signature. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "에밀 갈레 붉은 꽃 화병",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/992/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1322",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-992.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-985",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "赫伦德《印度花》小咖啡杯",
+      "ko": "헤렌드 '인디언꽃' 데미타스",
+      "en": "Herend Indian-flower demitasse"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "匈牙利／20世纪",
+      "ko": "헝가리 / 20세기",
+      "en": "Hungary / 20th century"
+    },
+    "dimensions": {
+      "zh": "11.6X5.0cm（馆方原值，测量范围未注明）",
+      "ko": "11.6X5.0cm (박물관 원문, 측정 범위 미기재)",
+      "en": "11.6X5.0cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "瓷器（依据馆方说明）；框架材质未核实",
+      "ko": "자기 (설명에 근거), 액자 재질 미확인",
+      "en": "Porcelain (from museum description); frame material unverified"
+    },
+    "purpose": {
+      "zh": "绿色重瓣花纹小咖啡杯，杯口、手柄和托碟以金色勾边",
+      "ko": "겹꽃형 녹색 무늬의 작은 커피잔이며 입구·손잡이·받침에 금색 테두리를 둘렀다",
+      "en": "A small coffee cup with layered green floral decoration and gilded accents on rim, handle and saucer"
+    },
+    "history": {
+      "zh": "绿色重瓣花纹小咖啡杯，杯口、手柄和托碟以金色勾边。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "겹꽃형 녹색 무늬의 작은 커피잔이며 입구·손잡이·받침에 금색 테두리를 둘렀다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A small coffee cup with layered green floral decoration and gilded accents on rim, handle and saucer. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "헤렌드 '인디언꽃' 데미타스",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/985/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1315",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-985.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1000",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "迈森历代标记瓷盘框",
+      "ko": "마이센 마크가 있는 접시 액자",
+      "en": "Framed Meissen-marks plaque"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "德国／21世纪",
+      "ko": "독일 / 21세기",
+      "en": "Germany / 21st century"
+    },
+    "dimensions": {
+      "zh": "52.5X52.5cm（馆方原值，测量范围未注明）",
+      "ko": "52.5X52.5cm (박물관 원문, 측정 범위 미기재)",
+      "en": "52.5X52.5cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "瓷器（依据馆方说明）；框架材质未核实",
+      "ko": "자기 (설명에 근거), 액자 재질 미확인",
+      "en": "Porcelain (from museum description); frame material unverified"
+    },
+    "purpose": {
+      "zh": "以瓷画板展示迈森标记的变化，包括早期AR和后来的双剑标记",
+      "ko": "초기의 AR과 이후 쌍칼 등 마이센의 표식 변화를 도자기 화판에서 살펴볼 수 있다",
+      "en": "A ceramic display of successive Meissen marks, including the early AR and later crossed swords"
+    },
+    "history": {
+      "zh": "以瓷画板展示迈森标记的变化，包括早期AR和后来的双剑标记。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "초기의 AR과 이후 쌍칼 등 마이센의 표식 변화를 도자기 화판에서 살펴볼 수 있다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A ceramic display of successive Meissen marks, including the early AR and later crossed swords. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "마이센 마크가 있는 접시 액자",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1000/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1330",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1000.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-957",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "帝国皇冠双耳花瓶",
+      "ko": "임페리얼 크라운 화병",
+      "en": "Imperial Crown two-handled vase"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "奥地利／19世纪",
+      "ko": "오스트리아 / 19세기",
+      "en": "Austria / 19th century"
+    },
+    "dimensions": {
+      "zh": "23.0X18.0cm（馆方原值，测量范围未注明）",
+      "ko": "23.0X18.0cm (박물관 원문, 측정 범위 미기재)",
+      "en": "23.0X18.0cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "瓷器（依据馆方说明）；框架材质未核实",
+      "ko": "자기 (설명에 근거), 액자 재질 미확인",
+      "en": "Porcelain (from museum description); frame material unverified"
+    },
+    "purpose": {
+      "zh": "皇冠形双耳瓶，以绿、金、粉色玫瑰装饰，画面表现欧罗巴与白牛相关的神话",
+      "ko": "왕관형 두 손잡이 화병에 초록 띠·금색·장미 장식과 흰 소를 탄 에우로페의 이야기를 담았다",
+      "en": "A crown-shaped two-handled vase with green, gilt and rose ornament and a Europa-and-the-white-bull scene"
+    },
+    "history": {
+      "zh": "皇冠形双耳瓶，以绿、金、粉色玫瑰装饰，画面表现欧罗巴与白牛相关的神话。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "왕관형 두 손잡이 화병에 초록 띠·금색·장미 장식과 흰 소를 탄 에우로페의 이야기를 담았다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A crown-shaped two-handled vase with green, gilt and rose ornament and a Europa-and-the-white-bull scene. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "임페리얼 크라운 화병",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/957/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1287",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-957.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1074",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "粪肥收集瓮",
+      "ko": "분뇨 항아리",
+      "en": "Waste-collection jar"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "57X42X105cm（馆方原值，测量范围未注明）",
+      "ko": "57X42X105cm (박물관 원문, 측정 범위 미기재)",
+      "en": "57X42X105cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "埋设于厕所下收集排泄物，供传统农业制肥，属于大型生活用陶器",
+      "ko": "화장실 아래에 묻어 분뇨를 모으고 농업용 거름으로 활용하던 대형 생활용 옹기다",
+      "en": "A large vessel buried below a toilet to collect waste for use as agricultural fertilizer"
+    },
+    "history": {
+      "zh": "埋设于厕所下收集排泄物，供传统农业制肥，属于大型生活用陶器。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "화장실 아래에 묻어 분뇨를 모으고 농업용 거름으로 활용하던 대형 생활용 옹기다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A large vessel buried below a toilet to collect waste for use as agricultural fertilizer. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "분뇨 항아리",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1074/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1404",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1074.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1075",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "运尿陶器",
+      "ko": "오줌장군",
+      "en": "Urine-carrying vessel"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／朝鲜时期",
+      "ko": "대한민국 / 조선",
+      "en": "Korea / Joseon"
+    },
+    "dimensions": {
+      "zh": "18X28X41cm（馆方原值，测量范围未注明）",
+      "ko": "18X28X41cm (박물관 원문, 측정 범위 미기재)",
+      "en": "18X28X41cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "液体运输与储存",
+      "ko": "액체 운반과 보관",
+      "en": "Carrying and storing liquids"
+    },
+    "history": {
+      "zh": "馆方题名为“오줌장군”，记述该类容器可盛水、酒、酱油及尿液。本模型遵照本件官方照片的立式器形，不以同类器物的常见外形代替；隐蔽部位为近似。",
+      "ko": "공식 명칭은 오줌장군이며, 같은 종류의 용기가 물·술·간장·오줌 등을 담았다고 설명한다. 본 모델은 이 유물 사진의 세워진 형태를 따르고 보이지 않는 부분은 근사했다.",
+      "en": "The official title identifies a urine carrier; the wider vessel class held various liquids. This model follows the upright form in this object’s photograph rather than substituting another common form. Hidden parts are approximate."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "오줌장군",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1075/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1405",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1075.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  },
+  {
+    "id": "bcm-1076",
+    "kind": "collection",
+    "level": 3,
+    "name": {
+      "zh": "带流陶罐",
+      "ko": "귀때 동이",
+      "en": "Spouted earthenware container"
+    },
+    "museum": {
+      "zh": "富川市立博物馆",
+      "ko": "부천시립박물관",
+      "en": "Bucheon City Museum"
+    },
+    "period": {
+      "zh": "韩国／日本殖民统治时期",
+      "ko": "대한민국 / 일제강점기",
+      "en": "Korea / Japanese colonial period"
+    },
+    "dimensions": {
+      "zh": "48X24cm（馆方原值，测量范围未注明）",
+      "ko": "48X24cm (박물관 원문, 측정 범위 미기재)",
+      "en": "48X24cm (museum entry; measurement scope unspecified)"
+    },
+    "material": {
+      "zh": "陶器（依据馆方说明）",
+      "ko": "도기 (설명에 근거)",
+      "en": "Earthenware (from museum description)"
+    },
+    "purpose": {
+      "zh": "在陶罐上加流，使液体更方便倒入小口瓶中",
+      "ko": "작은 병 입구로 액체를 따르기 쉽도록 옹기에 귀때를 붙인 용기다",
+      "en": "A spout allows liquids to be poured into narrower-necked bottles"
+    },
+    "history": {
+      "zh": "在陶罐上加流，使液体更方便倒入小口瓶中。 模型依官方照片近似复原器形，纹样为简化示意；背面、底款和未展示细节未核实，不是扫描级复刻。",
+      "ko": "작은 병 입구로 액체를 따르기 쉽도록 옹기에 귀때를 붙인 용기다. 모델은 공식 사진을 바탕으로 형태를 근사하고 무늬를 단순화했다. 뒷면·바닥 표식·보이지 않는 부분은 미확인이며 스캔 복제품이 아니다.",
+      "en": "A spout allows liquids to be poured into narrower-necked bottles. The model approximates the photographed form with simplified decoration. Hidden surfaces and base marks are unverified; this is not a scan."
+    },
+    "verification": "verified",
+    "review": {
+      "status": "approved",
+      "approvedAt": "2026-11-15",
+      "evidence": "User explicitly approved this 30-item candidate list for independent modelling and cards; placement is deferred."
+    },
+    "sources": [
+      {
+        "title": "귀때 동이",
+        "url": "https://www.bcmuseum.or.kr/ko/collection/1076/view",
+        "accessedAt": "2026-11-15"
+      }
+    ],
+    "photo": {
+      "url": null,
+      "sourceUrl": "https://www.bcmuseum.or.kr/comm/file/thumb?id=1406",
+      "rights": "pending",
+      "credit": "부천시박물관 / Bucheon Museums",
+      "licenseEvidence": null
+    },
+    "model": {
+      "url": "models/collection-batch-20261115/bcm-1076.glb",
+      "provenance": "blender",
+      "accuracy": "approximate"
+    }
+  }
+]

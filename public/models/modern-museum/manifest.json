@@ -1,0 +1,27 @@
+{
+  "region": "Integrated Hall 2F European Porcelain Gallery, photographed passage beside dining diorama",
+  "surveyed": false,
+  "dimensions": "Estimated from photographs, not surveyed",
+  "officialSources": [
+    "https://www.bcmuseum.or.kr/ko/pages/facility",
+    "https://www.bcmuseum.or.kr/ko/pages/exhi_permanent"
+  ],
+  "photoReferences": [
+    "https://www.bcmuseum.or.kr/common/images/person/bg/exhibition/bg_1_4_01.jpg",
+    "https://www.bcmuseum.or.kr/common/images/person/bg/exhibition/bg_1_4_02.jpg",
+    "https://www.bcmuseum.or.kr/common/images/person/bg/exhibition/bg_1_4_03.jpg"
+  ],
+  "visibleVerifiedWorks": [
+    "bcm-991",
+    "bcm-986",
+    "bcm-990",
+    "bcm-988"
+  ],
+  "simplifications": [
+    "Unsurveyed distances and unseen joins",
+    "Context vases and tableware decoration",
+    "Mirror reflection",
+    "Fine wall typography"
+  ],
+  "newIndependentBatchPlaced": false
+}

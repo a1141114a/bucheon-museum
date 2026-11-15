@@ -1,0 +1,277 @@
+{
+  "approvedAt": "2026-11-15",
+  "count": 30,
+  "placedInGame": false,
+  "items": [
+    {
+      "id": "bcm-1101",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1101/view",
+      "model": "models/collection-batch-20261115/bcm-1101.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1101.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1101.py",
+      "preview": "models/bcm-1101-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1102",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1102/view",
+      "model": "models/collection-batch-20261115/bcm-1102.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1102.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1102.py",
+      "preview": "models/bcm-1102-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1103",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1103/view",
+      "model": "models/collection-batch-20261115/bcm-1103.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1103.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1103.py",
+      "preview": "models/bcm-1103-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1104",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1104/view",
+      "model": "models/collection-batch-20261115/bcm-1104.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1104.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1104.py",
+      "preview": "models/bcm-1104-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1105",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1105/view",
+      "model": "models/collection-batch-20261115/bcm-1105.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1105.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1105.py",
+      "preview": "models/bcm-1105-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1106",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1106/view",
+      "model": "models/collection-batch-20261115/bcm-1106.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1106.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1106.py",
+      "preview": "models/bcm-1106-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1107",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1107/view",
+      "model": "models/collection-batch-20261115/bcm-1107.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1107.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1107.py",
+      "preview": "models/bcm-1107-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1108",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1108/view",
+      "model": "models/collection-batch-20261115/bcm-1108.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1108.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1108.py",
+      "preview": "models/bcm-1108-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1109",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1109/view",
+      "model": "models/collection-batch-20261115/bcm-1109.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1109.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1109.py",
+      "preview": "models/bcm-1109-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1110",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1110/view",
+      "model": "models/collection-batch-20261115/bcm-1110.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1110.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1110.py",
+      "preview": "models/bcm-1110-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1111",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1111/view",
+      "model": "models/collection-batch-20261115/bcm-1111.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1111.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1111.py",
+      "preview": "models/bcm-1111-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1112",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1112/view",
+      "model": "models/collection-batch-20261115/bcm-1112.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1112.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1112.py",
+      "preview": "models/bcm-1112-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1113",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1113/view",
+      "model": "models/collection-batch-20261115/bcm-1113.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1113.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1113.py",
+      "preview": "models/bcm-1113-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1114",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1114/view",
+      "model": "models/collection-batch-20261115/bcm-1114.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1114.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1114.py",
+      "preview": "models/bcm-1114-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1115",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1115/view",
+      "model": "models/collection-batch-20261115/bcm-1115.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1115.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1115.py",
+      "preview": "models/bcm-1115-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1116",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1116/view",
+      "model": "models/collection-batch-20261115/bcm-1116.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1116.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1116.py",
+      "preview": "models/bcm-1116-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1117",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1117/view",
+      "model": "models/collection-batch-20261115/bcm-1117.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1117.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1117.py",
+      "preview": "models/bcm-1117-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1120",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1120/view",
+      "model": "models/collection-batch-20261115/bcm-1120.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1120.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1120.py",
+      "preview": "models/bcm-1120-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1121",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1121/view",
+      "model": "models/collection-batch-20261115/bcm-1121.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1121.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1121.py",
+      "preview": "models/bcm-1121-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-996",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/996/view",
+      "model": "models/collection-batch-20261115/bcm-996.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-996.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-996.py",
+      "preview": "models/bcm-996-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-995",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/995/view",
+      "model": "models/collection-batch-20261115/bcm-995.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-995.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-995.py",
+      "preview": "models/bcm-995-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-994",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/994/view",
+      "model": "models/collection-batch-20261115/bcm-994.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-994.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-994.py",
+      "preview": "models/bcm-994-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-993",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/993/view",
+      "model": "models/collection-batch-20261115/bcm-993.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-993.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-993.py",
+      "preview": "models/bcm-993-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-992",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/992/view",
+      "model": "models/collection-batch-20261115/bcm-992.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-992.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-992.py",
+      "preview": "models/bcm-992-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-985",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/985/view",
+      "model": "models/collection-batch-20261115/bcm-985.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-985.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-985.py",
+      "preview": "models/bcm-985-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1000",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1000/view",
+      "model": "models/collection-batch-20261115/bcm-1000.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1000.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1000.py",
+      "preview": "models/bcm-1000-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-957",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/957/view",
+      "model": "models/collection-batch-20261115/bcm-957.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-957.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-957.py",
+      "preview": "models/bcm-957-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1074",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1074/view",
+      "model": "models/collection-batch-20261115/bcm-1074.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1074.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1074.py",
+      "preview": "models/bcm-1074-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1075",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1075/view",
+      "model": "models/collection-batch-20261115/bcm-1075.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1075.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1075.py",
+      "preview": "models/bcm-1075-preview.png",
+      "accuracy": "approximate"
+    },
+    {
+      "id": "bcm-1076",
+      "source": "https://www.bcmuseum.or.kr/ko/collection/1076/view",
+      "model": "models/collection-batch-20261115/bcm-1076.glb",
+      "blend": "blender/blend/collection-batch-20261115/bcm-1076.blend",
+      "script": "blender/scripts/collection-batch-20261115/bcm-1076.py",
+      "preview": "models/bcm-1076-preview.png",
+      "accuracy": "approximate"
+    }
+  ]
+}

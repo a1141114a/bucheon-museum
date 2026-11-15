@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { Link, NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { artifacts } from './data/artifacts'
 import { ArtifactCard } from './components/ArtifactCard'
@@ -10,6 +10,7 @@ import Restoration from './components/Restoration'
 import Home from './components/Home'
 import GalleryHunt from './components/GalleryHunt'
 import TimeChamber from './components/TimeChamber'
+const CollectionLibrary=lazy(()=>import('./components/CollectionLibrary'))
 
 function ToolbarIcon({name}:{name:'chapters'|'close'|'journal'|'fullscreen'|'home'}){
   const paths={
@@ -37,8 +38,9 @@ export default function App(){
     <div className="main-shell"><header><Link className="header-title" to="/" aria-label={t('home')} onClick={()=>setMenu(false)}>{t('title')}</Link><div className="game-toolbar"><button className="menu-button carved-button" aria-expanded={menu} aria-controls="chapter-menu" onClick={()=>setMenu(!menu)}><ToolbarIcon name={menu?'close':'chapters'}/>{t('menu')}</button><Link className="carved-button" to="/journal" onClick={()=>setMenu(false)}><ToolbarIcon name="journal"/>{t('atlas')}</Link><button onClick={()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.().catch(()=>{});else document.exitFullscreen?.().catch(()=>{})}} className="carved-button"><ToolbarIcon name="fullscreen"/>{t('fullscreen')}</button></div><div className="languages carved-switch" role="group" aria-label="Language">{(['zh','ko','en'] as Language[]).map(lang=><button key={lang} lang={lang} aria-pressed={state.language===lang} onClick={()=>dispatch({type:'language',language:lang})}>{({zh:'中文',ko:'한국어',en:'EN'})[lang]}</button>)}</div></header><main>
       <div className="meta-strip"><span>{t('phase')}</span><div><span>{t('discoveredCount')} <b>{count.toString().padStart(2,'0')} / {artifacts.length.toString().padStart(2,'0')}</b></span><span>{t('score')} <b>{state.score.toString().padStart(3,'0')}</b></span></div></div>
       {storageError&&<p className="storage-warning" role="alert">{t('storageError')}</p>}
-      <Routes><Route path="/levels/1" element={<Restoration inspect={()=>inspect()} active={!selected&&!menu}/>}/><Route path="/levels/2" element={<GalleryHunt active={!menu&&!selected} onArtifact={inspect}/>}/><Route path="/levels/3" element={<TimeChamber active={!menu&&!selected} onArtifact={inspect}/>}/><Route path="/journal" element={<Journal open={inspect}/>}/><Route path="*" element={<Navigate to="/" replace/>}/></Routes>
+      <Routes><Route path="/levels/1" element={<Restoration inspect={()=>inspect()} active={!selected&&!menu}/>}/><Route path="/levels/2" element={<GalleryHunt active={!menu&&!selected} onArtifact={inspect}/>}/><Route path="/levels/3" element={<TimeChamber active={!menu&&!selected} onArtifact={inspect}/>}/><Route path="/journal" element={<Journal open={inspect}/>}/><Route path="/collection-library" element={<Suspense fallback={<p>Loading…</p>}><CollectionLibrary/></Suspense>}/><Route path="*" element={<Navigate to="/" replace/>}/></Routes>
       <footer><span>{storageError?'—':t('saved')}</span><button onClick={()=>{if(window.confirm(t('resetConfirm'))){setSelected(null);dispatch({type:'reset'})}}}>{t('reset')}</button></footer>
     </main></div>{selected&&<ArtifactCard artifact={selected} onClose={()=>setSelected(null)}/>}</div>
 }
+
 

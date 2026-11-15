@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 're
 import {createPortal} from 'react-dom'
 import { useGame } from '../state/GameProvider'
 import { statusOf } from '../state/game'
-import { canModelCollection, canPublishPhoto, storageJarArtifact } from '../data/artifacts'
+import { canModelCollection, canPublishPhoto } from '../data/artifacts'
 import {suppliedPaintingReference} from '../data/referenceImages'
 import type { Artifact } from '../types'
 import './artifact-model.css'
@@ -13,7 +13,7 @@ import {fitLedgerFrame} from './ledgerFrame'
 
 const ArtifactModelViewer = lazy(() => import('./ArtifactModelViewer'))
 
-export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>void}) {
+export function ArtifactCard({artifact,onClose,catalogueOnly=false}:{artifact:Artifact;onClose:()=>void;catalogueOnly?:boolean}) {
   const {state,dispatch,t}=useGame(); const dialog=useRef<HTMLDialogElement>(null)
   const [frame,setFrame]=useState(()=>fitLedgerFrame(window.innerWidth,window.visualViewport?.height||window.innerHeight))
   const [showModel, setShowModel] = useState(false)
@@ -23,7 +23,7 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
   const modelUrl = artifact.kind === 'test' || canModelCollection(artifact) ? artifact.model.url : null
   const photoUrl = suppliedPaintingReference(artifact)||(canPublishPhoto(artifact) ? artifact.photo.url : null)
   const showPhoto = Boolean(photoUrl && !photoFailed)
-  const previewUrl = modelUrl && (artifact.id === storageJarArtifact.id || artifact.level === 2 || painting)
+  const previewUrl = modelUrl
     ? import.meta.env.BASE_URL + `models/${artifact.id}-preview.png`
     : null
   useLayoutEffect(()=>{
@@ -44,7 +44,7 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
     {painting?<div className="painting-ledger-frame" style={{borderImageSource:`url("${import.meta.env.BASE_URL}ui/painting-card-frame.png")`}} aria-hidden="true"/>:<ArtifactFrameMotion width={frame.width} height={frame.height}/>}
     <div className="ledger-safe-area" style={frame.portrait&&!painting?{top:Math.round(frame.width*.10),bottom:Math.round(frame.width*.17)}:undefined}>
       <div className="ledger-topline">
-        <span className="status">{t(status)}</span>
+        <span className="status">{catalogueOnly?{zh:'独立模型资料',ko:'독립 모델 자료',en:'Model catalogue'}[state.language]:t(status)}</span>
         <div className="card-actions">
           <div className="languages carved-switch" role="group" aria-label="Language">{(['zh', 'ko', 'en'] as const).map((language) =>
             <button type="button" key={language} lang={language} aria-pressed={state.language === language} onClick={() => dispatch({type:'language', language})}>
@@ -92,7 +92,7 @@ export function ArtifactCard({artifact,onClose}:{artifact:Artifact;onClose:()=>v
             {painting&&artifact.photo.rights==='pending'&&<p className="ledger-photo-rights">{t('journalPhotoRightsPending')}</p>}
             <section className="ledger-history"><h3>{t('history')}</h3><p>{artifact.history[state.language]}</p></section>
             <section className="ledger-sources"><h3>{t('sources')}</h3>{artifact.sources.length?artifact.sources.map(s=><p key={s.url}><a className="artifact-source-link" href={s.url} target="_blank" rel="noreferrer">{s.title} ↗</a></p>):<p>{t('noSources')}</p>}</section>
-            {status==='discovered'&&<button type="button" className="ledger-button ledger-save" onClick={()=>dispatch({type:'unlock',id:artifact.id})}>{t('save')} <span aria-hidden="true">↗</span></button>}
+            {!catalogueOnly&&status==='discovered'&&<button type="button" className="ledger-button ledger-save" onClick={()=>dispatch({type:'unlock',id:artifact.id})}>{t('save')} <span aria-hidden="true">↗</span></button>}
           </section>
         </div>
       </div>

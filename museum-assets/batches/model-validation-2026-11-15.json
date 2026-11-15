@@ -1,0 +1,191 @@
+{
+  "collection": [
+    {
+      "id": "bcm-1000",
+      "meshes": 32,
+      "vertices": 720,
+      "openable": true
+    },
+    {
+      "id": "bcm-1074",
+      "meshes": 16,
+      "vertices": 22899,
+      "openable": true
+    },
+    {
+      "id": "bcm-1075",
+      "meshes": 16,
+      "vertices": 19059,
+      "openable": true
+    },
+    {
+      "id": "bcm-1076",
+      "meshes": 21,
+      "vertices": 25518,
+      "openable": true
+    },
+    {
+      "id": "bcm-1101",
+      "meshes": 16,
+      "vertices": 20212,
+      "openable": true
+    },
+    {
+      "id": "bcm-1102",
+      "meshes": 128,
+      "vertices": 165323,
+      "openable": true
+    },
+    {
+      "id": "bcm-1103",
+      "meshes": 16,
+      "vertices": 19059,
+      "openable": true
+    },
+    {
+      "id": "bcm-1104",
+      "meshes": 20,
+      "vertices": 21735,
+      "openable": true
+    },
+    {
+      "id": "bcm-1105",
+      "meshes": 16,
+      "vertices": 22899,
+      "openable": true
+    },
+    {
+      "id": "bcm-1106",
+      "meshes": 20,
+      "vertices": 21735,
+      "openable": true
+    },
+    {
+      "id": "bcm-1107",
+      "meshes": 20,
+      "vertices": 22132,
+      "openable": true
+    },
+    {
+      "id": "bcm-1108",
+      "meshes": 14,
+      "vertices": 17759,
+      "openable": true
+    },
+    {
+      "id": "bcm-1109",
+      "meshes": 23,
+      "vertices": 26399,
+      "openable": true
+    },
+    {
+      "id": "bcm-1110",
+      "meshes": 29,
+      "vertices": 21479,
+      "openable": true
+    },
+    {
+      "id": "bcm-1111",
+      "meshes": 16,
+      "vertices": 19730,
+      "openable": true
+    },
+    {
+      "id": "bcm-1112",
+      "meshes": 13,
+      "vertices": 16467,
+      "openable": true
+    },
+    {
+      "id": "bcm-1113",
+      "meshes": 18,
+      "vertices": 20642,
+      "openable": true
+    },
+    {
+      "id": "bcm-1114",
+      "meshes": 35,
+      "vertices": 26699,
+      "openable": true
+    },
+    {
+      "id": "bcm-1115",
+      "meshes": 26,
+      "vertices": 18029,
+      "openable": true
+    },
+    {
+      "id": "bcm-1116",
+      "meshes": 18,
+      "vertices": 24870,
+      "openable": true
+    },
+    {
+      "id": "bcm-1117",
+      "meshes": 32,
+      "vertices": 29189,
+      "openable": true
+    },
+    {
+      "id": "bcm-1120",
+      "meshes": 33,
+      "vertices": 29083,
+      "openable": true
+    },
+    {
+      "id": "bcm-1121",
+      "meshes": 31,
+      "vertices": 26619,
+      "openable": true
+    },
+    {
+      "id": "bcm-957",
+      "meshes": 68,
+      "vertices": 44067,
+      "openable": true
+    },
+    {
+      "id": "bcm-985",
+      "meshes": 14,
+      "vertices": 15268,
+      "openable": true
+    },
+    {
+      "id": "bcm-992",
+      "meshes": 30,
+      "vertices": 18327,
+      "openable": true
+    },
+    {
+      "id": "bcm-993",
+      "meshes": 164,
+      "vertices": 83795,
+      "openable": true
+    },
+    {
+      "id": "bcm-994",
+      "meshes": 34,
+      "vertices": 16755,
+      "openable": true
+    },
+    {
+      "id": "bcm-995",
+      "meshes": 24,
+      "vertices": 14283,
+      "openable": true
+    },
+    {
+      "id": "bcm-996",
+      "meshes": 24,
+      "vertices": 14283,
+      "openable": true
+    }
+  ],
+  "museumSourceOpenable": true,
+  "museumArtworkIds": [
+    "bcm-986",
+    "bcm-988",
+    "bcm-990",
+    "bcm-991"
+  ]
+}
