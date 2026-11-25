@@ -8,6 +8,11 @@ import {museumExhibits} from '../data/museumExhibits'
 import {modernMuseumModel,museumText,museumWalkable} from '../data/modernMuseum'
 import type {Artifact} from '../types'
 import PaintingWalk from './PaintingWalk'
+import MuseumPortal,{type IntroPhase} from './MuseumPortal'
+import IntroComic from './IntroComic'
+import MuseumIntroGuide from './MuseumIntroGuide'
+import type {Pose} from '../state/paintings'
+import {arrivalComicUrl} from '../state/museumJourney'
 import MovementJoystick,{useTouchControls} from './MovementJoystick'
 import './modern-museum.css'
 const url=import.meta.env.BASE_URL+modernMuseumModel
@@ -30,12 +35,15 @@ function MuseumRoom({onReady,inspect}:{onReady:()=>void;inspect:(a:Artifact)=>vo
  useEffect(()=>onReady(),[onReady])
  return <primitive object={model} onClick={(e:{delta:number;object:Mesh;stopPropagation:()=>void})=>{if(e.delta>6)return;let o:typeof e.object|null=e.object;while(o){const id=o.userData.artifactId,art=museumExhibits.find(a=>a.id===id);if(art){e.stopPropagation();inspect(art);return}o=o.parent as Mesh|null}}}/>
 }
-export default function ModernMuseum({active,onArtifact,onRestart}:{active:boolean;onArtifact:(a:Artifact)=>void;onRestart:()=>void}){
+export default function ModernMuseum({active,onArtifact,onRestart,mode='ending',onIntroComplete}:{active:boolean;onArtifact:(a:Artifact)=>void;onRestart?:()=>void;mode?:'intro'|'ending';onIntroComplete?:()=>void}){
  const {state}=useGame(),txt=(key:Parameters<typeof museumText>[1])=>museumText(state.language,key),touch=useTouchControls()
+ const [pose,setPose]=useState<Pose>(arrival),updatePose=useCallback((p:Pose)=>setPose(p),[])
+ const [introPhase,setIntroPhase]=useState<IntroPhase>('waiting')
  const [ready,setReady]=useState(false),[recap,setRecap]=useState(false),dialog=useRef<HTMLDialogElement>(null)
- const onReady=useCallback(()=>setReady(true),[]),enabled=active&&ready&&!recap
+ const onReady=useCallback(()=>setReady(true),[]),enabled=active&&ready&&!recap&&(mode!=='intro'||introPhase==='waiting')
+ useEffect(()=>{if(mode==='intro'){const comic=new Image();comic.src=import.meta.env.BASE_URL+arrivalComicUrl;void import('./RestorationScene');useGLTF.preload(import.meta.env.BASE_URL+'models/bcm-1072-restoration.glb',import.meta.env.BASE_URL+'draco/')}},[mode])
  useEffect(()=>{if(recap)dialog.current?.showModal();else dialog.current?.close()},[recap])
- return <section className="modern-museum-root" aria-label={txt('title')} data-ready={ready}>
+ return <section className="modern-museum-root" aria-label={txt('title')} data-ready={ready} data-mode={mode} data-intro-phase={introPhase}>
  <Canvas shadows dpr={[1,1.5]} camera={{position:[1.1,1.65,5.7],fov:62,near:.06,far:40}}>
   <color attach="background" args={['#bdb9af']}/><hemisphereLight args={['#fff7e8','#9e8c70',1.10]}/>
   <TrackLight from={[-1.5,3.03,2.5]} to={[-.3,1.6,2.2]} power={42} shadow/>
@@ -48,15 +56,18 @@ export default function ModernMuseum({active,onArtifact,onRestart}:{active:boole
   <Environment resolution={64} frames={1}><Lightformer position={[0,3,0]} rotation={[Math.PI/2,0,0]} scale={[2.5,10,1]} intensity={.7}/><Lightformer position={[3,2,0]} rotation={[0,-Math.PI/2,0]} scale={[1.2,8,1]} intensity={.35}/></Environment>
   <StaticGalleryShadows ready={ready}/>
   <Suspense fallback={null}><MuseumRoom onReady={onReady} inspect={a=>{if(enabled)onArtifact(a)}}/></Suspense>
-  <PaintingWalk room={5} active={enabled} onPose={ignorePose} arrival={arrival} walkable={museumWalkable}/>
+  {mode==='intro'&&<MuseumPortal active={active&&ready&&introPhase!=='complete'} onPhase={setIntroPhase}/>}
+  <PaintingWalk room={5} active={enabled} onPose={mode==='intro'?updatePose:ignorePose} arrival={arrival} walkable={museumWalkable}/>
  </Canvas>
  {!ready&&<div className="modern-loading" role="status">{txt('loading')}</div>}
  <div className="modern-museum-hud">
-  <div className="modern-heading"><div><span className="eyebrow">EPILOGUE · BUCHEON</span><h1>{txt('title')}</h1><p>{txt('place')}</p></div><div className="modern-tools"><button className="stone-button" onClick={()=>setRecap(true)}>{txt('recap')}</button><nav className="modern-source-links"><a href="https://www.bcmuseum.or.kr/ko/pages/exhi_permanent" target="_blank" rel="noreferrer">{txt('source')}</a><a href="https://www.bucheon.go.kr/site/homepage/menu/viewMenu?menuid=148006001004009" target="_blank" rel="noreferrer">{txt('city')}</a></nav></div></div>
+  <div className="modern-heading"><div><span className="eyebrow">{mode==='intro'?'PROLOGUE · BUCHEON':'EPILOGUE · BUCHEON'}</span><h1>{txt(mode==='intro'?'introTitle':'title')}</h1><p>{txt('place')}</p>{mode==='intro'&&<MuseumIntroGuide pose={pose}/>}</div><div className="modern-tools">{mode==='ending'&&<button className="stone-button" onClick={()=>setRecap(true)}>{txt('recap')}</button>}<nav className="modern-source-links"><a href="https://www.bcmuseum.or.kr/ko/pages/exhi_permanent" target="_blank" rel="noreferrer">{txt('source')}</a><a href="https://www.bucheon.go.kr/site/homepage/menu/viewMenu?menuid=148006001004009" target="_blank" rel="noreferrer">{txt('city')}</a></nav></div></div>
   {touch&&<MovementJoystick active={enabled} label={state.language==='zh'?'移动':state.language==='ko'?'이동':'Move'} help={txt('controls')}/>}
-  <p className="modern-controls">{txt('controls')}</p>
+  <p className="modern-controls">{mode==='intro'&&<><span>{txt('introNote')}</span><br/></>}{txt('controls')}</p>
  </div>
- <dialog ref={dialog} className="modern-ending" aria-label={txt('ending')} onCancel={()=>setRecap(false)}><h2>{txt('ending')}</h2><p>{txt('welcome')}</p><p>{txt('place')}</p><div><button className="stone-button" onClick={()=>setRecap(false)}>{txt('close')}</button><Link className="stone-button" to="/">{txt('home')}</Link><button className="stone-button" onClick={()=>{setRecap(false);onRestart()}}>{txt('restart')}</button></div></dialog>
+ {mode==='intro'&&introPhase!=='waiting'&&introPhase!=='complete'&&<div className={`museum-portal-crossing is-${introPhase}`} role="status" aria-live="polite"><p>{txt(introPhase==='reveal'?'portalReveal':'portalPull')}</p></div>}
+ {mode==='intro'&&introPhase==='complete'&&<IntroComic onContinue={()=>onIntroComplete?.()}/>}
+ {mode==='ending'&&<dialog ref={dialog} className="modern-ending" aria-label={txt('ending')} onCancel={()=>setRecap(false)}><h2>{txt('ending')}</h2><p>{txt('welcome')}</p><p>{txt('place')}</p><div><button className="stone-button" onClick={()=>setRecap(false)}>{txt('close')}</button><Link className="stone-button" to="/">{txt('home')}</Link><button className="stone-button" onClick={()=>{setRecap(false);onRestart?.()}}>{txt('restart')}</button></div></dialog>}
  </section>
 }
 

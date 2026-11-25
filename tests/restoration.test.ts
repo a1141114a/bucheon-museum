@@ -3,27 +3,29 @@ import {describe,it,expect} from 'vitest'
 import {gameReducer,initialState,parseSave} from '../src/state/game'
 import {fragmentIds,rotationOf,placementResult,parseRestoration,restorationScore} from '../src/state/restoration'
 const start=()=>gameReducer(initialState,{type:'restore-start'})
-function solve(){let s=start();for(const id of fragmentIds){while(rotationOf(s.restoration,id)!==0)s=gameReducer(s,{type:'restore-rotate',id,direction:1});s=gameReducer(s,{type:'restore-place',id,target:id})}return s}
+function solve(){let s=start();for(const id of fragmentIds){s=gameReducer(s,{type:'restore-place',id,target:id})}return s}
 describe('restoration gameplay',()=>{
   it('requires starting and rejects unknown pieces',()=>{
     expect(placementResult(initialState.restoration,fragmentIds[0],fragmentIds[0])).toBe('invalid')
     expect(gameReducer(start(),{type:'restore-place',id:'unknown',target:'unknown'}).restoration.placed).toEqual([])
   })
-  it('gives different feedback for wrong slot and wrong rotation',()=>{
+  it('rejects the wrong slot and accepts the correct one at any angle',()=>{
     const s=start();expect(placementResult(s.restoration,fragmentIds[0],fragmentIds[1])).toBe('wrongSlot')
-    expect(placementResult(s.restoration,fragmentIds[0],fragmentIds[0])).toBe('wrongRotation')
+    expect(placementResult(s.restoration,fragmentIds[0],fragmentIds[0])).toBe('correct')
   })
   it('wraps rotations in both directions',()=>{
     let s=start();const id=fragmentIds[0];for(let i=0;i<5;i++)s=gameReducer(s,{type:'restore-rotate',id,direction:-1})
     expect(rotationOf(s.restoration,id)).toBe(0)
   })
-  it('only snaps when identity and orientation match',()=>{
+  it('automatically aligns and snaps a matching fragment, including old saved rotations',()=>{
     let s=start();const id=fragmentIds[0]
-    expect(gameReducer(s,{type:'restore-place',id,target:id})).toBe(s)
-    s=gameReducer(s,{type:'restore-rotate',id,direction:-1});s=gameReducer(s,{type:'restore-place',id,target:id})
-    expect(s.restoration.placed).toEqual([id]);expect(s.score).toBe(20)
+    expect(rotationOf(s.restoration,id)).not.toBe(0)
+    expect(gameReducer(s,{type:'restore-place',id,target:fragmentIds[1]})).toBe(s)
+    s=gameReducer(s,{type:'restore-place',id,target:id})
+    expect(s.restoration.placed).toEqual([id]);expect(s.restoration.rotations[id]).toBe(0);expect(s.score).toBe(20)
     expect(gameReducer(s,{type:'restore-place',id,target:id})).toBe(s)
     expect(gameReducer(s,{type:'restore-rotate',id,direction:1})).toBe(s)
+    expect(parseSave(JSON.stringify(s)).restoration.rotations[id]).toBe(0)
   })
   it('caps hints at three and deducts five each',()=>{
     let s=start();for(let i=0;i<7;i++)s=gameReducer(s,{type:'restore-hint'})

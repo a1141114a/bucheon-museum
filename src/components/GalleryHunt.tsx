@@ -110,7 +110,7 @@ export default function GalleryHunt({active,onArtifact}:{active:boolean;onArtifa
         <button type="button" className="hunt-collapse" aria-label={t('huntHidePanel')}
           aria-controls="hunt-task-panel" aria-expanded={briefOpen} onClick={()=>setBriefOpen(false)}>×</button>
       </div>
-      <div><p>{t('huntIntro')}</p><p>{t('huntControls')}</p></div>
+      <div><p>{t('huntIntro')}</p><p>{t('huntControls')}</p><p>{t('huntCoinGlowHelp')}</p></div>
       <div className="hunt-brief-actions">
         <button type="button" className="stone-button" aria-expanded={showHint} onClick={() => setShowHint(!showHint)}>{t('hint')}</button>
         <button type="button" className="stone-button" disabled={!active} onClick={restart}>{t('huntRestart')}</button>

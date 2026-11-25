@@ -141,7 +141,7 @@ export default function Home(){
         <p className="home-tagline">{t('homeTagline')}</p>
       </div>
       <nav className="home-menu" aria-label={t('title')}>
-        <Link className="home-menu-item" to="/levels/1" onClick={preferLandscape}><Plaque/><MenuIcon name="play"/><span>{t('startGame')}</span></Link>
+        <Link className="home-menu-item" to="/museum" onClick={preferLandscape}><Plaque/><MenuIcon name="play"/><span>{t('startGame')}</span></Link>
         <Link className="home-menu-item" to="/journal"><Plaque/><MenuIcon name="journal"/><span>{t('atlas')}</span></Link>
         <button className="home-menu-item" aria-haspopup="dialog" onClick={()=>settings.current?.showModal()}>
           <Plaque/><MenuIcon name="settings"/><span>{t('gameSettings')}</span>

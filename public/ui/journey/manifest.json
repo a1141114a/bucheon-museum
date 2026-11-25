@@ -1,0 +1,22 @@
+{
+  "providedAt": "2026-11-25",
+  "purpose": "User-supplied narrative transition, not a museum collection photograph",
+  "introOnly": true,
+  "video": {
+    "file": "museum-portal.mp4",
+    "width": 720,
+    "height": 752,
+    "durationSeconds": 6.041667,
+    "background": "Baked neutral checkerboard; removed at render time, original file unmodified",
+    "bytes": 442859,
+    "sha256": "b17b8834293fea8eb62fcc85f7c41d7e910b061549429ffcbacec0b8703ff35b"
+  },
+  "comic": {
+    "file": "arrival-comic.png",
+    "width": 1536,
+    "height": 1024,
+    "presentation": "Complete four-panel image, contain; no cropping",
+    "bytes": 2940079,
+    "sha256": "d0221ec31091f3c1a8a33b8f0bc38669a451f4c9f6545d5cb97324c1fe8514f6"
+  }
+}

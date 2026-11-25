@@ -5,10 +5,10 @@ export const initialRotation=(id:string)=>[1,3,2,1,2,3,1,3,2][fragmentIds.indexO
 export interface RestorationState {started:boolean;placed:string[];rotations:Record<string,number>;hints:number}
 export const freshRestoration=():RestorationState=>({started:false,placed:[],rotations:{},hints:0})
 export const rotationOf=(s:RestorationState,id:string)=>s.rotations[id]??initialRotation(id)
-export function placementResult(s:RestorationState,id:string,target:string):'correct'|'wrongSlot'|'wrongRotation'|'invalid'{
+export function placementResult(s:RestorationState,id:string,target:string):'correct'|'wrongSlot'|'invalid'{
   if(!s.started||!fragmentIds.includes(id)||!fragmentIds.includes(target)||s.placed.includes(id))return 'invalid'
   if(id!==target)return 'wrongSlot'
-  return rotationOf(s,id)===0?'correct':'wrongRotation'
+  return 'correct'
 }
 export const restorationScore=(s:RestorationState)=>Math.max(0,s.placed.length*20+(s.placed.length===9?100:0)-s.hints*5)
 export function parseRestoration(value:unknown):RestorationState{

@@ -67,3 +67,10 @@ export function nearbyStation(x:number,z:number):Station|null {
 export function nearbyExhibit(x:number,z:number):string|null {
   return displays.find(d => Math.abs(x-d.x)<1.75 && z-d.z>1.12 && z-d.z<3.0)?.id ?? null
 }
+
+/** Smooth monotonic hint, independent of camera angle; picking still requires proximity. */
+export function coinGlowStrength(distance:number){
+ if(!Number.isFinite(distance))return 0
+ const near=Math.max(0,Math.min(1,(9-Math.max(0,distance))/8))
+ return near*near
+}

@@ -1,0 +1,513 @@
+{
+  "intro": [
+    {
+      "engine": "chromium",
+      "layouts": [
+        {
+          "width": 1440,
+          "height": 900,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 320,
+          "height": 568,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 320,
+          "height": 568,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 320,
+          "height": 568,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        }
+      ],
+      "keyboard": true,
+      "joystick": true,
+      "portal": true,
+      "firstLevel": true,
+      "collectionRetained": true,
+      "comicLayouts": [
+        {
+          "w": 1440,
+          "h": 900,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 1024,
+          "h": 768,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 768,
+          "h": 1024,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 390,
+          "h": 844,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 844,
+          "h": 390,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 320,
+          "h": 568,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "layouts": [
+        {
+          "width": 1440,
+          "height": 900,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1440,
+          "height": 900,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 768,
+          "height": 1024,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 320,
+          "height": 568,
+          "lang": "中文",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 320,
+          "height": 568,
+          "lang": "한국어",
+          "overflow": false,
+          "fits": true
+        },
+        {
+          "width": 320,
+          "height": 568,
+          "lang": "EN",
+          "overflow": false,
+          "fits": true
+        }
+      ],
+      "keyboard": true,
+      "joystick": true,
+      "portal": true,
+      "firstLevel": true,
+      "collectionRetained": true,
+      "comicLayouts": [
+        {
+          "w": 1440,
+          "h": 900,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 1024,
+          "h": 768,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 768,
+          "h": 1024,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 390,
+          "h": 844,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 844,
+          "h": 390,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        },
+        {
+          "w": 320,
+          "h": 568,
+          "fits": true,
+          "scroll": true,
+          "contain": true,
+          "imageInside": true
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "portalMedia": {
+    "video": {
+      "currentTime": 0.3858,
+      "paused": false,
+      "width": 720,
+      "height": 752
+    },
+    "comicFullSize": true,
+    "errors": []
+  },
+  "galleryEntry": {
+    "legacyCompletedSave": true,
+    "realGalleryEntry": true,
+    "firstPainting": true,
+    "reload": true,
+    "errors": []
+  },
+  "paintingFlowChromium": {
+    "worlds": 5,
+    "placed": 4,
+    "keyCarryBack": true,
+    "ending": true,
+    "reload": true,
+    "restart": true,
+    "noScore": true,
+    "errors": []
+  },
+  "paintingFlowWebKit": {
+    "worlds": 5,
+    "placed": 4,
+    "keyCarryBack": true,
+    "ending": true,
+    "reload": true,
+    "restart": true,
+    "noScore": true,
+    "errors": []
+  },
+  "automaticRestoration": [
+    {
+      "engine": "chromium",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "actualMeshClicks": 18,
+      "wrongSlotRejected": true,
+      "noRotationButtons": true,
+      "keyboardRotationRemoved": true,
+      "autoAligned": 9,
+      "completion": true,
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "actualMeshClicks": 18,
+      "wrongSlotRejected": true,
+      "noRotationButtons": true,
+      "keyboardRotationRemoved": true,
+      "autoAligned": 9,
+      "completion": true,
+      "errors": []
+    }
+  ],
+  "coinGlow": [
+    {
+      "engine": "chromium",
+      "coins": [
+        {
+          "id": "west",
+          "far": 0.02,
+          "near": 0.5563475234072822,
+          "notAutoCollected": true,
+          "clickCollected": true,
+          "glowRemoved": true,
+          "coinFaceClear": true
+        },
+        {
+          "id": "east",
+          "far": 0.02,
+          "near": 0.5561139853938705,
+          "notAutoCollected": true,
+          "clickCollected": true,
+          "glowRemoved": true,
+          "coinFaceClear": true
+        },
+        {
+          "id": "rear",
+          "far": 0.02,
+          "near": 0.5562561683079418,
+          "notAutoCollected": true,
+          "clickCollected": true,
+          "glowRemoved": true,
+          "coinFaceClear": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "engine": "webkit",
+      "coins": [
+        {
+          "id": "west",
+          "far": 0.02,
+          "near": 0.5563524039826762,
+          "notAutoCollected": true,
+          "clickCollected": true,
+          "glowRemoved": true,
+          "coinFaceClear": true
+        },
+        {
+          "id": "east",
+          "far": 0.02,
+          "near": 0.5561010566384905,
+          "notAutoCollected": true,
+          "clickCollected": true,
+          "glowRemoved": true,
+          "coinFaceClear": true
+        },
+        {
+          "id": "rear",
+          "far": 0.02,
+          "near": 0.5562286152742945,
+          "notAutoCollected": true,
+          "clickCollected": true,
+          "glowRemoved": true,
+          "coinFaceClear": true
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

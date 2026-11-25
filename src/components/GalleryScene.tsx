@@ -1,11 +1,11 @@
 import { Component, Suspense, useEffect, useMemo, useRef, type ReactNode } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
-import { Box3, CanvasTexture, InstancedMesh, MathUtils, Matrix4, Object3D, Quaternion, SRGBColorSpace, Vector3 } from 'three'
+import { Box3, AdditiveBlending, CanvasTexture, InstancedMesh, Mesh, MeshStandardMaterial, PointLight, Sprite, SpriteMaterial, MathUtils, Matrix4, Object3D, Quaternion, SRGBColorSpace, Vector3 } from 'three'
 import { artifacts } from '../data/artifacts'
 import { exhibitLabels } from '../data/exhibitLabels'
 import type { Language } from '../types'
-import { clueIds, displays, gallerySpawn, nearbyExhibit, nearbyStation, stations, type ClueId, type Station } from '../state/exploration'
+import { clueIds, coinGlowStrength, displays, gallerySpawn, nearbyExhibit, nearbyStation, stations, type ClueId, type Station } from '../state/exploration'
 import WalkControls from './WalkControls'
 import GalleryArchitecture from './GalleryArchitecture'
 import ArtPortal from './ArtPortal'
@@ -159,12 +159,22 @@ function TreasureCabinet({opened,onOpen}:{opened:boolean;onOpen:()=>void}) {
 
 function HiddenCoin({id,onCollect}:{id:ClueId;onCollect:()=>void}) {
   const {scene}=useGLTF(treasureModel('coin'))
-  const coin=useMemo(()=>scene.clone(true),[scene])
+  const coin=useMemo(()=>{const clone=scene.clone(true);clone.traverse(o=>{if(o instanceof Mesh){o.material=Array.isArray(o.material)?o.material.map(m=>m.clone()):o.material.clone();for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof MeshStandardMaterial)m.emissive.set('#ffbd42')}});return clone},[scene])
+  const glow=useRef<Sprite>(null),light=useRef<PointLight>(null),strength=useRef(0)
+  const halo=useMemo(()=>{const c=document.createElement('canvas');c.width=c.height=64;const ctx=c.getContext('2d')!;const g=ctx.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'#ffdc8000');g.addColorStop(.34,'#ffdc8000');g.addColorStop(.52,'#ffce62cc');g.addColorStop(.76,'#ffbd3550');g.addColorStop(1,'#ffad2000');ctx.fillStyle=g;ctx.fillRect(0,0,64,64);return new CanvasTexture(c)},[])
+  useEffect(()=>()=>{halo.dispose();coin.traverse(o=>{if(o instanceof Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose()})},[coin,halo])
+  useFrame(({camera},dt)=>{const target=coinGlowStrength(Math.hypot(camera.position.x-x,camera.position.z-z));strength.current=MathUtils.damp(strength.current,target,6,dt);const s=strength.current
+   coin.traverse(o=>{if(o instanceof Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof MeshStandardMaterial)m.emissiveIntensity=.04+s*.12})
+   if(glow.current){(glow.current.material as SpriteMaterial).opacity=.015+s*.4;glow.current.scale.setScalar(.42+s*.34)}
+   if(light.current)light.current.intensity=.02+s*.55
+  })
   const [x,z]=stations[id]
   const height={west:.26,east:.36,rear:.25}[id]
   const turn=Math.PI
   return <group name={`hidden-coin-${id}`} position={[x,height,z]} rotation={[-.1,turn,0]} onClick={event=>{event.stopPropagation();if(event.delta<=6)onCollect()}}>
     <primitive object={coin}/>
+    <sprite ref={glow} name={`coin-proximity-glow-${id}`} scale={.42}><spriteMaterial map={halo} transparent opacity={.015} blending={AdditiveBlending} depthWrite={false}/></sprite>
+    <pointLight ref={light} name={`coin-proximity-light-${id}`} color="#ffc85d" intensity={.02} distance={3} decay={2}/>
     <mesh name={`coin-touch-target-${id}`}><sphereGeometry args={[.18,12,8]}/><meshBasicMaterial transparent opacity={0} depthWrite={false}/></mesh>
   </group>
 }

@@ -6,6 +6,7 @@ export const copy = {
   timePanelShow: ['展开关卡提示','장치 안내 열기','Show chapter guide'],
   timePanelHide: ['收起提示窗','안내 접기','Hide guide'],
   timeHintsRevealed: ['已使用的提示','사용한 힌트','Revealed hints'],
+  huntCoinGlowHelp: ['三枚金币越靠近越亮；走到金币旁，点击即可拾取。','세 금화는 가까이 갈수록 밝아집니다. 옆으로 다가가 눌러 수집하세요.','All three coins glow brighter as you approach. Move beside a coin and tap to collect it.'],
   huntTaskPanel: ['任务指引','임무 안내','Task guide'],
   huntHidePanel: ['隐藏任务指引','임무 안내 숨기기','Hide task guide'],
   timeViewResults: ['查看结算', '결과 보기', 'View results'],
@@ -43,7 +44,7 @@ export const copy = {
   hideInstructions: ["收起说明","설명 접기","Hide instructions"],
   showInstructions: ["展开说明","설명 펼치기","Show instructions"],
   returnEntrance: ["返回入口","입구로 돌아가기","Return to entrance"],
-  restoreSelectionHelp: ["先选碎片，再转动，最后选择缺口。","조각을 선택하고 회전한 뒤 맞는 위치를 선택하세요.","Choose a fragment, rotate it, then choose its slot."],
+  restoreSelectionHelp: ['选择碎片，再点击对应虚影，系统会自动转正拼合。','조각을 선택하고 맞는 잔상을 누르면 자동으로 회전하여 맞춥니다.','Choose a fragment, then tap its matching outline. It rotates into place automatically.'],
   home: ['返回主页', '홈으로', 'Back to Home'],
   homeMuseum: ['富川市博物馆', '부천시립박물관', 'Bucheon City Museum'],
   homeTitle: ['时光探秘', '잃어버린 시간의 비밀', 'The Secret of Lost Time'],
@@ -72,7 +73,7 @@ export const copy = {
   huntCoinCollected: ['这枚金币已收取。','이 금화는 수집했습니다.','This coin has been collected.'],
   huntCollect: ["拾取金币","금화 줍기","Pick up coin"],
   huntOpen: ["打开宝箱","보물 상자 열기","Open treasure chest"],
-  huntApproach: ["留意角落展柜背后的小金币。","모서리에 있는 진열장 뒤의 작은 금화를 살펴보세요.","Look behind the corner display cases for tiny gold coins."],
+  huntApproach: ['寻找角落里的微光；越靠近金币，它的光就越亮。','구석의 희미한 빛을 찾아보세요. 금화에 가까울수록 더 밝게 빛납니다.','Look for faint light in the corners. Coins glow brighter as you approach.'],
   huntExhibit: ['查看展品', '전시품 보기', 'Inspect exhibit'],
   huntNeedClues: ["还需要集齐三枚金币。","금화 세 닢을 모두 모아야 합니다.","Collect all three gold coins first."],
   coinPuzzleTitle: ['金币拼图锁', '금화 슬라이드 퍼즐', 'Coin puzzle lock'],
@@ -105,10 +106,10 @@ export const copy = {
   chooseRotation: ['② 转正碎片', '② 조각 회전', '② Rotate the fragment'],
   restorationBriefHide: ['收起关卡提示', '안내 접기', 'Hide chapter info'],
   restorationBriefShow: ['展开关卡提示', '안내 펼치기', 'Show chapter info'],
-  directPlacePrompt: ['旋转后点击对应虚影', '회전 후 맞는 잔상 선택', 'Rotate, then tap the matching outline'],
-  chooseTarget: ['③ 点击对应虚影拼合', '③ 맞는 잔상에 눌러 맞추기', '③ Tap its matching outline'],
+  directPlacePrompt: ['点击对应虚影，自动对齐拼合','맞는 잔상을 누르면 자동 정렬','Tap the matching outline to align automatically'],
+  chooseTarget: ['② 点击对应虚影拼合','② 맞는 잔상에 눌러 맞추기','② Tap its matching outline'],
   rotateLeft: ['左转 90°', '왼쪽 90°', 'Turn left 90°'], rotateRight: ['右转 90°', '오른쪽 90°', 'Turn right 90°'],
-  rotateHelp: ['点击碎片 → 旋转 → 点击对应虚影拼合。拖动空白处观察，双指缩放。', '조각 선택 → 회전 → 맞는 잔상 선택. 빈 곳을 드래그해 둘러보고 두 손가락으로 확대하세요.', 'Tap a piece → rotate → tap its matching outline. Drag empty space to orbit; pinch to zoom.'],
+  rotateHelp: ['点击碎片 → 点击对应虚影，自动转正拼合。拖动空白处观察，双指缩放。','조각 선택 → 맞는 잔상 선택. 자동으로 회전하여 맞춥니다. 빈 곳을 드래그하고 두 손가락으로 확대하세요.','Tap a piece → tap its matching outline. It rotates into place automatically. Drag to orbit; pinch to zoom.'],
   selectedFragment: ['当前碎片', '선택한 조각', 'Selected fragment'], noSelection: ['先点击桌上的一枚碎片', '탁자 위 조각을 선택하세요', 'Tap a piece on the table'],
   correct: ['严丝合缝！修复成功 +20', '딱 맞아요! 복원 성공 +20', 'A perfect fit! Restored +20'],
   wrongSlot: ['断面不吻合，再观察一下位置。', '단면이 맞지 않아요. 위치를 다시 살펴보세요.', 'Those edges do not match. Try a different slot.'],
@@ -175,7 +176,6 @@ export const copy = {
 export type CopyKey = keyof typeof copy
 export function translate(lang: Language, key: CopyKey): string { return copy[key][{zh:0,ko:1,en:2}[lang]] }
 export const localized = (zh: string, ko: string, en: string): Localized => ({zh, ko, en})
-
 
 
 

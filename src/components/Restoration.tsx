@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import {lazy,Suspense,useState,useEffect,useRef,type ReactNode} from 'react'
 import {useGame} from '../state/GameProvider'
-import {completionDurationMs,fragmentIds,trayOrder,rotationOf,placementResult,restorationScore} from '../state/restoration'
+import {completionDurationMs,fragmentIds,trayOrder,placementResult,restorationScore} from '../state/restoration'
 import {storageJarArtifact} from '../data/artifacts'
 import CompletionCard from './CompletionCard'
 import './restoration-direct.css'
@@ -21,7 +21,6 @@ export default function Restoration({inspect,active}:{inspect:()=>void;active:bo
   const [revealing,setRevealing]=useState(false)
   const complete=r.placed.length===fragmentIds.length
   const select=(id:string)=>{if(blocked||complete||r.placed.includes(id))return;setSelected(id);setHinted(false);setFeedback('')}
-  const rotate=(direction:1|-1)=>{if(selected&&!complete&&!blocked){dispatch({type:'restore-rotate',id:selected,direction});setFeedback('')}}
   const place=(target:string)=>{
     if(blocked||complete)return
     const result=placementResult(r,selected,target);setFeedback(result)
@@ -41,10 +40,6 @@ export default function Restoration({inspect,active}:{inspect:()=>void;active:bo
     const timer=window.setTimeout(()=>setRevealing(false),Math.max(0,completionDurationMs-(performance.now()-completionStart)))
     return ()=>window.clearTimeout(timer)
   },[completionStart,revealing])
-  useEffect(()=>{
-    const key=(e:KeyboardEvent)=>{if(!active||help||document.querySelector('dialog[open]'))return;if(e.code==='KeyQ'||e.code==='KeyE'){e.preventDefault();if(selected)dispatch({type:'restore-rotate',id:selected,direction:e.code==='KeyQ'?-1:1})}}
-    window.addEventListener('keydown',key);return()=>window.removeEventListener('keydown',key)
-  },[active,help,selected,dispatch])
   const replay=()=>{if(window.confirm(t('replayConfirm'))){dispatch({type:'restore-restart'});setSelected('');setFeedback('');setHinted(false);setDismissed(false);setCompletionStart(null)}}
   const letter=selected?String.fromCharCode(65+trayOrder.indexOf(selected)):'—'
   const blocked=!active||help||!r.started||revealing
@@ -64,13 +59,9 @@ export default function Restoration({inspect,active}:{inspect:()=>void;active:bo
     </aside>
     <div className="restoration-stats"><div className="stone-counter"><span>✦</span><div><small>{t('chapterPoints')}</small><strong>{restorationScore(r)}</strong></div></div><div className="stone-counter"><span>◈</span><div><small>{t('progress')}</small><strong>{r.placed.length} / 9</strong></div></div></div>
     <aside className="restoration-tools" inert={revealing}><button className="stone-button" onClick={()=>setHelp(true)}><span aria-hidden="true" title={t('help')}>?</span><b className="tool-label">{t('help')}</b></button><button className="stone-button" onClick={()=>setViewKey(v=>v+1)}><span aria-hidden="true" title={t('resetView')}>⌖</span><b className="tool-label">{t('resetView')}</b></button><button className="stone-button" disabled={!selected||r.hints>=3||complete||blocked} onClick={()=>{dispatch({type:'restore-hint'});setHinted(true);setFeedback('')}}><span aria-hidden="true" title={t('hintCost')}>✧</span><b className="tool-label">{t('hintCost')}</b><small>{3-r.hints}/3</small></button><button className="stone-button" onClick={inspect}><span aria-hidden="true" title={t('inspectRestored')}>▤</span><b className="tool-label">{t('inspectRestored')}</b></button><button className="stone-button" onClick={replay}><span aria-hidden="true" title={t('replay')}>↺</span><b className="tool-label">{t('replay')}</b></button></aside>
-    <div className={`restoration-feedback ${feedback==='correct'?'success':''}`} data-state={feedback} role="status" aria-live="polite">{revealing?t('revealing'):feedback?t(feedback as 'correct'|'wrongSlot'|'wrongRotation'|'invalid'):hinted&&selected?`${t('hintSlot')} ${fragmentIds.indexOf(selected)+1} · ${t('hintTurns')} ${(4-rotationOf(r,selected))%4}`:selected?`${t('selectedFragment')} ${letter} · ${t('directPlacePrompt')}`:t('rotateHelp')}</div>
-    <div className="restoration-rotation-dock" role="group" aria-label={t('chooseRotation')} inert={revealing}>
-      <button type="button" className="direct-rotate-button" aria-label={t('rotateLeft')} title={t('rotateLeft')} disabled={!selected||complete||blocked} onClick={()=>rotate(-1)}><span aria-hidden="true">↶</span></button>
-      <button type="button" className="direct-rotate-button" aria-label={t('rotateRight')} title={t('rotateRight')} disabled={!selected||complete||blocked} onClick={()=>rotate(1)}><span aria-hidden="true">↷</span></button>
-    </div>
+    <div className={`restoration-feedback ${feedback==='correct'?'success':''}`} data-state={feedback} role="status" aria-live="polite">{revealing?t('revealing'):feedback?t(feedback as 'correct'|'wrongSlot'|'invalid'):hinted&&selected?`${t('hintSlot')} ${fragmentIds.indexOf(selected)+1}`:selected?`${t('selectedFragment')} ${letter} · ${t('directPlacePrompt')}`:t('rotateHelp')}</div>
     <div className="restore-storage">{storageError?t('storageError'):t('saved')}</div>
-    {(!r.started||help)&&<Modal label={t('help')} onClose={r.started?()=>setHelp(false):undefined}><div className="dialog-emblem">◇</div><span className="quest-eyebrow">{t('phase')}</span><h1>{t('restoreTitle')}</h1><p>{t('restoreIntro')}</p><ol className="tutorial-steps"><li>{t('chooseFragment')}</li><li>{t('chooseRotation')} · Q / E</li><li>{t('chooseTarget')}</li></ol><p className="tutorial-detail">{t('rotateHelp')}<br/>{t('hintCost')} · {t('hintsLeft')} 3</p><p className="prop-note">{t('restorationArtifact')}</p><button className="adventure-primary" onClick={()=>{dispatch({type:'restore-start'});setHelp(false)}}>{r.started?t('resume'):t('begin')} <span>➜</span></button></Modal>}
+    {(!r.started||help)&&<Modal label={t('help')} onClose={r.started?()=>setHelp(false):undefined}><div className="dialog-emblem">◇</div><span className="quest-eyebrow">{t('phase')}</span><h1>{t('restoreTitle')}</h1><p>{t('restoreIntro')}</p><ol className="tutorial-steps"><li>{t('chooseFragment')}</li><li>{t('chooseTarget')}</li></ol><p className="tutorial-detail">{t('rotateHelp')}<br/>{t('hintCost')} · {t('hintsLeft')} 3</p><p className="prop-note">{t('restorationArtifact')}</p><button className="adventure-primary" onClick={()=>{dispatch({type:'restore-start'});setHelp(false)}}>{r.started?t('resume'):t('begin')} <span>➜</span></button></Modal>}
     {complete&&!revealing&&!dismissed&&<CompletionCard chapter={1} label={t('finished')} onClose={()=>setDismissed(true)}><div className="dialog-emblem stars">✦ ✦ ✦</div><span className="quest-eyebrow">{t('phase')}</span><h1>{t('finished')}</h1><p>{t('finishedDesc')}</p><div className="completion-score">{restorationScore(r)}<small>{t('chapterPoints')}</small></div><p className="bonus-note">{t('completionBonus')}</p><div className="completion-actions"><button className="adventure-primary" onClick={()=>{setDismissed(true);inspect()}}>{t('inspectRestored')} ➜</button><button className="stone-button completion-secondary" onClick={()=>setDismissed(true)}>{t('close')}</button><Link className="adventure-primary" to="/levels/2">{t('l2')} ➜</Link></div></CompletionCard>}
   </div>
 }

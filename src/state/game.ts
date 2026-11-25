@@ -19,7 +19,7 @@ export interface GameState {
   photo: PaintingProgress
 }
 export const initialState: GameState = {version:2, language:'zh', artifacts:{}, score:0, completedLevels:[], hintsUsed:0,restoration:freshRestoration(),gallery:{clues:[],opened:false},time:freshTime(),photo:freshPaintings()}
-export type Action = {type:'language'; language:Language} | {type:'discover'|'unlock'; id:string} | {type:'hint'} | {type:'reset'} | {type:'restore-start'|'restore-restart'|'restore-hint'} | {type:'restore-rotate';id:string;direction:1|-1} | {type:'restore-place';id:string;target:string} | {type:'gallery-clue';id:ClueId} | {type:'gallery-open'|'gallery-restart'} | {type:'time-rotate';ring:number;direction:1|-1} | {type:'time-hint'|'time-check'|'time-restart'}
+export type Action = {type:'language'; language:Language} | {type:'discover'|'unlock'; id:string} | {type:'hint'} | {type:'reset'|'journey-start'} | {type:'restore-start'|'restore-restart'|'restore-hint'} | {type:'restore-rotate';id:string;direction:1|-1} | {type:'restore-place';id:string;target:string} | {type:'gallery-clue';id:ClueId} | {type:'gallery-open'|'gallery-restart'} | {type:'time-rotate';ring:number;direction:1|-1} | {type:'time-hint'|'time-check'|'time-restart'}
 function withProgress(state:GameState,restoration=state.restoration,gallery=state.gallery,time=state.time):GameState {
   let records=state.artifacts
   if(state.photo.entered){
@@ -42,7 +42,7 @@ export function gameReducer(state:GameState, action:Action|PaintingAction):GameS
     if(!isLevelUnlocked(state,3))return state
     const a=action as PaintingAction,p=state.photo,n=p.room+1
     let photo=p
-    if(a.type==='photo-start')photo={...p,entered:true}
+    if(a.type==='photo-start')photo={...freshPaintings(),entered:true}
     else if(a.type==='photo-restart')photo={...freshPaintings(),entered:true}
     else if(p.entered&&!p.finished&&'pose' in a){
       if(a.type==='photo-find'&&p.room<4&&!p.found.includes(n)&&nearPoint(a.pose,artworkPositions[p.room]))photo={...p,found:[...p.found,n]}
@@ -57,18 +57,19 @@ export function gameReducer(state:GameState, action:Action|PaintingAction):GameS
   switch(action.type) {
     case 'language': return {...state, language:action.language}
     case 'reset': return {...initialState, language:state.language}
+    case 'journey-start': return withProgress({...initialState,language:state.language,artifacts:state.artifacts,restoration:{...freshRestoration(),started:true}})
     case 'hint': return {...state, hintsUsed:state.hintsUsed+1}
     case 'restore-start': return withProgress(state,{...state.restoration,started:true})
     case 'restore-restart': return withProgress(state,{...freshRestoration(),started:true})
     case 'restore-hint': return state.restoration.started&&state.restoration.hints<3&&state.restoration.placed.length<9?withProgress(state,{...state.restoration,hints:state.restoration.hints+1}):state
     case 'restore-rotate': return fragmentIds.includes(action.id)&&!state.restoration.placed.includes(action.id)?withProgress(state,{...state.restoration,rotations:{...state.restoration.rotations,[action.id]:(rotationOf(state.restoration,action.id)+action.direction+4)%4}}):state
-    case 'restore-place': return placementResult(state.restoration,action.id,action.target)==='correct'?withProgress(state,{...state.restoration,placed:[...state.restoration.placed,action.id]}):state
+    case 'restore-place': return placementResult(state.restoration,action.id,action.target)==='correct'?withProgress(state,{...state.restoration,placed:[...state.restoration.placed,action.id],rotations:{...state.restoration.rotations,[action.id]:0}}):state
     case 'gallery-clue':
       if (!isLevelUnlocked(state,2) || !clueIds.includes(action.id) || state.gallery.clues.includes(action.id)) return state
       return withProgress(state,state.restoration,{...state.gallery,clues:[...state.gallery.clues,action.id]})
     case 'gallery-restart':
       if (!isLevelUnlocked(state,2)) return state
-      return withProgress(state,state.restoration,{clues:[],opened:false})
+      return withProgress({...state,photo:freshPaintings()},state.restoration,{clues:[],opened:false})
     case 'gallery-open':
       if (!isLevelUnlocked(state,2) || state.gallery.opened || state.gallery.clues.length !== clueIds.length) return state
       return withProgress(state,state.restoration,{...state.gallery,opened:true})
@@ -105,4 +106,3 @@ export function parseSave(raw:string|null):GameState {
     return withProgress({...initialState,language,artifacts:records,hintsUsed,photo:gallery.opened?parsePaintings(candidate.photo):freshPaintings()},restoration,gallery,freshTime())
   } catch { return {...initialState} }
 }
-
